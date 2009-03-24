@@ -11,18 +11,6 @@ Find the difference between the sum of the squares of the first one hundred natu
 */
 import scala.Math._
 
-var a: BigInt = 0
-var b: BigInt = 0
-
-(1 to 100).foreach(i => {
-  val x: BigInt = i
-  a += x.pow(2)
-})
-
-(1 to 100).foreach(i => {
-  val x: BigInt = i
-  b += x
-})
-b = b.pow(2)
-
+val a = (1 to 100).map(BigInt(_)).map(_.pow(2)).reduceLeft(_ + _)
+val b = (1 to 100).map(BigInt(_)).reduceLeft(_ + _).pow(2)
 println(b - a)
