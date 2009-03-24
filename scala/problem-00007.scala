@@ -5,12 +5,11 @@ What is the 10001st prime number?
 */
 import scala.Math._
 
-var x: BigInt = 2
-var i = 0
-
-while (i < 10001) {
-  if (x.isProbablePrime(20))
-    i = i + 1
-  x = x + 1
+var n: BigInt = 2
+var i = 1
+while (i <= 10001) {
+  if (n.isProbablePrime(20)) 
+    i += 1
+  n += 1
 }
-println(x)
+println(n - 1)

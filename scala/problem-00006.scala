@@ -9,8 +9,6 @@ Hence the difference between the sum of the squares of the first ten natural num
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 */
-import scala.Math._
-
 val a = (1 to 100).map(BigInt(_)).map(_.pow(2)).reduceLeft(_ + _)
 val b = (1 to 100).map(BigInt(_)).reduceLeft(_ + _).pow(2)
 println(b - a)
