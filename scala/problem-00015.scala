@@ -3,8 +3,6 @@ Starting in the top left corner of a 2×2 grid, there are 6 routes (without back
 
 How many routes are there through a 20×20 grid?
 */
-
-import scala.Console._
 import scala.Math._
 
 def fact(n: BigInt): BigInt = {

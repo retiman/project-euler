@@ -1,8 +1,6 @@
 /*
 What is the greatest product of four numbers in any direction (up, down, left, right, or diagonally) in the 20×20 grid?
 */
-
-import scala.Console._
 import scala.Math._
 import scala.collection.mutable.ListBuffer
 

@@ -3,8 +3,6 @@
 
 What is the sum of the digits of the number 2^1000?
 */
-
-import scala.Console._
 import scala.Math._
 
 val a: BigInt = 2

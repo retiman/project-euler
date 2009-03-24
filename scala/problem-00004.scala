@@ -3,8 +3,6 @@ A palindromic number reads the same both ways. The largest palindrome made from 
 
 Find the largest palindrome made from the product of two 3-digit numbers.
 */
-
-import scala.Console._
 import scala.Math._
 
 def is_palindrome(n: Int) = n.toString.reverse.toString == n.toString

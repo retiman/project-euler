@@ -3,9 +3,6 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 Find the sum of all the primes below two million.
 */
-
-import scala.Console._
-
 var s: BigInt = 2
 var n: BigInt = 3
 while (n < BigInt(2000000)) {
