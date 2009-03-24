@@ -5,12 +5,7 @@ What is the smallest number that is evenly divisible by all of the numbers from 
 */
 import scala.Math._
 
-def gcd(a: BigInt, b: BigInt): BigInt = {
-  val z: BigInt = 0
-  if (a == z) return b
-  if (b == z) return a
-  gcd(b, a % b)
-}  
+def gcd(a: BigInt, b: BigInt): BigInt = if (b == 0) a else gcd(b, a % b)
 
 def lcm(a: BigInt, b: BigInt) =  a * b / gcd(a, b)
 
