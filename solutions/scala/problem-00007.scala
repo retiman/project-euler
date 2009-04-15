@@ -1,10 +1,15 @@
 import scala.Math._
+import scala.Stream._
 
-var n: BigInt = 2
-var i = 1
-while (i <= 10001) {
-  if (n.isProbablePrime(20)) 
-    i += 1
-  n += 1
+def nextPrime(implicit primes: List[Int]) = {
+  implicit def primality(n: Int) = new {
+    def isPrime = primes.filter(p => p <= sqrt(n) && n % p == 0) == Nil
+    def isComposite = !isPrime
+  }
+  from(primes.first + 2, 2).dropWhile(_ isComposite).first
 }
-println(n - 1)
+
+implicit var primes = 3 :: 2 :: Nil
+for (i <- 3 to 10001) 
+  primes = nextPrime :: primes
+println(primes.first)
