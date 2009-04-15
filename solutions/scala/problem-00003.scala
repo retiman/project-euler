@@ -1,33 +1,26 @@
 import scala.Math._
-import scala.collection.mutable.HashSet
+import scala.Stream._
 
-def fermat_factors(n: Double): Pair[Double, Double] = {
+def fermatFactors(n: Long): Set[Long] = {
+  if (n % 2 == 0) return Set(2, n / 2) 
   var a = ceil(sqrt(n))
   var b = a * a - n
-  var i = 0
-  while (sqrt(b) != round(sqrt(b))) {
-    i += 1
+  var s = sqrt(b)
+  while (s != round(s)) {
     a += 1
-    b = a * a - n
-    if (i > n) return (1.0, n)
+    b = a * a -n
+    s = sqrt(b)
   }
-  (a - sqrt(b), a + sqrt(b))
+  Set(a - s, a + s).map(_.toLong)
 }
 
-def fermat_prime_factors(n: Double): HashSet[Double] = {
-  val (n1, n2) = fermat_factors(n)
-  val s = new HashSet[Double]()
-  (n1, n2) match {
-    case (1.0, _) => s += n2
-    case (_, 1.0) => s += n1
-    case _        => { 
-      s ++= fermat_prime_factors(n1)
-      s ++= fermat_prime_factors(n2)
-    }
-  }
-  s
+def primeFactors(n: Long): Set[Long] = {
+  val factors = fermatFactors(n)
+  if (factors contains 1L) 
+    factors
+  else 
+    factors.map(f => primeFactors(f)).reduceLeft(_ ++ _)
 }
 
-val n = 600851475143.0D
-val p = fermat_prime_factors(n).reduceLeft[Double](_ max _)
-println(p)
+val result = primeFactors(600851475143L).reduceLeft(_ max _)
+println(result)
