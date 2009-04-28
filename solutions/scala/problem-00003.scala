@@ -16,8 +16,8 @@ def fermatFactors(n: Long): Set[Long] = {
 
 def primeFactors(n: Long): Set[Long] = {
   val factors = fermatFactors(n)
-  if (factors contains 1L) 
-    factors
+  if (factors contains 1) 
+    factors - 1
   else 
     factors.map(f => primeFactors(f)).reduceLeft(_ ++ _)
 }
