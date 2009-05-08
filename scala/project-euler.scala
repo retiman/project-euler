@@ -17,8 +17,10 @@ object ProjectEuler {
     case (_, 0) => 0
     case _      => a * b / gcd(a, b)
   }
+}
 
-  def fermatFactors(n: Long): Set[Long] = {
+object FermatFactors {
+  private def fermatFactors(n: Long): Set[Long] = {
     if (n % 2 == 0) return Set(2, n / 2) 
     var a = ceil(sqrt(n))
     var b = a * a - n
@@ -29,5 +31,13 @@ object ProjectEuler {
       s = sqrt(b)
     }
     Set(a - s, a + s).map(_.toLong)
+  }
+  
+  def primeFactors(n: Long): Set[Long] = {
+    val factors = fermatFactors(n)
+    if (factors contains 1) 
+      factors - 1
+    else 
+      factors.map(f => primeFactors(f)).reduceLeft(_ ++ _)
   }
 }
