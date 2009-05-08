@@ -1,6 +1,3 @@
-/**
- * Compile this file and include the jar in your classpath to run the solutions
- */
 import scala.Math._
 
 object ProjectEuler {
