@@ -1,5 +1,9 @@
+/*
+The prime factors of 13195 are 5, 7, 13 and 29.
+
+What is the largest prime factor of the number 600851475143 ?
+*/
 import scala.Math._
-import scala.Stream._
 
 def fermatFactors(n: Long): Set[Long] = {
   if (n % 2 == 0) return Set(2, n / 2) 
