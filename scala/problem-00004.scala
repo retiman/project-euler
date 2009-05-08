@@ -9,7 +9,7 @@ def isPalindrome(n: Int) = n.toString.reverse.toInt == n
 var best = 0
 
 (999 to 1 by -1).foreach(i => {
-  (999 to 1 by -1).foreach(j => {
+  (i to 1 by -1).foreach(j => {
     val x = i * j
     if (isPalindrome(x) && x > best)
       best = x
