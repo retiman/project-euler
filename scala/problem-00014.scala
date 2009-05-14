@@ -13,27 +13,31 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 */
-var n: BigInt = 1
-var best_n: BigInt = 1
-var best_count: BigInt = 1
+import scala.collection.mutable.HashMap
 
-while (n < 1000000) {
-  var i: BigInt = n
-  var count: BigInt = 0
+val map = HashMap[Int, Long](1 -> 1)
+val limit = 1000000
 
-  while (i != 1) {
-    if (i % 2 == 0) i /= 2
-    else            i = i * 3 + 1
-    count += 1
-  }
+def next(n: Long) = if (n%2 == 0) n/2 else 3*n+1
 
-  if (count > best_count) {
-    best_count = count
-    best_n = n
-    //println("n=" + best_n + " count=" + best_count)
-  }
-
-  n += 1
+def length(n: Long) = {
+  def accumulate(n: Long, count: Long): Long = if (n == 1) count else accumulate(next(n), count+1)
+  accumulate(n, 1)
 }
 
-println(best_n)
+implicit def pairWrapper(a: Pair[Int, Long]) = new {
+  def max(b: Pair[Int, Long]) = if (a._2 > b._2) a else b
+}
+
+for (n <- limit to 2 by -1 if !(map contains n)) {
+  map(n) = length(n)
+  def mark(i: Int, count: Long): Unit = if (i <= limit) {
+    map(i) = count+1
+    mark(2*i, count+1)
+  }  
+  mark(2*n, map(n))
+}
+
+val max = map.reduceLeft(_ max _)._1
+
+println(max)
