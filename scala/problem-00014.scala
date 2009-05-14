@@ -18,24 +18,24 @@ import scala.collection.mutable.HashMap
 val map = HashMap[Int, Long](1 -> 1)
 val limit = 1000000
 
-def next(n: Long) = if (n%2 == 0) n/2 else 3*n+1
-
-def length(n: Long) = {
+def chainLength(n: Long) = {
+  def next(n: Long) = if (n%2 == 0) n/2 else 3*n+1
   def accumulate(n: Long, count: Long): Long = if (n == 1) count else accumulate(next(n), count+1)
   accumulate(n, 1)
 }
 
-implicit def pairWrapper(a: Pair[Int, Long]) = new {
-  def max(b: Pair[Int, Long]) = if (a._2 > b._2) a else b
-}
-
-for (n <- limit to 2 by -1 if !(map contains n)) {
-  map(n) = length(n)
+for (n <- 2 to limit if !(map contains n)) {
+  map(n) = chainLength(n)
+  // Further powers of 2 are already calculated by this calculation
   def mark(i: Int, count: Long): Unit = if (i <= limit) {
     map(i) = count+1
     mark(2*i, count+1)
   }  
   mark(2*n, map(n))
+}
+
+implicit def pairWrapper(a: Pair[Int, Long]) = new {
+  def max(b: Pair[Int, Long]) = if (a._2 > b._2) a else b
 }
 
 val max = map.reduceLeft(_ max _)._1
