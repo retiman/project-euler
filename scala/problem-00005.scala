@@ -3,8 +3,7 @@
 
 What is the smallest number that is evenly divisible by all of the numbers from 1 to 20?
 */
-implicit def intWrapper(n: Int) = BigInt(n)
-def gcd(a: BigInt, b: BigInt): BigInt = if (b == 0) a else gcd(b, a % b)
-def lcm(a: BigInt, b: BigInt): BigInt =  a * (b / gcd(a, b))
-val x = (1 to 20).foldLeft(BigInt(20))(lcm(_, _))
+def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+def lcm(a: Int, b: Int): Int =  a * (b / gcd(a, b))
+val x = (1 to 20).foldLeft(20)(lcm(_, _))
 println(x)
