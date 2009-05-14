@@ -19,14 +19,7 @@ What is the value of the first triangle number to have over five hundred divisor
 */
 import scala.Math._
 
-def divisors(n: Int) = 
-  if (n == 1) 1 else 2 * (1 to sqrt(n)).filter(n % _ == 0).length
-
-var n = 3
-var i = 3
-while (divisors(n) <= 500) {
-  n += i
-  i += 1
-}
-
-println(n)
+def d(n: Int) = if (n == 1) 1 else 2 * (1 to sqrt(n)).filter(n % _ == 0).length
+def find(n: Int, i: Int): Int = if (d(n) > 500) n else find(n+i, i+1)
+val result = find(3, 3)
+println(result)
