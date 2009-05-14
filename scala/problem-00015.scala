@@ -6,15 +6,11 @@ How many routes are there through a 20×20 grid?
 import scala.Math._
 
 def fact(n: BigInt): BigInt = {
-  assume(n >= 0)
-  if (n == 0) return 1
-  var i: BigInt = n
-  var result: BigInt = 1
-  while (i > 0) {
-    result *= i
-    i -= 1
-  }
-  result
-} 
+  def recur(n: BigInt, acc: BigInt): BigInt = if (n == 1) acc else recur(n - 1, n * acc)
+  recur(n, 1)
+}
 
-println(fact(20+20)/(fact(20)*fact(20)))
+// View problem as a multipermutation on 20 L's and 20 R's where L means "go left" and R means "go right"
+val num = fact(20+20)
+val denom = fact(20) * fact(20)
+println(num/denom)

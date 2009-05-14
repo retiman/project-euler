@@ -38,14 +38,13 @@ val word = Map(
   90 -> "ninety"
   )
 
-def say(n: Int): String = {
-  assume(n <= 1000)  
-  if (n == 1000) return "one thousand"
-  if (n >= 100 && n % 100 != 0) return word(n / 100) + " hundred and " + say(n % 100)
-  if (n >= 100 && n % 100 == 0) return word(n / 100) + " hundred"
-  if (n >= 20 && n % 10 != 0) return word(n - (n % 10)) + " " + say(n % 10)
-  if (n >= 20 && n % 10 == 0) return word(n - (n % 10))
-  return word(n)
+def say(n: Int): String = n match {
+  case n if n == 1000                => "one thousand"
+  case n if n >= 100 && n % 100 != 0 => word(n / 100) + " hundred and " + say(n % 100)
+  case n if n >= 100 && n % 100 == 0 => word(n / 100) + " hundred"
+  case n if n >= 20  && n % 10  != 0 => word(n - (n % 10)) + " " + say(n % 10)
+  case n if n >= 20  && n % 10  == 0 => word(n - (n % 10))
+  case _                             => word(n)
 }
 
 println( (1 to 1000).map(say(_)).map(_.replace(" ", "")).map(_.length).reduceLeft[Int](_+_) )

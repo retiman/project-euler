@@ -20,8 +20,8 @@ val limit = 1000000
 
 def chainLength(n: Long) = {
   def next(n: Long) = if (n%2 == 0) n/2 else 3*n+1
-  def accumulate(n: Long, count: Long): Long = if (n == 1) count else accumulate(next(n), count+1)
-  accumulate(n, 1)
+  def recur(n: Long, count: Long): Long = if (n == 1) count else recur(next(n), count+1)
+  recur(n, 1)
 }
 
 for (n <- 2 to limit if !(map contains n)) {
