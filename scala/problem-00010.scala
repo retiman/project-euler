@@ -3,14 +3,16 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 Find the sum of all the primes below two million.
 */
+
 def sieve(limit: Int) = {
-  var numbers = (2 to limit).toList
-  var primes = List[Int]()
-  while (numbers != Nil) {
-    primes = numbers.first :: primes
-    numbers = numbers.filter(_ % numbers.first != 0)
+  var current = 2
+  var numbers = (0 to limit).toArray
+  numbers(1) = 0
+  while (current <= limit) {
+    for (i <- 2 * current to limit by current) numbers(i) = 0
+    do { current += 1 } while (current <= limit && numbers(current) == 0)
   }
-  primes.reverse
+  numbers.filter(_ != 0).toList
 }
 
-println(sieve(2000000).reduceLeft(_ + _))
+println(sieve(2000000).map(_.toLong).reduceLeft(_+_))
