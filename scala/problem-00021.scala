@@ -10,7 +10,7 @@ Evaluate the sum of all the amicable numbers under 10000.
 import scala.collection.mutable.Set
 import scala.Math._
 
-def s(n: Int) = {
+def sigma(n: Int) = {
   val d = (2 to sqrt(n)).filter(n % _ == 0)
   val divisors = Set() ++ d ++ d.map(n / _) ++ Set(1)
   divisors.reduceLeft(_ + _)
@@ -18,8 +18,8 @@ def s(n: Int) = {
 
 val result = (2 to 10000).map(i => {
   val a = i
-  val b = s(i)
-  if (a > b && s(b) == a)
+  val b = sigma(i)
+  if (a > b && sigma(b) == a)
     a + b
   else
    0
