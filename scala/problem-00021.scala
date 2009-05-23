@@ -10,18 +10,20 @@ Evaluate the sum of all the amicable numbers under 10000.
 import scala.collection.mutable.Set
 import scala.Math._
 
-def sigma(n: Int) = {
-  val d = (2 to sqrt(n)).filter(n % _ == 0)
-  val divisors = Set() ++ d ++ d.map(n / _) ++ Set(1)
-  divisors.reduceLeft(_ + _)
+implicit def tupleWrapper[A, B](t: Pair[A, B]) = new {
+  def a = t._1
+  def b = t._2
 }
 
-val result = (2 to 10000).map(i => {
-  val a = i
-  val b = sigma(i)
-  if (a > b && sigma(b) == a)
-    a + b
-  else
-   0
-}).reduceLeft(_ + _)
+def divisors(n: Int) = {
+  val d = (2 to sqrt(n)).filter(n % _ == 0)
+  Set() ++ d ++ d.map(n / _) ++ Set(1)
+}
+
+def sigma(n: Int) = divisors(n).reduceLeft(_ + _)
+
+val result = (2 to 10000).map(n => (n, sigma(n)))
+                         .filter(t => (t.a > t.b && sigma(t.b) == t.a))
+                         .map(t => t.a + t.b)
+                         .reduceLeft(_ + _)
 println(result)

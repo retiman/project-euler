@@ -10,11 +10,12 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 import scala.collection.mutable.Set
 import scala.Math._
 
-def sigma(n: Int) = {
+def divisors(n: Int) = {
   val d = (2 to sqrt(n)).filter(n % _ == 0)
-  val divisors = Set() ++ d ++ d.map(n / _) ++ Set(1)
-  divisors.reduceLeft(_ + _)
+  Set() ++ d ++ d.map(n / _) ++ Set(1)
 }
+
+def sigma(n: Int) = divisors(n).reduceLeft(_ + _)
 
 val limit = 28123
 val abundants = (1 to limit).filter(n => sigma(n) > n).toArray
