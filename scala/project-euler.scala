@@ -55,3 +55,14 @@ def sigma(n: Int) = divisors(n).reduceLeft(_ + _)
 def relprime(n: Int) = (2 to n - 1).filter(gcd(n, _) == 1)
 
 def totient(n: Int) = relprime(n).length
+
+def mpow(base: Int, exp: Int)(mod: Int) = {
+  def recur(a: Int, b: Int, e: Int): Int = e match {
+    case e if e > 0 => {
+      val t = if ((e & 1) == 1) (a * b) % mod else a
+      recur(t, (b * b) % mod, e >> 1)
+    }
+    case _ => a
+  }
+  recur(1, base, exp)
+}
