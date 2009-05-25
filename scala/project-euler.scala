@@ -40,10 +40,10 @@ def fermatFactors(n: Long): Set[Long] = {
 def rhoFactors(n: Long) = {
   def f(x: Long) = x * x + 1
   def recur(x: Long, y: Long, d: Long): Long = if (d != 1) d else {
-    val (a, b) = (f(x) % n, f(f(y) % n) % n)
-    val c = gcd(abs(a-b), n)
-    println((a,b,c))
-    recur(a, b, c)
+    (f(x) % n, f(f(y) % n) % n) match {
+      case (a, b) if a < 0 || b < 0 => n
+      case (a, b) => recur(a, b, gcd(abs(a-b), n))
+    }
   }
   val factor = recur(2, 2, 1)
   Set(factor, n / factor)
