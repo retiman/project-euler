@@ -40,20 +40,19 @@ def fermatFactors(n: Long): Set[Long] = {
 def rhoFactors(n: Long) = {
   def f(x: Long) = x * x + 1
   def recur(x: Long, y: Long, d: Long): Long = if (d != 1) d else {
-    val (a, b) = (f(x) % n, f(f(y)) % n)
+    val (a, b) = (f(x) % n, f(f(y) % n) % n)
     val c = gcd(abs(a-b), n)
+    println((a,b,c))
     recur(a, b, c)
   }
   val factor = recur(2, 2, 1)
   Set(factor, n / factor)
 }
 
-def primeFactors(n: Long)(f: Long => Set[Long]): Set[Long] = {
-  val factors = f(n)
-  if (factors contains 1)
-    factors - 1
-  else
-    factors.map(factor => primeFactors(factor)(f)).reduceLeft(_ ++ _)
+def primeFactors(n: Long)(f: Long => Set[Long]): Set[Long] = f(n) match {
+  case factors if factors contains 1 => factors - 1
+  case factors => factors.map(factor => primeFactors(factor)(f))
+                         .reduceLeft(_ ++ _)
 }
 
 def divisors(n: Int) = {
