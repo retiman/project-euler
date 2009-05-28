@@ -73,8 +73,12 @@ def tau(n: Int) = if (n == 1) 1 else 2 * (1 to sqrt(n)).filter(n % _ == 0).lengt
 
 def sigma(n: Int) = divisors(n).reduceLeft(_ + _)
 
-def relprime(n: Int) = (2 to n - 1).filter(gcd(n, _) == 1)
+def totient(n: Long)(f: Long => Set[Long]): Long = f(n) match {
+  case factors if factors contains 1 => (factors - 1).elements.next - 1
+  case factors => factors.reduceLeft( (a, b) => totient(a)(f) * totient(b)(f) )
+}
 
-def totient(n: Int) = relprime(n).length
-
-
+def isPrimitiveRoot(a: Int, m: Int) = {
+  val list = (1 to m - 1).map(mpow(a, _)(m))
+  list.last == 1 && list.filter(_ == 1).length == 1
+}
