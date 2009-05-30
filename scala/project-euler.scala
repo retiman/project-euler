@@ -1,3 +1,5 @@
+import scala.Collection
+import scala.collection.mutable.ListBuffer
 import scala.util.Random
 import scala.Math._
 
@@ -6,6 +8,34 @@ val rand = new Random
 implicit def tuple2Wrapper[A, B](t: Pair[A, B]) = new {
   def a = t._1
   def b = t._2
+}
+
+def permute[T](c: Collection[T]) = {
+  var s = c.toArray
+  val rand = new Random(System.currentTimeMillis)
+  (1 until s.length).foreach(i => {
+    val j = rand.nextInt(s.length)
+    val t = s(i)
+    s(i) = s(j)
+    s(j) = t
+  })
+  s.asInstanceOf[Collection[T]]
+}
+
+def permutations[T](c: Collection[T]): Collection[Collection[T]] = {
+  val list = c.toList
+  if (list.length == 1)
+    return List(c).asInstanceOf[Collection[Collection[T]]]
+  val perms = new ListBuffer[List[T]]()
+  (0 until list.length).foreach(i => {
+    val s = list.slice(0, i) :::
+            list.slice(i + 1, list.length)
+    val partials = permutations(s)
+    partials.map(c => c.toList)
+        .map(partial => list(i) :: partial)
+        .foreach(perm => perms += perm)
+  })
+  perms.toList.map(l => l.asInstanceOf[Collection[T]])
 }
 
 def gcd(a: Long, b: Long): Long = (a, b) match {
