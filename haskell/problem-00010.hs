@@ -2,6 +2,13 @@
 The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 Find the sum of all the primes below two million.
+
+[minhuang@mocha:haskell]$ time runghc problem-00010.hs 
+142913828922
+
+real  0m51.053s
+user  0m50.375s
+sys 0m0.164s
 -}
 merge :: (Ord a) => [a] -> [a] -> [a]
 merge xs@(x:xt) ys@(y:yt) = case compare x y of
