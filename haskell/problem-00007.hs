@@ -2,6 +2,13 @@
 By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
 
 What is the 10001st prime number?
+
+[minhuang@mocha:haskell]$ time runghc problem-00007.hs 
+104743
+
+real    0m1.370s
+user    0m1.288s
+sys     0m0.048s
 -}
 merge :: (Ord a) => [a] -> [a] -> [a]
 merge xs@(x:xt) ys@(y:yt) = case compare x y of
