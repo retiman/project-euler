@@ -2,9 +2,9 @@
 [minhuang@mocha:scala]$ time scala problem-00014.scala 
 837799
 
-real    0m7.191s
-user    0m7.280s
-sys     0m0.264s
+real  0m6.926s
+user  0m6.380s
+sys 0m0.228s
 */
 import scala.collection.mutable.HashMap
 
@@ -12,7 +12,6 @@ val map = HashMap[Long, Long](1L -> 1L)
 val limit = 1000000
 
 def length(n: Long): Long = n match {
-  case 1                   => 1
   case n if map contains n => map(n)
   case n if n%2 == 0       => 1 + length(n/2)
   case _                   => 1 + length(3*n+1)
