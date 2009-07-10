@@ -6,12 +6,10 @@ real    0m2.045s
 user    0m0.376s
 sys     0m0.060s
 */
-import scala.Math._
 import scala.Stream._
 
-
 /*
-// Ouch! This does not work as of scala 2.7.4 as the following code gives a
+// Ouch! This does not work as of scala 2.7.5final as the following code gives a
 // compiler exception:
 // lazy val x = 0 :: from(1)
 implicit def streamExtras[Int](s: Stream[Int]) = new {
