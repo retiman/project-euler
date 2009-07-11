@@ -6,4 +6,4 @@
 # user    1m21.453s
 # sys     0m45.147s
 require 'mathn'
-puts Prime.new.take_while { |p| p < 2000000}.inject(:+)
+puts Prime.new.take_while { |p| p < 2000000}.inject(&:+)

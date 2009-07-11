@@ -16,8 +16,11 @@ def sigma(n)
 end
 
 limit = 10000
-result = (2..limit).map { |n| [n, sigma(n)] }
-result = result.select { |t| t.first > t.last && t.first == sigma(t.last) }
-result = result.map { |t| t.first + t.last }
-result = result.inject(:+)
+result = (2..limit).map { |n| 
+  [n, sigma(n)] 
+}.select { |t| 
+  t.first > t.last && t.first == sigma(t.last) 
+}.map { |t| 
+  t.first + t.last 
+}.inject(:+)
 puts result

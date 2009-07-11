@@ -25,5 +25,4 @@ def max(a, b)
 end
 
 limit = 1000000
-best = (1..limit).map { |n| f(n) }.inject([0,0]) { |a, b| max(a,b) }
-puts best.first
+puts (1..limit).map { |n| f(n) }.inject([0,0]) { |a, b| max(a,b) }.first

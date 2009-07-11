@@ -6,5 +6,4 @@
 # user    0m1.032s
 # sys     0m0.028s
 require 'mathn'
-result = Prime.new.take(10001).last
-puts result
+puts Prime.new.take(10001).last

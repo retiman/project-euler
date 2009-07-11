@@ -13,5 +13,4 @@ def lcm(a, b)
   a * (b / gcd(a, b))
 end
 
-result = (1..20).inject(20) { |a, b| lcm(a, b) }
-puts result
+puts (1..20).inject(20) { |a, b| lcm(a, b) }

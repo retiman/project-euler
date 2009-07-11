@@ -27,26 +27,28 @@ matrix = <<EOF
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 EOF
-matrix = matrix.lines
-matrix = matrix.map { |l| l.strip }
-matrix = matrix.select { |l| l != "" }
-matrix = matrix.map { |row| row.split(" ").map { |x| x.to_i } }
-$matrix = matrix # A global variable in Ruby
+$matrix = matrix.lines.map { |l| 
+  l.strip 
+}.select { |l| 
+  l != "" 
+}.map { |row| 
+  row.split(" ").map { |x| x.to_i } 
+}
 
 def lr(i, j)
-  (0..3).map { |k| $matrix[i][j+k] }.inject(:*) rescue 0
+  (0..3).map { |k| $matrix[i][j+k] }.inject(&:*) rescue 0
 end
 
 def ud(i, j)
-  (0..3).map { |k| $matrix[i+k][j] }.inject(:*) rescue 0
+  (0..3).map { |k| $matrix[i+k][j] }.inject(&:*) rescue 0
 end
 
 def uf(i, j)
-  (0..3).map { |k| $matrix[i-k][j+k] }.inject(:*) rescue 0
+  (0..3).map { |k| $matrix[i-k][j+k] }.inject(&:*) rescue 0
 end
 
 def df(i, j)
-  (0..3).map { |k| $matrix[i+k][j+k] }.inject(:*) rescue 0
+  (0..3).map { |k| $matrix[i+k][j+k] }.inject(&:*) rescue 0
 end
 
 best = 0
