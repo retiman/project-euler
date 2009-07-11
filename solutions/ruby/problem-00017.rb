@@ -44,4 +44,4 @@ def say(n)
   return $word[n]
 end
 
-puts (1..1000).map { |n| say(n).gsub(" ", "").length }.inject(:+)
+puts (1..1000).map { |n| say(n).gsub(" ", "").length }.inject(&:+)

@@ -31,7 +31,7 @@ result = 0
 numbers = text.gsub(/\s+/, "").chars.map { |c| c.to_i }
 (1..numbers.length).each do |i|
   if i+4 < numbers.length
-    product = (i..i+4).map { |k| numbers[k] }.inject(:*)
+    product = (i..i+4).map { |k| numbers[k] }.inject(&:*)
     result = product if product > result
   end
 end

@@ -12,7 +12,7 @@ def divisors(n)
 end
 
 def sigma(n)
-  divisors(n).inject(:+)
+  divisors(n).inject(&:+)
 end
 
 limit = 10000
@@ -22,5 +22,5 @@ result = (2..limit).map { |n|
   t.first > t.last && t.first == sigma(t.last) 
 }.map { |t| 
   t.first + t.last 
-}.inject(:+)
+}.inject(&:+)
 puts result
