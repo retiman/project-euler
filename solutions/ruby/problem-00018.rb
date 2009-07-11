@@ -26,7 +26,7 @@ data = data.lines.map { |l| l.strip }.select { |l| l != "" }
 data = data.map { |l| l.split(" ").map { |s| s.to_i } }
 
 (data.length - 2).step(0, -1).each do |i|
-  (0..(data[i].length-1)).each do |j|
+  (0...data[i].length).each do |j|
     left = data[i+1][j]
     right = data[i+1][j+1]
     data[i][j] += [left, right].max
