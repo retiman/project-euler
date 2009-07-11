@@ -24,7 +24,7 @@ for (i <- 0 until abundants.length;
      j <- i until abundants.length) {
   val index = abundants(i) + abundants(j)
   if (index <= limit)
-    numbers(abundants(i) + abundants(j)) = 0
+    numbers(index) = 0
 }
 
 println(numbers.reduceLeft(_+_))
