@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 # [minhuang@mocha:ruby]$ time ruby problem-00003.rb 
 # 6857
 #
@@ -23,9 +23,8 @@ def prime_factors(n)
   if factors.include? 1
     factors.delete_if { |f| f == 1 }
   else
-    factors.map { |f| prime_factors(f) }.inject(:concat)
+    factors.map { |f| prime_factors(f) }.inject(&:concat)
   end
 end
 
-result = prime_factors(600851475143).max.round
-puts result
+puts prime_factors(600851475143).max.round
