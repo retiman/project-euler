@@ -9,11 +9,11 @@ sys 0m0.068s
 import scala.Math._
 
 def isPalindrome(n: Int) = n.toString.reverse.toInt == n
-var best = 0
+var result = 0
 
 for (i <- 999 to 1 by -1;
      j <- i to 1 by -1;
      x <- Some(i * j)
-     if (isPalindrome(x) && x > best))
-  best = x
-println(best)
+     if (isPalindrome(x) && x > result))
+  result = x
+println(result)
