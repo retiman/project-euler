@@ -27,7 +27,7 @@ def maxPeriod(best: Pair[Int, Int], numbers: List[Int]): Pair[Int, Int] = number
   case Nil => best
   case _ => {
     val n = numbers.first
-    order(10, numbers.first) match {
+    order(10, n) match {
       case ord if ord == n - 1 => (n, ord)
       case ord if ord > best.ord => maxPeriod((n, ord), numbers.tail)
       case _ => maxPeriod(best, numbers.tail)
