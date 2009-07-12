@@ -1,0 +1,4 @@
+A number 1/n cannot have more than n repeating digits in its decimal expansion.
+In fact, the number of repeating digits is giving by ord(10, n) = e, where e is
+the smallest integer such that 10^e = 1 mod n.  Thus it is more efficient to
+search for the most repeating digits by examining 999 on down.

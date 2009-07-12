@@ -1,0 +1,2 @@
+View problem as a multi-permutation of 20 L's and 20 R's where
+L means "go left" and R means "go right".

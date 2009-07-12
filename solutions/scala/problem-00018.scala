@@ -26,12 +26,6 @@ val data = """
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 """.split("\n").map(_.trim).filter(_ != "").map(_.split(" ").map(_.toLong)).toArray
               
-// Starting from the bottom, reduce each row.  For example:
-//   1
-//  2 3
-// 4 5 6              
-// Row #2 becomes 7 9 instead of 2 3 because we want 2 + max(4,5) and 3 + max(5, 6)
-// Work backwards to the top and the top row will have the largest sum.
 for (i <- data.length - 2 to 0 by -1) {
   for (j <- 0 until data(i).length) {
     val left = data(i + 1)(j)

@@ -1,0 +1,21 @@
+[Fermat's Factorizatoin Algorithm]
+Fermat's factorization algorithm tries to express the number being factored, n,
+as the difference of two squares:
+
+n^2 = a^2 - b^2
+
+If this is possible, n can be factored like so:
+
+n = (a+b)(a-b)
+
+[Monte Carlo Method]
+Pollard's Rho factorization method (or the Monte Carlo method) works well for
+large odd numbers with small factors.  It works like this:
+1. First choose random integers x0 and a (with a != 0, 2) and a Diophantine
+   polynomial such as f(x) = x^2 + a
+2. Generate a sequence of x[k] using x[k+1] = f(x[k]) mod n
+3. If d is small compared to n, and d|n, then eventually the x[k]'s become
+   periodic.  That is, x[i] = x[j] mod d.
+4. The choice of x0 and f(x) should be such that x[i] = x[j] mod d, but
+   x[i] != x[j] mod n.  If this is the case, d divides x[j] - x[i] but n does
+   not.  Hence gcd(x[j]-x[i], n) is a divisor of n.
