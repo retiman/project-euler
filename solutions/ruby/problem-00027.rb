@@ -2,9 +2,9 @@
 # [minhuang@mocha:ruby]$ time ./problem-00027.rb 
 # -59231
 #
-# real    2m2.237s
-# user    1m19.561s
-# sys     0m41.859s
+# real    0m3.473s
+# user    0m3.436s
+# sys     0m0.028s
 require 'mathn'
 require 'set'
 
@@ -27,9 +27,20 @@ def count(ps, a, b)
   c
 end
 
+# A list of the first 2 million primes will be fine
+def primes
+  file = File.new("../../data/primes.txt")
+  set = Set.new
+  while (p = file.gets)
+    set.add(p.to_i)
+  end
+  file.close
+  set
+end
+
+
 b_max   = 1000
-p_max   = f(b_max, b_max, b_max)
-ps      = Prime.new.take_while { |p| p <= p_max }.to_set
+ps      = primes
 bs      = ps.take_while { |b| b <= b_max }
 bs      = bs + bs.map { |b| -b }
 a, b, c = 0, 0, 0
