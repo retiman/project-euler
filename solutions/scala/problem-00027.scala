@@ -1,12 +1,13 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00027.scala
+[minhuang@mocha:scala]$ time scala problem-00027.scala 
 -59231
 
-real  0m7.200s
-user  0m4.888s
-sys 0m0.516s
+real    0m5.551s
+user    0m2.484s
+sys     0m0.188s
 */
 import scala.collection.mutable.HashSet
+import scala.io.Source
 
 def f(n: Int, a: Int, b: Int) = n*n + a*n + b
 
@@ -19,22 +20,17 @@ def count(ps: HashSet[Int], a: Int, b: Int): Int = {
   c
 }
 
-def sieve(limit: Int) = {
-  var current = 2
-  var numbers = (0 to limit).toArray
-  numbers(1) = 0
-  while (current <= limit) {
-    for (i <- 2 * current to limit by current) numbers(i) = 0
-    do { current += 1 } while (current <= limit && numbers(current) == 0)
-  }
+def primes() = {
   val set = new HashSet[Int]()
-  set ++= numbers.filter(_ != 0)
+  Source.fromFile("../../data/primes.txt")
+        .getLines
+        .map(_.trim.toInt)
+        .foreach(set += _)
   set
 }
 
 val bmax = 1000
-val pmax = f(bmax, bmax, bmax)
-val ps   = sieve(pmax)
+val ps   = primes()
 val bs   = { val t = ps.filter(_ < bmax); t ++ t.map(-1 * _) }
 var a    = 0
 var b    = 0
