@@ -27,7 +27,7 @@ def count(ps, a, b)
   c
 end
 
-# A list of the first 2 million primes will be fine
+# A list of the primes under 2 million will be fine
 def primes
   file = File.new("../../data/primes.txt")
   set = Set.new
