@@ -5,7 +5,6 @@
 # real    0m3.473s
 # user    0m3.436s
 # sys     0m0.028s
-require 'mathn'
 require 'set'
 
 # A simple quadratic
