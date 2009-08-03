@@ -33,11 +33,7 @@ var c    = 0
 
 for (bi <- bs;
      ai <- -bmax until bmax;
-     ci <- Some(count(ps, ai, bi)))
-  if (ci > c) {
-    a = ai
-    b = bi
-    c = ci
-  }
+     ci =  count(ps, ai, bi))
+  if (ci > c) { a = ai; b = bi; c = ci; }
 
 println(a*b)
