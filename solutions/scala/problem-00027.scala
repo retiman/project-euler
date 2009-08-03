@@ -31,9 +31,13 @@ var a    = 0
 var b    = 0
 var c    = 0
 
-for (bi <- bs;
-     ai <- -bmax until bmax;
-     ci =  count(ps, ai, bi))
-  if (ci > c) { a = ai; b = bi; c = ci; }
+for (ai <- -bmax until bmax;
+     bi <- bs;
+     ci =  count(ps, ai, bi)
+     if (ci > c)) {
+  a = ai
+  b = bi
+  c = ci
+}
 
 println(a*b)
