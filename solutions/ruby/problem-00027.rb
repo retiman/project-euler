@@ -2,8 +2,8 @@
 # [minhuang@mocha:ruby]$ time ./problem-00027.rb 
 # -59231
 #
-# real    0m3.473s
-# user    0m3.436s
+# real    0m6.398s
+# user    0m6.268s
 # sys     0m0.028s
 require 'set'
 
@@ -14,16 +14,7 @@ end
 
 # For how many values is a quadratic prime?
 def count(ps, a, b)
-  c = 0
-  (0..b).each do |n|
-    v = f(n, a, b)
-    if ps.include? v
-      c += 1
-    else
-      return c
-    end
-  end
-  c
+  (0..b).take_while { |n| t = ps.include? f(n, a, b) }.count
 end
 
 # A list of the primes under 2 million will be fine
