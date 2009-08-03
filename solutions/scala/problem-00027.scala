@@ -31,15 +31,13 @@ var a    = 0
 var b    = 0
 var c    = 0
 
-bs foreach { bi =>
-  -bmax until bmax foreach { ai =>
-    val ci = count(ps, ai, bi)
-    if (ci > c) {
-      a = ai
-      b = bi
-      c = ci
-    }
+for (bi <- bs;
+     ai <- -bmax until bmax;
+     ci <- Some(count(ps, ai, bi)))
+  if (ci > c) {
+    a = ai
+    b = bi
+    c = ci
   }
-}
 
 println(a*b)
