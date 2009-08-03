@@ -2,9 +2,9 @@
 [minhuang@mocha:scala]$ time scala problem-00027.scala 
 -59231
 
-real    0m5.551s
-user    0m2.484s
-sys     0m0.188s
+real    0m6.639s
+user    0m3.316s
+sys     0m0.112s
 */
 import scala.collection.mutable.HashSet
 import scala.io.Source
@@ -12,12 +12,7 @@ import scala.io.Source
 def f(n: Int, a: Int, b: Int) = n*n + a*n + b
 
 def count(ps: HashSet[Int], a: Int, b: Int): Int = {
-  var c = 0
-  0 until b foreach { n =>
-    val v = f(n, a, b)
-    if (ps contains v) c += 1 else return c
-  }
-  c
+  (0 until b).takeWhile(ps contains f(_, a, b)).size
 }
 
 def primes() = {
