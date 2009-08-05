@@ -13,7 +13,7 @@ var result = 0
 
 for (i <- 999 to 1 by -1;
      j <- i to 1 by -1;
-     x <- Some(i * j)
+     x =  i * j
      if (isPalindrome(x) && x > result))
   result = x
 println(result)
