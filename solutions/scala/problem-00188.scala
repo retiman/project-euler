@@ -1,28 +1,30 @@
+/*
+[minhuang@mocha:scala]$ time scala problem-00188.scala 
+95962097
+
+real    0m3.594s
+user    0m1.588s
+sys     0m0.104s
+*/
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.HashSet
 import scala.io.Source
 import scala.Math
 
 val primes = Source.fromFile("../../data/primes.txt").getLines.map(_.trim.toLong).toList
-val dmap = new HashMap[Long, Set[Long]]()
-val omap = new HashMap[Pair[Long, Long], Long]()
 
 def isqrt(n: Long) = Math.floor(Math.sqrt(n)).toLong
 
 def pfactors(n: Long) = primes.takeWhile(_ <= n).filter(n % _ == 0)
 
 def divisors(n: Long): Set[Long] = {
-  if (dmap.contains(n))
-    return dmap(n)
   var ts = new HashSet[Long]()
   var t = 2L
   while (t <= isqrt(n)) {
     if (n % t == 0) ts += t
     t += 1
   }
-  val ds = Set[Long]() ++ ts ++ ts.map(n / _) ++ Set(1L)
-  dmap(n) = ds
-  ds 
+  Set[Long]() ++ ts ++ ts.map(n / _) ++ Set(1L)
 }
 
 def totient(n: Long) = {
@@ -40,17 +42,13 @@ def mexp(b: Long, e: Long)(m: Long) = {
 }
 
 def order(a: Long, m: Long): Long = {
-  if (omap.contains(a -> m))
-    return omap(a -> m)
   val phi = totient(m)
   val ds = divisors(phi)
   ds.foreach { e =>
     if (mexp(a, e)(m) == 1) {
-      omap(a -> m) = e
       return e
     }
   }
-  omap(a -> m) = phi
   return phi
 }
 
