@@ -1,0 +1,53 @@
+First, a few definitions and propositions need to be introduced.  I will use the "=" symbol for equivalence and the "==" for the congruence relation.
+
+ORDER
+Suppose a > 0, m > 0, and gcd(a, m) = 1.
+
+Let ord(a, m) = e such that a^e == 1 (mod m) and e is the least such positive integer.  That is, if k > 0 and a^k == 1 (mod m), then e <= k.
+
+It remains to be shown that ord(a, m) actually exists.
+
+PROPOSITION 1
+ord(a, m) always exists.
+
+(Proof)
+Let K_m = { k | a > 0, m > 0, n > 0, and a^k == 1 (mod m) }.  That is, K_m is the set of positive integers k such that a^k == 1 (mod m).  Since gcd(a, m) = 1, we have, by Euler's theorem, that a^phi(m) == 1 (mod m).  Therefore phi(m) is a member of K_m, and K_m is non-empty.
+
+By the well-ordering principle, K_m must contain a least element, ord(a, m).
+
+PROPOSITION 2
+a^k == 1 (mod m) if and only if e|k
+
+(Proof)
+First suppose a^k == 1 (mod m).  Then k = eq+r with 0 <= r < e by Euclid's Lemma.
+Then: a^k == a^(eq+r) == a^(eq) * a^r == 1^q * a^r == a^r == 1 (mod m)
+But can exist no positive r < e such that a^r == 1 (mod m), as e is the least such positive integer.  Therefore r = 0 and e|k.
+
+Now suppose that k = eq.  Then a^k == a^(eq) == 1 (mod m).
+
+PROPOSITION 3
+a^i == a^j (mod m) if and only if i == j (mod e) where e = ord(a, m).
+
+(Proof)
+Since gcd(a, m) == 1, gcd(a^k, m) == 1 as well.  Therefore, a^k must have a modular inverse.
+Then: a^i == a^j (mod m)
+      a^i * a^-j == a^j * a^-j (mod m)
+      a^(i-j) == 1 (mod m)
+By proposition 2, e|i-j, or i == j (mod e).
+
+For the other direction, assume that i == j (mod e), or e|i-j.
+Then ek = i-j and: a^(ek) == a^(i-j) (mod m)
+                        1 == a^(i-j) (mod m)
+                      a^j == a^i     (mod m)
+
+STRATEGY
+Now that those propositions are out of the way, we can tackle this problem.  First we will consider an easier problem posed:
+
+What are the last 3 digits of 3^(3^(3^(3^3)))?
+
+This can be done by calculating the number modulo 1000.  But instead of calculating 3^(3^3^3^3) mod 1000, we would like to calculate some 3^j mod 1000 where j is much less than 3^3^3^3.  Proposition 3 will help with this.
+
+Proposition 3 tells us that 3^(3^3^3^3) == 3^j (mod 1000) if and only if 3^3^3^3 == j (mod e), where e = ord(3, 1000).  Now we only have to calculate 3^3^3^3 mod e.  But instead of calculating 3^(3^3^3) mod e, we'd like to calculate 3^k mod e, where k is much less than 3^3^3.  Again, proposition 3 will help with this...
+
+By repeated applications of this process, 3^(3^(3^(3^3))) mod 1000 can be calculating with more manageable numbers.
+
