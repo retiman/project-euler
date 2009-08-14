@@ -2,9 +2,9 @@
 [minhuang@mocha:scala]$ time scala problem-00188.scala 
 95962097
 
-real    0m3.594s
-user    0m1.588s
-sys     0m0.104s
+real    0m3.536s
+user    0m1.648s
+sys     0m0.088s
 */
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.HashSet
@@ -43,13 +43,8 @@ def mexp(b: Long, e: Long)(m: Long) = {
 
 def order(a: Long, m: Long): Long = {
   val phi = totient(m)
-  val ds = divisors(phi)
-  ds.foreach { e =>
-    if (mexp(a, e)(m) == 1) {
-      return e
-    }
-  }
-  return phi
+  val ds = divisors(phi) + phi
+  ds.toList.sort(_ < _).dropWhile(mexp(a, _)(m) != 1).first
 }
 
 def mtet(b: Long, e: Long)(m: Long): Long = {
