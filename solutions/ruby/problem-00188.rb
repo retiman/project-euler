@@ -16,7 +16,7 @@ end
 def mexp(a, e, m)
   r, b, k = 1, a, e
   while (k > 0)
-    r = (r * b) % m if (k & 1 == 1) 
+    r = (r * b) % m if k & 1 == 1
     k >>= 1
     b = (b * b) % m
     return 0 if b == 0
