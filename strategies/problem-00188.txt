@@ -11,7 +11,7 @@ PROPOSITION 1
 ord(a, m) always exists.
 
 (Proof)
-Let K_m = { k | a > 0, m > 0, n > 0, and a^k == 1 (mod m) }.  That is, K_m is the set of positive integers k such that a^k == 1 (mod m).  Since gcd(a, m) = 1, we have, by Euler's theorem, that a^phi(m) == 1 (mod m).  Therefore phi(m) is a member of K_m, and K_m is non-empty.
+Let K_m = { k | a > 0, m > 0, k > 0, and a^k == 1 (mod m) }.  That is, K_m is the set of positive integers k such that a^k == 1 (mod m).  Since gcd(a, m) = 1, we have, by Euler's theorem, that a^phi(m) == 1 (mod m).  Therefore phi(m) is a member of K_m, and K_m is non-empty.
 
 By the well-ordering principle, K_m must contain a least element, ord(a, m).
 
