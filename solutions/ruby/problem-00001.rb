@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 # [minhuang@mocha:ruby]$ time ruby problem-00001.rb 
 # 233168
 #

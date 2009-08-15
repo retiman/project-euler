@@ -1,5 +1,4 @@
-#!/usr/bin/env ruby
-# [minhuang@mocha:ruby]$ time ./problem-00027.rb 
+# [minhuang@mocha:ruby]$ time ruby problem-00027.rb 
 # -59231
 #
 # real    0m6.398s
