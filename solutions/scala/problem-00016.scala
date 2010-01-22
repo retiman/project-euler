@@ -8,5 +8,8 @@ sys 0m0.056s
 */
 import scala.Math._
 
-val n = BigInt(2).pow(1000)
-println(n.toString.map(s => BigInt(s.toString)).reduceLeft[BigInt](_+_))
+val result = BigInt(2).pow(1000)
+                      .toString
+                      .map(s => BigInt(s.toString))
+                      .reduceLeft(_ + _)
+println(result)
