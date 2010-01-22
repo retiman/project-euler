@@ -1,5 +1,5 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00007.scala 
+[minhuang@mocha:scala]$ time scala problem-00007.scala
 104743
 
 real  0m11.052s
@@ -18,6 +18,6 @@ def nextPrime(implicit primes: List[Int]) = {
 }
 
 implicit var primes = 3 :: 2 :: Nil
-for (i <- 3 to 10001) 
+for (i <- 3 to 10001)
   primes = nextPrime :: primes
 println(primes.first)
