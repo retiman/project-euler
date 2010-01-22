@@ -22,7 +22,8 @@ def compute(list: List[Int]): List[Int] = {
     // Index of a digit to be fixed, in lexicographical order
     val index = (target - current) / permutations
     val digit = list(index)
-    // How many permutations seen so far + how many available after fixing a digit
+    // How many permutations seen so far + how many available after fixing a
+    // digit
     val next = current + index * permutations
     list.length match {
       // If we reached the target, leave the last 2 digits in ascending order
