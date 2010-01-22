@@ -39,17 +39,17 @@ def --(i: Int, j: Int) = {
 }
 
 def ^^(i: Int, j: Int) = {
-  try { (0 to 3).map(k => matrix(i + k)(j)).reduceLeft[Int](_ * _) }
+  try { (0 to 3).map(k => matrix(i + k)(j)).reduceLeft(_ * _) }
   catch { case _ => 0 }
 }
 
 def :/(i: Int, j: Int) = {
-  try { (0 to 3).map(k => matrix(i - k)(j + k)).reduceLeft[Int](_ * _) }
+  try { (0 to 3).map(k => matrix(i - k)(j + k)).reduceLeft(_ * _) }
   catch { case _ => 0 }
 }
 
 def :\(i: Int, j: Int) = {
-  try { (0 to 3).map(k => matrix(i + k)(j + k)).reduceLeft[Int](_ * _) }
+  try { (0 to 3).map(k => matrix(i + k)(j + k)).reduceLeft(_ * _) }
   catch { case _ => 0 }
 }
 
