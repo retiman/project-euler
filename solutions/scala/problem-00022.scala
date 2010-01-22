@@ -21,7 +21,7 @@ val data = Source.fromFile("../../data/problem-00022.txt")
                  .split(",")
                  .toList
 
-val x = (data.indices zip data.sort(_ < _)).map(i => {
+val result = (data.indices zip data.sort(_ < _)).map(i => {
   (i._1 + 1) * score(i._2)
 }).reduceLeft(_ + _)
-println(x)
+println(result)
