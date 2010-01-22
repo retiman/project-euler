@@ -1,5 +1,5 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00067.scala 
+[minhuang@mocha:scala]$ time scala problem-00067.scala
 7273
 
 real  0m1.417s
@@ -15,12 +15,12 @@ val data = Source.fromFile("../../data/problem-00067.txt")
                  .toList
                  .map(_.trim.split(" ").map(_.toLong))
                  .toArray
-                 
+
 for (i <- data.length - 2 to 0 by -1) {
   for (j <- 0 until data(i).length) {
     val left = data(i + 1)(j)
     val right = data(i + 1)(j + 1)
-    data(i)(j) += left max right    
+    data(i)(j) += left max right
   }
 }
 
