@@ -1,5 +1,5 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00024.scala 
+[minhuang@mocha:scala]$ time scala problem-00024.scala
 2783915460
 
 real  0m1.329s
@@ -29,5 +29,5 @@ def compute(list: List[Int]): List[Int] = {
   }
   recur(list, 1)
 }
-      
+
 println(compute(digits).mkString(""))
