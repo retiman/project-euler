@@ -1,5 +1,5 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00003.scala 
+[minhuang@mocha:scala]$ time scala problem-00003.scala
 6857
 
 real  0m1.448s
@@ -9,7 +9,7 @@ sys 0m0.056s
 import scala.Math._
 
 def fermatFactors(n: Long): Set[Long] = {
-  if (n % 2 == 0) return Set(2, n / 2) 
+  if (n % 2 == 0) return Set(2, n / 2)
   var a = ceil(sqrt(n))
   var b = a * a - n
   var s = sqrt(b)
@@ -23,9 +23,9 @@ def fermatFactors(n: Long): Set[Long] = {
 
 def primeFactors(n: Long): Set[Long] = {
   val factors = fermatFactors(n)
-  if (factors contains 1) 
+  if (factors contains 1)
     factors - 1
-  else 
+  else
     factors.map(f => primeFactors(f)).reduceLeft(_ ++ _)
 }
 
