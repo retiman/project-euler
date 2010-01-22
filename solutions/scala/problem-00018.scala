@@ -1,5 +1,5 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00018.scala 
+[minhuang@mocha:scala]$ time scala problem-00018.scala
 1074
 
 real  0m1.842s
@@ -25,13 +25,13 @@ val data = """
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 """.split("\n").map(_.trim).filter(_ != "").map(_.split(" ").map(_.toLong)).toArray
-              
+
 for (i <- data.length - 2 to 0 by -1) {
   for (j <- 0 until data(i).length) {
     val left = data(i + 1)(j)
     val right = data(i + 1)(j + 1)
     val bigger = if (left > right) left else right
-    data(i)(j) += bigger    
+    data(i)(j) += bigger
   }
 }
 
