@@ -38,4 +38,5 @@ for (i <- data.length - 2 to 0 by -1;
   data(i)(j) += bigger
 }
 
-println(data(0)(0))
+val result = data(0)(0)
+println(result)
