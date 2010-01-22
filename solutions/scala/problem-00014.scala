@@ -1,5 +1,5 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00014.scala 
+[minhuang@mocha:scala]$ time scala problem-00014.scala
 837799
 
 real  0m6.926s
@@ -18,7 +18,7 @@ def length(n: Long): Long = n match {
 }
 
 def f(n: Long) = {
-  if (!(map contains n)) 
+  if (!(map contains n))
     map(n) = length(n)
   (n, map(n))
 }
@@ -26,6 +26,6 @@ def f(n: Long) = {
 implicit def pairWrapper(a: Pair[Long, Long]) = new {
   def max(b: Pair[Long, Long]) = if (a._2 > b._2) a else b
 }
-                  
+
 val result = (1 to limit).map(_.toLong).map(f _).reduceLeft(_ max _)._1
 println(result)
