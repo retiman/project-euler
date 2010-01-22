@@ -17,17 +17,23 @@ def fact(n: Int): Int = {
 
 def compute(list: List[Int]): List[Int] = {
   def recur(list: List[Int], current: Int): List[Int] = {
-    val permutations = fact(list.length - 1)          // Permutations of the remaining digits
-    val index = (target - current) / permutations     // Index of a digit to be fixed, in lexicographical order
+    // Permutations of the remaining digits
+    val permutations = fact(list.length - 1)
+    // Index of a digit to be fixed, in lexicographical order
+    val index = (target - current) / permutations
     val digit = list(index)
-    val next = current + index * permutations         // How many permutations seen so far + how many available after fixing a digit
+    // How many permutations seen so far + how many available after fixing a digit
+    val next = current + index * permutations
     list.length match {
-      case 2 if target - current == 0 => list         // If we reached the target, leave the last 2 digits in ascending order
-      case 2 if target - current == 1 => list.reverse // If we are one off the target, flip them so they are in descending order
+      // If we reached the target, leave the last 2 digits in ascending order
+      case 2 if target - current == 0 => list
+      // If we are one off the target, flip them so they are in descending order
+      case 2 if target - current == 1 => list.reverse
       case _                          => digit :: recur(list - digit, next)
     }
   }
   recur(list, 1)
 }
 
-println(compute(digits).mkString(""))
+val result = compute(digits).mkString("")
+println(result)
