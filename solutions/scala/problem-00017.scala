@@ -48,4 +48,8 @@ def say(n: Int): String = n match {
   case _                             => word(n)
 }
 
-println( (1 to 1000).map(say(_)).map(_.replace(" ", "")).map(_.length).reduceLeft[Int](_+_) )
+val result = (1 to 1000).map(say _ )
+                        .map(_.replace(" ", ""))
+                        .map(_.length)
+                        .reduceLeft(_ + _)
+println(result)
