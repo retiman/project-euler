@@ -27,4 +27,5 @@ for (i <- 0 until abundants.length;
     numbers(index) = 0
 }
 
-println(numbers.reduceLeft(_+_))
+val result = numbers.reduceLeft(_+_)
+println(result)
