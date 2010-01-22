@@ -29,12 +29,11 @@ val s = """
 71636269561882670428252483600823257530420752963450
 """.split("\n").map(_.trim).mkString("")
 var best = 0
-(1 until s.length).foreach(i => {
-  if (i + 4 < s.length) {
-    val product = (i to i + 4).map(s).map(_.toString.toInt).reduceLeft[Int](_*_)
-    if (product > best)
-      best = product
-  }
+(1 until s.length).filter(_ + 4 < s.length)
+                  .foreach(i => {
+  val product = (i to i + 4).map(s).map(_.toString.toInt).reduceLeft[Int](_*_)
+  if (product > best)
+    best = product
 })
 
 println(best)
