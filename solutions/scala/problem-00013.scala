@@ -111,5 +111,7 @@ val numbers = """
 53503534226472524250874054075591789781264330331690
 """.split("\n").map(_.trim).filter(_ != "").map(BigInt(_))
 
-val sum = numbers.reduceLeft(_ + _)
-println(sum.toString.take(10))
+val result = numbers.reduceLeft(_ + _)
+                    .toString
+                    .take(10)
+println(result)
