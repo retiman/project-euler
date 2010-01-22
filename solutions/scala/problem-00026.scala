@@ -23,7 +23,8 @@ def order(a: Int, m: Int) = {
 }
 
 val numbers = (999 to 2 by -1).filter(n => n % 2 != 0 && n % 5 != 0).toList
-def maxPeriod(best: Pair[Int, Int], numbers: List[Int]): Pair[Int, Int] = numbers match {
+def maxPeriod(best: Pair[Int, Int], numbers: List[Int]): Pair[Int, Int] =
+    numbers match {
   case Nil => best
   case _ => {
     val n = numbers.first
