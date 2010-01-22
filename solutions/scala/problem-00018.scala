@@ -24,7 +24,11 @@ val data = """
 91 71 52 38 17 14 91 43 58 50 27 29 48
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
-""".split("\n").map(_.trim).filter(_ != "").map(_.split(" ").map(_.toLong)).toArray
+""".split("\n")
+   .map(_.trim)
+   .filter(_ != "")
+   .map(_.split(" ").map(_.toLong))
+   .toArray
 
 for (i <- data.length - 2 to 0 by -1) {
   for (j <- 0 until data(i).length) {
