@@ -8,7 +8,10 @@ sys 0m0.228s
 */
 import scala.collection.mutable.HashMap
 
-val map = HashMap[Long, Long](1L -> 1L)
+implicit def pairWrapper(a: Pair[Long, Long]) = new {
+  def max(b: Pair[Long, Long]) = if (a._2 > b._2) a else b
+}
+val map = HashMap(1L -> 1L)
 val limit = 1000000
 
 def length(n: Long): Long = n match {
@@ -18,13 +21,9 @@ def length(n: Long): Long = n match {
 }
 
 def f(n: Long) = {
-  if (!(map contains n))
+  if (!map.contains(n))
     map(n) = length(n)
   (n, map(n))
-}
-
-implicit def pairWrapper(a: Pair[Long, Long]) = new {
-  def max(b: Pair[Long, Long]) = if (a._2 > b._2) a else b
 }
 
 val result = (1 to limit).map(_.toLong).map(f _).reduceLeft(_ max _)._1
