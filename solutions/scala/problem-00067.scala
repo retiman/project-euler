@@ -16,12 +16,12 @@ val data = Source.fromFile("../../data/problem-00067.txt")
                  .map(_.trim.split(" ").map(_.toLong))
                  .toArray
 
-for (i <- data.length - 2 to 0 by -1) {
-  for (j <- 0 until data(i).length) {
-    val left = data(i + 1)(j)
-    val right = data(i + 1)(j + 1)
-    data(i)(j) += left max right
-  }
+for (i <- data.length - 2 to 0 by -1;
+     j <- 0 until data(i).length) {
+  val left = data(i + 1)(j)
+  val right = data(i + 1)(j + 1)
+  data(i)(j) += left max right
 }
 
-println(data(0)(0))
+val result = data(0)(0)
+println(result)
