@@ -14,5 +14,5 @@ def f(a: Int) = {
   r max 2 max (2 * a)
 }
 
-val result = (3 to 1000).map(a => f(a)).reduceLeft(_ + _)
+val result = (3 to 1000).map(f _).reduceLeft(_ + _)
 println(result)
