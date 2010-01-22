@@ -1,5 +1,5 @@
 /*
-[minhuang@mocha:scala]$ time scala problem-00123.scala 
+[minhuang@mocha:scala]$ time scala problem-00123.scala
 21035
 
 real  0m2.951s
