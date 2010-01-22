@@ -11,6 +11,7 @@ import scala.collection.mutable.HashMap
 implicit def pairWrapper(a: Pair[Long, Long]) = new {
   def max(b: Pair[Long, Long]) = if (a._2 > b._2) a else b
 }
+
 val map = HashMap(1L -> 1L)
 val limit = 1000000
 
