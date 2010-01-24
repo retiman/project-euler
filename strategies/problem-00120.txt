@@ -1,9 +1,0 @@
-Very easy.  Just expand (a-1)^n and (a+1)^n via the binomial formula, and see that when added, the odd terms cancel each other out.
-
-When n = 1, the remainder modulo a^2 is just 2a.
-
-When n > 1, and n even, it's easy to see that the remainder is 2.
-
-When n > 1, and n odd, the remainder is 2na.
-
-It remains to do a search through values of n to find the maximum remainder.
