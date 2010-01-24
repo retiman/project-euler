@@ -1,9 +1,0 @@
-Start with the smallest possible digit (zero in this case), then find the
-number of permutations of the remaining digits.  If this number is less than
-1000000, then zero cannot be the first digit in the 1000000th permutation.
-
-Try one instead, and count the number of permutations.  Keep going with two,
-three, four, etc until the number of permutations exceeds 1000000.  Suppose
-that fixing the first digit at k results in more than 1000000 permutations;
-this means the first digit is fixed at k-1, and the second digit must be
-examined by this method.
