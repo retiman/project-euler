@@ -18,7 +18,7 @@ end
 
 # A list of the primes under 2 million will be fine
 def primes
-  file = File.new("../../data/primes.txt")
+  file = File.new("../data/primes.txt")
   set = Set.new
   while (p = file.gets)
     set.add(p.to_i)

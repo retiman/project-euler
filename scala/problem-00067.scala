@@ -10,7 +10,7 @@ sys 0m0.028s
 import scala.io.Source
 import scala.Math._
 
-val data = Source.fromFile("../../data/problem-00067.txt")
+val data = Source.fromFile("../data/problem-00067.txt")
                  .getLines
                  .toList
                  .map(_.trim.split(" ").map(_.toLong))

@@ -17,7 +17,7 @@ def count(ps: HashSet[Int], a: Int, b: Int): Int = {
 
 def primes() = {
   val set = new HashSet[Int]()
-  Source.fromFile("../../data/primes.txt")
+  Source.fromFile("../data/primes.txt")
         .getLines
         .map(_.trim.toInt)
         .foreach(set += _)
