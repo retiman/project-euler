@@ -1,5 +1,5 @@
 {-
-[minhuang@mocha:haskell]$ time runghc problem-00021.hs 
+[minhuang@mocha:haskell]$ time runghc problem-00021.hs
 31626
 
 real  0m2.343s
@@ -20,4 +20,4 @@ result = let tuples = zip range (map sigma range)
              amicables = filter (\(a,b) -> a > b && a == sigma b) tuples
          in sum $ map (\(a,b) -> a+b) amicables
 
-main = print result         
+main = print result

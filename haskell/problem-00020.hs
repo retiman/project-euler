@@ -1,5 +1,5 @@
 {-
-[minhuang@mocha:haskell]$ time runghc problem-00020.hs 
+[minhuang@mocha:haskell]$ time runghc problem-00020.hs
 648
 
 real  0m0.624s
