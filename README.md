@@ -8,7 +8,8 @@ with it.
 
 Languages
 =========
-* GHC 6.8.2
-* MzScheme 4.0
-* Ruby 1.8.7
-* Scala 2.7.7final
+* Haskell: GHC 6.8.2
+* JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
+* Ruby: MRI 1.8.7
+* Scala: Scala 2.7.7final
+* Scheme: MzScheme 4.0
