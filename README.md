@@ -10,5 +10,5 @@ Languages
 =========
 * GHC 6.8.2
 * MzScheme 4.0
-* Ruby 1.8
+* Ruby 1.8.7
 * Scala 2.7.7final
