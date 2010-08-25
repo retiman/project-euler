@@ -1,0 +1,2 @@
+%: %.scala
+	time scala $<
