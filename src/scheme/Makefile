@@ -1,0 +1,2 @@
+%: %.scm
+	time mzscheme -f $<
