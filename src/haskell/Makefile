@@ -1,0 +1,2 @@
+%: %.hs
+	time runghc $<
