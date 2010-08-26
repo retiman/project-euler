@@ -9,7 +9,7 @@ def score(name)
   name.chars.map { |c| scores[c] }.inject(&:+)
 end
 
-file = File.new("../../data/22.txt")
+file = File.new("../data/22.txt")
 data = file.gets.gsub("\"", "").split(",") # All one line in file
 file.close
 

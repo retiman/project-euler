@@ -8,7 +8,7 @@ sys 0m0.112s
 */
 import scala.io.Source
 
-val primes = Source.fromFile("../../data/primes.txt")
+val primes = Source.fromFile("../data/primes.txt")
                    .getLines
                    .map(_.trim.toLong).toList
 val limit = 1E10.toLong

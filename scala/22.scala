@@ -13,7 +13,7 @@ val scores = Map() ++ (('A' to 'Z').toList zip (1 to 26).toList)
 
 def score(name: String) = name.map(c => scores(c)).reduceLeft(_ + _)
 
-val data = Source.fromFile("../../data/22.txt")
+val data = Source.fromFile("../data/22.txt")
                  .getLines
                  .toList
                  .first
