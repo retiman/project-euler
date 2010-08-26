@@ -1,2 +1,2 @@
 %: %.scala
-	time scala -deprecation $<
+	JAVA_OPTS="-Xmx1024M" time scala -deprecation $<
