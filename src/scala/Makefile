@@ -1,2 +1,2 @@
 %: %.scala
-	time scala $<
+	time scala -deprecation $<
