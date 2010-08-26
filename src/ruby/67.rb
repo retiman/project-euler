@@ -5,7 +5,7 @@
 # user  0m0.048s
 # sys 0m0.004s
 data = []
-file = File.new("../../data/problem-00067.txt")
+file = File.new("../../data/67.txt")
 while line = file.gets
   data << line
 end
