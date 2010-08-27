@@ -1,27 +1,22 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00022.scala 
-871198282
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 22.scala
+// 871198282
+// 1.60user 0.05system 0:02.28elapsed 72%CPU (0avgtext+0avgdata 0maxresident)k
+// 16inputs+64outputs (1major+25024minor)pagefaults 0swaps
 
-real  0m2.015s
-user  0m0.988s
-sys 0m0.084s
-*/
 import scala.io.Source
-import scala.Math._
+import scala.math._
 
 val scores = Map() ++ (('A' to 'Z').toList zip (1 to 26).toList)
-
-def score(name: String) = name.map(c => scores(c)).reduceLeft(_ + _)
-
 val data = Source.fromFile("../data/22.txt")
                  .getLines
                  .toList
-                 .first
+                 .head
                  .replaceAll("\"", "")
                  .split(",")
                  .toList
 
+def score(name: String) = name.map(c => scores(c)).reduceLeft(_ + _)
 def f(t: Pair[Int, String]) = (t._1 + 1) * score(t._2)
 
-val result = (data.indices zip data.sort(_ < _)).map(f _).reduceLeft(_ + _)
+val result = (data.indices zip data.sortWith(_ < _)).map(f _).reduceLeft(_ + _)
 println(result)

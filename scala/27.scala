@@ -1,11 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00027.scala 
--59231
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 27.scala
+// -59231
+// 2.18user 0.10system 0:02.97elapsed 76%CPU (0avgtext+0avgdata 0maxresident)k
+// 2168inputs+64outputs (1major+37457minor)pagefaults 0swaps
 
-real    0m6.639s
-user    0m3.316s
-sys     0m0.112s
-*/
 import scala.collection.mutable.HashSet
 import scala.io.Source
 

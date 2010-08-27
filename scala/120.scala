@@ -1,11 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00120.scala
-333082500
+// time scala -deprecation 120.scala
+// 333082500
+// 0.97user 0.08system 0:01.93elapsed 54%CPU (0avgtext+0avgdata 0maxresident)k
+// 8inputs+64outputs (1major+18980minor)pagefaults 0swaps
 
-real  0m2.549s
-user  0m0.912s
-sys 0m0.100s
-*/
 def f(a: Int) = {
   val limit = 2 * a
   val r = (3 to limit by 2).map(_ * 2 * a)

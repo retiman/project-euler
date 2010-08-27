@@ -1,14 +1,11 @@
-/*
-nhuang@mocha:scala]$ time scala problem-00034.scala 
-40730
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 34.scala
+// 40730
+// 6.48user 0.20system 0:07.72elapsed 86%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+64outputs (1major+99959minor)pagefaults 0swaps
 
-real  0m29.767s
-user  0m27.382s
-sys 0m0.392s
-*/
-import scala.Math._
+import scala.math._
 
-def log10(n: Double) = log(n)/log(10)
+def log10(n: Double) = log(n) / log(10)
 
 val maxDigits = {
   val limit = (1 to 9).map(i => log10(i)).reduceLeft(_ + _)

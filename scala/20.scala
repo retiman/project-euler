@@ -1,15 +1,11 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00020.scala 
-648
-
-real  0m1.227s
-user  0m0.248s
-sys 0m0.064s
-*/
-import scala.Math._
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 20.scala
+// 648
+// 0.66user 0.05system 0:02.37elapsed 30%CPU (0avgtext+0avgdata 0maxresident)k
+// 8inputs+64outputs (1major+16154minor)pagefaults 0swaps
 
 def fact(n: BigInt): BigInt = {
-  def recur(n: BigInt, acc: BigInt): BigInt = if (n == 1) acc else recur(n - 1, n * acc)
+  def recur(n: BigInt, acc: BigInt): BigInt = if (n == 1) acc
+                                              else recur(n - 1, n * acc)
   if (n == 0) 1 else recur(n, 1)
 }
 

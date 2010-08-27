@@ -1,11 +1,7 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00010.scala 
-142913828922
-
-real  0m3.219s
-user  0m1.984s
-sys 0m0.248s
-*/
+// time scala -deprecation 10.scala
+// 142913828922
+// 1.51user 0.08system 0:02.37elapsed 67%CPU (0avgtext+0avgdata 0maxresident)k
+// 16inputs+64outputs (1major+25271minor)pagefaults 0swaps
 
 def sieve(limit: Int) = {
   var current = 2

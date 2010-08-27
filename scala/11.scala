@@ -1,11 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00011.scala 
-70600674
+// time scala -deprecation 11.scala
+// 70600674
+// 0.88user 0.04system 0:02.25elapsed 41%CPU (0avgtext+0avgdata 0maxresident)k
+// 24inputs+64outputs (1major+13707minor)pagefaults 0swaps
 
-real  0m2.374s
-user  0m0.320s
-sys 0m0.052s
-*/
 import scala.Math._
 import scala.collection.mutable.ListBuffer
 
@@ -30,7 +27,10 @@ val matrix = """
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
-""".split("\n").map(_.trim).filter(_ != "").map(row => row.split(" ").map(_.toInt))
+""".split("\n")
+   .map(_.trim)
+   .filter(_ != "")
+   .map(row => row.split(" ").map(_.toInt))
 var best = 0
 
 def --(i: Int, j: Int) = {

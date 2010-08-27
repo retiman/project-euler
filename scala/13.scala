@@ -1,11 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00013.scala 
-5537376230
+// time scala -deprecation 13.scala
+// 5537376230
+// 0.69user 0.04system 0:01.77elapsed 41%CPU (0avgtext+0avgdata 0maxresident)k
+// 72inputs+64outputs (1major+12661minor)pagefaults 0swaps
 
-real  0m1.467s
-user  0m0.280s
-sys 0m0.040s
-*/
 import scala.Math._
 
 val numbers = """

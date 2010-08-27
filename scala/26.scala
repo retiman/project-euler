@@ -1,12 +1,7 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00026.scala 
-983
-
-real  0m1.105s
-user  0m0.252s
-sys 0m0.048s
-*/
-import scala.Math._
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 26.scala
+// 983
+// 0.72user 0.03system 0:02.00elapsed 38%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+64outputs (1major+16074minor)pagefaults 0swaps
 
 implicit def tupleWrapper(t: Pair[Int, Int]) = new {
   def n = t._1
@@ -27,7 +22,7 @@ def maxPeriod(best: Pair[Int, Int], numbers: List[Int]): Pair[Int, Int] =
     numbers match {
   case Nil => best
   case _ => {
-    val n = numbers.first
+    val n = numbers.head
     order(10, n) match {
       case ord if ord == n - 1 => (n, ord)
       case ord if ord > best.ord => maxPeriod((n, ord), numbers.tail)

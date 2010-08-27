@@ -1,12 +1,9 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00006.scala 
-25164150
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 6.scala
+// 25164150
+// 1.18user 0.16system 0:03.32elapsed 40%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+0outputs (0major+11051minor)pagefaults 0swaps
 
-real  0m1.280s
-user  0m0.232s
-sys 0m0.044s
-*/
 val a = (1 to 100).map(i => i * i).reduceLeft(_ + _)
 val b = (1 to 100).reduceLeft(_ + _)
-val result = b*b - a
+val result = b * b - a
 println(result)

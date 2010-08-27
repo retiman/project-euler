@@ -1,17 +1,13 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00024.scala
-2783915460
-
-real  0m1.329s
-user  0m0.236s
-sys 0m0.048s
-*/
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 24.scala
+// 2783915460
+// 0.70user 0.04system 0:01.60elapsed 46%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+64outputs (1major+15970minor)pagefaults 0swaps
 
 val digits = List(0,1,2,3,4,5,6,7,8,9)
 val target = 1000000
 
 def fact(n: Int): Int = {
-  def recur(n: Int, acc: Int): Int = if (n == 1) acc else recur(n-1, n*acc)
+  def recur(n: Int, acc: Int): Int = if (n == 1) acc else recur(n - 1, n * acc)
   if (n == 0) 1 else recur(n, 1)
 }
 
@@ -30,7 +26,8 @@ def compute(list: List[Int]): List[Int] = {
       case 2 if target - current == 0 => list
       // If we are one off the target, flip them so they are in descending order
       case 2 if target - current == 1 => list.reverse
-      case _                          => digit :: recur(list - digit, next)
+      case _                          => digit ::
+                                         recur(list.filterNot(_ == digit), next)
     }
   }
   recur(list, 1)

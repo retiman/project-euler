@@ -1,12 +1,7 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00018.scala
-1074
-
-real  0m1.842s
-user  0m0.224s
-sys 0m0.084s
-*/
-import scala.Math._
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 18.scala
+// 1074
+// 0.68user 0.06system 0:02.16elapsed 34%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+64outputs (1major+16381minor)pagefaults 0swaps
 
 val data = """
 75

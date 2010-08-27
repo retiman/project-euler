@@ -1,13 +1,10 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00021.scala 
-31626
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 21.scala
+// 31626
+// 1.41user 0.05system 0:02.86elapsed 51%CPU (0avgtext+0avgdata 0maxresident)k
+// 8inputs+64outputs (1major+21854minor)pagefaults 0swaps
 
-real  0m2.558s
-user  0m1.068s
-sys 0m0.048s
-*/
 import scala.collection.mutable.Set
-import scala.Math._
+import scala.math._
 
 implicit def tupleWrapper[A, B](t: Pair[A, B]) = new {
   def a = t._1
@@ -15,7 +12,7 @@ implicit def tupleWrapper[A, B](t: Pair[A, B]) = new {
 }
 
 def divisors(n: Int) = {
-  val d = (2 to sqrt(n)).filter(n % _ == 0)
+  val d = (2 to sqrt(n).toInt).filter(n % _ == 0)
   Set() ++ d ++ d.map(n / _) ++ Set(1)
 }
 

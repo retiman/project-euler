@@ -1,13 +1,7 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00017.scala 
-21124
-
-real  0m1.891s
-user  0m0.316s
-sys 0m0.092s
-*/
-import scala.collection.immutable.Map
-import scala.Math._
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 17.scala
+// 21124
+// 0.91user 0.04system 0:02.14elapsed 44%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+64outputs (1major+18261minor)pagefaults 0swaps
 
 val word = Map(
   1 -> "one",
@@ -41,7 +35,8 @@ val word = Map(
 
 def say(n: Int): String = n match {
   case n if n == 1000                => "one thousand"
-  case n if n >= 100 && n % 100 != 0 => word(n / 100) + " hundred and " + say(n % 100)
+  case n if n >= 100 && n % 100 != 0 => word(n / 100) + " hundred and " +
+                                        say(n % 100)
   case n if n >= 100 && n % 100 == 0 => word(n / 100) + " hundred"
   case n if n >= 20  && n % 10  != 0 => word(n - (n % 10)) + " " + say(n % 10)
   case n if n >= 20  && n % 10  == 0 => word(n - (n % 10))

@@ -1,24 +1,21 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00014.scala
-837799
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 14.scala
+// 837799
+// 4.92user 0.32system 0:05.15elapsed 101%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+64outputs (1major+101252minor)pagefaults 0swaps
 
-real  0m6.926s
-user  0m6.380s
-sys 0m0.228s
-*/
 import scala.collection.mutable.HashMap
+
+val limit = 1000000
+val map = HashMap(1L -> 1L)
 
 implicit def pairWrapper(a: Pair[Long, Long]) = new {
   def max(b: Pair[Long, Long]) = if (a._2 > b._2) a else b
 }
 
-val map = HashMap(1L -> 1L)
-val limit = 1000000
-
 def length(n: Long): Long = n match {
-  case n if map contains n => map(n)
-  case n if n%2 == 0       => 1 + length(n/2)
-  case _                   => 1 + length(3*n+1)
+  case _ if map contains n => map(n)
+  case _ if n % 2 == 0     => 1 + length(n / 2)
+  case _                   => 1 + length(3 * n + 1)
 }
 
 def f(n: Long) = {

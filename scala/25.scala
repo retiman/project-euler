@@ -1,10 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00025.scala 4782
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 25.scala
+// 4782
+// 1.25user 0.06system 0:02.56elapsed 51%CPU (0avgtext+0avgdata 0maxresident)k
+// 8inputs+64outputs (1major+20267minor)pagefaults 0swaps
 
-real  0m2.627s
-user  0m1.948s
-sys 0m0.044s
-*/
 var index: BigInt = 2
 var penultimate: BigInt = 1
 var ultimate: BigInt = 1

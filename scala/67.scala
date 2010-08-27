@@ -1,14 +1,9 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00067.scala
-7273
-
-real  0m1.417s
-user  0m0.468s
-sys 0m0.028s
-*/
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 67.scala
+// 7273
+// 1.71user 0.14system 0:03.66elapsed 50%CPU (0avgtext+0avgdata 0maxresident)k
+// 8inputs+0outputs (0major+11788minor)pagefaults 0swaps
 
 import scala.io.Source
-import scala.Math._
 
 val data = Source.fromFile("../data/67.txt")
                  .getLines

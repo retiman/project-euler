@@ -1,11 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00123.scala
-21035
+// time scala -deprecation 123.scala
+// 21035
+// 1.58user 0.11system 0:02.23elapsed 76%CPU (0avgtext+0avgdata 0maxresident)k
+// 2320inputs+64outputs (1major+24700minor)pagefaults 0swaps
 
-real  0m2.951s
-user  0m1.400s
-sys 0m0.112s
-*/
 import scala.io.Source
 
 val primes = Source.fromFile("../data/primes.txt")

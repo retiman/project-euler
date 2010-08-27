@@ -1,12 +1,9 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00003.scala
-6857
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 3.scala
+// 6857
+// 1.48user 0.17system 0:04.06elapsed 40%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+0outputs (0major+11382minor)pagefaults 0swaps
 
-real  0m1.448s
-user  0m0.260s
-sys 0m0.056s
-*/
-import scala.Math._
+import scala.math._
 
 def fermatFactors(n: Long): Set[Long] = {
   if (n % 2 == 0) return Set(2, n / 2)

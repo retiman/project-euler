@@ -1,11 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00008.scala 
-40824
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 8.scala
+// 40824
+// 1.60user 0.17system 0:04.03elapsed 44%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+0outputs (0major+11756minor)pagefaults 0swaps
 
-real  0m1.548s
-user  0m0.264s
-sys 0m0.056s
-*/
 val s = """
 73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843

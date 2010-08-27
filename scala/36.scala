@@ -1,11 +1,7 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00036.scala
-872187
-
-real    0m5.044s
-user    0m1.696s
-sys     0m0.188s
-*/
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 36.scala
+// 872187
+// 2.34user 0.22system 0:04.78elapsed 53%CPU (0avgtext+0avgdata 0maxresident)k
+// 0inputs+0outputs (0major+28072minor)pagefaults 0swaps
 
 def p10(n: Int) = if (n % 10 == 0) false
                   else n.toString.reverse.toString == n.toString

@@ -1,10 +1,8 @@
-/*
-[minhuang@mocha:scala]$ time scala problem-00001.scala 
-233168
+// JAVA_OPTS="-Xmx1024M" time scala -deprecation 1.scala
+// 233168
+// 0.64user 0.04system 0:02.33elapsed 29%CPU (0avgtext+0avgdata 0maxresident)k
+// 16inputs+64outputs (1major+15903minor)pagefaults 0swaps
 
-real  0m1.442s
-user  0m0.252s
-sys 0m0.056s
-*/
-val result = (1 until 1000).filter(n => n % 3 == 0 || n % 5 == 0).reduceLeft(_ + _)
+val result = (1 until 1000).filter(n => n % 3 == 0 || n % 5 == 0)
+                           .reduceLeft(_ + _)
 println(result)
