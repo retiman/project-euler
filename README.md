@@ -11,5 +11,5 @@ Languages
 * Haskell: GHC 6.8.2
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
 * Ruby: MRI 1.8.7
-* Scala: Scala 2.7.7final
+* Scala: Scala 2.8.0
 * Scheme: MzScheme 4.0
