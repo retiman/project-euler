@@ -1,9 +1,8 @@
-// [minhuang@mocha:javascript(master*)]$ time js -f problem-00014.js
+// time js -f 14.js
 // 837799
-//
-// real 0m7.958s
-// user 0m7.672s
-// sys  0m0.184s
+// 10.81user 0.55system 0:12.18elapsed 93%CPU (0avgtext+0avgdata 0maxresident)k
+// 1712inputs+0outputs (11major+46887minor)pagefaults 0swaps
+
 let map = [1, 1];
 let limit = 1000000;
 
