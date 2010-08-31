@@ -7,7 +7,7 @@ end
 
 # For how many values is a quadratic prime?
 def count(ps, a, b)
-  (0..b).take_while { |n| t = ps.include? f(n, a, b) }.count
+  (0..b).take_while { |n| ps.include? f(n, a, b) }.count
 end
 
 # A list of the primes under 2 million will be fine
@@ -24,7 +24,7 @@ end
 
 b_max   = 1000
 ps      = primes
-bs      = ps.take_while { |b| b <= b_max }
+bs      = ps.select { |b| b <= b_max }
 bs      = bs + bs.map { |b| -b }
 a, b, c = 0, 0, 0
 
