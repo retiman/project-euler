@@ -1,3 +1,8 @@
+; time mzscheme -f 1.scm
+; 233168
+; 0.45user 0.04system 0:00.52elapsed 95%CPU (0avgtext+0avgdata 0maxresident)k
+; 16inputs+0outputs (1major+6917minor)pagefaults 0swaps
+
 (define sum
   (lambda (limit)
     (let recur ((i 0))
