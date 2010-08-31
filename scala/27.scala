@@ -23,15 +23,20 @@ def primes() = {
 
 val bmax = 1000
 val ps   = primes()
-val bs   = { val t = ps.filter(_ < bmax); t ++ t.map(-1 * _) }
+val bs   = {
+  val t = ps.filter(_ < bmax)
+  t ++ t.map(-1 * _)
+}
 var a    = 0
 var b    = 0
 var c    = 0
 
-for (ai <- -bmax until bmax;
-     bi <- bs;
-     ci =  count(ps, ai, bi)
-     if (ci > c)) {
+for (
+  ai <- -bmax until bmax;
+  bi <- bs;
+  ci =  count(ps, ai, bi)
+  if (ci > c)
+) {
   a = ai
   b = bi
   c = ci
