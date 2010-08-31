@@ -1,9 +1,3 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00027.rb 
-# -59231
-#
-# real    0m6.398s
-# user    0m6.268s
-# sys     0m0.028s
 require 'set'
 
 # A simple quadratic
