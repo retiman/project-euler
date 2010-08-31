@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00011.rb 
+# time ruby 11.rb
 # 70600674
-#
-# real  0m0.062s
-# user  0m0.044s
-# sys 0m0.012s
+# 0.16user 0.00system 0:00.17elapsed 96%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1232minor)pagefaults 0swaps
+
 matrix = <<EOF
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00

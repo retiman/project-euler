@@ -1,9 +1,7 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00023.rb 
+# time ruby 23.rb
 # 4179871
-#
-# real  0m20.567s
-# user  0m20.397s
-# sys 0m0.048s
+# 51.58user 6.60system 0:59.91elapsed 97%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1260minor)pagefaults 0swaps
 
 def divisors(n)
   d = (2..Math.sqrt(n)).select { |q| n%q == 0 }

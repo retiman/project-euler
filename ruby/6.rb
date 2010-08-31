@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00006.rb 
+# time ruby 6.rb
 # 25164150
-#
-# real    0m0.017s
-# user    0m0.004s
-# sys     0m0.008s
+# 0.13user 0.02system 0:00.16elapsed 98%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1232minor)pagefaults 0swaps
+
 a = (1..100).map { |i| i * i }.inject(&:+)
 b = (1..100).inject(&:+)
 puts b*b - a

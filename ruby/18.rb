@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00018.rb 
+# time ruby 18.rb
 # 1074
-#
-# real  0m0.022s
-# user  0m0.020s
-# sys 0m0.004s
+# 0.12user 0.02system 0:00.14elapsed 98%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1232minor)pagefaults 0swaps
+
 data = <<EOF
 75
 95 64

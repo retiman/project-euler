@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00013.rb 
+# time ruby 13.rb
 # 5537376230
-#
-# real  0m0.032s
-# user  0m0.016s
-# sys 0m0.008s
+# 0.13user 0.00system 0:00.14elapsed 95%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1236minor)pagefaults 0swaps
+
 numbers = <<EOF
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538

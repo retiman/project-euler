@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00026.rb 
+# time ruby 26.rb
 # 983
-#
-# real  0m0.032s
-# user  0m0.016s
-# sys 0m0.008s
+# 0.09user 0.01system 0:00.10elapsed 99%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1233minor)pagefaults 0swaps
+
 class Array
   def tail
     self.drop(1)

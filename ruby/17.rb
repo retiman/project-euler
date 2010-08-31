@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00017.rb 
+# time ruby 17.rb
 # 21124
-#
-# real  0m0.057s
-# user  0m0.044s
-# sys 0m0.004s
+# 0.12user 0.01system 0:00.15elapsed 95%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1233minor)pagefaults 0swaps
+
 $word = {
   1 => "one",
   2 => "two",

@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00009.rb 
+# time ruby 9.rb
 # 31875000
-#
-# real  0m0.085s
-# user  0m0.068s
-# sys 0m0.012s
+# 0.29user 0.04system 0:00.34elapsed 99%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1232minor)pagefaults 0swaps
+
 n = 1000
 (1..332).each do |a|
   limit = ((n - a) / 2) - 1

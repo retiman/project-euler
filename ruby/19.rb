@@ -1,9 +1,8 @@
-# [minhuang@mocha:ruby]$ time ruby problem-00019.rb 
+# time ruby 19.rb
 # 171
-#
-# real  0m0.174s
-# user  0m0.160s
-# sys 0m0.000s
+# 0.35user 0.02system 0:00.38elapsed 97%CPU (0avgtext+0avgdata 0maxresident)k
+# 0inputs+0outputs (0major+1233minor)pagefaults 0swaps
+
 require 'date'
 sundays = 0
 (1901..2000).each do |year|
