@@ -1,10 +1,7 @@
-{-
-[minhuang@mocha:haskell]$ time runghc problem-00020.hs
-648
+-- time runghc 20.hs
+-- 648
+-- 0.32user 0.01system 0:00.33elapsed 100%CPU (0avgtext+0avgdata 0maxresident)k
+-- 8inputs+0outputs (0major+6789minor)pagefaults 0swaps
 
-real  0m0.624s
-user  0m0.552s
-sys 0m0.052s
--}
 import Data.Char (digitToInt)
 main = print . sum . map digitToInt . show . product $ [1..100]

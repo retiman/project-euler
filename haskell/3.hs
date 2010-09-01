@@ -1,11 +1,8 @@
-{-
-[minhuang@mocha:haskell]$ time runghc problem-00003.hs 
-6857
+-- time runghc 3.hs
+-- 6857
+-- 0.30user 0.02system 0:00.33elapsed 97%CPU (0avgtext+0avgdata 0maxresident)k
+-- 0inputs+0outputs (0major+6821minor)pagefaults 0swaps
 
-real    0m0.314s
-user    0m0.280s
-sys     0m0.032s
--}
 import Data.List
 
 f :: Integer -> Integer

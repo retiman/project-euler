@@ -1,11 +1,8 @@
-{-
-[minhuang@mocha:haskell]$ time runghc problem-00010.hs
-142913828922
+-- time runghc 10.hs
+-- 142913828922
+-- 47.80user 0.15system 0:51.04elapsed 93%CPU (0avgtext+0avgdata 0maxresident)k
+-- 36144inputs+0outputs (201major+23823minor)pagefaults 0swaps
 
-real  0m51.053s
-user  0m50.375s
-sys 0m0.164s
--}
 merge :: (Ord a) => [a] -> [a] -> [a]
 merge xs@(x:xt) ys@(y:yt) = case compare x y of
     LT -> x : (merge xt ys)

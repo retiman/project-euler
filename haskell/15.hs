@@ -1,11 +1,8 @@
-{-
-[minhuang@mocha:haskell]$ time runghc problem-00015.hs
-137846528820
+-- time runghc 15.hs
+-- 137846528820
+-- 0.39user 0.03system 0:00.69elapsed 61%CPU (0avgtext+0avgdata 0maxresident)k
+-- 2872inputs+0outputs (3major+6935minor)pagefaults 0swaps
 
-real  0m0.617s
-user  0m0.512s
-sys 0m0.056s
--}
 fact n = product [1..n]
 main = print result
        where num = fact 40

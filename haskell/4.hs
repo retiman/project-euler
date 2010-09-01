@@ -1,11 +1,8 @@
-{-
-[minhuang@mocha:haskell]$ time runghc problem-00004.hs
-90909
+-- time runghc 4.hs
+-- 90909
+-- 0.26user 0.02system 0:00.31elapsed 91%CPU (0avgtext+0avgdata 0maxresident)k
+-- 8inputs+0outputs (0major+6691minor)pagefaults 0swaps
 
-real    0m0.280s
-user    0m0.220s
-sys     0m0.044s
--}
 isPalindrome :: Integer -> Bool
 isPalindrome x = (show x) == (reverse . show $ x)
 

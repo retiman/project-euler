@@ -1,11 +1,8 @@
-{-
-[minhuang@mocha:haskell]$ time runghc problem-00017.hs
-21124
+-- time runghc 17.hs
+-- 21124
+-- 0.43user 0.05system 0:00.59elapsed 82%CPU (0avgtext+0avgdata 0maxresident)k
+-- 160inputs+0outputs (3major+8000minor)pagefaults 0swaps
 
-real  0m0.610s
-user  0m0.564s
-sys 0m0.040s
--}
 m = [(1,  "one"),
      (2,  "two"),
      (3,  "three"),

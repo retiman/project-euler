@@ -1,11 +1,8 @@
-{-
-[minhuang@mocha:haskell]$ time runghc problem-00012.hs
-76576500
+-- time runghc 12.hs
+-- 76576500
+-- 52.62user 0.04system 0:55.35elapsed 95%CPU (0avgtext+0avgdata 0maxresident)k
+-- 35832inputs+0outputs (201major+7724minor)pagefaults 0swaps
 
-real  1m47.501s
-user  1m46.503s
-sys 0m0.040s
--}
 tau :: Int -> Int
 tau 1 = 1
 tau n = 2 * x
