@@ -3,8 +3,8 @@
 ; 9.46user 0.34system 0:07.39elapsed 132%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+64outputs (1major+139470minor)pagefaults 0swaps
 
-(use 'clojure.set)
-(use 'clojure.contrib.math)
+(use '[clojure.set :only (union)])
+(use '[clojure.contrib.math :only (ceil sqrt round)])
 
 ; Here's a fun thing about Clojure:
 ; user=> (contains? #{1.0} 1)
