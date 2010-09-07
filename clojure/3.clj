@@ -16,20 +16,19 @@
           #{(- a s) (+ a s)}
           (recur (inc a)))))))
 
-; Here's a massive WTF:
+; Here's a fun thing about Clojure:
 ; user=> (contains? #{1.0} 1)
 ; false
-; user=> (set (map round #{1.0}))
-; #{1}
-; user=> (contains? (set (map round #{1.0})) 1)
+; user=> (contains? #{1.0} (double 1))
+; true
+; user=> (contains? #{(long 1)} 1)
 ; false
-; I seriously don't know how to get around this except by checking for both 1
-; and 1.0, and removing them both with disj.
+; So unless I want to put casts *everywhere*, I think I have to make the
+; factors simply a set of ints.
 (defn prime-factors [n]
-  (let [factors (fermat-factors n)]
-    (if (or (contains? factors 1.0)
-            (contains? factors 1))
-      (disj factors 1.0 1)
+  (let [factors (set (map int (fermat-factors n)))]
+    (if (contains? factors 1)
+      (disj factors 1)
       (reduce union (map prime-factors factors)))))
 
 (println (reduce max (prime-factors 600851475143)))
