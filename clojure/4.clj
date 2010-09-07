@@ -4,7 +4,7 @@
 ; 0inputs+0outputs (0major+44153minor)pagefaults 0swaps
 
 (defn is-palindrome? [n]
-  (let [s (.toString n)]
+  (let [s (str n)]
     (= s (apply str (reverse s)))))
 
 (defn all-palindromes []
