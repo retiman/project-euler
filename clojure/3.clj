@@ -13,8 +13,9 @@
 ; true
 ; user=> (contains? #{(long 1)} 1)
 ; false
-(defn in? [s e]
-  "Does what I really want 'contains?' to do"
+(defn
+  #^{:doc "Does what I really want 'contains?' to do"}
+  in? [s e]
   (some #(= e %) s))
 
 (defn fermat-factors [n]
