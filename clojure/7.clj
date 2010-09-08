@@ -5,17 +5,24 @@
 
 (use '[clojure.contrib.math :only (sqrt)])
 
-(defn is-prime? [ps n]
-  #^{:doc "Checks ps to determine whether or not n is prime"}
-  (empty? (filter #(and (<= % (sqrt n)) (= (rem n %) 0)) ps)))
+(defn lazy-primes3 []
+  (letfn [(enqueue [sieve n step]
+            (let [m (+ n step)]
+              (if (sieve m)
+                (recur sieve m step)
+                (assoc sieve m step))))
+          (next-sieve [sieve candidate]
+            (if-let [step (sieve candidate)]
+              (-> sieve
+                (dissoc candidate)
+                (enqueue candidate step))
+              (enqueue sieve candidate (+ candidate candidate))))
+          (next-primes [sieve candidate]
+            (if (sieve candidate)
+              (recur (next-sieve sieve candidate) (+ candidate 2))
+              (cons candidate
+                (lazy-seq (next-primes (next-sieve sieve candidate)
+                            (+ candidate 2))))))]
+    (cons 2 (lazy-seq (next-primes {} 3)))))
 
-(defn next-prime [ps]
-  #^{:doc "Returns a next prime in the sequence"}
-  (first
-      (drop-while #(not (is-prime? ps %))
-                  (iterate #(+ % 2) (+ (first ps) 2)))))
-
-(println
-  (loop [n 3 ps '(3 2)]
-    (if (= n 10001) (first ps)
-      (recur (inc n) (cons (next-prime ps) ps)))))
+(println (last (take 10001 (lazy-primes3))))
