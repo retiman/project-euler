@@ -6,31 +6,19 @@
 (use '[clojure.set :only (union)])
 (use '[clojure.contrib.math :only (ceil sqrt round)])
 
-; Here's a fun thing about Clojure:
-; user=> (contains? #{1.0} 1)
-; false
-; user=> (contains? #{1.0} (double 1))
-; true
-; user=> (contains? #{(long 1)} 1)
-; false
-(defn
-  #^{:doc "Does what I really want 'contains?' to do"}
-  in? [s e]
-  (some #(= e %) s))
-
 (defn fermat-factors [n]
   (if (= 0 (rem n 2))
-    #{n (/ n 2)}
+    (sorted-set n (/ n 2))
     (loop [a (ceil (sqrt n))]
       (let [b (- (* a a) n)
             s (sqrt b)]
         (if (= s (round s))
-          #{(- a s) (+ a s)}
+          (sorted-set (- a s) (+ a s))
           (recur (inc a)))))))
 
 (defn prime-factors [n]
   (let [factors (fermat-factors n)]
-    (if (in? factors 1)
+    (if (contains? factors 1)
       (disj factors 1)
       (reduce union (map prime-factors factors)))))
 
