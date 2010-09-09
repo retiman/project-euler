@@ -10,7 +10,8 @@
 (defn all-palindromes []
   (for [i (range 999 1 -1)
         j (range i   1 -1)
-        :when (let [x (* i j)] (is-palindrome? x))]
-    (* i j)))
+        :let [x (* i j)]
+        :when (is-palindrome? x)]
+    x))
 
 (println (reduce max (all-palindromes)))
