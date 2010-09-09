@@ -4,7 +4,7 @@
 ; 0inputs+64outputs (1major+13859minor)pagefaults 0swaps
 
 (println
-  (apply +
+  (reduce +
     (filter #(or (zero? (rem % 3))
                  (zero? (rem % 5)))
             (range 1 1000))))
