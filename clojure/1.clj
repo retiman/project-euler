@@ -5,6 +5,6 @@
 
 (println
   (apply +
-    (filter #(or (= 0 (rem % 3))
-                 (= 0 (rem % 5)))
+    (filter #(or (zero? (rem % 3))
+                 (zero? (rem % 5)))
             (range 1 1000))))
