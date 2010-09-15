@@ -10,5 +10,4 @@ def tau(n: Int) = if (n == 1) 1
 
 def find(n: Int, i: Int): Int = if (tau(n) > 500) n else find(n + i, i + 1)
 
-val result = find(3, 3)
-println(result)
+println(find(3, 3))
