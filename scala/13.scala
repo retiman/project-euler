@@ -3,8 +3,6 @@
 // 0.69user 0.04system 0:01.77elapsed 41%CPU (0avgtext+0avgdata 0maxresident)k
 // 72inputs+64outputs (1major+12661minor)pagefaults 0swaps
 
-import scala.Math._
-
 val numbers = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
