@@ -1,3 +1,12 @@
+; JAVA_OPTS="-Xmx1024M" time clojure 14.clj
+; 837799
+; 35.67user 0.95system 0:23.78elapsed 153%CPU (0avgtext+0avgdata 0maxresident)k
+; 0inputs+64outputs (1major+306196minor)pagefaults 0swaps
+
+(defn flatten [x]
+  (let [s? #(instance? clojure.lang.Sequential %)]
+    (filter (complement s?) (tree-seq s? seq x))))
+
 (defn collatz-length [n]
   (let [length (fn [n acc]
                  (cond
@@ -8,5 +17,9 @@
 
 (def memoized-collatz-length (memoize collatz-length))
 
-(println
-  (reduce max (map memoized-collatz-length (range 1 1000000))))
+(let [h (apply hash-map
+          (flatten
+            (map #(vector (memoized-collatz-length %) %) (range 1 1000000))))
+      m (apply max (keys h))
+      r (h m)]
+  (println r))
