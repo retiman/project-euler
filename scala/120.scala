@@ -10,8 +10,8 @@ def f(a: Int) = {
     case _ => 2 * n * a
   }
   (1 to (2 * a)).map(g _)
-          .map(_ % (a * a))
-          .reduceLeft(_ max _)
+                .map(_ % (a * a))
+                .reduceLeft(_ max _)
 }
 
 println((3 to 1000).map(f _).reduceLeft(_ + _))
