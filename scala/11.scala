@@ -31,29 +31,35 @@ val matrix = """
    .map(_.trim)
    .filter(_ != "")
    .map(row => row.split(" ").map(_.toInt))
-var best = 0
 
-def --(i: Int, j: Int) = {
+def horizontal(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i)(j + k)).reduceLeft(_ * _) }
   catch { case _ => 0 }
 }
 
-def ^^(i: Int, j: Int) = {
+def vertical(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i + k)(j)).reduceLeft(_ * _) }
   catch { case _ => 0 }
 }
 
-def :/(i: Int, j: Int) = {
+def diagonalUp(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i - k)(j + k)).reduceLeft(_ * _) }
   catch { case _ => 0 }
 }
 
-def :\(i: Int, j: Int) = {
+def diagonalDown(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i + k)(j + k)).reduceLeft(_ * _) }
   catch { case _ => 0 }
 }
 
-for (i <- 0 until 20; j <- 0 until 20)
-  best = --(i, j) max ^^(i, j) max :/(i, j) max :\(i, j) max best
-
-println(best)
+println {
+  val xs = for (
+    i <- 0 until 20;
+    j <- 0 until 20;
+    a = horizontal(i, j);
+    b = vertical(i, j);
+    c = diagonalUp(i, j);
+    d = diagonalDown(i, j)
+  ) yield List(a, b, c, d).reduceLeft(_ max _)
+  xs.reduceLeft(_ max _)
+}
