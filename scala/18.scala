@@ -25,13 +25,13 @@ val data = """
    .map(_.split(" ").map(_.toLong))
    .toArray
 
-for (i <- data.length - 2 to 0 by -1;
-     j <- 0 until data(i).length) {
-  val left = data(i + 1)(j)
-  val right = data(i + 1)(j + 1)
-  val bigger = if (left > right) left else right
-  data(i)(j) += bigger
-}
+for (
+  i <- data.length - 2 to 0 by -1;
+  j <- 0 until data(i).length;
+  left = data(i + 1)(j);
+  right = data(i + 1)(j + 1);
+  bigger = left max right
+) data(i)(j) += bigger
 
 val result = data(0)(0)
 println(result)
