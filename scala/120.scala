@@ -4,12 +4,14 @@
 // 8inputs+64outputs (1major+18980minor)pagefaults 0swaps
 
 def f(a: Int) = {
-  val limit = 2 * a
-  val r = (3 to limit by 2).map(_ * 2 * a)
-                           .map(_ % (a * a))
-                           .reduceLeft(_ max _)
-  r max 2 max (2 * a)
+  def g(n: Int) = n match {
+    case 1 => 2 * a
+    case _ if n % 2 == 0 => 2
+    case _ => 2 * n * a
+  }
+  (1 to (2 * a)).map(g _)
+          .map(_ % (a * a))
+          .reduceLeft(_ max _)
 }
 
-val result = (3 to 1000).map(f _).reduceLeft(_ + _)
-println(result)
+println((3 to 1000).map(f _).reduceLeft(_ + _))
