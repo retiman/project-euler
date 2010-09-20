@@ -6,10 +6,7 @@
 val digits = List(0,1,2,3,4,5,6,7,8,9)
 val target = 1000000
 
-def fact(n: Int): Int = {
-  def recur(n: Int, acc: Int): Int = if (n == 1) acc else recur(n - 1, n * acc)
-  if (n == 0) 1 else recur(n, 1)
-}
+def fact(n: Int): Int = if (n == 0 || n == 1) 1 else (2 to n).reduceLeft(_ * _)
 
 def compute(list: List[Int]): List[Int] = {
   def recur(list: List[Int], current: Int): List[Int] = {
