@@ -3,7 +3,6 @@
 // 1.41user 0.05system 0:02.86elapsed 51%CPU (0avgtext+0avgdata 0maxresident)k
 // 8inputs+64outputs (1major+21854minor)pagefaults 0swaps
 
-import scala.collection.mutable.Set
 import scala.math._
 
 def divisors(n: Int) = {
