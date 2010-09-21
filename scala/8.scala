@@ -28,12 +28,9 @@ val s = """
    .map(_.trim)
    .mkString("")
 
-var best = 0
-(1 until s.length).filter(_ + 4 < s.length)
-                  .foreach(i => {
-  val product = (i to i + 4).map(s).map(_.toString.toInt).reduceLeft[Int](_*_)
-  if (product > best)
-    best = product
-})
+val products = for (
+  i <- 1 until s.length - 4;
+  digits = (i to i + 4).map(s).map(_.toString.toInt)
+) yield digits.reduceLeft(_ * _)
 
-println(best)
+println(products.reduceLeft(_ max _))
