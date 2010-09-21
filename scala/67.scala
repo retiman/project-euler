@@ -18,5 +18,4 @@ for (i <- data.length - 2 to 0 by -1;
   data(i)(j) += left max right
 }
 
-val result = data(0)(0)
-println(result)
+println(data(0)(0))

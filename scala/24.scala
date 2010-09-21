@@ -30,5 +30,4 @@ def compute(list: List[Int]): List[Int] = {
   recur(list, 1)
 }
 
-val result = compute(digits).mkString("")
-println(result)
+println(compute(digits).mkString(""))

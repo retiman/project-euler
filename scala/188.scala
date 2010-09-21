@@ -5,8 +5,8 @@
 
 def order(a: Long, m: Long) = {
   def recur(b: Long, n: Long): Long = n match {
-    case n if n == m - 1 => n
-    case n if b == 1     => n
+    case _ if n == m - 1 => n
+    case _ if b == 1     => n
     case _               => recur((a * b) % m, n + 1)
   }
   recur(a % m, 1L)
@@ -30,5 +30,4 @@ def mtet(b: Long, e: Long)(m: Long): Long = {
   }
 }
 
-val result = mtet(1777, 1855)(100000000)
-println(result)
+println(mtet(1777, 1855)(100000000))

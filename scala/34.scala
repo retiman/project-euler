@@ -26,5 +26,4 @@ def isFactorion(n: Int) = n == n.toString
                                 .map(fact _)
                                 .reduceLeft(_ + _)
 
-val result = (3 to maxFactorion).filter(isFactorion _).reduceLeft(_ + _)
-println(result)
+println((3 to maxFactorion).filter(isFactorion _).reduceLeft(_ + _))

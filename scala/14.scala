@@ -24,5 +24,4 @@ def f(n: Long) = {
   (n, map(n))
 }
 
-val result = (1 to limit).map(_.toLong).map(f _).reduceLeft(_ max _)._1
-println(result)
+println((1 to limit).map(_.toLong).map(f _).reduceLeft(_ max _)._1)

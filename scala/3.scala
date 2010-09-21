@@ -26,5 +26,4 @@ def primeFactors(n: Long): Set[Long] = {
     factors.map(f => primeFactors(f)).reduceLeft(_ ++ _)
 }
 
-val result = primeFactors(600851475143L).reduceLeft(_ max _)
-println(result)
+println(primeFactors(600851475143L).reduceLeft(_ max _))

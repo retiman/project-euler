@@ -14,5 +14,4 @@ def sieve(limit: Int) = {
   numbers.filter(_ != 0).toList
 }
 
-val result = sieve(2000000).map(_.toLong).reduceLeft(_+_)
-println(result);
+println(sieve(2000000).map(_.toLong).reduceLeft(_ + _))

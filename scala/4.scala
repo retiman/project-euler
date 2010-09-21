@@ -4,12 +4,10 @@
 // 0inputs+0outputs (0major+20751minor)pagefaults 0swaps
 
 def isPalindrome(n: Int) = n.toString.reverse.toInt == n
-var result = 0
-
-for (
+val xs = for (
   i <- 999 to 1 by -1;
   j <- i to 1 by -1;
-  x =  i * j
-  if (isPalindrome(x) && x > result)
-) result = x
-println(result)
+  if (isPalindrome(i * j))
+) yield i * j
+
+println(xs.reduceLeft(_ max _))

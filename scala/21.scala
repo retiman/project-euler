@@ -6,11 +6,6 @@
 import scala.collection.mutable.Set
 import scala.math._
 
-implicit def tupleWrapper[A, B](t: Pair[A, B]) = new {
-  def a = t._1
-  def b = t._2
-}
-
 def divisors(n: Int) = {
   val d = (2 to sqrt(n).toInt).filter(n % _ == 0)
   Set() ++ d ++ d.map(n / _) ++ Set(1)
@@ -18,8 +13,9 @@ def divisors(n: Int) = {
 
 def sigma(n: Int) = divisors(n).reduceLeft(_ + _)
 
-val result = (2 to 10000).map(n => (n, sigma(n)))
-                         .filter(t => (t.a > t.b && sigma(t.b) == t.a))
-                         .map(t => t.a + t.b)
-                         .reduceLeft(_ + _)
-println(result)
+println {
+  (2 to 10000).map(n => (n, sigma(n)))
+              .filter(t => (t._1 > t._2 && sigma(t._2) == t._1))
+              .map(t => t._1 + t._2)
+              .reduceLeft(_ + _)
+}

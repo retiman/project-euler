@@ -33,5 +33,4 @@ for (
   bigger = left max right
 ) data(i)(j) += bigger
 
-val result = data(0)(0)
-println(result)
+println(data(0)(0))

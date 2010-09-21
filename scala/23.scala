@@ -26,5 +26,4 @@ for (
     numbers(index) = 0
 }
 
-val result = numbers.reduceLeft(_+_)
-println(result)
+println(numbers.reduceLeft(_ + _))

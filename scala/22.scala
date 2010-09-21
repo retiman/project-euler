@@ -18,5 +18,6 @@ val data = Source.fromFile("../data/22.txt")
 def score(name: String) = name.map(c => scores(c)).reduceLeft(_ + _)
 def f(t: Pair[Int, String]) = (t._1 + 1) * score(t._2)
 
-val result = (data.indices zip data.sortWith(_ < _)).map(f _).reduceLeft(_ + _)
-println(result)
+println {
+  data.indices zip data.sortWith(_ < _)).map(f _).reduceLeft(_ + _)
+}

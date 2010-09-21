@@ -4,5 +4,5 @@
 // 8inputs+64outputs (1major+16154minor)pagefaults 0swaps
 
 def fact(n: BigInt): BigInt = (BigInt(2) to n).reduceLeft(_ * _)
-val sum = fact(100).toString.map(_.toString.toInt).reduceLeft(_+_)
+val sum = fact(100).toString.map(_.toString.toInt).reduceLeft(_ + _)
 println(sum)

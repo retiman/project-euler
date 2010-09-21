@@ -109,7 +109,4 @@ val numbers = """
    .filter(_ != "")
    .map(BigInt(_))
 
-val result = numbers.reduceLeft(_ + _)
-                    .toString
-                    .take(10)
-println(result)
+println(numbers.reduceLeft(_ + _).toString.take(10))
