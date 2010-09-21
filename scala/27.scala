@@ -3,23 +3,17 @@
 // 2.18user 0.10system 0:02.97elapsed 76%CPU (0avgtext+0avgdata 0maxresident)k
 // 2168inputs+64outputs (1major+37457minor)pagefaults 0swaps
 
-import scala.collection.mutable.HashSet
 import scala.io.Source
 
 def f(n: Int, a: Int, b: Int) = n*n + a*n + b
 
-def count(ps: HashSet[Int], a: Int, b: Int): Int = {
+def count(ps: Set[Int], a: Int, b: Int): Int = {
   (0 until b).takeWhile(ps contains f(_, a, b)).size
 }
 
-def primes() = {
-  val set = new HashSet[Int]()
-  Source.fromFile("../data/primes.txt")
-        .getLines
-        .map(_.trim.toInt)
-        .foreach(set += _)
-  set
-}
+def primes() = Set() ++ Source.fromFile("../data/primes.txt")
+                              .getLines
+                              .map(_.trim.toInt)
 
 val bmax = 1000
 val ps   = primes()
