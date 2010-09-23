@@ -5,4 +5,4 @@
 
 (use '[clojure.contrib.math :only (expt)])
 
-(println (reduce + (map #(Integer/parseInt (str %)) (str (expt 2 1000))))
+(println (reduce + (map #(Integer/parseInt (str %)) (str (expt 2 1000)))))
