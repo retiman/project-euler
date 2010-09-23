@@ -17,7 +17,18 @@
 
 (def memoized-collatz-length (memoize collatz-length))
 
-(let [h (apply hash-map
+; In Clojure 1.1.0, sets could be constructed with duplicate elements ignored,
+; and hash-maps could be constructed with duplicated keys, with the last key's
+; value overriding previous values.
+;
+; In Clojure 1.2.0, this feature was removed (presumably to help users avoid
+; typos).  Sets have a function called 'into' that allowed you to construct
+; sets with duplicate values, but hash-maps seem to be missing an analogous
+; function (or if not, I do not know it).
+;
+; However, sorted-map does not have this duplicate key guard, so a sorted-map
+; is being used here instead.
+(let [h (apply sorted-map
           (flatten
             (map #(vector (memoized-collatz-length %) %) (range 1 1000000))))
       m (apply max (keys h))
