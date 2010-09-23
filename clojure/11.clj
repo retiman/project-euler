@@ -32,10 +32,6 @@
   (try (reduce * (map #(value (+ i %) (+ j %)) (range 4)))
     (catch RuntimeException e 0)))
 
-(defn flatten [xs]
-  (let [s? #(instance? clojure.lang.Sequential %)]
-     (filter (complement s?) (tree-seq s? seq xs))))
-
 (println
   (apply max
     (flatten
