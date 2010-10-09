@@ -11,6 +11,6 @@ Languages
 * Clojure: Clojure 1.2.0 with Clojure Contrib 1.2.0
 * Haskell: GHC 6.8.2
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
-* Ruby: MRI 1.8.7
+* Ruby: MRI 1.9.2
 * Scala: Scala 2.8.0
 * Scheme: MzScheme 4.0
