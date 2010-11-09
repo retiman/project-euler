@@ -1,2 +1,5 @@
+CLASSPATH := ${HOME}/.m2/repository/com/lousycoder/pelib_2.8.0/1.4/pelib_2.8.0-1.4.jar
+JAVA_OPTS := "-Xmx1024M"
+
 %: %.scala
-	JAVA_OPTS="-Xmx1024M" time scala -deprecation $<
+	JAVA_OPTS=${JAVA_OPTS} CLASSPATH=${CLASSPATH} time scala -deprecation $<
