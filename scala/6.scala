@@ -5,4 +5,4 @@
 
 val a = (1 to 100).map(i => i * i).reduceLeft(_ + _)
 val b = (1 to 100).reduceLeft(_ + _)
-val println(b * b - a)
+println(b * b - a)
