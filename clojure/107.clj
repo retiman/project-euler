@@ -35,7 +35,7 @@
   [u]
   (set
     (filter #(not (= inf (cost [u %])))
-            (range 0 (count graph)))))
+            (range (count graph)))))
 
 (defn frontier-edges
   "Returns the frontier edges"
