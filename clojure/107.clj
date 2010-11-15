@@ -8,12 +8,12 @@
 
 (def inf Double/POSITIVE_INFINITY)
 
- (def graph
-   (let [unsplit-lines (su/split-lines (slurp "../data/107.txt"))
-         split-lines (map #(su/split % #",") unsplit-lines)
-         parse-element #(if (= "-" %) inf (Double/parseDouble %))
-         rows (map #(map parse-element %) split-lines)]
-     (vec (map vec rows))))
+(def graph
+  (let [unsplit-lines (su/split-lines (slurp "../data/107.txt"))
+        split-lines (map #(su/split % #",") unsplit-lines)
+        parse-element #(if (= "-" %) inf (Double/parseDouble %))
+        rows (map #(map parse-element %) split-lines)]
+    (vec (map vec rows))))
 
 (def vertex-set
   ((comp set range count) graph))
