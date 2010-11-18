@@ -1,3 +1,5 @@
+<img src="http://projecteuler.net/profile/retiman.png" alt="My profile"/>
+
 DESCRIPTION
 ===========
 These are solutions to Project Euler problems.  It's easy to find solutions on the
