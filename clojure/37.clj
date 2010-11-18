@@ -1,3 +1,7 @@
+; 748317
+; 25.55user 0.65system 0:23.03elapsed 113%CPU (0avgtext+0avgdata 0maxresident)k
+; 0inputs+0outputs (0major+89427minor)pagefaults 0swaps
+
 (use '[clj-pelib.math :only (prime?)])
 (use '[clojure.contrib.lazy-seqs :only (primes)])
 
@@ -31,12 +35,9 @@
       (cond
         (< p 11) (recur (rest ps) ts)
         (= (count ts) 11) ts
-        :default 
-        (do
-          (println p)
-        (if (truncatable? p)
+        :default (if (truncatable? p)
                    (recur (rest ps) (cons p ts))
-                   (recur (rest ps) ts)))))))
+                   (recur (rest ps) ts))))))
 
-(println 
+(println
   (apply + (f primes)))
