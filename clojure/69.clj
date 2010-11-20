@@ -1,3 +1,5 @@
+; NOT A SOLUTION
+
 (use '[clj-pelib.math :only (totient)])
 
 ; Very interesting output; the best candidates have digits like

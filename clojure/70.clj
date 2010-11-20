@@ -1,3 +1,5 @@
+; NOT A SOLUTION
+
 (use 'clj-pelib.math)
 
 (defn permutation?
