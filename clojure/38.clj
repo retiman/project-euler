@@ -1,42 +1,32 @@
+; 932718654
+; 16.02user 2.95system 0:15.19elapsed 124%CPU (0avgtext+0avgdata 0maxresident)k
+; 0inputs+8outputs (0major+100708minor)pagefaults 0swaps
+
 (use 'clojure.contrib.combinatorics)
 
-(defn digits [n]
-  (into #{} (map #(first (str %)) (range 1 (inc n)))))
-
-(defn pandigital? [n]
-  (let [xs (into #{} n)
-        ys (digits (count n))]
-    (= xs ys)))
-
-(defn concatenated-product [n]
-  (let [cs (map #(* n %) (range 1 10))
-        ts (take 9 (apply str cs))]
-    (apply str ts)))
-
-(def digits (memoize digits))
-
-(comment
 (def pandigitals
-  (for [n (range 1 987654321)
-        :let [p (concatenated-product n)]
-        :when (pandigital? p)]
-    (Long/parseLong p)))
+  (set (map #(apply str %) (permutations (range 1 10)))))
+
+(defn pandigital?
+  "Returns true if s is a 1 to 9 pandigital; false otherwise."
+  [s]
+  (contains? pandigitals s))
+
+(defn pandigital-product
+  "Creates a 1 to 9 pandigital from consecutive digits starting from 2.
+  The problem does not make it especially clear that the pandigital
+  product must have exactly 9 digits and 'trivial' products like
+  1 * 987654321 are not permitted."
+  [n]
+  (loop [s "" i 1]
+    (cond
+      (= (count s) 9) (if (= i 1) nil s)
+      (> (count s) 9) nil
+      :default (recur (str s (* n i)) (inc i)))))
 
 (println
-  (apply max pandigitals)))
-
-
-
-
-(def pandigitals
-  (set (permutations (map #(first (str %)) (range 1 3)))))
-
-(defn pandigital? [n]
-  (contains pandigitals n))
-
-(defn concatenated-product [n]
-  (Integer/parseInt
-    (apply str
-      (take 9
-        (apply str
-          (map #(* n %) (range 1 10)))))))
+  (reduce max
+    (for [x (range 1 99999)
+          :let [p (pandigital-product x)]
+          :when (pandigital? p)]
+      (Integer/parseInt p))))
