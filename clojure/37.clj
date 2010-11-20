@@ -27,7 +27,8 @@
            (truncatable? (truncate n direction) direction)))))
 
 (defn f
-  "Finds the first 11 primes that are 'truncatable'."
+  "Finds the first 11 primes that are 'truncatable'.  The problem gives us that
+  there are only 11 such primes, so there is no need to search further."
   ([ps]
     (f ps ()))
   ([ps ts]
