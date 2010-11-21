@@ -12,6 +12,7 @@ LANGUAGES
 =========
 * Clojure: Clojure 1.2.0 with Clojure Contrib 1.2.0
 * Haskell: GHC 6.8.2
+* Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
 * Ruby: MRI 1.9.2
 * Scala: Scala 2.8.1
