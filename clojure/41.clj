@@ -1,4 +1,6 @@
-; Takes an ungodly amount of time to find the solution of 7652413
+; 7652413
+; 1780.55user 102.25system 35:59.98elapsed 87%CPU (0avgtext+0avgdata 0maxresident)k
+; 144inputs+16outputs (3major+168277minor)pagefaults 0swaps
 
 (require '[clojure.contrib.lazy-seqs :as seqs])
 
@@ -19,6 +21,9 @@
       (and (= (count s) (count t))
            (= t (pandigits (count s)))))))
 
+; This solution can stand to be optimized.  The answer is 7652413 through
+; verification with the Project Euler website, but it takes over an hour to
+; find it.
 (loop [ps seqs/primes]
   (let [p (first ps)]
     (do
