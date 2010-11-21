@@ -2,8 +2,7 @@ JAVA_OPTS := "-Xmx1024M"
 
 %: P%.java
 	javac P$*.java
-	JAVA_OPTS=${JAVA_OPTS} time java P$*
-	rm P$*.class
+	JAVA_OPTS=${JAVA_OPTS} time java P$* && $(RM) P$*.class
 
 clean:
-	rm *.class
+	$(RM) *.class
