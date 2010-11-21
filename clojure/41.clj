@@ -1,3 +1,5 @@
+; Takes an ungodly amount of time to find the solution of 7652413
+
 (require '[clojure.contrib.lazy-seqs :as seqs])
 
 (def best (atom 0))
