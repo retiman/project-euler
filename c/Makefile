@@ -1,6 +1,6 @@
 %: %.c
 	$(CC) $<
-	./a.out
+	./a.out && $(RM) a.out
 
 clean:
 	$(RM) a.out
