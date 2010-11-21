@@ -10,6 +10,7 @@ with it.
 
 LANGUAGES
 =========
+* Bash: GNU bash, version 3.2.39(1)-release (i486-pc-linux-gnu)
 * Clojure: Clojure 1.2.0 with Clojure Contrib 1.2.0
 * Haskell: GHC 6.8.2
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
