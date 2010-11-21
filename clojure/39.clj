@@ -1,3 +1,7 @@
+; 73682
+; 2.68user 0.18system 0:02.28elapsed 125%CPU (0avgtext+0avgdata 0maxresident)k
+; 0inputs+8outputs (0major+14656minor)pagefaults 0swaps
+
 (defmacro defp [x y]
   (let [f (str "p" x)
         g (str "p" y)]
@@ -8,7 +12,8 @@
 
 (defn p1 [n] 1)
 
-(defp 2 1)
+(let [x 2 y 1]
+  (defp x y))
 
 (defp 5 2)
 
