@@ -12,8 +12,7 @@
 
 (defn p1 [n] 1)
 
-(let [x 2 y 1]
-  (defp x y))
+(defp 2 1)
 
 (defp 5 2)
 
