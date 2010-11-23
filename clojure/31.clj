@@ -3,11 +3,11 @@
 ; 0inputs+8outputs (0major+14656minor)pagefaults 0swaps
 
 (defmacro defp [x y]
-  (let [f (str "p" x)
-        g (str "p" y)]
-    `(defn ~(symbol f) [n#]
+  (let [px (symbol (str "p" x))
+        py (symbol (str "p" y))]
+    `(defn ~px [n#]
        (if (>= n# 0)
-         (+ (~(symbol f) (- n# ~x)) (~(symbol g) n#))
+         (+ (~px (- n# ~x)) (~py n#))
          0))))
 
 (defn p1 [n] 1)
