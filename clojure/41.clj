@@ -4,8 +4,6 @@
 
 (require '[clojure.contrib.lazy-seqs :as seqs])
 
-(def best (atom 0))
-
 (defn pandigits
   "Returns a set of chars that comprise the digits of a 1 to n pandigital."
   [n]
@@ -27,6 +25,8 @@
 ; This solution can stand to be optimized.  The answer is 7652413 through
 ; verification with the Project Euler website, but it takes over an hour to
 ; find it.
+(def best (atom 0))
+
 (loop [ps seqs/primes]
   (let [p (first ps)]
     (do
