@@ -6,7 +6,9 @@
 (use '[clojure.set :only (union)])
 (use '[clojure.contrib.math :only (ceil sqrt round)])
 
-(defn fermat-factors [n]
+(defn fermat-factors
+  "Uses Fermat's factorization method to return 2 factors of n, if possible."
+  [n]
   (if (= 0 (rem n 2))
     (sorted-set n (/ n 2))
     (loop [a (ceil (sqrt n))]
@@ -16,7 +18,9 @@
           (sorted-set (- a s) (+ a s))
           (recur (inc a)))))))
 
-(defn prime-factors [n]
+(defn prime-factors
+  "Returns the prime factors of n, using Fermat's factorization method."
+  [n]
   (let [factors (fermat-factors n)]
     (if (contains? factors 1)
       (disj factors 1)
