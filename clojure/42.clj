@@ -6,13 +6,20 @@
 
 (declare charmap triangle-word-scores)
 
-(defn triangle [n]
+(defn triangle
+  "Returns the nth triangle number."
+  [n]
   (quot (* n (inc n)) 2))
 
-(defn triangle? [n]
+(defn triangle?
+  "Returns true if n is a triangle number in triangle-word-scores."
+  [n]
   (contains? triangle-word-scores n))
 
-(defn word-score [word]
+(defn word-score
+  "Compute the score of a word, which is the sum of the character values of
+  each letter.  A maps to 1, B maps to 2, and so on."
+  [word]
   (reduce + (map #(get charmap %) word)))
 
 (def words
