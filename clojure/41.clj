@@ -6,18 +6,21 @@
 
 (def best (atom 0))
 
-(defn pandigits [n]
+(defn pandigits
+  "Returns a set of chars that comprise the digits of a 1 to n pandigital."
+  [n]
   (into #{}
     (map char
       (range (int \1) ((comp inc int first str) n)))))
 
 (def pandigits (memoize pandigits))
 
-(defn pandigital? [n]
+(defn pandigital?
+  "Returns true if n is a pandigital; false otherwise."
+  [n]
   (let [s (str n)
         t (into #{} s)]
     (do
-      (println "Checking" n ", best is" (deref best))
       (and (= (count s) (count t))
            (= t (pandigits (count s)))))))
 
