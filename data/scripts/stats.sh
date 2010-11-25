@@ -1,12 +1,18 @@
 #!/bin/bash
 
+echo "Solutions Per Language"
+echo "======================"
+
 for dir in *; do
   if [ $dir = 'data' ]; then continue; fi
   if [ ! -d $dir ]; then continue; fi
 
-  echo -n "$dir: "
   cd $dir
+  make clean > /dev/null 2>&1
+  num=$(ls | wc -l)
   solns=""
+  echo -e -n "$dir ($((num - 1))):\t"
+  if [ $dir = 'c' ]; then echo -e -n "\t"; fi
 
   for f in *; do
     if [ $f = 'Makefile' ]; then continue; fi
