@@ -1,7 +1,7 @@
 DESCRIPTION
 ===========
 <p>
-<img src="https://github.com/downloads/retiman/project-euler/retiman.png" alt="My profile" title="My level" />
+<img src="http://projecteuler.net/profile/retiman.png" alt="My profile" title="My level" />
 </p>
 
 These are solutions to Project Euler problems.  It's easy to find solutions on the
