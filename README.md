@@ -11,6 +11,10 @@ with it.
 The Clojure solutions require <http://www.github.com/retiman/clj-pelib> to be
 present in the classpath.
 
+Check which solutions have been provided by running:
+
+    make stats
+
 LANGUAGES
 =========
 * Bash: GNU bash, version 3.2.39(1)-release (i486-pc-linux-gnu)
