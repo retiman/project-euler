@@ -10,12 +10,20 @@ net, so if you don't want to spoil the fun, don't look at these.
 Feel free to do WHATEVER with the code; I've added a license so anybody can go wild
 with it.
 
-The Clojure solutions require <http://www.github.com/retiman/clj-pelib> to be
-present in the classpath.
-
+USAGE
+=====
 Check which solutions have been provided by running:
 
     make stats
+
+Run particular solutions by descending into a language's subdirectory and running
+`make` For example, to run the solution for problem #25 in Scala, do this:
+
+    cd scala
+    make 25
+
+Note that the Clojure solutions require <http://www.github.com/retiman/clj-pelib> to be
+present in the classpath.
 
 LANGUAGES
 =========
