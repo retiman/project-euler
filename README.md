@@ -4,11 +4,11 @@ DESCRIPTION
 <img src="https://github.com/downloads/retiman/project-euler/retiman.png" alt="My profile" title="My level" />
 </p>
 
-These are solutions to Project Euler problems.  It's easy to find solutions on the
-net, so if you don't want to spoil the fun, don't look at these.
+These are solutions to Project Euler problems.  It's easy to find solutions on
+the net, so if you don't want to spoil the fun, don't look at these.
 
-Feel free to do WHATEVER with the code; I've added a license so anybody can go wild
-with it.
+Feel free to do WHATEVER with the code; I've added a license so anybody can go
+wild with it.
 
 USAGE
 =====
@@ -16,14 +16,15 @@ Check which solutions have been provided by running:
 
     make stats
 
-Run particular solutions by descending into a language's subdirectory and running
-`make` For example, to run the solution for problem #25 in Scala, do this:
+Run particular solutions by descending into a language's subdirectory and
+running `make` For example, to run the solution for problem #25 in Scala, do
+this:
 
     cd scala
     make 25
 
-Note that the Clojure solutions require <http://www.github.com/retiman/clj-pelib> to be
-present in the classpath.
+Note that the Clojure solutions require <http://www.github.com/retiman/clj-pelib>
+to be present in the classpath.
 
 LANGUAGES
 =========
