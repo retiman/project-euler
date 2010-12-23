@@ -21,6 +21,7 @@ for dir in *; do
   done
 
   solns=$(echo -n "$solns" | sed 's/\.[^ ]*\s/ /g' | sed 's/P//g')
-  echo $solns | sort
+  solns=$(echo $solns | tr ' ' '\n' | sort -n | tr '\n' ' ')
+  echo $solns
   cd ..
 done
