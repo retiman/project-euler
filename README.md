@@ -1,4 +1,4 @@
-<img src="http://cloud.github.com/downloads/retiman/project-euler/retiman.png" alt="My profile"/>
+<img src="http://cloud.github.com/downloads/retiman/project-euler/retiman.png" alt="My profile" title="My level/>
 
 DESCRIPTION
 ===========
