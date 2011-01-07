@@ -29,6 +29,7 @@ to be present in the classpath.
 LANGUAGES
 =========
 * Bash: GNU bash, version 3.2.39(1)-release (i486-pc-linux-gnu)
+* C: gcc (Debian 4.3.2-1.1) 4.3.2
 * Clojure: Clojure 1.2.0 with Clojure Contrib 1.2.0 and clj-pelib 1.4.1
 * Haskell: GHC 6.8.2
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
