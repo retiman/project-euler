@@ -22,6 +22,7 @@
       (and (= (count s) (count t))
            (= t (pandigits (count s)))))))
 
+; TODO:
 ; This solution can stand to be optimized.  The answer is 7652413 through
 ; verification with the Project Euler website, but it takes over an hour to
 ; find it.

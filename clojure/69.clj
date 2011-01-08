@@ -2,7 +2,7 @@
 
 (use '[clj-pelib.math :only (totient)])
 
-; This solution takes hours to run.  It can stand to be optimized.
+; TODO: This solution takes hours to run.  It can stand to be optimized.
 (println
   (first
     (reduce (fn [a b]
