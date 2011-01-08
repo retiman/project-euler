@@ -4,11 +4,11 @@
 ; 0inputs+64outputs (1major+306196minor)pagefaults 0swaps
 
 (defn collatz-length* [n]
-  (let [length (fn [n acc]
-                 (cond
-                   (= n 1) acc
-                   (even? n) (recur (/ n 2) (inc acc))
-                   (odd? n) (recur (+  1 (* 3 n)) (inc acc))))]
+  (letfn [(length [n acc]
+            (cond
+              (= n 1) acc
+              (even? n) (recur (/ n 2) (inc acc))
+              (odd? n) (recur (+  1 (* 3 n)) (inc acc))))]
     (length n 0)))
 
 (def collatz-length (memoize collatz-length*))
