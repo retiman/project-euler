@@ -18,7 +18,7 @@
 ; Any pandigital containing digits 1 through 9 is not prime:
 ; (apply + (range 1 10)) is 45 and thus divisible by 3
 (def xs
-  (into #{} (take-while #(< % 7654321) primes)))
+  (into #{} (take-while #(<= % 7654321) primes)))
 
 (def ys
   (into #{} (map #(parse-int (su/join "" %)) (permutations cs))))
