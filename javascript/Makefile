@@ -1,2 +1,4 @@
+JS ?= js
+
 %: %.js
-	time js -f $<
+	time $(JS) -f $<
