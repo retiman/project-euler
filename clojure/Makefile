@@ -4,3 +4,6 @@ CLASSPATH := ${HOME}/.m2/repository/clj-pelib/clj-pelib/1.4.4/clj-pelib-1.4.4.ja
 
 %: %.clj
 	JAVA_OPTS="${JAVA_OPTS}" CLASSPATH="${CLASSPATH}" time ${CLOJURE} $<
+
+repl:
+	JAVA_OPTS="${JAVA_OPTS}" CLASSPATH="${CLASSPATH}" ${CLOJURE}
