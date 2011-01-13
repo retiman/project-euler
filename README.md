@@ -21,7 +21,8 @@ you need Clojure 1.2.0 or above.
 
     LIMIT=10000 make primes
 
-The default limit for primes is 10^8.
+The default limit for primes is 10^8 but some problems do not require so many primes to
+be pre-computed.
 
 Run particular solutions by descending into a language's subdirectory and
 running `make` For example, to run the solution for problem #25 in Scala, do
@@ -37,7 +38,7 @@ LANGUAGES
 =========
 * Bash: GNU bash, version 3.2.39(1)-release (i486-pc-linux-gnu)
 * C: gcc (Debian 4.3.2-1.1) 4.3.2
-* Clojure: Clojure 1.2.0 with Clojure Contrib 1.2.0 and clj-pelib 1.4.1
+* Clojure: Clojure 1.2.0 with Clojure Contrib 1.2.0 and clj-pelib 1.4.5
 * Haskell: GHC 6.8.2
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
