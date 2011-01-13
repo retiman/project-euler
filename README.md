@@ -16,6 +16,13 @@ Check which solutions have been provided by running:
 
     make stats
 
+Some problems require a pre-computed list of primes.  You can create such a list, but
+you need Clojure 1.2.0 or above.
+
+    LIMIT=10000 make primes
+
+The default limit for primes is 10^8.
+
 Run particular solutions by descending into a language's subdirectory and
 running `make` For example, to run the solution for problem #25 in Scala, do
 this:
