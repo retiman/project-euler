@@ -6,28 +6,30 @@
 (use '[clojure.contrib.str-utils2 :only (split-lines split)])
 
 (def matrix
-  (apply vector
-    (map #(apply vector %)
-      (map #(map parse-int %)
-        (map #(split % #"\s+") (split-lines (slurp "../data/11.txt")))))))
+  (to-array-2d
+    ((comp (fn [x] (map #(map parse-int %) x))
+           (fn [x] (map #(split % #"\s+") x))
+           split-lines
+           slurp)
+       "../data/11.txt")))
 
 (defn value [i j]
   ((matrix i) j))
 
 (defn horizontal-product [i j]
-  (try (reduce * (map #(value i (+ j %)) (range 4)))
+  (try (reduce * (map #(aget matrix i (+ j %)) (range 4)))
     (catch RuntimeException e 0)))
 
 (defn vertical-product [i j]
-  (try (reduce * (map #(value (+ i %) j) (range 4)))
+  (try (reduce * (map #(aget matrix (+ i %) j) (range 4)))
     (catch RuntimeException e 0)))
 
 (defn diagonal-up-product [i j]
-  (try (reduce * (map #(value (- i %) (+ j %)) (range 4)))
+  (try (reduce * (map #(aget matrix (- i %) (+ j %)) (range 4)))
     (catch RuntimeException e 0)))
 
 (defn diagonal-down-product [i j]
-  (try (reduce * (map #(value (+ i %) (+ j %)) (range 4)))
+  (try (reduce * (map #(aget matrix (+ i %) (+ j %)) (range 4)))
     (catch RuntimeException e 0)))
 
 (println
