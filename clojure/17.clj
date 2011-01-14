@@ -1,4 +1,3 @@
-; JAVA_OPTS="-Xmx1024M" time clojure 17.clj
 ; 21124
 ; 1.66user 0.16system 0:01.54elapsed 118%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+0outputs (0major+13790minor)pagefaults 0swaps
