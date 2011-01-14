@@ -13,9 +13,6 @@
            slurp)
        "../data/11.txt")))
 
-(defn value [i j]
-  ((matrix i) j))
-
 (defn horizontal-product [i j]
   (try (reduce * (map #(aget matrix i (+ j %)) (range 4)))
     (catch RuntimeException e 0)))
