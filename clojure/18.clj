@@ -1,3 +1,7 @@
+; 1074
+; 3.50user 0.32system 0:03.65elapsed 104%CPU (0avgtext+0avgdata 0maxresident)k
+; 0inputs+24outputs (0major+17723minor)pagefaults 0swaps
+
 (use 'clj-pelib.core)
 (require '[clojure.contrib.str-utils2 :as su])
 
@@ -19,7 +23,7 @@
   04 62 98 27 23 09 70 98 73 93 38 53 60 04 23")
 
 (def data
-  (atom
+  (to-array-2d
     (let [f (comp
               (fn [x] (map vec x))
               (fn [x] (map #(map parse-int %) x))
@@ -28,16 +32,12 @@
               (fn [x] (su/split-lines x)))]
       (vec (f s)))))
 
-(defn update [data i j v]
-  (let [r1 (data i)
-        r2 (assoc r1 j (+ (r1 j) v))]
-    (assoc data i r2)))
-
-(doseq [i (range (- (count @data) 2) (dec 0) -1)
-        j (range 0 (count (@data i)))
-        :let [left ((@data (inc i)) j)
-              right ((@data (inc i)) (inc j))
+(doseq [i (range (- (count data) 2) (dec 0) -1)
+        j (range 0 (count (aget data i)))
+        :let [current (aget data i j)
+              left (aget data (inc i) j)
+              right (aget data (inc i) (inc j))
               bigger (max left right)]]
-   (swap! data #(update % i j bigger)))
+  (aset data i j (+ current bigger)))
 
-(println ((@data 0) 0))
+(println (aget data 0 0))
