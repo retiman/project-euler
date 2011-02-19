@@ -1,2 +1,2 @@
 %: %.scm
-	time mzscheme -f $<
+	time racket $<
