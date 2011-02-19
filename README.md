@@ -44,4 +44,4 @@ LANGUAGES
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
 * Ruby: MRI 1.9.2
 * Scala: Scala 2.8.0.final
-* Scheme: MzScheme 4.0
+* Scheme: Racket 5.1
