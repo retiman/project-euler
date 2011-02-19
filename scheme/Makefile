@@ -1,2 +1,2 @@
-%: %.scm
+%: %.rkt
 	time racket $<
