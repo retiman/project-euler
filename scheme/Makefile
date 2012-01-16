@@ -1,2 +1,2 @@
-%: %.rkt
-	time racket $<
+%: %.scm
+	time racket -r $<

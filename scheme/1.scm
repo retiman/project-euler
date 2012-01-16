@@ -1,5 +1,3 @@
-#lang scheme
-
 (define sum
   (lambda (limit)
     (let recur ((i 0))
