@@ -2,7 +2,7 @@
 ; 15.98user 0.44system 0:13.62elapsed 120%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+0outputs (0major+62317minor)pagefaults 0swaps
 
-(use '[clj-pelib.math])
+(load-file "lib/core.clj")
 (use '[clojure.contrib.math :only (sqrt)])
 
 (println

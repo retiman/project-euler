@@ -17,7 +17,7 @@ Check which solutions have been provided by running:
     make stats
 
 Some problems require a pre-computed list of primes.  You can create such a list, but
-you need Clojure 1.2.0 or above.
+you need Clojure 1.2.x.
 
     LIMIT=10000 make primes
 
@@ -31,14 +31,11 @@ this:
     cd scala
     make 25
 
-Note that the Clojure solutions require <http://www.github.com/retiman/clj-pelib>
-to be present in the classpath.
-
 LANGUAGES
 =========
 * Bash: GNU bash, version 3.2.39(1)-release (i486-pc-linux-gnu)
 * C: gcc (Debian 4.3.2-1.1) 4.3.2
-* Clojure: Clojure 1.2.0 with Clojure Contrib 1.2.0 and clj-pelib 1.4.5
+* Clojure: Clojure 1.2.1 with Clojure Contrib 1.2.0
 * Haskell: GHC 6.8.2
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03

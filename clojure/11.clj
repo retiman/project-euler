@@ -2,8 +2,8 @@
 ; 2.04user 0.14system 0:02.31elapsed 94%CPU (0avgtext+0avgdata 0maxresident)k
 ; 488inputs+0outputs (0major+14499minor)pagefaults 0swaps
 
-(use '[clj-pelib.core])
-(use '[clojure.contrib.str-utils2 :only (split-lines split)])
+(load-file "lib/core.clj")
+(use '[clojure.string :only (split-lines split)])
 
 (def matrix
   (to-array-2d

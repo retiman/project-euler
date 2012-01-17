@@ -2,10 +2,10 @@
 ; 3.50user 0.32system 0:03.65elapsed 104%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+24outputs (0major+17723minor)pagefaults 0swaps
 
-(use 'clj-pelib.core)
-(require '[clojure.contrib.str-utils2 :as su])
+(load-file "lib/core.clj")
+(use '[clojure.string :only (split split-lines trim)])
 
-(def s
+(def input
   "75
   95 64
   17 47 82
@@ -27,10 +27,10 @@
     (let [f (comp
               (fn [x] (map vec x))
               (fn [x] (map #(map parse-int %) x))
-              (fn [x] (map #(su/split % #" ") x))
-              (fn [x] (map su/trim x))
-              (fn [x] (su/split-lines x)))]
-      (vec (f s)))))
+              (fn [x] (map #(split % #" ") x))
+              (fn [x] (map trim x))
+              (fn [x] (split-lines x)))]
+      (vec (f input)))))
 
 (doseq [i (range (- (count data) 2) (dec 0) -1)
         j (range 0 (count (aget data i)))

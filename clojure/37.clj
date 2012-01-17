@@ -2,7 +2,7 @@
 ; 28.40user 0.98system 0:25.71elapsed 114%CPU (0avgtext+0avgdata 0maxresident)k
 ; 16544inputs+0outputs (58major+97900minor)pagefaults 0swaps
 
-(use '[clj-pelib.math :only (prime?)])
+(load-file "lib/core.clj")
 (use '[clojure.contrib.lazy-seqs :only (primes)])
 
 (defn truncate

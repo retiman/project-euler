@@ -2,7 +2,7 @@
 ; 7.42user 0.36system 0:05.56elapsed 140%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+0outputs (0major+27329minor)pagefaults 0swaps
 
-(use '[clj-pelib.math :only (choose)])
+(load-file "lib/core.clj")
 
 (println
   (count

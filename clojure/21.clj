@@ -2,7 +2,7 @@
 ; 8.27user 0.37system 0:07.63elapsed 113%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+24outputs (0major+30721minor)pagefaults 0swaps
 
-(use 'clj-pelib.math)
+(load-file "lib/core.clj")
 
 (defn sigma* [n]
   (- (sigma n) n))
