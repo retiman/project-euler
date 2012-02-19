@@ -2,7 +2,7 @@
 ; 8.03user 0.39system 0:06.87elapsed 122%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+16outputs (0major+22495minor)pagefaults 0swaps
 
-(require '[clojure.contrib.str-utils2 :as su])
+(require '[clojure.string :as su])
 (require '[clojure.set :as s])
 
 (def inf Double/POSITIVE_INFINITY)

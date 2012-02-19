@@ -5,7 +5,7 @@
 (use '[clojure.contrib.lazy-seqs :only (primes)])
 (use '[clojure.contrib.combinatorics :only (permutations)])
 (use '[clojure.set :only (intersection)])
-(require '[clojure.contrib.str-utils2 :as su])
+(require '[clojure.string :as su])
 
 (def parse-int #(Integer/parseInt %))
 
