@@ -42,5 +42,5 @@ LANGUAGES
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
 * Ruby: MRI 1.9.2
-* Scala: Scala 2.8.0.final
+* Scala: Scala 2.9.1.r0-b20110831114755
 * Scheme: Racket 5.1
