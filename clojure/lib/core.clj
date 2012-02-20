@@ -1,12 +1,9 @@
-(require
-  '[clojure.string :as s]
-  '[clojure.contrib.generic.math-functions :as gmath]
-  '[clojure.contrib.math :as math])
-(use
-  '[clojure.set :only (union)]
-  '[clojure.contrib.math :only (abs gcd)])
+(require '[clojure.string :as s])
+(use '[clojure.set :only (union)])
 
-(def ln gmath/log)
+(def ln #(Math/log %))
+
+(def abs #(Math/abs %))
 
 (defn parse-int
   "Parse an Integer from a String."
@@ -22,6 +19,16 @@
   "Returns a seq of primes loaded from a file."
   [file]
   (map parse-long (s/split-lines (slurp file))))
+
+(defn gcd
+  "Returns the greatest common divisor of two numbers."
+  [a b]
+  (if (zero? b) a (recur b (mod a b))))
+
+(defn lcm
+  "Returns the lowest common denominator of two numbers."
+  [a b]
+  (* a (/ b (gcd a b))))
 
 (defn log
   "Returns the log base b of n."
@@ -57,7 +64,7 @@
 (defn isqrt
   "Returns the integer square root of n."
   [n]
-  (first (math/exact-integer-sqrt n)))
+  (Math/floor (Math/sqrt n)))
 
 (defn mod-pow
   "Returns the remainder of b raised to the e-th power when divided by m."

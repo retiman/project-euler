@@ -1,9 +1,8 @@
 (load-file "core.clj")
-(require '[clojure.contrib.generic.math-functions :as gmath])
 (use '[clojure.test])
 
 (defn pow [n e]
-  (bigint (gmath/pow n e)))
+  (bigint (Math/pow n e)))
 
 (deftest test-fact
   (is (= 1 (fact 0)))
