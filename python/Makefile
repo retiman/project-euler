@@ -1,0 +1,2 @@
+%: %.py
+	time python $<
