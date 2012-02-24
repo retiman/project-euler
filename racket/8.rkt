@@ -12,7 +12,7 @@
   (apply
     max
     (for/list
-      ([i (stream->list (in-range 1 (- (string-length data) 4)))])
-       (foldl * 1 (map (lambda (j) (char->number (string-ref data j)))
-                       (stream->list (in-range i (+ i 5))))))))
+      ((i (stream->list (in-range 1 (- (string-length data) 4)))))
+      (foldl * 1 (map (lambda (j) (char->number (string-ref data j)))
+                      (stream->list (in-range i (+ i 5))))))))
 (newline)
