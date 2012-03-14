@@ -17,6 +17,8 @@
 (def vertex-set
   ((comp set range count) graph))
 
+; The cost must be divided by two because blindly summing the matrix
+; representation will count each edge twice.
 (def total-cost
   (let [sum-row (fn [row] (reduce + (filter #(not (= inf %)) row)))
         sum-graph (reduce + (map sum-row graph))]
