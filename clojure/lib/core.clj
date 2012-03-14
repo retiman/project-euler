@@ -1,20 +1,60 @@
-(require '[clojure.string :as s])
-(use '[clojure.set :only (union)])
-(refer 'clojure.core :exclude
-       [bit-and bit-or bit-not bit-xor bit-shift-right bit-shift-left])
+(doseq [s '(bit-and bit-or bit-not bit-xor bit-shift-right bit-shift-left)]
+  (ns-unmap 'user (symbol s)))
+(require
+  '[clojure.string :as s])
+(use
+  '[clojure.set :only (union)])
 
 (defn- bigint?
   [n]
-  (instance? clojure.lang.BigInt n))
+  (or (instance? clojure.lang.BigInt n)
+      (instance? java.math.BigInteger n)))
+
+(defn- embiggen
+  [n]
+  (.toBigInteger (bigint n)))
 
 (defn bit-and
   [a b]
   (if (or (bigint? a) (bigint? b))
-    (let [a' (.toBigInteger a)
-          b' (.toBigInteger b)]
+    (let [a' (embiggen a)
+          b' (embiggen b)]
       (.and a' b'))
-    (clojure.core/bit-and a b)))
+      (clojure.core/bit-and a b)))
 
+(defn bit-or
+  [a b]
+  (if (or (bigint? a) (bigint? b))
+    (let [a' (embiggen a)
+          b' (embiggen b)]
+      (.or a' b'))
+      (clojure.core/bit-or a b)))
+
+(defn bit-not
+  [a]
+  (if (bigint? a)
+    (-> a (.toBigInteger) (.not))
+    (clojure.core/bit-not a)))
+
+(defn bit-xor
+  [a b]
+  (if (or (bigint? a) (bigint? b))
+    (let [a' (embiggen a)
+          b' (embiggen b)]
+      (.xor a' b'))
+      (clojure.core/bit-xor a b)))
+
+(defn bit-shift-left
+  [a b]
+  (if (bigint? a)
+    (.shiftLeft (embiggen a) b)
+    (clojure.core/bit-shift-left a b)))
+
+(defn bit-shift-right
+  [a b]
+  (if (bigint? a)
+    (.shiftRight (embiggen a) b)
+    (clojure.core/bit-shift-right a b)))
 
 (def ln #(Math/log %))
 
