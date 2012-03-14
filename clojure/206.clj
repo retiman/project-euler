@@ -3,6 +3,7 @@
 ; 0inputs+16outputs (0major+21759minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
+(use '[clj-euler.core :only (isqrt)])
 
 (println
   (loop [n (inc (isqrt 19293949596979899))]

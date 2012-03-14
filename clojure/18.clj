@@ -3,6 +3,7 @@
 ; 0inputs+24outputs (0major+17723minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
+(use '[clj-euler.core :only (parse-int)])
 (use '[clojure.string :only (split split-lines trim)])
 
 (def input
