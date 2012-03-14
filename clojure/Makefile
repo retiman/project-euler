@@ -5,9 +5,9 @@ POMEGRANATE_DIR := ${HOME}/.m2/repository/com/lousycoder/pomegranate/${POMEGRANA
 POMEGRANATE_JAR := ${POMEGRANATE_DIR}/pomegranate-${POMEGRANATE_VERSION}.jar
 POMEGRANATE_URL := https://github.com/downloads/retiman/pomegranate/pomegranate-${POMEGRANATE_VERSION}-jar-with-dependencies.jar
 
-deps:
+pom:
 	mkdir -p ${POMEGRANATE_DIR}
 	[ -f ${POMEGRANATE_JAR} ] || wget ${POMEGRANATE_URL} -O ${POMEGRANATE_DIR}/pomegranate-${POMEGRANATE_VERSION}.jar
 
-%: %.clj
-	JAVA_OPTS="${JAVA_OPTS}" CLOJURE_LIB=${POMEGRANATE_DIR} time ${CLOJURE} $<
+%: pom %.clj
+	JAVA_OPTS="${JAVA_OPTS}" CLOJURE_LIB=${POMEGRANATE_DIR} time ${CLOJURE} $@.clj
