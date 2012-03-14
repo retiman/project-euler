@@ -25,8 +25,8 @@
 (defn cost
   "Returns the cost of connecting node u to v"
   [edge]
- (let [u (first edge)
-       v (last edge)]
+  (let [u (first edge)
+        v (last edge)]
     (nth (nth graph u) v)))
 
 (defn neighbors
