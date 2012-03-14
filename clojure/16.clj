@@ -1,7 +1,5 @@
-; 1366
-; 1.32user 0.10system 0:01.45elapsed 99%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+0outputs (0major+10090minor)pagefaults 0swaps
-
-(use '[clojure.contrib.math :only (expt)])
+(use '[cemerick.pomegranate :only (add-dependencies)])
+(add-dependencies :coordinates '[[org.clojure/math.numeric-tower "0.0.1"]])
+(use '[clojure.math.numeric-tower :only (expt)])
 
 (println (reduce + (map #(Integer/parseInt (str %)) (str (expt 2 1000)))))
