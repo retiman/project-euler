@@ -6,7 +6,7 @@ POMEGRANATE_URL := https://github.com/downloads/retiman/pomegranate/pomegranate-
 
 deps:
 	mkdir -p ${POMEGRANATE_DIR}
-	wget ${POMEGRANATE_URL} -O ${POMEGRANATE_DIR}/pomegranate-${POMEGRANATE_VERSION}
+	wget ${POMEGRANATE_URL} -O ${POMEGRANATE_DIR}/pomegranate-${POMEGRANATE_VERSION}.jar
 
 %: %.clj
 	JAVA_OPTS="${JAVA_OPTS}" CLOJURE_LIB=${POMEGRANATE_DIR} time ${CLOJURE} $<
