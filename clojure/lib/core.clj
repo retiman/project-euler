@@ -1,5 +1,20 @@
 (require '[clojure.string :as s])
 (use '[clojure.set :only (union)])
+(refer 'clojure.core :exclude
+       [bit-and bit-or bit-not bit-xor bit-shift-right bit-shift-left])
+
+(defn- bigint?
+  [n]
+  (instance? clojure.lang.BigInt n))
+
+(defn bit-and
+  [a b]
+  (if (or (bigint? a) (bigint? b))
+    (let [a' (.toBigInteger a)
+          b' (.toBigInteger b)]
+      (.and a' b'))
+    (clojure.core/bit-and a b)))
+
 
 (def ln #(Math/log %))
 
