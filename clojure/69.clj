@@ -2,7 +2,9 @@
 ; 2.62user 0.23system 0:02.45elapsed 116%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+24outputs (0major+17425minor)pagefaults 0swaps
 
-(use '[clojure.contrib.lazy-seqs :only (primes)])
+(load-file "lib/core.clj")
+
+(def primes (load-primes "../data/primes.txt"))
 
 (defn f [acc ps]
   (let [n (* acc (first ps))]

@@ -2,8 +2,11 @@
 ; 28.40user 0.98system 0:25.71elapsed 114%CPU (0avgtext+0avgdata 0maxresident)k
 ; 16544inputs+0outputs (58major+97900minor)pagefaults 0swaps
 
+(require '[clojure.string :as su])
+
 (load-file "lib/core.clj")
-(use '[clojure.contrib.lazy-seqs :only (primes)])
+
+(def primes (load-primes "../data/primes.txt"))
 
 (defn truncate
   "Drops a single digit from the left or right of a number."
