@@ -14,7 +14,7 @@
     (loop [a (ceil (sqrt n))]
       (let [b (- (* a a) n)
             s (sqrt b)]
-        (if (= s (round s))
+        (if (== s (round s))
           (sorted-set (- a s) (+ a s))
           (recur (inc a)))))))
 
@@ -22,8 +22,8 @@
   "Returns the prime factors of n, using Fermat's factorization method."
   [n]
   (let [factors (fermat-factors n)]
-    (if (contains? factors 1)
-      (disj factors 1)
+    (if (contains? factors 1.0)
+      (disj factors 1.0)
       (reduce union (map prime-factors factors)))))
 
 (println (reduce max (prime-factors 600851475143)))
