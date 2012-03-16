@@ -9,5 +9,8 @@ pom:
 	mkdir -p ${POMEGRANATE_DIR}
 	[ -f ${POMEGRANATE_JAR} ] || wget ${POMEGRANATE_URL} -O ${POMEGRANATE_DIR}/pomegranate-${POMEGRANATE_VERSION}.jar
 
+repl:
+	JAVA_OPTS="${JAVA_OPTS}" CLOJURE_LIB=${POMEGRANATE_DIR} rlwrap clj
+
 %: pom %.clj
 	JAVA_OPTS="${JAVA_OPTS}" CLOJURE_LIB=${POMEGRANATE_DIR} time ${CLOJURE} $@.clj
