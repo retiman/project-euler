@@ -5,6 +5,11 @@
 (load-file "lib/core.clj")
 (use '[clj-euler.core :only (isqrt)])
 
+(doseq [s '(+ *)]
+    (ns-unmap 'user s))
+(def + +')
+(def * *')
+
 (println
   (loop [n (inc (isqrt 19293949596979899))]
     (let [k (* n n)]

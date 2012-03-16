@@ -3,6 +3,8 @@
 ; 0inputs+0outputs (0major+27329minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
+(use
+  '[clj-euler.core :only (choose)])
 
 (println
   (count

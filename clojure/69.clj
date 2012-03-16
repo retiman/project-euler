@@ -3,6 +3,8 @@
 ; 0inputs+24outputs (0major+17425minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
+(use
+  '[clj-euler.core :only (load-primes)])
 
 (def primes (load-primes "../data/primes.txt"))
 
