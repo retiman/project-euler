@@ -3,7 +3,9 @@
 ; 0inputs+16outputs (0major+25013minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
-(use '[clojure.contrib.math])
+(use
+  '[clojure.math.numeric-tower]
+  '[clj-euler.core :only (mod-pow)])
 
 (def m (expt 10 10))
 

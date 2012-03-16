@@ -3,7 +3,9 @@
 ; 0inputs+16outputs (0major+187686minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
-(use 'clojure.contrib.combinatorics)
+(use
+  '[clojure.math.combinatorics]
+  '[clj-euler.core :only (isqrt load-primes)])
 
 (def primes
   (load-primes "../data/primes.txt"))

@@ -2,8 +2,11 @@
 ; 137.54user 0.88system 2:21.36elapsed 97%CPU (0avgtext+0avgdata 0maxresident)k
 ; 0inputs+24outputs (0major+106307minor)pagefaults 0swaps
 
-(use '[clojure.contrib.combinatorics :only (permutations)])
-(use '[clojure.set :only (intersection)])
+(load-file "lib/core.clj")
+(use
+  '[clojure.math.combinatorics :only (permutations)]
+  '[clojure.set :only (intersection)]
+  '[clj-euler.core :only (load-primes parse-int)])
 (require '[clojure.string :as su])
 
 (load-file "lib/core.clj")
