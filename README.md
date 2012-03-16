@@ -24,8 +24,6 @@ by running:
 The default limit for primes is 10^8 but some problems do not require so many primes to
 be pre-computed.
 
-The program for generating the primes is found in `clojure/lib/primes.clj`.
-
 Run particular solutions by descending into a language's subdirectory and
 running `make` For example, to run the solution for problem #25 in Scala, do
 this:
@@ -37,7 +35,7 @@ LANGUAGES
 =========
 * Bash: GNU bash, version 3.2.39(1)-release (i486-pc-linux-gnu)
 * C: gcc (Debian 4.3.2-1.1) 4.3.2
-* Clojure: Clojure 1.2.1 with Clojure Contrib 1.2.0
+* Clojure: Clojure 1.3.0
 * Haskell: GHC 6.8.2
 * J: 7.01b-7
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
