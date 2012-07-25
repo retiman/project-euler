@@ -1,0 +1,2 @@
+%: %.gp
+	time gp --quiet $<
