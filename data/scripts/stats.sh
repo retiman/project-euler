@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Prints out solutions per language, and which solutions have been solved in
+# which language.
 echo "Solutions Per Language"
 echo "======================"
 
