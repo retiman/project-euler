@@ -1,3 +1,5 @@
+all: stats
+
 stats:
 	data/scripts/stats.sh
 
