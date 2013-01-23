@@ -1,4 +1,4 @@
-all: stats
+all: primes
 
 stats:
 	data/scripts/stats.sh
