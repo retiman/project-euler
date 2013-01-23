@@ -17,6 +17,7 @@ for dir in *; do
   for f in *; do
     if [ $f = 'Makefile' ]; then continue; fi
     if [ $f = 'a.out' ]; then continue; fi
+    if [ $f = 'lib' ]; then continue; fi
     solns="$solns $f "
   done
 
