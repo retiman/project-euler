@@ -16,13 +16,13 @@ Check which solutions have been provided by running:
 
     make stats
 
-Some problems require a pre-computed list of primes.  You can download the list
-by running:
+Some problems require a pre-computed list of primes.  You can download the
+list by running:
 
     make primes
 
-The default limit for primes is 10^8 but some problems do not require so many primes to
-be pre-computed.
+The default limit for primes is 10^8 but some problems do not require so many
+primes to be pre-computed.
 
 Run particular solutions by descending into a language's subdirectory and
 running `make` For example, to run the solution for problem #25 in Scala, do
