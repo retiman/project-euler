@@ -4,7 +4,7 @@
 
 (load-file "lib/core.clj")
 (use
-  '[clj-euler.core :only (choose)])
+  '[lib.core :only (choose)])
 
 (println
   (count

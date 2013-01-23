@@ -4,7 +4,7 @@
 
 (load-file "lib/core.clj")
 (use
-  '[clj-euler.core :only (load-primes)])
+  '[lib.core :only (load-primes)])
 
 (def primes (load-primes "../data/primes.txt"))
 

@@ -4,7 +4,7 @@
 
 (load-file "lib/core.clj")
 (use
-  '[clj-euler.core :only (load-primes prime?)])
+  '[lib.core :only (load-primes prime?)])
 (require
   '[clojure.string :as su])
 

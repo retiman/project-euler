@@ -3,7 +3,7 @@
 ; 0inputs+24outputs (0major+30721minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
-(use '[clj-euler.core :only (sigma)])
+(use '[lib.core :only (sigma)])
 
 (defn sigma* [n]
   (- (sigma n) n))

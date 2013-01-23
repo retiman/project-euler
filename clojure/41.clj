@@ -6,10 +6,8 @@
 (use
   '[clojure.math.combinatorics :only (permutations)]
   '[clojure.set :only (intersection)]
-  '[clj-euler.core :only (load-primes parse-int)])
+  '[lib.core :only (load-primes parse-int)])
 (require '[clojure.string :as su])
-
-(load-file "lib/core.clj")
 
 (def primes (load-primes "../data/primes.txt"))
 

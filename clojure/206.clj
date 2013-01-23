@@ -3,7 +3,7 @@
 ; 0inputs+16outputs (0major+21759minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
-(use '[clj-euler.core :only (isqrt)])
+(use '[lib.core :only (isqrt)])
 
 (doseq [s '(+ *)]
     (ns-unmap 'user s))

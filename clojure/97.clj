@@ -5,7 +5,7 @@
 (load-file "lib/core.clj")
 (use
   '[clojure.math.numeric-tower]
-  '[clj-euler.core :only (mod-pow)])
+  '[lib.core :only (mod-pow)])
 
 (def m (expt 10 10))
 

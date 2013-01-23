@@ -3,7 +3,7 @@
 ; 488inputs+0outputs (0major+14499minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
-(use '[clj-euler.core :only (parse-int)])
+(use '[lib.core :only (parse-int)])
 (use '[clojure.string :only (split-lines split)])
 
 (def matrix

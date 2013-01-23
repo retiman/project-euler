@@ -5,7 +5,7 @@
 (load-file "lib/core.clj")
 (use
   '[clojure.math.combinatorics]
-  '[clj-euler.core :only (isqrt load-primes)])
+  '[lib.core :only (isqrt load-primes)])
 
 (def primes
   (load-primes "../data/primes.txt"))

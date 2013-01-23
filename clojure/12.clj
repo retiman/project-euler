@@ -3,7 +3,7 @@
 ; 0inputs+0outputs (0major+62317minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
-(use '[clj-euler.core :only (tau)])
+(use '[lib.core :only (tau)])
 (use '[clojure.math.numeric-tower :only (sqrt)])
 
 (println

@@ -3,7 +3,7 @@
 ; 0inputs+24outputs (0major+20407minor)pagefaults 0swaps
 
 (load-file "lib/core.clj")
-(use '[clj-euler.core :only (fact parse-int)])
+(use '[lib.core :only (fact parse-int)])
 
 (println
   (reduce + (map (comp parse-int str) (str (fact 100)))))
