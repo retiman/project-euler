@@ -1,2 +1,2 @@
 %: %.py
-	time python $<
+	time python2 $<
