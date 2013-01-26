@@ -1,2 +1,2 @@
 %: %.py
-	time python2 $<
+	PYTHONPATH=lib time python2 $<
