@@ -1,8 +1,3 @@
-# time ruby 27.rb
-# -59231
-# 11.83user 1.42system 0:13.79elapsed 96%CPU (0avgtext+0avgdata 0maxresident)k
-# 0inputs+0outputs (0major+2449minor)pagefaults 0swaps
-
 require 'set'
 
 # A simple quadratic

@@ -1,8 +1,3 @@
-// time js -f 14.js
-// 837799
-// 10.81user 0.55system 0:12.18elapsed 93%CPU (0avgtext+0avgdata 0maxresident)k
-// 1712inputs+0outputs (11major+46887minor)pagefaults 0swaps
-
 let map = [1, 1];
 let limit = 1000000;
 

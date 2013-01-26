@@ -1,8 +1,3 @@
-# time ruby 67.rb
-# 7273
-# 0.15user 0.02system 0:00.19elapsed 90%CPU (0avgtext+0avgdata 0maxresident)k
-# 32inputs+0outputs (0major+1233minor)pagefaults 0swaps
-
 data = []
 file = File.new("../data/67.txt")
 while line = file.gets

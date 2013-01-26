@@ -1,9 +1,3 @@
-// 233168
-//
-// real	0m0.001s
-// user	0m0.003s
-// sys	0m0.000s
-
 #include <stdio.h>
 
 int main()

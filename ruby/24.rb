@@ -1,8 +1,3 @@
-# time ruby 24.rb
-# 2783915460
-# 0.08user 0.00system 0:00.13elapsed 67%CPU (0avgtext+0avgdata 0maxresident)k
-# 24inputs+0outputs (0major+1232minor)pagefaults 0swaps
-
 $limit = 1_000_000
 
 def fact(n)

@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 28.scala
-// 669171001
-// 1.10user 0.12system 0:02.57elapsed 47%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+44957minor)pagefaults 0swap
-
 def turn(heading: Symbol) = heading match {
   case 'right => 'down
   case 'down  => 'left

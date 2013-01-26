@@ -1,8 +1,3 @@
--- time runghc 12.hs
--- 76576500
--- 52.62user 0.04system 0:55.35elapsed 95%CPU (0avgtext+0avgdata 0maxresident)k
--- 35832inputs+0outputs (201major+7724minor)pagefaults 0swaps
-
 tau :: Int -> Int
 tau 1 = 1
 tau n = 2 * x

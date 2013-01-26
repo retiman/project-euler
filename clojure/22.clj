@@ -1,7 +1,3 @@
-; 871198282
-; 7.04user 0.45system 0:09.31elapsed 80%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+24outputs (0major+23890minor)pagefaults 0swaps
-
 (require '[clojure.string :as su])
 
 (def data

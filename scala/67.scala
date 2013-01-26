@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 67.scala
-// 7273
-// 1.71user 0.14system 0:03.66elapsed 50%CPU (0avgtext+0avgdata 0maxresident)k
-// 8inputs+0outputs (0major+11788minor)pagefaults 0swaps
-
 import scala.io.Source
 
 val data = Source.fromFile("../data/67.txt")

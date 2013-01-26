@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 27.scala
-// -59231
-// 10.47user 0.88system 0:14.85elapsed 76%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+0outputs (0major+82318minor)pagefaults 0swaps
-
 import scala.io.Source
 
 def f(n: Int, a: Int, b: Int) = (n * n) + (a * n) + b

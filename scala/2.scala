@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 2.scala
-// 4613732
-// 0.63user 0.06system 0:02.25elapsed 30%CPU (0avgtext+0avgdata 0maxresident)k
-// 48inputs+64outputs (1major+16024minor)pagefaults 0swaps
-
 import scala.Stream._
 
 implicit def streamExtras[T](s: Stream[T]) = new {

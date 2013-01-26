@@ -1,7 +1,3 @@
-; 162
-; 4.23user 0.33system 0:03.13elapsed 145%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+8outputs (0major+20637minor)pagefaults 0swaps
-
 (require '[clojure.string :as su])
 
 (declare charmap triangle-word-scores)

@@ -1,7 +1,3 @@
-; 40824
-; 0.27user 0.05system 0:00.33elapsed 99%CPU (0avgtext+0avgdata 39020maxresident)k
-; 0inputs+0outputs (0major+12481minor)pagefaults 0swaps
-
 (define (char->number c)
   (string->number (make-string 1 c)))
 

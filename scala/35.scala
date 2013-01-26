@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 35.scala
-// 55
-// 2.48user 0.14system 0:02.72elapsed 96%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+50967minor)pagefaults 0swaps
-
 import scala.io.Source
 
 def rotations(n: Long) = {

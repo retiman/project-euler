@@ -1,7 +1,3 @@
-; 31875000
-; 1.64user 0.09system 0:00.96elapsed 180%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+64outputs (1major+22320minor)pagefaults 0swaps
-
 (println
   (first
     (for [a (range 1 333)

@@ -1,8 +1,3 @@
--- time runghc 21.hs
--- 31626
--- 1.24user 0.07system 0:01.41elapsed 93%CPU (0avgtext+0avgdata 0maxresident)k
--- 16inputs+0outputs (1major+7926minor)pagefaults 0swaps
-
 import Data.List (nub)
 
 divisors n = let sqn = floor . sqrt . fromIntegral $ n

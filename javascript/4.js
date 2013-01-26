@@ -1,8 +1,3 @@
-// time js -f 4.js
-// 906609
-// 11.67user 0.37system 0:12.77elapsed 94%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+0outputs (0major+25976minor)pagefaults 0swaps
-
 String.prototype.reverse = function () {
   return Array.prototype.slice.apply(this).reverse().join('');
 };

@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 17.scala
-// 21124
-// 0.91user 0.04system 0:02.14elapsed 44%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+18261minor)pagefaults 0swaps
-
 val word = Map(
   1 -> "one",
   2 -> "two",

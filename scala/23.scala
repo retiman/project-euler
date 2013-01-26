@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 23.scala
-// 4179871
-// 1.80user 0.03system 0:02.39elapsed 76%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+21704minor)pagefaults 0swaps
-
 import scala.math._
 
 def divisors(n: Int) = {

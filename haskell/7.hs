@@ -1,8 +1,3 @@
--- time runghc 7.hs
--- 104743
--- 1.32user 0.04system 0:01.44elapsed 94%CPU (0avgtext+0avgdata 0maxresident)k
--- 152inputs+0outputs (2major+7761minor)pagefaults 0swaps
-
 merge :: (Ord a) => [a] -> [a] -> [a]
 merge xs@(x:xt) ys@(y:yt) = case compare x y of
     LT -> x : (merge xt ys)

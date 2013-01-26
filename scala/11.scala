@@ -1,8 +1,3 @@
-// time scala -deprecation 11.scala
-// 70600674
-// 0.88user 0.04system 0:02.25elapsed 41%CPU (0avgtext+0avgdata 0maxresident)k
-// 24inputs+64outputs (1major+13707minor)pagefaults 0swaps
-
 val matrix = """
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00

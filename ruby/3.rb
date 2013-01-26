@@ -1,8 +1,3 @@
-# time ruby 3.rb
-# 6857
-# 0.48user 0.02system 0:00.52elapsed 95%CPU (0avgtext+0avgdata 0maxresident)k
-# 120inputs+0outputs (1major+1235minor)pagefaults 0swaps
-
 def fermat_factors(n)
   return [2, n/2] if n % 2 == 0
   a = Math.sqrt(n).ceil

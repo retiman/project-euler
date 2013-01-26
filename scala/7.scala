@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 7.scala
-// 104743
-// 29.36user 0.12system 0:33.73elapsed 87%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+0outputs (0major+11573minor)pagefaults 0swaps
-
 import scala.Stream._
 import scala.math._
 

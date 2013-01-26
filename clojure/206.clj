@@ -1,7 +1,3 @@
-; 1389019170
-; 8.30user 0.42system 0:07.92elapsed 110%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+16outputs (0major+21759minor)pagefaults 0swaps
-
 (load-file "lib/core.clj")
 (use '[lib.core :only (isqrt)])
 

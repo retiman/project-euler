@@ -1,7 +1,3 @@
-// 210
-// 0.18user 0.04system 0:00.23elapsed 92%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+0outputs (0major+7010minor)pagefaults 0swaps
-
 public class P40 {
   public static void main(String[] args) {
     StringBuilder sb = new StringBuilder();

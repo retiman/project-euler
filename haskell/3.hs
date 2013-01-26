@@ -1,8 +1,3 @@
--- time runghc 3.hs
--- 6857
--- 0.30user 0.02system 0:00.33elapsed 97%CPU (0avgtext+0avgdata 0maxresident)k
--- 0inputs+0outputs (0major+6821minor)pagefaults 0swaps
-
 import Data.List
 
 f :: Integer -> Integer

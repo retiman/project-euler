@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 14.scala
-// 837799
-// 4.92user 0.32system 0:05.15elapsed 101%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+101252minor)pagefaults 0swaps
-
 import scala.collection.mutable.HashMap
 
 val limit = 1000000

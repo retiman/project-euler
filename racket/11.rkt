@@ -1,7 +1,3 @@
-; 70600674
-; 0.30user 0.02system 0:00.33elapsed 99%CPU (0avgtext+0avgdata 39140maxresident)k
-; 0inputs+0outputs (0major+13734minor)pagefaults 0swaps
-
 (define matrix
   (list->vector
     (map

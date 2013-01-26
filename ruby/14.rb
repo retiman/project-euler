@@ -1,8 +1,3 @@
-# time ruby 14.rb
-# 837799
-# 22.95user 2.76system 0:26.56elapsed 96%CPU (0avgtext+0avgdata 0maxresident)k
-# 0inputs+0outputs (0major+19537minor)pagefaults 0swaps
-
 $map = {1 => 1}
 
 def collatz(n)

@@ -1,8 +1,3 @@
-// time js -f 5.js
-// 232792560
-// 0.00user 0.00system 0:00.00elapsed 114%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+0outputs (0major+561minor)pagefaults 0swaps
-
 function range(begin, end) {
   for (let i = begin; i < end; i++) yield i;
 }

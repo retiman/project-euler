@@ -1,7 +1,3 @@
-; 8319823
-; 29.82user 0.95system 0:22.83elapsed 134%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+16outputs (0major+187686minor)pagefaults 0swaps
-
 (load-file "lib/core.clj")
 (use
   '[clojure.math.combinatorics]

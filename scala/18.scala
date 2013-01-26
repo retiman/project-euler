@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 18.scala
-// 1074
-// 0.68user 0.06system 0:02.16elapsed 34%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+16381minor)pagefaults 0swaps
-
 val data = """
 75
 95 64

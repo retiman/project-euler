@@ -1,7 +1,3 @@
-; 6857
-; 9.46user 0.34system 0:07.39elapsed 132%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+64outputs (1major+139470minor)pagefaults 0swaps
-
 (load-file "lib/core.clj")
 (use '[clojure.set :only (union)])
 (use '[clojure.math.numeric-tower :only (ceil sqrt round)])

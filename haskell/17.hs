@@ -1,8 +1,3 @@
--- time runghc 17.hs
--- 21124
--- 0.43user 0.05system 0:00.59elapsed 82%CPU (0avgtext+0avgdata 0maxresident)k
--- 160inputs+0outputs (3major+8000minor)pagefaults 0swaps
-
 m = [(1,  "one"),
      (2,  "two"),
      (3,  "three"),

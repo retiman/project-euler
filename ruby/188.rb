@@ -1,8 +1,3 @@
-# time ruby 188.rb
-# 95962097
-# 4.37user 0.01system 0:04.49elapsed 97%CPU (0avgtext+0avgdata 0maxresident)k
-# 0inputs+0outputs (0major+1232minor)pagefaults 0swaps
-
 def order(a, m)
   b, e = a % m, 1
   while (b != 1)

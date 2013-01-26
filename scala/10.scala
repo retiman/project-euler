@@ -1,8 +1,3 @@
-// time scala -deprecation 10.scala
-// 142913828922
-// 1.51user 0.08system 0:02.37elapsed 67%CPU (0avgtext+0avgdata 0maxresident)k
-// 16inputs+64outputs (1major+25271minor)pagefaults 0swaps
-
 def sieve(limit: Int) = {
   var current = 2
   var numbers = (0 to limit).toArray

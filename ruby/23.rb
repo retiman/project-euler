@@ -1,8 +1,3 @@
-# time ruby 23.rb
-# 4179871
-# 51.58user 6.60system 0:59.91elapsed 97%CPU (0avgtext+0avgdata 0maxresident)k
-# 0inputs+0outputs (0major+1260minor)pagefaults 0swaps
-
 def divisors(n)
   d = (2..Math.sqrt(n)).select { |q| n%q == 0 }
   d = d + d.map { |q| n / q } + [1]

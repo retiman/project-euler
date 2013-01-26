@@ -1,7 +1,3 @@
-# 6857.0
-# 0.13user 0.00system 0:00.16elapsed 85%CPU (0avgtext+0avgdata 7280maxresident)k
-# 168inputs+0outputs (1major+1924minor)pagefaults 0swaps
-
 from functools import reduce
 from math import sqrt, ceil
 from itertools import chain

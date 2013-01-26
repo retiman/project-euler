@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 26.scala
-// 983
-// 0.72user 0.03system 0:02.00elapsed 38%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+16074minor)pagefaults 0swaps
-
 implicit def tupleWrapper(t: Pair[Int, Int]) = new {
   def n = t._1
   def ord = t._2

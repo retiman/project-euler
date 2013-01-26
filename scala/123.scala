@@ -1,8 +1,3 @@
-// time scala -deprecation 123.scala
-// 21035
-// 1.58user 0.11system 0:02.23elapsed 76%CPU (0avgtext+0avgdata 0maxresident)k
-// 2320inputs+64outputs (1major+24700minor)pagefaults 0swaps
-
 import scala.io.Source
 
 val primes = Source.fromFile("../data/primes.txt")

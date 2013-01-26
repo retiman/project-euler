@@ -1,7 +1,3 @@
-; 142857
-; 8.84user 0.48system 0:06.81elapsed 136%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+8outputs (0major+81218minor)pagefaults 0swaps
-
 (defn same-digits? [a b & more]
   (let [xs (concat [a b] more)]
     (apply = (map #(into #{} (str %)) xs))))

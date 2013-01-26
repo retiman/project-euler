@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 188.scala
-// 95962097
-// 0.67user 0.05system 0:01.83elapsed 39%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+64outputs (1major+15718minor)pagefaults 0swaps
-
 def order(a: Long, m: Long) = {
   def recur(b: Long, n: Long): Long = n match {
     case _ if n == m - 1 => n

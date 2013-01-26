@@ -1,8 +1,3 @@
-// JAVA_OPTS="-Xmx1024M" time scala -deprecation 3.scala
-// 6857
-// 1.48user 0.17system 0:04.06elapsed 40%CPU (0avgtext+0avgdata 0maxresident)k
-// 0inputs+0outputs (0major+11382minor)pagefaults 0swaps
-
 import scala.math._
 
 def fermatFactors(n: Long): Set[Long] = {

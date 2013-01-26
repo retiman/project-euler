@@ -1,8 +1,3 @@
-# time ruby 8.rb
-# 40824
-# 0.15user 0.04system 0:00.19elapsed 100%CPU (0avgtext+0avgdata 0maxresident)k
-# 0inputs+0outputs (0major+1233minor)pagefaults 0swaps
-
 text = <<EOF
 73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843

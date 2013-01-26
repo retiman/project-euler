@@ -1,7 +1,3 @@
-; 73682
-; 2.68user 0.18system 0:02.28elapsed 125%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+8outputs (0major+14656minor)pagefaults 0swaps
-
 (defmacro defp [x y]
   (let [px (symbol (str "p" x))
         py (symbol (str "p" y))]

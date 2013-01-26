@@ -1,12 +1,6 @@
-; 748317
-; 28.40user 0.98system 0:25.71elapsed 114%CPU (0avgtext+0avgdata 0maxresident)k
-; 16544inputs+0outputs (58major+97900minor)pagefaults 0swaps
-
 (load-file "lib/core.clj")
-(use
-  '[lib.core :only (load-primes prime?)])
-(require
-  '[clojure.string :as su])
+(use '[lib.core :only (load-primes prime?)])
+(require '[clojure.string :as su])
 
 (def primes (load-primes "../data/primes.txt"))
 

@@ -1,7 +1,3 @@
-; 1074
-; 3.50user 0.32system 0:03.65elapsed 104%CPU (0avgtext+0avgdata 0maxresident)k
-; 0inputs+24outputs (0major+17723minor)pagefaults 0swaps
-
 (load-file "lib/core.clj")
 (use '[lib.core :only (parse-int)])
 (use '[clojure.string :only (split split-lines trim)])
