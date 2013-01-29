@@ -17,9 +17,9 @@ def fermat_factors(n):
 def prime_factors(n):
     factors = fermat_factors(n)
     if 1 in factors:
-        factors = list(filter(lambda e: e != 1, factors))
+        factors = filter(lambda e: e != 1, factors)
     else:
-        factors = list(chain.from_iterable(map(prime_factors, factors)))
+        factors = chain.from_iterable(map(prime_factors, factors))
     return factors
 
 print(max(prime_factors(600851475143)))
