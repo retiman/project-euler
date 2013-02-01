@@ -1,2 +1,4 @@
+PYTHON ?= $(if $(shell which python2), python2, python)
+
 %: %.py
-	PYTHONPATH=lib time python2 $<
+	PYTHONPATH=lib time ${PYTHON} $<
