@@ -10,4 +10,4 @@ download-primes:
 	gunzip data/primes.txt.gz
 
 primes:
-	$(PYTHON) python/lib/primes.py $(LIMIT)
+	$(PYTHON) python/lib/primes.py $(LIMIT) > data/primes.txt
