@@ -1,11 +1,13 @@
-all: primes
+PYTHON ?= $(if $(shell which python2), python2, python)
+
+all: download-primes
 
 stats:
 	data/scripts/stats.sh
 
-primes:
+download-primes:
 	wget -O data/primes.txt.gz https://github.com/downloads/retiman/project-euler/primes.txt.gz
 	gunzip data/primes.txt.gz
 
-genprimes:
-	clj clojure/lib/primes.clj 100000000
+primes:
+	$(PYTHON) python/lib/primes.py $(LIMIT)
