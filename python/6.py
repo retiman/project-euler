@@ -1,5 +1,3 @@
-from core import irange
-
-a = sum(map(lambda i: i * i, irange(100)))
-b = sum(irange(100))
+a = sum(map(lambda i: i * i, xrange(101)))
+b = sum(xrange(101))
 print b * b - a
