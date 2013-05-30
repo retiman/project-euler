@@ -5,7 +5,7 @@ echo "Solutions Per Language"
 echo "======================"
 
 for dir in *; do
-  if [ $dir = 'data' ]; then continue; fi
+  if [[ $dir = 'data' || $dir = 'scripts' ]]; then continue; fi
   if [ ! -d $dir ]; then continue; fi
 
   cd $dir
