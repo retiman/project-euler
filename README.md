@@ -1,9 +1,6 @@
 DESCRIPTION
 ===========
 
-[![My Profile](https://cloud.github.com/downloads/retiman/project-euler/retiman.png)](http://www.projecteuler.com)
-
-
 These are solutions to Project Euler problems.  It's easy to find solutions on
 the net, so if you don't want to spoil the fun, don't look at these.
 
