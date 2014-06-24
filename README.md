@@ -1,7 +1,7 @@
 DESCRIPTION
 ===========
 
-[![My Profile](https://github.com/downloads/retiman/project-euler/retiman.png)](http://www.projecteuler.com)
+[![My Profile](https://cloud.github.com/downloads/retiman/project-euler/retiman.png)](http://www.projecteuler.com)
 
 
 These are solutions to Project Euler problems.  It's easy to find solutions on
