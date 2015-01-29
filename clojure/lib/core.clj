@@ -38,23 +38,19 @@
   (or (instance? BigInt n)
       (instance? BigInteger n)))
 
-(defn- embiggen
-  [n]
-  (.toBigInteger (bigint n)))
-
 (defn bit-and
   [a b]
   (if (or (bigint? a) (bigint? b))
-    (let [a' (embiggen a)
-          b' (embiggen b)]
+    (let [a' (biginteger a)
+          b' (biginteger b)]
       (.and ^BigInteger a' b'))
       (clojure.core/bit-and a b)))
 
 (defn bit-or
   [a b]
   (if (or (bigint? a) (bigint? b))
-    (let [a' (embiggen a)
-          b' (embiggen b)]
+    (let [a' (biginteger a)
+          b' (biginteger b)]
       (.or ^BigInteger a' b'))
       (clojure.core/bit-or a b)))
 
@@ -67,21 +63,21 @@
 (defn bit-xor
   [a b]
   (if (or (bigint? a) (bigint? b))
-    (let [a' (embiggen a)
-          b' (embiggen b)]
+    (let [a' (biginteger a)
+          b' (biginteger b)]
       (.xor ^BigInteger a' b'))
       (clojure.core/bit-xor a b)))
 
 (defn bit-shift-left
   [a b]
   (if (bigint? a)
-    (.shiftLeft ^BigInteger (embiggen a) b)
+    (.shiftLeft ^BigInteger (biginteger a) b)
     (clojure.core/bit-shift-left a b)))
 
 (defn bit-shift-right
   [a b]
   (if (bigint? a)
-    (.shiftRight ^BigInteger (embiggen a) b)
+    (.shiftRight ^BigInteger (biginteger a) b)
     (clojure.core/bit-shift-right a b)))
 
 (defn parse-int
