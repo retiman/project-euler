@@ -1,5 +1,4 @@
-(let* ((a (foldl + 0 (map (lambda (x) (* x x)) (stream->list (in-range 1 101)))))
-       (b (foldl + 0 (stream->list (in-range 1 101))))
-       (r (- (* b b) a)))
-  (display r))
-(newline)
+(displayln
+  (let* ((a (apply + (map (curryr expt 2) (range 1 101))))
+         (b (apply + (range 1 101))))
+    (- (* b b) a)))

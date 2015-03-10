@@ -1,3 +1,1 @@
-(display
-  (foldl lcm 1 (stream->list (in-range 1 20))))
-(newline)
+(displayln (apply lcm (range 1 20)))
