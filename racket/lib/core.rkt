@@ -1,7 +1,11 @@
 #lang racket
 
-(provide stream-take
+(provide char->number
+         stream-take
          stream-takef)
+
+(define (char->number c)
+  (string->number (make-string 1 c)))
 
 (define (stream-take s n)
   (for/list ((e s) (i (in-range n))) e))
