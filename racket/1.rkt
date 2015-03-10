@@ -1,4 +1,4 @@
 (displayln
-  (apply + (filter (λ (n) (or (zero? (modulo n 3))
-                              (zero? (modulo n 5))))
-                   (range 1000))))
+  (for/sum ((n (in-range 1000))
+            #:when (or (zero? (modulo n 3)) (zero? (modulo n 5))))
+    n))
