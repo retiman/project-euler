@@ -25,10 +25,10 @@
 
 (define/memo (divisors n)
   (let* ((xs (filter (curry divides? n) (range 2 (add1 (integer-sqrt n)))))
-          (ys (map (curry quotient n) xs)))
+         (ys (map (curry quotient n) xs)))
     (set-union (set 1 n) (list->set xs) (list->set ys))))
 
-(define factorial n
+(define (factorial n)
   (define (factorial* i acc)
     (if (= i 0)
       acc
@@ -46,7 +46,7 @@
 (define/memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "coprime to m" a))
   (let ((ds (set->list (divisors (φ m)))))
-    (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))))
+    (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))
 
 (define (prime? n)
   (or (= n 2) (= (set-length (divisors n)) 2)))
