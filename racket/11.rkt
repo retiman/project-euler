@@ -9,25 +9,25 @@
     (for/vector ((line (file->lines "../data/11.txt")))
       (line->vector line))))
 
-(define (horizontal-product i j)
+(define (→ i j)
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
                  (matrix-ref m i (+ j k)))))
 
-(define (vertical-product i j)
+(define (↑ i j)
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
                  (matrix-ref m (+ i k) j))))
 
-(define (diagonal-up-product i j)
+(define (↗ i j)
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
                  (matrix-ref m (- i k) (+ j k)))))
 
-(define (diagonal-down-product i j)
+(define (↘ i j)
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
@@ -38,7 +38,4 @@
     (flatten
       (for*/list ((i (in-range 20))
                   (j (in-range 20)))
-        (list (horizontal-product i j)
-              (vertical-product i j)
-              (diagonal-up-product i j)
-              (diagonal-down-product i j))))))
+        (list (→ i j) (↑ i j) (↗ i j) (↘ i j))))))
