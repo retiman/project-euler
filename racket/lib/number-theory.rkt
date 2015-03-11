@@ -3,6 +3,7 @@
 (provide coprime?
          divides?
          divisors
+         factorial
          modular-expt
          tau
          sigma

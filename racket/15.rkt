@@ -1,7 +1,4 @@
-(require "lib/core.rkt")
-
-(define (factorial n)
-  (for/product ((i (range 1 (add1 n)))) i))
+(require "lib/number-theory.rkt")
 
 (displayln
   (let* ((n (factorial (+ 20 20)))
