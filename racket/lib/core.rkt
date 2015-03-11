@@ -1,6 +1,7 @@
 #lang racket
 
 (provide char->number
+         memoize
          set-length
          stream-take
          stream-takef)
