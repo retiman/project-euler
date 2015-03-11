@@ -30,6 +30,13 @@
              (ys (map (curry quotient n) xs)))
         (set-union (set 1 n) (list->set xs) (list->set ys))))))
 
+(define factorial n
+  (define (factorial* i acc)
+    (if (= i 0)
+      acc
+      (factorial* (sub1 i) (* i acc))))
+  (factorial* n 1))
+
 (define (modular-expt b e m)
   (letrec ((f (λ (a b e)
                 (if (<= e 0)
