@@ -36,12 +36,12 @@
   (factorial* n 1))
 
 (define (modular-expt b e m)
-  (letrec ((f (λ (a b e)
-                (if (<= e 0)
-                  a
-                  (let ((t (if (= (bitwise-and e 1) 1) (modulo (* a b) m) a)))
-                    (f t (modulo (* b b) m) (arithmetic-shift e -1)))))))
-    (f 1 b e)))
+  (define (f a b e)
+    (if (<= e 0)
+      a
+      (let ((t (if (= (bitwise-and e 1) 1) (modulo (* a b) m) a)))
+        (f t (modulo (* b b) m) (arithmetic-shift e -1)))))
+  (f 1 b e))
 
 (define/memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "coprime to m" a))
