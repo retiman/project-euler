@@ -55,4 +55,4 @@
          (bigger (max left right)))
     (data-set data i j (+ current bigger))))
 
-(displayln (data-ref 0 0))
+(displayln (data-ref data 0 0))
