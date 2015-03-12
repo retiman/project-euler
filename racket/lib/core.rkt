@@ -4,6 +4,8 @@
          char->number
          memoize
          set-length
+         stream-drop
+         stream-dropf
          stream-take
          stream-takef
          zip
@@ -28,11 +30,19 @@
 (define (set-length s)
   (sequence-length s))
 
+(define (stream-drop s n)
+  (if (= n 0) s (stream-drop (stream-rest s) (sub1 n))))
+
+(define (stream-dropf s pred)
+  (if (not (pred (stream-first s)))
+    s
+    (stream-dropf (stream-rest s) pred)))
+
 (define (stream-take s n)
   (for/list ((e s) (i (in-range n))) e))
 
-(define (stream-takef s f)
-  (for/list ((e s) #:break (not (f e))) e))
+(define (stream-takef s pred)
+  (for/list ((e s) #:break (not (pred e))) e))
 
 (define (memoize f)
   (define h (make-hash))
