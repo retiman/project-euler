@@ -5,7 +5,9 @@
          memoize
          set-length
          stream-take
-         stream-takef)
+         stream-takef
+         zip
+         zipmap)
 
 (define (char->number c)
   (string->number (make-string 1 c)))
@@ -38,6 +40,14 @@
     (hash-ref h args (λ ()
                        (hash-set! h args (apply f args))
                        (hash-ref h args)))))
+
+(define (zip xs ys . lists)
+  (for ((l (list* xs ys lists)))
+    (unless (list? l) (raise-argument-error 'zip "list?" l)))
+  (apply map list (list* xs ys lists)))
+
+(define (zipmap . args)
+  (apply hash (flatten (apply zip args))))
 
 (define-syntax-rule (define/memo (id . p) . body)
   (define id (memoize (λ p . body))))
