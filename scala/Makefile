@@ -14,5 +14,5 @@ deps:
 repl: deps
 	JAVA_OPTS=${JAVA_OPTS} scala -cp ${SPIRE_DIR}/${SPIRE_JAR} -deprecation
 
-%: deps %.scala
+%: %.scala
 	JAVA_OPTS=${JAVA_OPTS} time scala -cp ${SPIRE_DIR}/${SPIRE_JAR} -deprecation $<
