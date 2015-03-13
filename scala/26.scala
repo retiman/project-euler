@@ -26,4 +26,4 @@ def maxPeriod(best: Pair[Int, Int], numbers: List[Int]): Pair[Int, Int] =
   }
 }
 
-println(maxPeriod((0, 0), numbers))
+println(maxPeriod((0, 0), numbers).n)
