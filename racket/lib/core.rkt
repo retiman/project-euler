@@ -1,7 +1,7 @@
 #lang racket
 
-(provide define/memo
-         char->integer*
+(provide char->integer*
+         define/memo
          memoize
          set-length
          stream-drop
