@@ -79,7 +79,9 @@
     (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))
 
 (define (prime? n)
-  (or (= n 2) (= (set-length (divisors n)) 2)))
+  (if (and (exact? n) (positive? n))
+    (or (= n 2) (= (set-length (divisors n)) 2))
+    #f))
 
 (define (prime-factors n)
   (filter prime? (set->list (divisors n))))
