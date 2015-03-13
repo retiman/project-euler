@@ -8,6 +8,7 @@
          factorial
          fibs
          modular-expt
+         modular-tetn
          tau
          sigma
          ord
@@ -53,6 +54,24 @@
       (let ((t (if (= (bitwise-and e 1) 1) (modulo (* a b) m) a)))
         (loop t (modulo (* b b) m) (arithmetic-shift e -1)))))
   (loop 1 b e))
+
+(define (modular-tetn b e m)
+  (define (f b e m)
+    (let* ((o (ord b m))
+           (t (modular-tetn b (sub1 e) o)))
+      (modular-expt b t m)))
+  (define (g b e m d)
+    (let* ((n (quotient m d))
+           (t (modular-tetn b e n))
+           (i (modular-expt b (sub1 (totient n)) n))
+           (u (modulo (* t i) n)))
+      (modulo (* b u) m)))
+  (let ((d (gcd b m)))
+    (cond ((= m 1) 0)
+          ((= e 1) (modulo b m))
+          ((= d 1) (f b e m))
+          ((= d m) 0)
+          (else (g b e m d)))))
 
 (define/memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
