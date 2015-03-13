@@ -42,12 +42,12 @@
   (factorial* n 1))
 
 (define (modular-expt b e m)
-  (define (f a b e)
+  (define (loop a b e)
     (if (<= e 0)
       a
       (let ((t (if (= (bitwise-and e 1) 1) (modulo (* a b) m) a)))
-        (f t (modulo (* b b) m) (arithmetic-shift e -1)))))
-  (f 1 b e))
+        (loop t (modulo (* b b) m) (arithmetic-shift e -1)))))
+  (loop 1 b e))
 
 (define/memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))

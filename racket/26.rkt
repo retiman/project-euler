@@ -5,11 +5,11 @@
           (range 999 1 -1)))
 
 (define (ord* a m)
-  (define (f b lst)
+  (define (loop b lst)
     (if (or (= b 1) (= (length lst) 1))
       (car lst)
-      (f (modulo (* a b) m) (cdr lst))))
-  (f (modulo a m) (range 1 m)))
+      (loop (modulo (* a b) m) (cdr lst))))
+  (loop (modulo a m) (range 1 m)))
 
 (define (max-period best numbers)
   (if (empty? numbers)
