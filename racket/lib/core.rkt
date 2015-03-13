@@ -1,7 +1,7 @@
 #lang racket
 
 (provide define/memo
-         char->number
+         char->integer*
          memoize
          set-length
          stream-drop
@@ -11,7 +11,7 @@
          zip
          zipmap)
 
-(define (char->number c)
+(define (char->integer* c)
   (string->number (make-string 1 c)))
 
 (define (hash-merge! a b)
@@ -19,13 +19,13 @@
     (hash-set! a k (hash-ref b k))))
 
 (define (hash-merge a b)
-  (define (hash-merge* h ks)
+  (define (loop h ks)
     (if (empty? ks)
       h
       (let* ((k (first ks))
              (v (hash-ref b k)))
-        (hash-merge* (hash-set h k v) (rest ks)))))
-  (hash-merge* a (hash-keys b)))
+        (loop (hash-set h k v) (rest ks)))))
+  (loop a (hash-keys b)))
 
 (define (set-length s)
   (sequence-length s))

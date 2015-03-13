@@ -3,4 +3,4 @@
 
 (displayln
   (for/sum ((c (number->string (factorial 100))))
-    (char->number c)))
+    (char->integer* c)))

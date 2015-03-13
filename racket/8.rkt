@@ -4,7 +4,7 @@
   (apply string-append (file->lines "../data/8.txt")))
 
 (define (char-at data i)
-  (char->number (string-ref data i)))
+  (char->integer* (string-ref data i)))
 
 (displayln
   (apply max
