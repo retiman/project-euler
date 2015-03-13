@@ -1,5 +1,7 @@
 #lang racket
 
+; Provides many of the functions already defined in racket/number-theory,
+; but using that is possibly against the 'spirit' of Project Euler.
 (provide coprime?
          divides?
          divisors
