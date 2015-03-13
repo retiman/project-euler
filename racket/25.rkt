@@ -1,8 +1,5 @@
 (require "lib/core.rkt")
-
-(define fibs
-  (letrec ((f (λ (a b) (stream-cons a (f b (+ a b))))))
-    (f 0 1)))
+(require "lib/number-theory.rkt")
 
 (define (number-length n)
   (string-length (number->string n)))

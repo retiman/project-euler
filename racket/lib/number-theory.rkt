@@ -6,6 +6,7 @@
          divides?
          divisors
          factorial
+         fibs
          modular-expt
          tau
          sigma
@@ -40,6 +41,10 @@
       acc
       (factorial* (sub1 i) (* i acc))))
   (factorial* n 1))
+
+(define fibs
+  (letrec ((f (λ (a b) (stream-cons a (f b (+ a b))))))
+    (f 0 1)))
 
 (define (modular-expt b e m)
   (define (loop a b e)
