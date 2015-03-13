@@ -29,6 +29,9 @@
          (ys (map (curry quotient n) xs)))
     (set-union (set 1 n) (list->set xs) (list->set ys))))
 
+(define (divisors* n)
+  (set-remove (divisors n) n))
+
 (define (factorial n)
   (define (factorial* i acc)
     (if (= i 0)
@@ -57,6 +60,9 @@
 
 (define (sigma n)
   (for/sum ((i (divisors n))) i))
+
+(define (sigma* n)
+  (- (sigma n) n))
 
 (define (tau n)
   (set-length (divisors n)))

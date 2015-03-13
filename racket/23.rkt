@@ -1,8 +1,5 @@
 (require "lib/number-theory.rkt")
 
-(define (sigma* n)
-  (- (sigma n) n))
-
 (define limit 28123)
 
 (define numbers
