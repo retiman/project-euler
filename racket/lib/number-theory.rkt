@@ -45,7 +45,7 @@
   (f 1 b e))
 
 (define/memo (ord a m)
-  (unless (coprime? a m) (raise-argument-error 'a "coprime to m" a))
+  (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
   (let ((ds (set->list (divisors (φ m)))))
     (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))
 
