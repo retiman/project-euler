@@ -1,3 +1,4 @@
+(require "lib/core.rkt")
 (require "lib/number-theory.rkt")
 
 (define ps
@@ -7,8 +8,7 @@
   (+ (* n n) (* a n) b))
 
 (define (primes-count a b)
-  (for/sum ((n (range b)))
-    (if (prime? (f n a b)) 1 0)))
+  (stream-length (stream-takef (in-range b) (compose prime? (curryr f a b)))))
 
 (define m
   (for*/hash ((b (append ps (map (curry * -1) ps)))
