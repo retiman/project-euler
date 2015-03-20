@@ -1,4 +1,4 @@
-(require math/matrix)
+(require "lib/2darray.rkt")
 
 (define input
   "75
@@ -20,6 +20,10 @@
 (define (string->row s)
   (map string->number (regexp-split #px" " s)))
 
+(define (2darray-num-cols* a i)
+  (let ((v (2darray-row-ref a i)))
+    (length (takef (vector->list v) (λ (e) (not (= e 0)))))))
+
 (define data
   ((compose
      list->vector
@@ -29,30 +33,12 @@
      (curry regexp-split #px"\n"))
   input))
 
-(define (data-ref . args)
-  (let* ((data (list-ref args 0))
-         (i (list-ref args 1))
-         (j (if (= (length args) 3) (list-ref args 2) +nan.0)))
-    (if (nan? j)
-      (vector-ref data i)
-      (vector-ref (vector-ref data i) j))))
-
-(define (data-length . args)
-  (let* ((data (list-ref args 0))
-         (i (if (= (length args) 2) (list-ref args 1) +nan.0)))
-    (if (nan? i)
-      (vector-length data)
-      (vector-length (data-ref data i)))))
-
-(define (data-set data i j value)
-  (vector-set! (vector-ref data i) j value))
-
-(for* ((i (range (- (data-length data) 2) (sub1 0) -1))
-       (j (range 0 (data-length data i))))
-  (let* ((current (data-ref data i j))
-         (left (data-ref data (add1 i) j))
-         (right (data-ref data (add1 i) (add1 j)))
+(for* ((i (range (- (2darray-num-rows data) 2) (sub1 0) -1))
+       (j (range 0 (2darray-num-cols* data i))))
+  (let* ((current (2darray-ref data i j))
+         (left (2darray-ref data (add1 i) j))
+         (right (2darray-ref data (add1 i) (add1 j)))
          (bigger (max left right)))
-    (data-set data i j (+ current bigger))))
+    (2darray-set! data i j (+ current bigger))))
 
-(displayln (data-ref data 0 0))
+(displayln (2darray-ref data 0 0))
