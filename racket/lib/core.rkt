@@ -1,7 +1,7 @@
 #lang racket
 
 (provide char->integer*
-         define/memo
+         define-memo
          memoize
          set-length
          stream-drop
@@ -59,5 +59,5 @@
 (define (zipmap . args)
   (apply hash (flatten (apply zip args))))
 
-(define-syntax-rule (define/memo (id . p) . body)
+(define-syntax-rule (define-memo (id . p) . body)
   (define id (memoize (λ p . body))))

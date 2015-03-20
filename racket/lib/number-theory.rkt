@@ -28,7 +28,7 @@
 (define (divides? m n)
   (zero? (modulo m n)))
 
-(define/memo (divisors n)
+(define-memo (divisors n)
   (let* ((xs (filter (curry divides? n) (range 2 (add1 (integer-sqrt n)))))
          (ys (map (curry quotient n) xs)))
     (set-union (set 1 n) (list->set xs) (list->set ys))))
@@ -73,7 +73,7 @@
           ((= d m) 0)
           (else (g b e m d)))))
 
-(define/memo (ord a m)
+(define-memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
   (let ((ds (set->list (divisors (φ m)))))
     (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))

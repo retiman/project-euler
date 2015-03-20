@@ -1,6 +1,6 @@
 (require "lib/core.rkt")
 
-(define/memo (collatz-length n)
+(define-memo (collatz-length n)
   (define (loop i acc)
     (cond ((= i 1) acc)
           ((even? i) (collatz-length* (/ i 2) (add1 acc)))
