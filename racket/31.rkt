@@ -2,17 +2,17 @@
 (require (for-syntax racket/syntax))
 
 (begin-for-syntax
-  (define (make-id stx)
-    (compose (curry datum->syntax stx)
-             string->symbol
-             (curry format "p~a")
-             syntax->datum)))
+  (define (make-id stx nstx)
+    ((compose (curry datum->syntax stx)
+              string->symbol
+              (curry format "p~a")
+              syntax->datum) nstx)))
 
 (define-syntax (define-p stx)
   (syntax-case stx ()
     ((_ x y)
-     (with-syntax ((px ((make-id stx) #'x))
-                   (py ((make-id stx) #'y)))
+     (with-syntax ((px (make-id stx #'x))
+                   (py (make-id stx #'y)))
                    #'(define (px n)
                        (if (>= n 0)
                          (+ (px (- n x)) (py n))
