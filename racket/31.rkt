@@ -2,11 +2,11 @@
 (require (for-syntax racket/syntax))
 
 (begin-for-syntax
-  (define (make-id stx nstx)
+  (define (make-id stx id-fragment)
     ((compose (curry datum->syntax stx)
               string->symbol
               (curry format "p~a")
-              syntax->datum) nstx)))
+              syntax->datum) id-fragment)))
 
 (define-syntax (define-p stx)
   (syntax-case stx ()
