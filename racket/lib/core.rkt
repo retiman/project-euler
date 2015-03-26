@@ -3,6 +3,10 @@
 (provide char->integer*
          define-memo
          distinct
+         integer->list
+         integer->list*
+         list->integer
+         list->integer*
          memoize
          set-length
          stream-drop
@@ -30,6 +34,18 @@
              (v (hash-ref b k)))
         (loop (hash-set h k v) (rest ks)))))
   (loop a (hash-keys b)))
+
+(define (integer->list n)
+  (string->list (number->string n)))
+
+(define (integer->list* n)
+  (map char->integer* (integer->list n)))
+
+(define (list->integer lst)
+  (string->number (list->string lst)))
+
+(define (list->integer* lst)
+  (string->number (apply string-append (map number->string lst))))
 
 (define (set-length s)
   (sequence-length s))

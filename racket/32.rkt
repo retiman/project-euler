@@ -2,28 +2,19 @@
 
 (define pandigital-products (make-hash))
 
-(define (number->list n)
-  (string->list (number->string n)))
-
-(define (list->number lst)
-  (string->number (list->string lst)))
-
-(define (list->number* lst)
-  (string->number (apply string-append (map number->string lst))))
-
 (define (pandigital-product-values n i j)
-  (let*-values (((lst) (number->list n))
+  (let*-values (((lst) (integer->list n))
                 ((a rst) (split-at lst i))
                 ((b c) (split-at rst j))
-                ((a*) (list->number a))
-                ((b*) (list->number b))
-                ((c*) (list->number c)))
+                ((a*) (list->integer a))
+                ((b*) (list->integer b))
+                ((c*) (list->integer c)))
     (list a* b* c*)))
 
 (define (check-pandigital-product a b c)
   ; If abc forms a pandigital product, then bac forms one as well.
-  (let ((p1 (list->number* (list a b c)))
-        (p2 (list->number* (list b a c))))
+  (let ((p1 (list->integer* (list a b c)))
+        (p2 (list->integer* (list b a c))))
     (when (and (not (hash-has-key? pandigital-products p1))
                (= c (* a b)))
       (hash-set! pandigital-products p1 c)
@@ -31,7 +22,7 @@
 
 (begin
   (for ((p (permutations (range 1 10))))
-    (let ((n (list->number* p)))
+    (let ((n (list->integer* p)))
       ; Check for products formed by a * bcde = fghi or abcd * e = fghi.
       (apply check-pandigital-product (pandigital-product-values n 1 4))
       ; Check for products formed by ab * cde = fghi or abc * de = fghi.
