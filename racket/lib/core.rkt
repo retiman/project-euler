@@ -2,6 +2,7 @@
 
 (provide char->integer*
          define-memo
+         distinct
          memoize
          set-length
          stream-drop
@@ -13,6 +14,9 @@
 
 (define (char->integer* c)
   (string->number (make-string 1 c)))
+
+(define (distinct lst)
+  (set->list (list->set lst)))
 
 (define (hash-merge! a b)
   (for ((k (hash-keys b)))
