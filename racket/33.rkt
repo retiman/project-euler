@@ -30,6 +30,6 @@
 (displayln
   (denominator
     (for*/product ((m (range 11 99))
-                  (n (denominators m))
-                  #:when (cancellable? m n))
+                   (n (denominators m))
+                   #:when (cancellable? m n))
       (/ m n))))
