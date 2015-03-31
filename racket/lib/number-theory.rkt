@@ -6,6 +6,7 @@
          divides?
          divisors
          factorial
+         factorion?
          fibs
          modular-expt
          modular-tetn
@@ -42,6 +43,9 @@
       acc
       (factorial* (sub1 i) (* i acc))))
   (factorial* n 1))
+
+(define (factorion? n)
+  (= n (foldr + 0 (map factorial (integer->list* n)))))
 
 (define fibs
   (letrec ((f (λ (a b) (stream-cons a (f b (+ a b))))))
