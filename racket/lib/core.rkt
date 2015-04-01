@@ -16,15 +16,19 @@
          zip
          zipmap)
 
+; Converts a char to the integer it maps to. For example,
+; (= (char->integer* #\1) 1).
 (define (char->integer* c)
   (string->number (make-string 1 c)))
 
 (define distinct remove-duplicates)
 
+; Merges 2 mutable hashes together, with duplicate keys being overridden.
 (define (hash-merge! a b)
   (for ((k (hash-keys b)))
     (hash-set! a k (hash-ref b k))))
 
+; Merges 2 immutable hashes together, with duplicate keys being overridden.
 (define (hash-merge a b)
   (define (loop h ks)
     (if (empty? ks)
@@ -34,32 +38,44 @@
         (loop (hash-set h k v) (rest ks)))))
   (loop a (hash-keys b)))
 
+; Converts an integer to a list of chars. For example,
+; (= (integer->list 123) '(#\1 #\2 #\3))
 (define (integer->list n)
   (string->list (number->string n)))
 
+; Converts an integer to a list of integers. For example,
+; (= (integer->list* 123) '(1 2 3))
 (define (integer->list* n)
   (map char->integer* (integer->list n)))
 
+; Converts a list of chars to an integer. For example,
+; (= '(#\1 #\2 #\3) (integer->list 123))
 (define (list->integer lst)
   (string->number (list->string lst)))
 
+; Converts a list of integers to an integer. For example,
+; (= '(1 2 3) (integer->list 123))
 (define (list->integer* lst)
   (string->number (apply string-append (map number->string lst))))
 
 (define (set-length s)
   (sequence-length s))
 
+; Returns the stream #'s without the first n elements.
 (define (stream-drop s n)
   (if (= n 0) s (stream-drop (stream-rest s) (sub1 n))))
 
+; Returns the stream #'s without the first few elements that satisfy #'pred.
 (define (stream-dropf s pred)
   (if (not (pred (stream-first s)))
     s
     (stream-dropf (stream-rest s) pred)))
 
+; Returns the first #'n elements of stream #'s.
 (define (stream-take s n)
   (for/list ((e s) (i (in-range n))) e))
 
+; Returns the first few elements of #'s that satisfy #'pred.
 (define (stream-takef s pred)
   (for/list ((e s) #:break (not (pred e))) e))
 
@@ -75,6 +91,8 @@
     (unless (list? l) (raise-argument-error 'zip "list?" l)))
   (apply map list (list* xs ys lists)))
 
+; Returns a hash with the keys as the first list and the values as the second
+; list.
 (define (zipmap . args)
   (apply hash (flatten (apply zip args))))
 

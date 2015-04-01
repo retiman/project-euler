@@ -26,6 +26,7 @@
          ord
          prime?
          prime-factors
+         relatively-prime?
          totient
          phi
          σ
@@ -34,17 +35,20 @@
 
 (require "core.rkt")
 
+; See http://en.wikipedia.org/wiki/Coprime
 (define (coprime? m n)
   (= (gcd m n) 1))
 
 (define (divides? m n)
   (zero? (modulo m n)))
 
+; Computes the divisors of #'n, including itself.
 (define-memo (divisors n)
   (let* ((xs (filter (curry divides? n) (range 2 (add1 (integer-sqrt n)))))
          (ys (map (curry quotient n) xs)))
     (set-union (set 1 n) (list->set xs) (list->set ys))))
 
+; Computes the divisors of #'n, excluding itself.
 (define (divisors* n)
   (set-remove (divisors n) n))
 
@@ -55,6 +59,7 @@
       (factorial* (sub1 i) (* i acc))))
   (factorial* n 1))
 
+; See http://en.wikipedia.org/wiki/Factorion
 (define (factorion? n)
   (= n (foldr + 0 (map factorial (integer->list* n)))))
 
@@ -71,6 +76,7 @@
 (define (log10 a)
   (logarithm 10 a))
 
+; Computes the residue when raising #'b to the #'eth power and dividing by #'m.
 (define (modular-expt b e m)
   (define (loop a b e)
     (if (<= e 0)
@@ -79,6 +85,8 @@
         (loop t (modulo (* b b) m) (arithmetic-shift e -1)))))
   (loop 1 b e))
 
+; Computes the residue when raising #'b to the #'bth power, e times, and
+; dividing by #'m.
 (define (modular-tetn b e m)
   (define (f b e m)
     (let* ((o (ord b m))
@@ -97,6 +105,7 @@
           ((= d m) 0)
           (else (g b e m d)))))
 
+; Computes the next prime after #'n.
 (define (next-prime n)
   (cond
     ((= n 0) 2)
@@ -107,6 +116,7 @@
               n*
               (next-prime n*))))))
 
+; Computes the next #'limit primes after #'n.
 (define (next-primes n limit)
   (define (loop m limit)
     (if (zero? limit)
@@ -115,6 +125,7 @@
         (cons p (loop p (sub1 limit))))))
   (loop n limit))
 
+; Computes the next primes under #'limit after #'n.
 (define (next-primes* n limit)
   (define (loop m limit)
     (let ((p (next-prime m)))
@@ -123,11 +134,15 @@
         (cons p (loop p (sub1 limit))))))
   (loop n limit))
 
+; Computes the #'nth prime.
 (define (nth-prime n)
   (for/fold ((p 2))
             ((k (in-range n)))
     (next-prime p)))
 
+; Computes the multiplicative order of #'a modulo #'n. This is the smallest
+; positive integer k such that (= (modular-expt a k n) 1).
+; See http://en.wikipedia.org/wiki/Order_(number_theory)
 (define-memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
   (let ((ds (set->list (divisors (φ m)))))
@@ -141,15 +156,29 @@
 (define (prime-factors n)
   (filter prime? (set->list (divisors n))))
 
+; Computes the sum of divisors of #'n.
+; See http://en.wikipedia.org/wiki/Divisor_function
 (define (sigma n)
   (for/sum ((i (divisors n))) i))
 
+; Computes the sum of divisors of #'n, excluding itself.
+; See http://en.wikipedia.org/wiki/Divisor_function
 (define (sigma* n)
   (- (sigma n) n))
 
+; Computes the number of divisors of #'n.
+; See http://en.wikipedia.org/wiki/Divisor_function
 (define (tau n)
   (set-length (divisors n)))
 
+; Computes the number of divisors of #'n, excluding itself.
+; See http://en.wikipedia.org/wiki/Divisor_function
+(define (tau* n)
+  (sub1 (tau n)))
+
+; Computes the totient of #'n. This is the number of positive integer less than
+; or equal to #'n and coprime to #'n.
+; See http://en.wikipedia.org/wiki/Totient
 (define (totient n)
   (cond ((= n 1) 0)
   (else (* n (for/product ((p (prime-factors n)))
@@ -160,6 +189,7 @@
 (define lg log10)
 (define ln log)
 (define phi totient)
+(define relatively-prime? coprime?)
 (define σ sigma)
 (define τ tau)
 (define φ totient)
