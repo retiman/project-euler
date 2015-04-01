@@ -19,8 +19,7 @@
 (define (char->integer* c)
   (string->number (make-string 1 c)))
 
-(define (distinct lst)
-  (set->list (list->set lst)))
+(define distinct remove-duplicates)
 
 (define (hash-merge! a b)
   (for ((k (hash-keys b)))
