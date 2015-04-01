@@ -17,6 +17,10 @@
          logarithm
          modular-expt
          modular-tetn
+         next-prime
+         next-primes
+         next-primes*
+         nth-prime
          tau
          sigma
          ord
