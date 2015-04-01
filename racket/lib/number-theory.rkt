@@ -8,6 +8,13 @@
          factorial
          factorion?
          fibs
+         lb
+         ld
+         lg
+         ln
+         log2
+         log10
+         logarithm
          modular-expt
          modular-tetn
          tau
@@ -50,6 +57,15 @@
 (define fibs
   (letrec ((f (λ (a b) (stream-cons a (f b (+ a b))))))
     (f 0 1)))
+
+(define (logarithm b a)
+  (/ (log a) (log b)))
+
+(define (log2 a)
+  (logarithm 2 a))
+
+(define (log10 a)
+  (logarithm 10 a))
 
 (define (modular-expt b e m)
   (define (loop a b e)
@@ -104,6 +120,10 @@
   (else (* n (for/product ((p (prime-factors n)))
                           (- 1 (/ 1 p)))))))
 
+(define lb log2)
+(define ld log2)
+(define lg log10)
+(define ln log)
 (define phi totient)
 (define σ sigma)
 (define τ tau)
