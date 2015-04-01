@@ -93,6 +93,37 @@
           ((= d m) 0)
           (else (g b e m d)))))
 
+(define (next-prime n)
+  (cond
+    ((= n 0) 2)
+    ((= n 1) 2)
+    ((= n 2) 3)
+    (else (let ((n* (if (odd? n) (+ n 2) (add1 n))))
+            (if (prime? n*)
+              n*
+              (next-prime n*))))))
+
+(define (next-primes n limit)
+  (define (loop m limit)
+    (if (zero? limit)
+      empty
+      (let ((p (next-prime m)))
+        (cons p (loop p (sub1 limit))))))
+  (loop n limit))
+
+(define (next-primes* n limit)
+  (define (loop m limit)
+    (let ((p (next-prime m)))
+      (if (> p limit)
+        empty
+        (cons p (loop p (sub1 limit))))))
+  (loop n limit))
+
+(define (nth-prime n)
+  (for/fold ((p 2))
+            ((k (in-range n)))
+    (next-prime p)))
+
 (define-memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
   (let ((ds (set->list (divisors (φ m)))))
