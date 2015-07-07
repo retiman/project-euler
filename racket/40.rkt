@@ -1,3 +1,5 @@
+(require "lib/core.rkt")
+
 (define x
   (letrec ((f (lambda (s i)
                 (if (< (string-length s) 1000000)
