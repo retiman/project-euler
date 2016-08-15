@@ -3,6 +3,7 @@
 ; Provides many of the functions already defined in racket/number-theory,
 ; but using that is possibly against the 'spirit' of Project Euler.
 (provide coprime?
+         digits
          divides?
          divisors
          factorial
@@ -38,6 +39,9 @@
 ; See http://en.wikipedia.org/wiki/Coprime
 (define (coprime? m n)
   (= (gcd m n) 1))
+
+(define (digits n)
+  (add1 (floor (log10 n))))
 
 (define (divides? m n)
   (zero? (modulo m n)))
