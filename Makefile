@@ -1,6 +1,6 @@
 PYTHON = /usr/bin/env python
 
-all: primes
+all: stats
 
 stats:
 	scripts/stats.sh
