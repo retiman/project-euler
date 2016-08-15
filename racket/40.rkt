@@ -1,15 +1,19 @@
 (require "lib/core.rkt")
+(require "lib/number-theory.rkt")
 
-(define x
-  (letrec ((f (lambda (s i)
-                (if (< (string-length s) 1000000)
-                  (f (string-append s (number->string i)) (add1 i))
-                  s))))
-    (f "" 1)))
+(define s
+  (letrec ((f (λ (xs x d)
+                (if (< d 1000000)
+                  (f (cons x xs) (add1 x) (+ d (digits x)))
+                  xs))))
+    ((compose (curry apply string-append)
+              (curry map number->string)
+              reverse)
+       (f '() 1 0))))
 
 (define (product acc index)
   (if (< index 1000000)
-    (product (* acc (char->integer* (string-ref x (sub1 index)))) (* index 10))
+    (product (* acc (char->integer* (string-ref s (sub1 index)))) (* index 10))
     acc))
 
 (displayln
