@@ -27,11 +27,8 @@
 (define (triangle n)
   (quotient (* n (add1 n)) 2))
 
-(define naturals
-  (stream-cons 0 (stream-map add1 naturals)))
-
 (define triangles
-  (stream-map triangle naturals))
+  (stream-map triangle (stream-from 0)))
 
 (define triangle-word-scores
   ((compose list->set
