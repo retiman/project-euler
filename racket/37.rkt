@@ -1,20 +1,11 @@
 (require "lib/core.rkt")
+(require "lib/string.rkt")
 (require "lib/number-theory.rkt")
 
 (define primes
   (filter (curryr < 1000000) (file->list "../data/primes.txt")))
 
 (define limit 11)
-
-(define (string-drop n s)
-  ((compose list->string
-            (curryr drop n)
-            string->list) s))
-
-(define (string-take n s)
-  ((compose list->string
-            (curryr take n)
-            string->list) s))
 
 (define (truncate* n direction)
   (let* ((s (number->string n))
