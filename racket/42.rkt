@@ -8,8 +8,9 @@
 
 (define words
   ((compose (curryr string-split ",")
-            (curryr string-replace "\"" ""))
-     (file->string "../data/42.txt")))
+            (curryr string-replace "\"" "")
+            file->string)
+     "../data/42.txt"))
 
 (define (word-score w)
   ((compose (curry apply +)
