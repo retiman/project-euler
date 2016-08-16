@@ -20,8 +20,10 @@
     (check = (digits 234) 3 "234 has 3 digits")
     (check = (digits 0321) 3 "0321 has 3 digits")
 
-    (check-equal? (divides? 1 2) #f "2 does not divides 1")
-    (check-equal? (divides? 2 1) #t "1 does divide 2")
+    (check-equal? (divides? 2 1) #f "2 does not divide 1")
+    (check-equal? (divides? 1 2) #t "1 does divide 2")
+    (check-equal? (divides? 5 20) #t "5 does divide 20")
+    (check-equal? (divides? 7 20) #f "7 does not divide 20")
 
     (check-equal? (divisors 1) (set 1) "divisors of 1")
     (check-equal? (divisors 2) (set 1 2) "divisors of 2")

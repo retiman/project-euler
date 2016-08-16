@@ -5,7 +5,7 @@
 
 (define (days-in-month month year)
   (let ((days (vector-ref days-per-month month)))
-    (if (and (= month 1) (divides? year 4))
+    (if (and (= month 1) (divides? 4 year))
       (add1 days)
       days)))
 
@@ -16,4 +16,4 @@
             (month (in-range 0 12)))
     (let* ((d (days-in-month month year)))
       (set! days (+ days (modulo d 7)))
-      (if (divides? days 7) 1 0))))
+      (if (divides? 7 days) 1 0))))

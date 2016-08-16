@@ -33,18 +33,18 @@
   (cond
     ((= n 1000)
      "one thousand")
-    ((and (>= n 100) (not (divides? n 100)))
+    ((and (>= n 100) (not (divides? 100 n)))
      (string-append (hash-ref word (quotient n 100))
                     " hundred and "
                     (say (remainder n 100))))
-    ((and (>= n 100) (divides? n 100))
+    ((and (>= n 100) (divides? 100 n))
      (string-append (hash-ref word (quotient n 100))
                     " hundred"))
-    ((and (>= n 20) (not (divides? n 10)))
+    ((and (>= n 20) (not (divides? 10 n)))
      (string-append (hash-ref word (- n (remainder n 10)))
                     " "
                     (say (remainder n 10))))
-    ((and (>= n 20) (divides? n 10))
+    ((and (>= n 20) (divides? 10 n))
      (hash-ref word (- n (remainder n 10))))
     (else (hash-ref word n))))
 

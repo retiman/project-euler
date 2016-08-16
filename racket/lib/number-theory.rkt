@@ -52,16 +52,14 @@
 (define (digits n)
   (add1 (floor (log10 n))))
 
-; Returns #t if n divides m.
-;
-; TODO: Reverse the order of these arguments to better match the order of m|n.
+; Returns #t if m divides n; false otherwise.
 (define (divides? m n)
-  (zero? (modulo m n)))
+  (zero? (modulo n m)))
 
 ; Returns the divisors of n, including itself. This method uses a naive
 ; algorithm, but memoizes the result.
 (define-memo (divisors n)
-  (let* ((xs (filter (curry divides? n) (range 2 (add1 (integer-sqrt n)))))
+  (let* ((xs (filter (curryr divides? n) (range 2 (add1 (integer-sqrt n)))))
          (ys (map (curry quotient n) xs)))
     (set-union (set 1 n) (list->set xs) (list->set ys))))
 
