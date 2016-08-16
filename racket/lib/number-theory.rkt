@@ -6,6 +6,7 @@
          digits
          divides?
          divisors
+         divisors*
          factorial
          factorion?
          fibs
@@ -36,26 +37,41 @@
 
 (require "core.rkt")
 
+; Returns true if two numbers are coprime; false otherwise.
+;
+; In number theory, two integers a and b are said to be relatively prime,
+; mutually prime, or coprime (also spelled co-prime) if the only positive
+; integer that divides both of them is 1. In other words, their greatest
+; common divisor is 1.
+;
 ; See http://en.wikipedia.org/wiki/Coprime
 (define (coprime? m n)
   (= (gcd m n) 1))
 
+; Returns the number of digits in a number n.
 (define (digits n)
   (add1 (floor (log10 n))))
 
+; Returns #t if n divides m.
+;
+; TODO: Reverse the order of these arguments to better match the order of m|n.
 (define (divides? m n)
   (zero? (modulo m n)))
 
-; Computes the divisors of #'n, including itself.
+; Returns the divisors of n, including itself. This method uses a naive
+; algorithm, but memoizes the result.
 (define-memo (divisors n)
   (let* ((xs (filter (curry divides? n) (range 2 (add1 (integer-sqrt n)))))
          (ys (map (curry quotient n) xs)))
     (set-union (set 1 n) (list->set xs) (list->set ys))))
 
-; Computes the divisors of #'n, excluding itself.
+; Returns the divisors of n, excluding itself.
 (define (divisors* n)
   (set-remove (divisors n) n))
 
+; Returns the factorial of n.
+;
+; See https://en.wikipedia.org/wiki/Factorial
 (define (factorial n)
   (define (factorial* i acc)
     (if (= i 0)
@@ -63,24 +79,41 @@
       (factorial* (sub1 i) (* i acc))))
   (factorial* n 1))
 
+; Returns true if n is a factorion; false otherwise.
+;
+; A factorion is a natural number that equals the sum of the factorials of
+; its decimal digits. For example, the factorion of 145 = 1! + 4! + 5!.
+;
 ; See http://en.wikipedia.org/wiki/Factorion
 (define (factorion? n)
   (= n (foldr + 0 (map factorial (integer->list* n)))))
 
+; The fibonacci sequence as a stream. This stream begins with a 0.
+;
+; TODO: Convert this to an SRFI/41 stream.
+;
+; See https://en.wikipedia.org/wiki/Fibonacci_number
 (define fibs
   (letrec ((f (λ (a b) (stream-cons a (f b (+ a b))))))
     (f 0 1)))
 
+; Returns the the base b logarithm of a.
+;
+; See https://en.wikipedia.org/wiki/Logarithm
 (define (logarithm b a)
   (/ (log a) (log b)))
 
+; Returns the base 2 logarithm of a.
 (define (log2 a)
   (logarithm 2 a))
 
+; Returns the base 10 logarithm of a.
 (define (log10 a)
   (logarithm 10 a))
 
-; Computes the residue when raising #'b to the #'eth power and dividing by #'m.
+; Returns the residue when raising b to the eth power and dividing by m.
+;
+; See https://en.wikipedia.org/wiki/Modular_exponentiation
 (define (modular-expt b e m)
   (define (loop a b e)
     (if (<= e 0)
@@ -89,8 +122,10 @@
         (loop t (modulo (* b b) m) (arithmetic-shift e -1)))))
   (loop 1 b e))
 
-; Computes the residue when raising #'b to the #'bth power, e times, and
-; dividing by #'m.
+; Computes the residue when raising b to the bth power, e times, and dividing
+; by m.
+;
+; See https://en.wikipedia.org/wiki/Tetration
 (define (modular-tetn b e m)
   (define (f b e m)
     (let* ((o (ord b m))
@@ -109,7 +144,7 @@
           ((= d m) 0)
           (else (g b e m d)))))
 
-; Computes the next prime after #'n.
+; Computes the next prime after n.
 (define (next-prime n)
   (cond
     ((= n 0) 2)
