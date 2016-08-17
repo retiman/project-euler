@@ -7,8 +7,8 @@
          hash-merge
          hash-merge!
          integer->char-list
-         integer->list*
-         list->integer*
+         integer->list
+         list->integer
          memoize
          set-filter
          set-length
@@ -49,8 +49,8 @@
   (string->list (number->string n)))
 
 ; Converts an integer to a list of integers. For example,
-; (= (integer->list* 123) '(1 2 3))
-(define (integer->list* n)
+; (= (integer->list 123) '(1 2 3))
+(define (integer->list n)
   (map char->integer* (integer->char-list n)))
 
 ; Converts a list of chars to an integer. For example,
@@ -60,7 +60,7 @@
 
 ; Converts a list of integers to an integer. For example,
 ; (= '(1 2 3) (integer->list 123))
-(define (list->integer* lst)
+(define (list->integer lst)
   (string->number (apply string-append (map number->string lst))))
 
 (define (set-filter pred? s)

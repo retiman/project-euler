@@ -14,7 +14,7 @@
       (if (= (length lst*) (length acc*))
         acc*
         (loop lst* (append acc* (list lst*))))))
-  (map list->integer* (loop (integer->list* n) empty)))
+  (map list->integer (loop (integer->list n) empty)))
 
 (define (circular? p)
   (andmap prime? (rotations p)))

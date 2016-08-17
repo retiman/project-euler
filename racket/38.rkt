@@ -1,7 +1,7 @@
 (require "lib/core.rkt")
 
 (define pandigitals
-  (list->set (map list->integer* (permutations (range 1 10)))))
+  (list->set (map list->integer (permutations (range 1 10)))))
 
 (define (pandigital? n)
   (set-member? pandigitals n))

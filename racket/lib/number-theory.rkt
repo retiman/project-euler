@@ -86,7 +86,7 @@
 ;
 ; See http://en.wikipedia.org/wiki/Factorion
 (define (factorion? n)
-  (= n (foldr + 0 (map factorial (integer->list* n)))))
+  (= n (foldr + 0 (map factorial (integer->list n)))))
 
 ; The fibonacci sequence as a stream. This stream begins with a 0.
 ;
