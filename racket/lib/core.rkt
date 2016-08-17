@@ -5,7 +5,7 @@
          distinct
          hash-merge
          hash-merge!
-         integer->list
+         integer->char-list
          integer->list*
          list->integer
          list->integer*
@@ -44,17 +44,17 @@
     (hash-set! a k (hash-ref b k))))
 
 ; Converts an integer to a list of chars. For example,
-; (= (integer->list 123) '(#\1 #\2 #\3))
-(define (integer->list n)
+; (= (integer->char-list 123) '(#\1 #\2 #\3))
+(define (integer->char-list n)
   (string->list (number->string n)))
 
 ; Converts an integer to a list of integers. For example,
 ; (= (integer->list* 123) '(1 2 3))
 (define (integer->list* n)
-  (map char->integer* (integer->list n)))
+  (map char->integer* (integer->char-list n)))
 
 ; Converts a list of chars to an integer. For example,
-; (= '(#\1 #\2 #\3) (integer->list 123))
+; (= '(#\1 #\2 #\3) (integer->char-list 123))
 (define (list->integer lst)
   (string->number (list->string lst)))
 

@@ -3,7 +3,7 @@
 (define pandigital-products (make-hash))
 
 (define (pandigital-product-values n i j)
-  (let*-values (((lst) (integer->list n))
+  (let*-values (((lst) (integer->char-list n))
                 ((a rst) (split-at lst i))
                 ((b c) (split-at rst j))
                 ((a*) (list->integer a))
