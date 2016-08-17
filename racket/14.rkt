@@ -1,10 +1,12 @@
+; Problem #14: https://projecteuler.net/problem=14
+
 (require "lib/core.rkt")
 
 (define-memo (collatz-length n)
   (define (loop i acc)
     (cond ((= i 1) acc)
-          ((even? i) (collatz-length* (/ i 2) (add1 acc)))
-          ((odd? i) (collatz-length* (+ 1 (* 3 i)) (add1 acc)))))
+          ((even? i) (loop (/ i 2) (add1 acc)))
+          ((odd? i) (loop (+ 1 (* 3 i)) (add1 acc)))))
   (loop n 0))
 
 (define (number->pair n)
