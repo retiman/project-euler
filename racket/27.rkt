@@ -8,7 +8,7 @@
   (+ (* n n) (* a n) b))
 
 (define (primes-count a b)
-  (stream-length (stream-takef (in-range b) (compose prime? (curryr f a b)))))
+  (length (takef (range b) (compose prime? (curryr f a b)))))
 
 (define m
   (for*/hash ((b (append ps (map (curry * -1) ps)))
