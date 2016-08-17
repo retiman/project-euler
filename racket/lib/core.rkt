@@ -10,8 +10,6 @@
          integer->list
          list->integer
          memoize
-         set-filter
-         set-length
          zip
          zipmap)
 
@@ -80,12 +78,6 @@
 ; list.
 (define (zipmap . args)
   (apply hash (flatten (apply zip args))))
-
-(define (set-filter pred? s)
-  (for/set ((e s) #:when (pred? e)) e))
-
-(define (set-length s)
-  (sequence-length s))
 
 (define (memoize f)
   (define h (make-hash))

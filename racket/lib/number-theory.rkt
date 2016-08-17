@@ -38,6 +38,7 @@
          φ)
 
 (require "core.rkt")
+(require "set.rkt")
 
 ; Returns true if two numbers are coprime; false otherwise.
 ;

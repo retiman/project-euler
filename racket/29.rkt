@@ -1,4 +1,4 @@
-(require "lib/core.rkt")
+(require "lib/set.rkt")
 
 (displayln
   (set-length
