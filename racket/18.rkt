@@ -1,3 +1,5 @@
+; Problem #18: https://projecteuler.net/problem=18
+
 (require "lib/2darray.rkt")
 
 (define input
@@ -33,6 +35,27 @@
      (curry regexp-split #px"\n"))
   input))
 
+; Rather than calculating the path sums going down, look at the bottom row and
+; the row above it.
+;
+; For example, assume that the tree has height 4 and that these are the last 2
+; rows:
+;
+;  17 47 82
+; 18 35 87 10
+;
+; At 17, you will never take the left path containing 18, because 35 + 17 is
+; greater. At 47, you will never take the left path for 35, because 47 + 87 is
+; greater, and so on.
+;
+; Therefore, these last 2 rows can be reduced to a single row once the optimal
+; path is taken:
+;
+; 52 134 169
+;
+; Once this reduction is done, compare this newly constructed row to the one
+; above it and perform the same reduction until only one row remains with one
+; value.
 (for* ((i (range (- (2darray-num-rows data) 2) (sub1 0) -1))
        (j (range 0 (2darray-num-cols* data i))))
   (let* ((current (2darray-ref data i j))
