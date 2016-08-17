@@ -10,10 +10,6 @@
          memoize
          set-filter
          set-length
-         stream-drop
-         stream-dropf
-         stream-take
-         stream-takef
          zip
          zipmap)
 
@@ -64,24 +60,6 @@
 
 (define (set-length s)
   (sequence-length s))
-
-; Returns the stream #'s without the first n elements.
-(define (stream-drop s n)
-  (if (= n 0) s (stream-drop (stream-rest s) (sub1 n))))
-
-; Returns the stream #'s without the first few elements that satisfy #'pred.
-(define (stream-dropf s pred)
-  (if (not (pred (stream-first s)))
-    s
-    (stream-dropf (stream-rest s) pred)))
-
-; Returns the first #'n elements of stream #'s.
-(define (stream-take s n)
-  (for/list ((e s) (i (in-range n))) e))
-
-; Returns the first few elements of #'s that satisfy #'pred.
-(define (stream-takef s pred)
-  (for/list ((e s) #:break (not (pred e))) e))
 
 (define (memoize f)
   (define h (make-hash))
