@@ -54,4 +54,35 @@
         (check-equal? (hash-ref a 'a) 1)
         (check-equal? (hash-ref a 'b) 3)
         (check-equal? (hash-ref a 'd) 4)))
-))
+
+    (check-equal? (integer->char-list 1) '(#\1) "1 as char list")
+    (check-equal? (integer->char-list 123) '(#\1 #\2 #\3) "123 as char list")
+
+    (check-equal? (integer->list 1) '(1) "1 as list")
+    (check-equal? (integer->list 123) '(1 2 3) "123 as list")
+
+    (check-equal? (char-list->integer '(#\1)) 1 "1 from char list")
+    (check-equal? (char-list->integer '(#\1 #\2 #\3)) 123 "123 from char list")
+
+    (check-equal? (list->integer '(1)) 1 "1 from list")
+    (check-equal? (list->integer '(1 2 3)) 123 "123 from list")
+
+    (test-case
+      "two lists can be zipped"
+      (let* ((xs '(a b c d))
+             (ys '(1 2 3 4)))
+        (check-equal? (zip xs ys) '((a 1) (b 2) (c 3) (d 4)))))
+
+    (test-case
+      "three lists can be zipped"
+      (let* ((xs '(a b c d))
+             (ys '(1 2 3 4))
+             (zs '(x y z w)))
+        (check-equal? (zip xs ys zs)
+                      '((a 1 x) (b 2 y) (c 3 z) (d 4 w)))))
+
+    (test-case
+      "two lists can be zipped into a map"
+      (let* ((xs '(a b c d))
+             (ys '(1 2 3 4)))
+        (check-equal? (zipmap xs ys) (hash 'a 1 'b 2 'c 3 'd 4))))))
