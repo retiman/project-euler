@@ -1,7 +1,7 @@
 (require "lib/number-theory.rkt")
 
 (define numbers
-  (filter (λ (n) (and (not (divides? n 2)) (not (divides? n 5))))
+  (filter (λ (n) (and (not (divides? 2 n)) (not (divides? 5 n))))
           (range 999 1 -1)))
 
 (define (ord* a m)

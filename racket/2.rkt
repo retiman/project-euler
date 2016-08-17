@@ -1,5 +1,9 @@
-(require "lib/core.rkt")
+(require srfi/41)
 (require "lib/number-theory.rkt")
 
 (displayln
-  (apply + (filter even? (stream-takef fibs (curryr < 4000000)))))
+  ((compose (curry apply +)
+            (curry filter even?)
+            stream->list
+            (curry stream-take-while (curryr < 4000000)))
+     fibs))

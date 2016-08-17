@@ -6,6 +6,7 @@
          digits
          divides?
          divisors
+         divisors*
          factorial
          factorion?
          fibs
@@ -22,40 +23,55 @@
          next-primes
          next-primes*
          nth-prime
-         tau
-         sigma
          ord
+         phi
          prime?
          prime-factors
          relatively-prime?
+         sigma
+         sigma*
+         tau
+         tau*
          totient
-         phi
          σ
          τ
          φ)
 
 (require "core.rkt")
 
+; Returns true if two numbers are coprime; false otherwise.
+;
+; In number theory, two integers a and b are said to be relatively prime,
+; mutually prime, or coprime (also spelled co-prime) if the only positive
+; integer that divides both of them is 1. In other words, their greatest
+; common divisor is 1.
+;
 ; See http://en.wikipedia.org/wiki/Coprime
 (define (coprime? m n)
   (= (gcd m n) 1))
 
+; Returns the number of digits in a number n.
 (define (digits n)
   (add1 (floor (log10 n))))
 
+; Returns #t if m divides n; false otherwise.
 (define (divides? m n)
-  (zero? (modulo m n)))
+  (zero? (modulo n m)))
 
-; Computes the divisors of #'n, including itself.
+; Returns the divisors of n, including itself. This method uses a naive
+; algorithm, but memoizes the result.
 (define-memo (divisors n)
-  (let* ((xs (filter (curry divides? n) (range 2 (add1 (integer-sqrt n)))))
+  (let* ((xs (filter (curryr divides? n) (range 2 (add1 (integer-sqrt n)))))
          (ys (map (curry quotient n) xs)))
     (set-union (set 1 n) (list->set xs) (list->set ys))))
 
-; Computes the divisors of #'n, excluding itself.
+; Returns the divisors of n, excluding itself.
 (define (divisors* n)
   (set-remove (divisors n) n))
 
+; Returns the factorial of n.
+;
+; See https://en.wikipedia.org/wiki/Factorial
 (define (factorial n)
   (define (factorial* i acc)
     (if (= i 0)
@@ -63,24 +79,41 @@
       (factorial* (sub1 i) (* i acc))))
   (factorial* n 1))
 
+; Returns true if n is a factorion; false otherwise.
+;
+; A factorion is a natural number that equals the sum of the factorials of
+; its decimal digits. For example, the factorion of 145 = 1! + 4! + 5!.
+;
 ; See http://en.wikipedia.org/wiki/Factorion
 (define (factorion? n)
   (= n (foldr + 0 (map factorial (integer->list* n)))))
 
+; The fibonacci sequence as a stream. This stream begins with a 0.
+;
+; TODO: Convert this to an SRFI/41 stream.
+;
+; See https://en.wikipedia.org/wiki/Fibonacci_number
 (define fibs
   (letrec ((f (λ (a b) (stream-cons a (f b (+ a b))))))
     (f 0 1)))
 
+; Returns the the base b logarithm of a.
+;
+; See https://en.wikipedia.org/wiki/Logarithm
 (define (logarithm b a)
   (/ (log a) (log b)))
 
+; Returns the base 2 logarithm of a.
 (define (log2 a)
   (logarithm 2 a))
 
+; Returns the base 10 logarithm of a.
 (define (log10 a)
   (logarithm 10 a))
 
-; Computes the residue when raising #'b to the #'eth power and dividing by #'m.
+; Returns the residue when raising b to the eth power and dividing by m.
+;
+; See https://en.wikipedia.org/wiki/Modular_exponentiation
 (define (modular-expt b e m)
   (define (loop a b e)
     (if (<= e 0)
@@ -89,8 +122,10 @@
         (loop t (modulo (* b b) m) (arithmetic-shift e -1)))))
   (loop 1 b e))
 
-; Computes the residue when raising #'b to the #'bth power, e times, and
-; dividing by #'m.
+; Returns the residue when raising b to the bth power, e times, and dividing
+; by m.
+;
+; See https://en.wikipedia.org/wiki/Tetration
 (define (modular-tetn b e m)
   (define (f b e m)
     (let* ((o (ord b m))
@@ -109,7 +144,7 @@
           ((= d m) 0)
           (else (g b e m d)))))
 
-; Computes the next prime after #'n.
+; Returns the next prime after n.
 (define (next-prime n)
   (cond
     ((= n 0) 2)
@@ -120,7 +155,7 @@
               n*
               (next-prime n*))))))
 
-; Computes the next #'limit primes after #'n.
+; Returns the next limit primes after n.
 (define (next-primes n limit)
   (define (loop m limit)
     (if (zero? limit)
@@ -129,59 +164,67 @@
         (cons p (loop p (sub1 limit))))))
   (loop n limit))
 
-; Computes the next primes under #'limit after #'n.
+; Returns the next primes less than or equal to limit after n.
 (define (next-primes* n limit)
-  (define (loop m limit)
+  (define (loop m)
     (let ((p (next-prime m)))
       (if (> p limit)
         empty
-        (cons p (loop p (sub1 limit))))))
-  (loop n limit))
+        (cons p (loop p)))))
+  (loop n))
 
-; Computes the #'nth prime.
+; Returns the nth prime.
 (define (nth-prime n)
   (for/fold ((p 2))
             ((k (in-range n)))
     (next-prime p)))
 
-; Computes the multiplicative order of #'a modulo #'n. This is the smallest
+; Returns the multiplicative order of a modulo n. This is the smallest
 ; positive integer k such that (= (modular-expt a k n) 1).
-; See http://en.wikipedia.org/wiki/Order_(number_theory)
+;
+; https://en.wikipedia.org/wiki/Multiplicative_order
 (define-memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
-  (let ((ds (set->list (divisors (φ m)))))
+  (let ((ds (sort (set->list (divisors (φ m))) <)))
     (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))
 
+; Returns true if the n is prime; false otherwise.
 (define (prime? n)
   (if (and (exact? n) (positive? n))
     (or (= n 2) (= (set-length (divisors n)) 2))
     #f))
 
+; Returns the prime factors of n as a set.
 (define (prime-factors n)
-  (filter prime? (set->list (divisors n))))
+  (set-filter prime? (divisors n)))
 
-; Computes the sum of divisors of #'n.
+; Returns the sum of divisors of n.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (sigma n)
   (for/sum ((i (divisors n))) i))
 
-; Computes the sum of divisors of #'n, excluding itself.
+; Returns the sum of divisors of n, excluding itself.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (sigma* n)
   (- (sigma n) n))
 
-; Computes the number of divisors of #'n.
+; Returns the number of divisors of n.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (tau n)
   (set-length (divisors n)))
 
-; Computes the number of divisors of #'n, excluding itself.
+; Returns the number of divisors of n, excluding itself.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (tau* n)
   (sub1 (tau n)))
 
-; Computes the totient of #'n. This is the number of positive integer less than
-; or equal to #'n and coprime to #'n.
+; Returns the totient of n. This is the number of positive integer less than or
+; equal to n and coprime to n.
+;
 ; See http://en.wikipedia.org/wiki/Totient
 (define (totient n)
   (cond ((= n 1) 0)

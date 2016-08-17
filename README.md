@@ -22,14 +22,18 @@ The default limit for primes is 10^8 but some problems do not require so many
 primes to be pre-computed.
 
 Run particular solutions by descending into a language's subdirectory and
-running `make` For example, to run the solution for problem #25 in Scala, do
+running `make` For example, to run the solution for problem #25 in Racket, do
 this:
 
-    cd scala
+    cd racket
     make 25
 
 LANGUAGES
 =========
+Racket is my preferred language and will have more problems solved in that
+language than any other. Racket is the only language that will consistently
+have explanations in source about what is happening.
+
 * Bash: GNU bash, version 3.2.39(1)-release (i486-pc-linux-gnu)
 * C: gcc (Debian 4.3.2-1.1) 4.3.2
 * Clojure: Clojure 1.3.0
