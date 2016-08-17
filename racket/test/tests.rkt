@@ -2,6 +2,7 @@
 (require "core-tests.rkt")
 (require "number-theory-tests.rkt")
 (require "set-tests.rkt")
+(require "string-tests.rkt")
 
 (displayln "core-tests")
 (run-tests core-tests)
@@ -9,3 +10,5 @@
 (run-tests number-theory-tests)
 (displayln "set-tests")
 (run-tests set-tests)
+(displayln "string-tests")
+(run-tests string-tests)
