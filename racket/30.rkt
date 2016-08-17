@@ -1,3 +1,4 @@
+(require srfi/41)
 (require "lib/core.rkt")
 
 (define (digital-sum-5 n)
@@ -6,7 +7,8 @@
 
 (define limit
   (let* ((x (expt 9 5))
-         (s (stream-takef (in-naturals) (λ (n) (<= (expt 10 (sub1 n)) x)))))
+         (s (stream-take-while (λ (n) (<= (expt 10 (sub1 n)) x))
+                               (stream-from 0))))
     (* (stream-length s) x)))
 
 (displayln
