@@ -1,3 +1,5 @@
+; Problem #8: https://projecteuler.net/problem=8
+
 (require "lib/core.rkt")
 
 (define data

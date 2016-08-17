@@ -1,7 +1,13 @@
+; Problem #4: https://projecteuler.net/problem=4
+
 (define (palindrome? n)
   (let ((s (number->string n)))
     (string=? s (list->string (reverse (string->list s))))))
 
+; Search from 1000 backwards because we are looking for the largest palindrome.
+; It's not necessary to search values of j between 1-999; for example, if
+; i = 998, it's not needed to check j = 999 as the (999, 998) pair was checked
+; when i = 999.
 (displayln
   (apply max
     (for*/list ((i (range 999 1 -1))

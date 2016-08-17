@@ -1,3 +1,5 @@
+; Problem #12: https://projecteuler.net/problem=12
+
 (require "lib/core.rkt")
 (require "lib/number-theory.rkt")
 

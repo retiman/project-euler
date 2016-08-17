@@ -1,3 +1,5 @@
+; Problem #11: https://projecteuler.net/problem=11
+
 (require math/matrix)
 
 (define (line->vector line)
@@ -13,25 +15,25 @@
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
-                 (matrix-ref m i (+ j k)))))
+                  (matrix-ref m i (+ j k)))))
 
 (define (↑ i j)
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
-                 (matrix-ref m (+ i k) j))))
+                  (matrix-ref m (+ i k) j))))
 
 (define (↗ i j)
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
-                 (matrix-ref m (- i k) (+ j k)))))
+                  (matrix-ref m (- i k) (+ j k)))))
 
 (define (↘ i j)
   (with-handlers
     ((exn:fail? (const 0)))
     (for/product ((k (in-range 4)))
-                 (matrix-ref (+ i k) (+ j k)))))
+                  (matrix-ref (+ i k) (+ j k)))))
 
 (displayln
   (apply max
