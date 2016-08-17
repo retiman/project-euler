@@ -23,14 +23,16 @@
          next-primes
          next-primes*
          nth-prime
-         tau
-         sigma
          ord
+         phi
          prime?
          prime-factors
          relatively-prime?
+         sigma
+         sigma*
+         tau
+         tau*
          totient
-         phi
          σ
          τ
          φ)
@@ -120,7 +122,7 @@
         (loop t (modulo (* b b) m) (arithmetic-shift e -1)))))
   (loop 1 b e))
 
-; Computes the residue when raising b to the bth power, e times, and dividing
+; Returns the residue when raising b to the bth power, e times, and dividing
 ; by m.
 ;
 ; See https://en.wikipedia.org/wiki/Tetration
@@ -142,7 +144,7 @@
           ((= d m) 0)
           (else (g b e m d)))))
 
-; Computes the next prime after n.
+; Returns the next prime after n.
 (define (next-prime n)
   (cond
     ((= n 0) 2)
@@ -153,7 +155,7 @@
               n*
               (next-prime n*))))))
 
-; Computes the next limit primes after n.
+; Returns the next limit primes after n.
 (define (next-primes n limit)
   (define (loop m limit)
     (if (zero? limit)
@@ -162,7 +164,7 @@
         (cons p (loop p (sub1 limit))))))
   (loop n limit))
 
-; Computes the next primes less than or equal to limit after n.
+; Returns the next primes less than or equal to limit after n.
 (define (next-primes* n limit)
   (define (loop m)
     (let ((p (next-prime m)))
@@ -171,50 +173,58 @@
         (cons p (loop p)))))
   (loop n))
 
-; Computes the #'nth prime.
+; Returns the nth prime.
 (define (nth-prime n)
   (for/fold ((p 2))
             ((k (in-range n)))
     (next-prime p)))
 
-; Computes the multiplicative order of #'a modulo #'n. This is the smallest
+; Returns the multiplicative order of a modulo n. This is the smallest
 ; positive integer k such that (= (modular-expt a k n) 1).
-; See http://en.wikipedia.org/wiki/Order_(number_theory)
+;
+; https://en.wikipedia.org/wiki/Multiplicative_order
 (define-memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
-  (let ((ds (set->list (divisors (φ m)))))
+  (let ((ds (sort (set->list (divisors (φ m))) <)))
     (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))
 
+; Returns true if the n is prime; false otherwise.
 (define (prime? n)
   (if (and (exact? n) (positive? n))
     (or (= n 2) (= (set-length (divisors n)) 2))
     #f))
 
+; Returns the prime factors of n as a set.
 (define (prime-factors n)
-  (filter prime? (set->list (divisors n))))
+  (set-filter prime? (divisors n)))
 
-; Computes the sum of divisors of #'n.
+; Returns the sum of divisors of n.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (sigma n)
   (for/sum ((i (divisors n))) i))
 
-; Computes the sum of divisors of #'n, excluding itself.
+; Returns the sum of divisors of n, excluding itself.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (sigma* n)
   (- (sigma n) n))
 
-; Computes the number of divisors of #'n.
+; Returns the number of divisors of n.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (tau n)
   (set-length (divisors n)))
 
-; Computes the number of divisors of #'n, excluding itself.
+; Returns the number of divisors of n, excluding itself.
+;
 ; See http://en.wikipedia.org/wiki/Divisor_function
 (define (tau* n)
   (sub1 (tau n)))
 
-; Computes the totient of #'n. This is the number of positive integer less than
-; or equal to #'n and coprime to #'n.
+; Returns the totient of n. This is the number of positive integer less than or
+; equal to n and coprime to n.
+;
 ; See http://en.wikipedia.org/wiki/Totient
 (define (totient n)
   (cond ((= n 1) 0)

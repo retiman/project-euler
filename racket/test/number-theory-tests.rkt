@@ -14,6 +14,8 @@
     (check-equal? (coprime? 5 7) #t "5 and 7 are coprime")
     (check-equal? (coprime? 15 3) #f "15 and 3 are not coprime")
     (check-equal? (coprime? 4 2) #f "4 and 2 are coprime")
+    (check-equal? (coprime? 1 1) (relatively-prime? 1 1)
+                  "relatively-prime? is exported")
 
     (check = (digits 1) 1 "1 has 1 digit")
     (check = (digits 72) 2 "72 has 2 digits")
@@ -87,4 +89,54 @@
                   "next primes after 1 that are less than or equal to 3")
     (check-equal? (next-primes* 1 10) '(2 3 5 7)
                   "next primes after 1 that are less than or equal to 10")
+
+    (check-equal? (nth-prime 0) 2 "the 1st prime is 2")
+    (check-equal? (nth-prime 4) 11 "the 5th prime is 11")
+    (check-equal? (nth-prime 12) 41 "the 13th prime is 41")
+    (check-equal? (nth-prime 18) 67 "the 19th prime is 67")
+
+    (check-equal? (ord 4 7) 3 "the order of 4 modulo 7 is 3")
+    (check-equal? (ord 10 7) 6 "the order of 10 modulo 7 is 6")
+    (check-equal? (ord 5 3) 2 "the order of 5 modulo 3 is 2")
+    (check-equal? (ord 13 7) 2 "the order of 13 modulo 7 is 2")
+
+    (check-false (prime? 1) "1 is not prime")
+    (check-true (prime? 2) "2 is prime")
+    (check-false (prime? 4) "4 is not prime")
+    (check-true (prime? 71) "71 is prime")
+
+    (check-equal? (prime-factors 1) (set) "1 has no prime factors")
+    (check-equal? (prime-factors 2) (set 2) "2 has one prime factor")
+    (check-equal? (prime-factors 27) (set 3) "27 has one prime factor")
+    (check-equal? (prime-factors 103243) (set 7 43)
+                  "103243 has two prime factors")
+
+    (check-equal? (sigma 1) 1 "sum of divisors of 1")
+    (check-equal? (sigma 2) 3 "sum of divisors of 2")
+    (check-equal? (sigma 15) 24 "sum of divisors of 15")
+    (check-equal? (sigma 2015) 2688 "sum of divisors of 2015")
+    (check-equal? (sigma 1) (σ 1) "σ is exported")
+
+    (check-equal? (sigma* 1) 0 "sum of divisors of 1, excluding itself")
+    (check-equal? (sigma* 2) 1 "sum of divisors of 2, excluding itself")
+    (check-equal? (sigma* 15) 9 "sum of divisors of 15, excluding itself")
+    (check-equal? (sigma* 2015) 673 "sum of divisors of 2015, excluding itself")
+
+    (check-equal? (tau 1) 1 "number of divisors of 1")
+    (check-equal? (tau 2) 2 "number of divisors of 2")
+    (check-equal? (tau 15) 4 "number of divisors of 15")
+    (check-equal? (tau 2015) 8 "number of divisors of 2015")
+    (check-equal? (tau 1) (τ 1) "τ is exported")
+
+    (check-equal? (tau* 1) 0 "number of divisors of 1, excluding itself")
+    (check-equal? (tau* 2) 1 "number of divisors of 2, excluding itself")
+    (check-equal? (tau* 15) 3 "number of divisors of 15, excluding itself")
+    (check-equal? (tau* 2015) 7 "number of divisors of 2015, excluding itself")
+
+    (check-equal? (totient 1) 0 "totient of 1")
+    (check-equal? (totient 7) 6 "totient of 7")
+    (check-equal? (totient 15) 8 "totient of 15")
+    (check-equal? (totient 2015) 1440 "totient of 2015")
+    (check-equal? (totient 1) (phi 1) "phi is exported")
+    (check-equal? (totient 1) (φ 1) "φ is exported")
 ))

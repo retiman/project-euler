@@ -8,6 +8,7 @@
          list->integer
          list->integer*
          memoize
+         set-filter
          set-length
          stream-drop
          stream-dropf
@@ -57,6 +58,9 @@
 ; (= '(1 2 3) (integer->list 123))
 (define (list->integer* lst)
   (string->number (apply string-append (map number->string lst))))
+
+(define (set-filter pred? s)
+  (for/set ((e s) #:when (pred? e)) e))
 
 (define (set-length s)
   (sequence-length s))
