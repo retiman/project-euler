@@ -138,5 +138,4 @@
     (check-equal? (totient 15) 8 "totient of 15")
     (check-equal? (totient 2015) 1440 "totient of 2015")
     (check-equal? (totient 1) (phi 1) "phi is exported")
-    (check-equal? (totient 1) (φ 1) "φ is exported")
-))
+    (check-equal? (totient 1) (φ 1) "φ is exported")))
