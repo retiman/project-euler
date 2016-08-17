@@ -6,9 +6,9 @@
   (let*-values (((lst) (integer->char-list n))
                 ((a rst) (split-at lst i))
                 ((b c) (split-at rst j))
-                ((a*) (list->integer a))
-                ((b*) (list->integer b))
-                ((c*) (list->integer c)))
+                ((a*) (char-list->integer a))
+                ((b*) (char-list->integer b))
+                ((c*) (char-list->integer c)))
     (list a* b* c*)))
 
 (define (check-pandigital-product a b c)

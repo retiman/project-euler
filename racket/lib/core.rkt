@@ -1,13 +1,13 @@
 #lang racket
 
 (provide char->integer*
+         char-list->integer
          define-memo
          distinct
          hash-merge
          hash-merge!
          integer->char-list
          integer->list*
-         list->integer
          list->integer*
          memoize
          set-filter
@@ -55,7 +55,7 @@
 
 ; Converts a list of chars to an integer. For example,
 ; (= '(#\1 #\2 #\3) (integer->char-list 123))
-(define (list->integer lst)
+(define (char-list->integer lst)
   (string->number (list->string lst)))
 
 ; Converts a list of integers to an integer. For example,
