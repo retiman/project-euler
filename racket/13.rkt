@@ -1,3 +1,5 @@
+; Problem #13: https://projecteuler.net/problem=13
+
 (displayln
   ((compose list->string
             (curryr take 10)
