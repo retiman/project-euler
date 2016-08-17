@@ -3,6 +3,8 @@
 (provide char->integer*
          define-memo
          distinct
+         hash-merge
+         hash-merge!
          integer->list
          integer->list*
          list->integer
@@ -13,19 +15,19 @@
          zip
          zipmap)
 
-; Converts a char to the integer it maps to. For example,
-; (= (char->integer* #\1) 1).
+; Converts a char to the integer it maps to. Contrast with core library's
+; char->integer which returns the character's code point. For example:
+;
+;   (= (char->integer #\1) 49)
+;   (= (char->integer* #\1) 1)
 (define (char->integer* c)
   (string->number (make-string 1 c)))
 
+; Define an alias for remove-duplicates.
 (define distinct remove-duplicates)
 
-; Merges 2 mutable hashes together, with duplicate keys being overridden.
-(define (hash-merge! a b)
-  (for ((k (hash-keys b)))
-    (hash-set! a k (hash-ref b k))))
-
-; Merges 2 immutable hashes together, with duplicate keys being overridden.
+; Returns a hash with the 2 immutable hashes merged, with duplicate keys from b
+; overriding keys from a.
 (define (hash-merge a b)
   (define (loop h ks)
     (if (empty? ks)
@@ -34,6 +36,12 @@
              (v (hash-ref b k)))
         (loop (hash-set h k v) (rest ks)))))
   (loop a (hash-keys b)))
+
+; Merges 2 mutable hashes together, with duplicate keys being overridden.
+; Hash a will contain the keys from hash b.
+(define (hash-merge! a b)
+  (for ((k (hash-keys b)))
+    (hash-set! a k (hash-ref b k))))
 
 ; Converts an integer to a list of chars. For example,
 ; (= (integer->list 123) '(#\1 #\2 #\3))
