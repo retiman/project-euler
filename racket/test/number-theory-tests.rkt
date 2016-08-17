@@ -68,4 +68,23 @@
     (check = (modular-tetn 993306745 75707320 1000000000) 884765625
            "residue of 993306745^^75707320 divided by 1000000000")
 
+    (check = (next-prime 1) 2 "next prime after 1")
+    (check = (next-prime 5) 7 "next prime after 5")
+    (check = (next-prime 6) 7 "next prime after 6")
+    (check = (next-prime 71) 73 "next prime after 71")
+
+    (check-equal? (next-primes 1 1) '(2) "next 1 prime after 1")
+    (check-equal? (next-primes 1 0) '() "next 0 primes after 1")
+    (check-equal? (next-primes 2 1) '(3) "next 1 prime after 2")
+    (check-equal? (next-primes 1 10) '(2 3 5 7 11 13 17 19 23 29)
+           "next 10 primes after 1")
+
+    (check-equal? (next-primes* 1 1) '()
+                  "next primes after 1 that are less than or equal to 1")
+    (check-equal? (next-primes* 1 2) '(2)
+                  "next primes after 1 that are less than or equal to 2")
+    (check-equal? (next-primes* 1 3) '(2 3)
+                  "next primes after 1 that are less than or equal to 3")
+    (check-equal? (next-primes* 1 10) '(2 3 5 7)
+                  "next primes after 1 that are less than or equal to 10")
 ))

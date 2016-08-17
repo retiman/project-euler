@@ -153,7 +153,7 @@
               n*
               (next-prime n*))))))
 
-; Computes the next #'limit primes after #'n.
+; Computes the next limit primes after n.
 (define (next-primes n limit)
   (define (loop m limit)
     (if (zero? limit)
@@ -162,14 +162,14 @@
         (cons p (loop p (sub1 limit))))))
   (loop n limit))
 
-; Computes the next primes under #'limit after #'n.
+; Computes the next primes less than or equal to limit after n.
 (define (next-primes* n limit)
-  (define (loop m limit)
+  (define (loop m)
     (let ((p (next-prime m)))
       (if (> p limit)
         empty
-        (cons p (loop p (sub1 limit))))))
-  (loop n limit))
+        (cons p (loop p)))))
+  (loop n))
 
 ; Computes the #'nth prime.
 (define (nth-prime n)
