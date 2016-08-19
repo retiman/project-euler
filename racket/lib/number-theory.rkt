@@ -53,7 +53,9 @@
 
 ; Returns the number of digits in a number n.
 (define (digits n)
-  (add1 (floor (log10 n))))
+  (if (= n 0)
+    1
+    (add1 (floor (log10 (abs n))))))
 
 ; Returns #t if m divides n; false otherwise.
 (define (divides? m n)

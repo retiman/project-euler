@@ -17,6 +17,9 @@
     (check-equal? (coprime? 1 1) (relatively-prime? 1 1)
                   "relatively-prime? is exported")
 
+    (check = (digits -10) 2 "-10 has 2 digits")
+    (check = (digits -1) 1 "-1 has 1 digit")
+    (check = (digits 0) 1 "0 has 1 digit")
     (check = (digits 1) 1 "1 has 1 digit")
     (check = (digits 72) 2 "72 has 2 digits")
     (check = (digits 234) 3 "234 has 3 digits")
