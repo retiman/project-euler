@@ -1,3 +1,5 @@
+; Problem #22: https://projecteuler.net/problem=22
+
 (require "lib/core.rkt")
 
 (define names

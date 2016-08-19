@@ -1,3 +1,5 @@
+; Problem #24: https://projecteuler.net/problem=24
+
 (define (list->number lst)
   ((compose string->number
             (curry apply string-append)
@@ -10,4 +12,4 @@
             (curryr sort <)
             (curry map list->number)
             permutations)
-    (range 10)))
+     (range 10)))
