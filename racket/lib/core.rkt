@@ -10,6 +10,7 @@
          integer->list
          list->integer
          memoize
+         path-join
          zip
          zipmap)
 
@@ -65,6 +66,10 @@
 ;   (= '(1 2 3) (integer->list 123))
 (define (list->integer lst)
   (string->number (apply string-append (map number->string lst))))
+
+; Builds a path string.
+(define (path-join . ps)
+  (apply (compose path->string simplify-path build-path) ps))
 
 ; Returns the list args zipped. For example:
 ;
