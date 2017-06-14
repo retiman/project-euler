@@ -6,7 +6,7 @@ all: test
 	time racket -r $<
 
 repl:
-	racket -i -e '(enter! "lib/repl.rkt")'
+	rlwrap racket -i -e '(enter! "lib/repl.rkt")'
 
 test:
 	racket -f test/tests.rkt
