@@ -39,7 +39,7 @@ have explanations in source about what is happening.
 * Clojure: Clojure 1.3.0
 * Haskell: GHC 6.8.2
 * J: 7.01b-7
-* Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
+* Java: openjdk version "11.0.9.1" 2020-11-04
 * Lua: 5.2.2
 * Python: 3.7.3
 * Racket: Racket 6.2

@@ -11,7 +11,7 @@ public class P40 {
     s = sb.toString();
     for (int i = 1; i <= 1000000; i *= 10) {
       char c = s.charAt(i - 1);
-      int j = Integer.parseInt(new Character(c).toString());
+      int j = Integer.parseInt(Character.valueOf(c).toString());
       product *= j;
     }
 
