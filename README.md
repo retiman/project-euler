@@ -40,7 +40,6 @@ have explanations in source about what is happening.
 * Haskell: GHC 6.8.2
 * J: 7.01b-7
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
-* JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
 * Lua: 5.2.2
 * Python: 3.7.3
 * Racket: Racket 6.2
