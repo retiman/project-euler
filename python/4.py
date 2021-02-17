@@ -10,4 +10,5 @@ def gen():
             if is_palindrome(str(s)):
                 yield s
 
-print reduce(max, gen())
+result = reduce(max, gen())
+print(result)

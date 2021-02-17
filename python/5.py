@@ -1,7 +1,8 @@
-from fractions import gcd
 from functools import reduce
+from math import gcd
 
 def lcm(a, b):
-    return a * (b / gcd(a, b))
+    return a * (b // gcd(a, b))
 
-print reduce(lcm, xrange(1, 21), 20)
+result = reduce(lcm, range(1, 21), 20)
+print(result)

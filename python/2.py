@@ -1,4 +1,4 @@
-from itertools import ifilter, takewhile
+from itertools import takewhile
 
 def fibs():
     a, b = 0, 1
@@ -7,4 +7,5 @@ def fibs():
         a, b = b, a + b
 
 xs = fibs()
-print sum(ifilter(lambda x: x % 2 == 0, takewhile(lambda x: x < 4000000, xs)))
+result = sum(filter(lambda x: x % 2 == 0, takewhile(lambda x: x < 4000000, xs)))
+print(result)

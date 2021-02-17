@@ -42,7 +42,7 @@ have explanations in source about what is happening.
 * Java: Java(TM) SE Runtime Environment (build 1.6.0_20-b02)
 * JavaScript: Spidermonkey 1.8.0 pre-release 1 2007-10-03
 * Lua: 5.2.2
-* Python: 2.7.3
+* Python: 3.7.3
 * Racket: Racket 6.2
 * Ruby: MRI 1.9.2
 * Scala: Scala 2.9.1.r0-b20110831114755
