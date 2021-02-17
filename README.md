@@ -44,4 +44,4 @@ have explanations in source about what is happening.
 * Python: 3.7.3
 * Racket: Racket 6.2
 * Ruby: MRI 1.9.2
-* Scala: Scala 2.9.1.r0-b20110831114755
+* Scala: Scala 2.11.12
