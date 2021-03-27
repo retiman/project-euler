@@ -4,6 +4,7 @@ PWD=$(shell pwd)
 %: %.sh
 	docker run \
 		--pull missing \
+		--rm \
 		--volume "${PWD}:/src" \
 		--volume "${PWD}/../data:/data" \
 		--workdir /src \

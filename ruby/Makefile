@@ -1,5 +1,5 @@
-IMAGE=3.0.0-slim-buster
-PWD=$(shell pwd)
+IMAGE := 3.0.0-slim-buster
+PWD := $(shell pwd)
 
 %: %.rb
 	docker run \

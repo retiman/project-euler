@@ -1,5 +1,5 @@
-IMAGE=3.9.2-slim-buster
-PWD=$(shell pwd)
+IMAGE := 3.9.2-slim-buster
+PWD := $(shell pwd)
 
 %: %.py
 	docker run \
