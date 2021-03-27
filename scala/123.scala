@@ -13,4 +13,7 @@ def find(primes: List[Long], n: Int): Int = primes match {
                                     0
 }
 
-println(find(primes, 1))
+val result = find(primes, 1)
+
+println(result)
+assert(result == 21035)

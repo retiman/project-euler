@@ -25,4 +25,7 @@ def mtet(b: Long, e: Long)(m: Long): Long = {
   }
 }
 
-println(mtet(1777, 1855)(100000000))
+val result = mtet(1777, 1855)(100000000)
+
+println(result)
+assert(result == 95962097)
