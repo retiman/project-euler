@@ -20,4 +20,7 @@ def prime_factors(n)
   end
 end
 
-puts prime_factors(600851475143).max.round
+result = prime_factors(600851475143).max.round
+
+puts result
+raise Error unless result == 6857

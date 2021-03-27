@@ -18,4 +18,7 @@ def max(a, b)
 end
 
 limit = 1000000
-puts (1..limit).map { |n| f(n) }.inject([0,0]) { |a, b| max(a,b) }.first
+result = (1..limit).map { |n| f(n) }.inject([0,0]) { |a, b| max(a,b) }.first
+
+puts result
+raise Error unless result == 837799

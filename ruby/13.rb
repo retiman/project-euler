@@ -100,4 +100,8 @@ numbers = <<EOF
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 EOF
-puts numbers.lines.map { |l| l.strip.to_i }.inject(&:+).to_s.slice(0, 10)
+result = numbers.lines.map { |l| l.strip.to_i }.inject(&:+).to_s.slice(0, 10)
+result = result.to_i
+
+puts result
+raise Error unless result == 5537376230

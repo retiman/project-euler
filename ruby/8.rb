@@ -20,6 +20,7 @@ text = <<EOF
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450
 EOF
+
 result = 0
 numbers = text.gsub(/\s+/, "").chars.map { |c| c.to_i }
 (1..numbers.length).each do |i|
@@ -28,4 +29,6 @@ numbers = text.gsub(/\s+/, "").chars.map { |c| c.to_i }
     result = product if product > result
   end
 end
+
 puts result
+raise Error unless result == 40824

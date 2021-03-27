@@ -37,4 +37,7 @@ bs.each do |b_i|
   end
 end
 
-puts a*b
+result = a*b
+
+puts result
+raise Error unless result == -59231

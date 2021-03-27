@@ -11,4 +11,6 @@ result = data.each_index.
               zip(data.sort).
               map { |t| (t.first+1) * score(t.last) }.
               inject(&:+)
+
 puts result
+raise Error unless result == 871198282

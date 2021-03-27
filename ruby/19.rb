@@ -6,4 +6,7 @@ sundays = 0
     sundays += 1 if d.cwday == 7 # Sunday
   end
 end
-puts sundays
+result = sundays
+
+puts result
+raise Error unless result == 171

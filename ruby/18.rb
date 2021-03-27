@@ -28,4 +28,7 @@ data = data.lines.
   end
 end
 
-puts data[0][0]
+result = data[0][0]
+
+puts result
+raise Error unless result == 1074

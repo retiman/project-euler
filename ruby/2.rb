@@ -3,4 +3,7 @@ while curr < 4000000
   curr, succ = succ, curr + succ
   acc += curr if curr % 2 == 0
 end
-puts acc
+result = acc
+
+puts result
+raise Error unless result == 4613732

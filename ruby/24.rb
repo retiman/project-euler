@@ -18,4 +18,7 @@ def compute(list, curr)
   return [digit] + compute(list.delete_if { |x| x == digit }, succ)
 end
 
-puts compute((0..9).to_a, 1).join.to_i
+result = compute((0..9).to_a, 1).join.to_i
+
+puts result
+raise Error unless result == 2783915460

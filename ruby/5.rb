@@ -6,4 +6,7 @@ def lcm(a, b)
   a * (b / gcd(a, b))
 end
 
-puts (1..20).inject(20) { |a, b| lcm(a, b) }
+result = (1..20).inject(20) { |a, b| lcm(a, b) }
+
+puts result
+raise Error unless result == 232792560

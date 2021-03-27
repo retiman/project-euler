@@ -27,4 +27,7 @@ def mtet(a, t, m)
   mexp(a, e, m)
 end
 
-puts mtet(1777, 1855, 100_000_000)
+result = mtet(1777, 1855, 100_000_000)
+
+puts result
+raise Error unless result == 95962097

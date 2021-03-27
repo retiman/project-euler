@@ -12,4 +12,6 @@ def sieve(limit)
 end
 
 result = sieve(2_000_000).inject(&:+)
+
 puts result
+raise Error unless result == 142913828922

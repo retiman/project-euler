@@ -7,4 +7,7 @@ n, i = 3, 3
 while tau(n) < 500
   n, i = n+i, i+1
 end
-puts n
+result = n
+
+puts result
+raise Error unless result == 76576500

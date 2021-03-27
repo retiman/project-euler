@@ -37,4 +37,7 @@ def say(n)
   return $word[n]
 end
 
-puts (1..1000).map { |n| say(n).gsub(" ", "").length }.inject(&:+)
+result = (1..1000).map { |n| say(n).gsub(" ", "").length }.inject(&:+)
+
+puts result
+raise Error unless result == 21124

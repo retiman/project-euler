@@ -17,4 +17,7 @@ data = data.map { |l| l.strip }.
   end
 end
 
-puts data[0][0]
+result = data[0][0]
+
+puts result
+raise Error unless result == 7273

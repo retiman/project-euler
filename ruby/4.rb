@@ -11,4 +11,6 @@ result = 0
     end
   end
 end
+
 puts result
+raise Error unless result == 906609

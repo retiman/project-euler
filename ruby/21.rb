@@ -13,4 +13,6 @@ result = (2..limit).map { |n| [n, sigma(n)] }.
                     select { |t| t.first > t.last && t.first == sigma(t.last) }.
                     map { |t| t.first + t.last }.
                     inject(&:+)
+
 puts result
+raise Error unless result == 31626

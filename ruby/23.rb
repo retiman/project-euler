@@ -19,4 +19,7 @@ numbers = (0..limit).to_a
   end
 end
 
-puts numbers.inject(&:+)
+result = numbers.inject(&:+)
+
+puts result
+raise Error unless result == 4179871

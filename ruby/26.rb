@@ -23,4 +23,7 @@ end
 
 numbers = 999.step(2, -1).select { |n| n % 2 != 0 && n % 5 != 0 }
 result = max_period([0, 0], numbers)
-puts result.first
+result = result.first
+
+puts result
+raise Error unless result == 983

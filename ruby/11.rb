@@ -41,10 +41,12 @@ def df(i, j)
   (0..3).map { |k| $matrix[i+k][j+k] }.inject(&:*) rescue 0
 end
 
-best = 0
+result = 0
 (0..19).each do |i|
   (0..19).each do |j|
-    best = [best, lr(i, j), ud(i, j), uf(i, j), df(i, j)].max
+    result = [result, lr(i, j), ud(i, j), uf(i, j), df(i, j)].max
   end
 end
-puts best 
+
+puts result 
+raise Error unless result == 70600674
