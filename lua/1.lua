@@ -6,5 +6,6 @@ for i = 1, 999 do
 end
 
 result = sum
+
 print(result)
 assert(result == 233168)

@@ -25,4 +25,7 @@ def compute(list: List[Int]): List[Int] = {
   recur(list, 1)
 }
 
-println(compute(digits).mkString(""))
+val result = compute(digits).mkString("").toLong
+
+println(result)
+assert(result == 2783915460L)

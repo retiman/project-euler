@@ -21,11 +21,14 @@ val data = """
    .toArray
 
 for (
-  i <- data.length - 2 to 0 by -1;
-  j <- 0 until data(i).length;
-  left = data(i + 1)(j);
-  right = data(i + 1)(j + 1);
-  bigger = left max right
-) data(i)(j) += bigger
+    i <- data.length - 2 to 0 by -1;
+    j <- 0 until data(i).length;
+    left = data(i + 1)(j);
+    right = data(i + 1)(j + 1);
+    bigger = left max right)
+  data(i)(j) += bigger
 
-println(data(0)(0))
+val result = data(0)(0)
+
+println(result)
+assert(result == 1074)

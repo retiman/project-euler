@@ -1,6 +1,6 @@
 import scala.collection.mutable.HashMap
 
-val m = new HashMap[Pair[Int, Int], Int]()
+val m = new HashMap[Tuple2[Int, Int], Int]()
 
 def p(k: Int, n: Int): Int = (k, n) match {
   case _ if k > n  => 0
@@ -14,4 +14,7 @@ def p(k: Int, n: Int): Int = (k, n) match {
                       }
 }
 
-println(p(1, 100) - 1)
+val result = p(1, 100) - 1
+
+println(result)
+assert(result == 190569291)

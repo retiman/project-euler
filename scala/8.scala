@@ -28,4 +28,7 @@ val products = for (
   digits = (i to i + 4).map(s).map(_.toString.toInt)
 ) yield digits.reduceLeft(_ * _)
 
-println(products.reduceLeft(_ max _))
+val result = products.reduceLeft(_ max _)
+
+println(result)
+assert(result == 40824)

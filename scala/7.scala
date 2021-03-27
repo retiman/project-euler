@@ -1,5 +1,8 @@
-import scala.Stream._
-import scala.math._
+import scala.language.implicitConversions
+import scala.language.reflectiveCalls
+import scala.language.postfixOps
+import scala.math.sqrt
+import scala.Stream.from
 
 def nextPrime(implicit primes: List[Int]) = {
   implicit def primality(n: Int) = new {
@@ -12,4 +15,8 @@ def nextPrime(implicit primes: List[Int]) = {
 implicit var primes = 3 :: 2 :: Nil
 for (i <- 3 to 10001)
   primes = nextPrime :: primes
-println(primes.head)
+
+val result = primes.head
+
+println(result)
+assert(result == 104743)

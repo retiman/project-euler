@@ -1,4 +1,5 @@
-import scala.math._
+import scala.math.sqrt
+
 
 def divisors(n: Int) = {
   val d = (2 to sqrt(n).toInt).filter(n % _ == 0)
@@ -12,12 +13,14 @@ val abundants = (1 to limit).filter(n => sigma(n) > n).toArray
 val numbers = (0 to limit).toArray
 
 for (
-  i <- 0 until abundants.length;
-  j <- i until abundants.length
-) {
+    i <- 0 until abundants.length;
+    j <- i until abundants.length) {
   val index = abundants(i) + abundants(j)
   if (index <= limit)
     numbers(index) = 0
 }
 
-println(numbers.reduceLeft(_ + _))
+val result = numbers.reduceLeft(_ + _)
+
+println(result)
+assert(result == 4179871)

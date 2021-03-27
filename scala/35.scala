@@ -1,5 +1,6 @@
 import scala.io.Source
 
+
 def rotations(n: Long) = {
   def recur(s: String, rs: List[Long]): List[Long] = {
     if (n.toString == s && rs != Nil)
@@ -14,13 +15,13 @@ def rotations(n: Long) = {
 }
 
 val primes = Set() ++ Source.fromFile("../data/primes.txt")
-                            .getLines
-                            .map(_.trim.toLong)
-                            .takeWhile(_ < 1000000)
+    .getLines
+    .map(_.trim.toLong)
+    .takeWhile(_ < 1000000)
+val result = primes.filter { p =>
+  val rs = rotations(p)
+  rs.count(primes contains _) == rs.length
+}.size
 
-println {
-  primes.filter { p =>
-    val rs = rotations(p)
-    rs.count(primes contains _) == rs.length
-  }.size
-}
+println(result)
+assert(result == 55)

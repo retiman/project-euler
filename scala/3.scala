@@ -1,4 +1,7 @@
-import scala.math._
+import scala.math.ceil
+import scala.math.sqrt
+import scala.math.round
+
 
 def fermatFactors(n: Long): Set[Long] = {
   if (n % 2 == 0) return Set(2, n / 2)
@@ -21,4 +24,7 @@ def primeFactors(n: Long): Set[Long] = {
     factors.map(f => primeFactors(f)).reduceLeft(_ ++ _)
 }
 
-println(primeFactors(600851475143L).reduceLeft(_ max _))
+val result = primeFactors(600851475143L).reduceLeft(_ max _)
+
+println(result)
+assert(result == 6857)

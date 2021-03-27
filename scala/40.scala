@@ -1,5 +1,6 @@
 import java.lang.StringBuilder
 
+
 val s = {
   val sb = new StringBuilder()
   def f(i: Int): String = {
@@ -23,4 +24,7 @@ def g(product: Int, i: Int): Int = {
   }
 }
 
-println(g(1, 1))
+val result = g(1, 1)
+
+println(result)
+assert(result == 210)

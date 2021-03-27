@@ -16,4 +16,4 @@ image:
 		--volume "${PWD}/../data:/data" \
 		--workdir /src \
 		retiman/scala:${IMAGE} \
-		scala -nobootcp -nc -deprecation $<
+		scala -nobootcp -nc -feature -deprecation $<

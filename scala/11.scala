@@ -26,32 +26,33 @@ val matrix = """
 
 def horizontal(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i)(j + k)).reduceLeft(_ * _) }
-  catch { case _ => 0 }
+  catch { case _: Throwable => 0 }
 }
 
 def vertical(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i + k)(j)).reduceLeft(_ * _) }
-  catch { case _ => 0 }
+  catch { case _: Throwable => 0 }
 }
 
 def diagonalUp(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i - k)(j + k)).reduceLeft(_ * _) }
-  catch { case _ => 0 }
+  catch { case _: Throwable => 0 }
 }
 
 def diagonalDown(i: Int, j: Int) = {
   try { (0 to 3).map(k => matrix(i + k)(j + k)).reduceLeft(_ * _) }
-  catch { case _ => 0 }
+  catch { case _: Throwable => 0 }
 }
 
-println {
-  val xs = for (
+val xs = for (
     i <- 0 until 20;
     j <- 0 until 20;
     a = horizontal(i, j);
     b = vertical(i, j);
     c = diagonalUp(i, j);
-    d = diagonalDown(i, j)
-  ) yield List(a, b, c, d).reduceLeft(_ max _)
-  xs.reduceLeft(_ max _)
-}
+    d = diagonalDown(i, j))
+  yield List(a, b, c, d).reduceLeft(_ max _)
+val result = xs.reduceLeft(_ max _)
+
+println(result)
+assert(result == 70600674)

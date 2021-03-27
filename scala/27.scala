@@ -1,5 +1,6 @@
 import scala.io.Source
 
+
 def f(n: Int, a: Int, b: Int) = (n * n) + (a * n) + b
 
 def count(ps: Set[Int], a: Int, b: Int): Int = {
@@ -7,8 +8,8 @@ def count(ps: Set[Int], a: Int, b: Int): Int = {
 }
 
 def primes = Set() ++ Source.fromFile("../data/primes.txt")
-                            .getLines
-                            .map(_.trim.toInt)
+    .getLines
+    .map(_.trim.toInt)
 
 val ps = primes.filter(_ < 1000)
 val m = Map() ++ {
@@ -18,8 +19,8 @@ val m = Map() ++ {
     c =  count(ps, a, b)
   ) yield c -> (a, b)
 }
+val tuple = m(m.keys.max)
+val result = tuple._1 * tuple._2
 
-println {
-  val tuple = m(m.keys.max)
-  tuple._1 * tuple._2
-}
+println(result)
+assert(result == -59231)

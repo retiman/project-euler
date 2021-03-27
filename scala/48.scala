@@ -7,7 +7,9 @@ def mexp(b: BigInt, e: BigInt)(m: BigInt) = {
 }
 
 val n = 1E10.toLong
-println {
-  (1 to 1000).map { b => mexp(b, b)(n) }
-             .reduceLeft { (a, b) => (a + b) % n }
-}
+val result = (1 to 1000)
+    .map(b => mexp(b, b)(n))
+    .reduceLeft((a, b) => (a + b) % n)
+
+println(result)
+assert(result == 9110846700L)

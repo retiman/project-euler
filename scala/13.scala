@@ -104,4 +104,7 @@ val numbers = """
    .filter(_ != "")
    .map(BigInt(_))
 
-println(numbers.reduceLeft(_ + _).toString.take(10))
+val result = numbers.reduceLeft(_ + _).toString.take(10).toLong
+
+println(result)
+assert(result == 5537376230L)

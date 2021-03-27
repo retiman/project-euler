@@ -9,4 +9,7 @@ def f(a: Int) = {
                 .reduceLeft(_ max _)
 }
 
-println((3 to 1000).map(f _).reduceLeft(_ + _))
+val result = (3 to 1000).map(f _).reduceLeft(_ + _)
+
+println(result)
+assert(result == 333082500)

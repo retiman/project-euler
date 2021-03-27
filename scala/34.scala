@@ -16,9 +16,16 @@ def fact(n: Int) = n match {
   case n => (1 to n).reduceLeft(_ * _)
 }
 
-def isFactorion(n: Int) = n == n.toString
-                                .map(_.toString.toInt)
-                                .map(fact _)
-                                .reduceLeft(_ + _)
+def isFactorion(n: Int) = {
+  n == n.toString
+      .map(_.toString.toInt)
+      .map(fact _)
+      .reduceLeft(_ + _)
+}
 
-println((3 to maxFactorion).filter(isFactorion _).reduceLeft(_ + _))
+val result = (3 to maxFactorion)
+    .filter(isFactorion _)
+    .reduceLeft(_ + _)
+
+println(result)
+assert(result == 40730)

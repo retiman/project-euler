@@ -1,4 +1,6 @@
-import scala.math._
+import scala.math.log
+import scala.math.pow
+
 
 def log10(n: Double) = log(n) / log(10)
 
@@ -15,6 +17,9 @@ val limit = {
   d * pow(9, 5)
 }
 
-println {
-  (10 until limit.toInt).filter(n => n == digitalSum5(n)).reduceLeft(_ + _)
-}
+val result = (10 until limit.toInt)
+    .filter(n => n == digitalSum5(n))
+    .reduceLeft(_ + _)
+
+println(result)
+assert(result == 443839)

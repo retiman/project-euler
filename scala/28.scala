@@ -14,11 +14,11 @@ def next(x: Int, y: Int, heading: Symbol) = heading match {
 
 def populate(bound: Int) = {
   val m = Array.ofDim[Int](bound, bound)
-  def bounded(p: Pair[Int, Int]) = {
+  def bounded(p: Tuple2[Int, Int]) = {
     val (x, y) = p
     x >= 0 && x < m.length && y >= 0 && y < m.length
   }
-  def recur(p: Pair[Int, Int], heading: Symbol, n: Int): Unit = {
+  def recur(p: Tuple2[Int, Int], heading: Symbol, n: Int): Unit = {
     if (bounded(p)) {
       val (x, y) = p
       val (u, v) = next(x, y, turn(heading))
@@ -29,17 +29,16 @@ def populate(bound: Int) = {
       }
     }
   }
-  recur(
-    (m.length / 2, m.length / 2),
-    'up,
-    1
-  )
+  recur((m.length / 2, m.length / 2) /* p */, 'up /* heading */, 1 /* n */)
   m
 }
 
-println {
-  val b = 1001
-  val m = populate(b)
-  // Sum the diagonals but subtract 1 because it's counted twice
-  (0 until b).map(k => m(k)(k) + m(k)(m.length - k - 1)).reduceLeft(_ + _) - 1
-}
+val b = 1001
+val m = populate(b)
+// Sum the diagonals but subtract 1 because it's counted twice
+val result = (0 until b)
+    .map(k => m(k)(k) + m(k)(m.length - k - 1))
+    .reduceLeft(_ + _) - 1
+
+println(result)
+assert(result == 669171001)

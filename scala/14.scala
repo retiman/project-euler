@@ -1,10 +1,13 @@
 import scala.collection.mutable.HashMap
+import scala.language.implicitConversions
+import scala.language.reflectiveCalls
+
 
 val limit = 1000000
 val map = HashMap(1L -> 1L)
 
-implicit def pairWrapper(a: Pair[Long, Long]) = new {
-  def max(b: Pair[Long, Long]) = if (a._2 > b._2) a else b
+implicit def pairWrapper(a: Tuple2[Long, Long]) = new {
+  def max(b: Tuple2[Long, Long]) = if (a._2 > b._2) a else b
 }
 
 def length(n: Long): Long = n match {
@@ -19,4 +22,7 @@ def f(n: Long) = {
   (n, map(n))
 }
 
-println((1 to limit).map(_.toLong).map(f _).reduceLeft(_ max _)._1)
+val result = (1 to limit).map(_.toLong).map(f _).reduceLeft(_ max _)._1
+
+println(result)
+assert(result == 837799)
