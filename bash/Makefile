@@ -1,2 +1,11 @@
+IMAGE=10.8-slim
+PWD=$(shell pwd)
+
 %: %.sh
-	time bash $<
+	docker run \
+		--pull missing \
+		--volume "${PWD}:/src" \
+		--volume "${PWD}/../data:/data" \
+		--workdir /src \
+		debian:${IMAGE} \
+		bash $<
