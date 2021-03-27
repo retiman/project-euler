@@ -1,4 +1,11 @@
-PYTHON ?= $(if $(shell which python3), python3, python)
+PWD=$(shell pwd)
+IMAGE=3.9.2-slim-buster
 
 %: %.py
-	PYTHONPATH=lib time ${PYTHON} $<
+	docker run \
+		--pull missing \
+		--volume "$(PWD):/src" \
+		--volume "$(PWD)/../data:/data" \
+		--workdir /src \
+		python:$(IMAGE) \
+		python $<

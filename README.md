@@ -42,6 +42,5 @@ have explanations in source about what is happening.
 * J: 7.01b-7
 * Java: openjdk version "11.0.9.1" 2020-11-04
 * Lua: 5.2.2
-* Python: 3.7.3
 * Racket: Racket 6.2
 * Scala: Scala 2.11.12
