@@ -33,9 +33,3 @@ LANGUAGES
 Racket is my preferred language and will have more problems solved in that
 language than any other. Racket is the only language that will consistently
 have explanations in source about what is happening.
-
-* Clojure: Clojure 1.3.0
-* Golang: go1.11.6
-* Lua: 5.2.2
-* Racket: Racket 6.2
-* Scala: Scala 2.11.12
