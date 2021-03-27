@@ -1,5 +1,5 @@
-IMAGE=8.8.4
-PWD=$(shell pwd)
+IMAGE := 8.8.4
+PWD := $(shell pwd)
 
 %: %.hs
 	docker run \
