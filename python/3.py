@@ -22,4 +22,8 @@ def prime_factors(n):
         factors = chain.from_iterable(map(prime_factors, factors))
     return factors
 
-print(max(prime_factors(600851475143)))
+result = max(prime_factors(600851475143))
+result = int(result)
+
+print(result)
+assert(result == 6857)

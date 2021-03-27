@@ -11,4 +11,6 @@ def gen():
                 yield s
 
 result = reduce(max, gen())
+
 print(result)
+assert(result == 906609)

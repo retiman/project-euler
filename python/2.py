@@ -8,4 +8,6 @@ def fibs():
 
 xs = fibs()
 result = sum(filter(lambda x: x % 2 == 0, takewhile(lambda x: x < 4000000, xs)))
+
 print(result)
+assert(result == 4613732)
