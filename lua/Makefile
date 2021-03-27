@@ -5,7 +5,7 @@ PWD := $(shell pwd)
 # NOTE: There is no official image.  We'll have to build it ourselves.
 # https://github.com/docker-library/official-images/issues/3404
 image:
-	docker build -t retiman/lua:${IMAGE} .
+	docker build --tag retiman/lua:${IMAGE} .
 
 %: %.lua
 	docker run \
