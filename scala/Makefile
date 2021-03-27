@@ -10,6 +10,7 @@ image:
 # See https://github.com/scala/bug/issues/10603
 %: %.scala
 	docker run \
+		--pull missing \
 		--rm \
 		--volume "${PWD}:/src" \
 		--volume "${PWD}/../data:/data" \
