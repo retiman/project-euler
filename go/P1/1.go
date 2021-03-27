@@ -3,12 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	sum := 0
+	result := 0
 	for i := 1; i <= 1000; i++ {
 		if i%3 == 0 || i%5 == 0 {
-			sum += i
+			result += i
 		}
 	}
 
-	fmt.Println(sum)
+	fmt.Println(result)
+	if result != 234168 {
+		panic(1)
+	}
 }
