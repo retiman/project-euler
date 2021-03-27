@@ -1,5 +1,5 @@
-IMAGE=10.8-slim
-PWD=$(shell pwd)
+IMAGE := 10.8-slim
+PWD := $(shell pwd)
 
 %: %.sh
 	docker run \

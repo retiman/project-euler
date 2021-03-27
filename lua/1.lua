@@ -4,4 +4,7 @@ for i = 1, 999 do
     sum = sum + i
   end
 end
-print(sum)
+
+result = sum
+print(result)
+assert(result == 233168)
