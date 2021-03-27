@@ -44,5 +44,4 @@ have explanations in source about what is happening.
 * Lua: 5.2.2
 * Python: 3.7.3
 * Racket: Racket 6.2
-* Ruby: MRI 1.9.2
 * Scala: Scala 2.11.12
