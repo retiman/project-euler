@@ -38,7 +38,6 @@ have explanations in source about what is happening.
 * C: gcc (Debian 4.3.2-1.1) 4.3.2
 * Clojure: Clojure 1.3.0
 * Golang: go1.11.6
-* Haskell: GHC 6.8.2
 * J: 7.01b-7
 * Java: openjdk version "11.0.9.1" 2020-11-04
 * Lua: 5.2.2
