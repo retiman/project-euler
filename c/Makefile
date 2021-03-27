@@ -1,6 +1,11 @@
-%: %.c
-	$(CC) $<
-	time ./a.out && $(RM) a.out
+IMAGE=10.2.0
+PWD=$(shell pwd)
 
-clean:
-	$(RM) a.out
+%: %.c
+	docker run \
+		--pull missing \
+		--volume "${PWD}:/src" \
+		--volume "${PWD}/../data:/data" \
+		--workdir /src \
+		gcc:${IMAGE} \
+		/bin/bash -c "gcc $*.c && ./a.out && rm a.out"
