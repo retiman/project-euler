@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 
 int main()
@@ -11,6 +12,8 @@ int main()
       sum += i;
     }
   }
+
   printf("%d\n", sum);
+  assert(sum == 233168);
   return 0;
 }
