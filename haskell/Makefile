@@ -1,11 +1,10 @@
 IMAGE := 8.8.4
-PWD := $(shell pwd)
 
 %: %.hs
 	docker run \
 		--pull missing \
-		--volume "${PWD}:/src" \
-		--volume "${PWD}/../data:/data" \
+		--volume "${CURDIR}:/src" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		haskell:${IMAGE} \
 		runghc $<

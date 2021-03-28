@@ -1,12 +1,11 @@
 IMAGE := 10.8-slim
-PWD := $(shell pwd)
 
 %: %.sh
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${PWD}:/src" \
-		--volume "${PWD}/../data:/data" \
+		--volume "${CURDIR}:/src" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		debian:${IMAGE} \
 		bash $<

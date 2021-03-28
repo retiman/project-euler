@@ -1,10 +1,4 @@
-all: stats
-
-stats:
-	scripts/stats.sh
+all: primes
 
 primes:
-	scripts/primes.rkt 5000000 > data/primes.txt
-
-generate:
-	scripts/primes.rkt $(LIMIT) > data/primes.txt
+	$(MAKE) -C racket/lib primes

@@ -1,11 +1,10 @@
 IMAGE := 3.9.2-slim-buster
-PWD := $(shell pwd)
 
 %: %.py
 	docker run \
 		--pull missing \
-		--volume "${PWD}:/src" \
-		--volume "${PWD}/../data:/data" \
+		--volume "${CURDIR}:/src" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		python:${IMAGE} \
 		python $<

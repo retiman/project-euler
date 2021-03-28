@@ -1,5 +1,4 @@
 IMAGE := 2.11.12-debian10.8-slim
-PWD := $(shell pwd)
 .PHONY = image
 
 # NOTE: There is no official image.  We'll have to build it ourselves.
@@ -12,8 +11,8 @@ image:
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${PWD}:/src" \
-		--volume "${PWD}/../data:/data" \
+		--volume "${CURDIR}:/src" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		retiman/scala:${IMAGE} \
 		scala -nobootcp -nc -feature -deprecation $<
