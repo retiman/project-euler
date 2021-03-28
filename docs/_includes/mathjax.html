@@ -2,4 +2,29 @@
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+<script type="text/javascript">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$'],['\\[','\\]']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+  TeX: {
+    equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js", "AMScd.js"],
+    TagSide: "left",
+    Macros: {
+      homo: ['\\ensuremath{\\tilde{\\mathbf{#1}}}', 1],
+      norm: ['\\ensuremath{\\vert \\vert #1 \\vert \\vert}', 1],
+      dv:   ['\\ensuremath{\\frac{d #1}{d #2}}', 2],
+      pdv:  ['\\ensuremath{\\frac{\\partial #1}{\\partial #2}}', 2],
+      ensuremath: '',
+    }
+  }
+});
+</script>
 {% endif %}
