@@ -1,16 +1,11 @@
 (load-file "lib/core.clj")
 (ns lib.number-theory
   (:refer-clojure :exclude
-    (+
-     *
-     bit-and
-     bit-not
-     bit-or
-     bit-shift-left
-     bit-shift-right
-     bit-xor
-     dec
-     inc))
+    ; These functions do not support arbitrary precision, which is quite a
+    ; nuisance for us.
+    ;
+    ; See https://clojuredocs.org/clojure.core/+'
+    (+ * bit-and bit-not bit-or bit-shift-left bit-shift-right bit-xor dec inc))
   (:use
     [clojure.set :only (union)])
   (:require

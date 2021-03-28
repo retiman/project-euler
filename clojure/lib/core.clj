@@ -29,7 +29,10 @@
   sqrt)
 
 ; The performance hit is not as much of a concern to me as getting the correct
-; result.
+; result.  The regular + and * functions do not support arbitrary precision,
+; which is quite annoying for our purposes.
+;
+; See https://clojuredocs.org/clojure.core/+'
 (doseq [sym ['+ '* 'inc 'dec]]
   (ns-unmap 'lib.core sym))
 
