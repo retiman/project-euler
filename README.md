@@ -41,7 +41,7 @@ you only need to install the `docker-ce-cli` package.
 ## Generate Primes
 
 Some problems require a pre-computed list of primes.  To generate them and place
-the data in `data` (along with other problem specific data sets), run the
+the data in `/.data` (along with other problem specific data sets), run the
 following command from the project root directory:
 
     make primes
