@@ -1,5 +1,5 @@
 ---
-layout: mathpost
+layout: post
 mathjax: true
 ---
 
