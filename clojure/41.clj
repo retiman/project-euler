@@ -1,9 +1,12 @@
 (load-file "lib/core.clj")
+(load-file "lib/number-theory.clj")
 (use
-  '[clojure.math.combinatorics :only (permutations)]
   '[clojure.set :only (intersection)]
-  '[lib.core :only (load-primes parse-int)])
-(require '[clojure.string :as su])
+  '[lib.core :only (parse-int)]
+  '[lib.number-theory :only (load-primes permutations)])
+(require
+  '[clojure.string :as s])
+
 
 (def primes (load-primes "../data/primes.txt"))
 
@@ -19,6 +22,9 @@
   (into #{} (take-while #(<= % 7654321) primes)))
 
 (def ys
-  (into #{} (map #(parse-int (su/join "" %)) (permutations cs))))
+  (into #{} (map #(parse-int (s/join "" %)) (permutations cs))))
 
-(println (apply max (intersection xs ys)))
+(def result (apply max (intersection xs ys)))
+
+(println result)
+(assert (= result 4765213))

@@ -8,8 +8,12 @@
 
 (def collatz-length (memoize collatz-length*))
 
-(let [n 1000000
-      h (apply merge (map #(hash-map (collatz-length %) %) (range 1 n)))
-      m (apply max (keys h))
-      r (h m)]
-  (println r))
+(def result
+  (let [n 1000000
+        h (apply merge (map #(hash-map (collatz-length %) %) (range 1 n)))
+        m (apply max (keys h))
+        r (h m)]
+    r))
+
+(println result)
+(assert (= result 837799))

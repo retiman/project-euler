@@ -1,6 +1,6 @@
-(load-file "lib/core.clj")
-(use '[lib.core :only (load-primes prime?)])
-(require '[clojure.string :as su])
+(load-file "lib/number-theory.clj")
+(use '[lib.number-theory :only (load-primes prime?)])
+
 
 (def primes (load-primes "../data/primes.txt"))
 
@@ -39,4 +39,7 @@
                    (recur (rest ps) (cons p ts))
                    (recur (rest ps) ts))))))
 
-(println (reduce + (f primes)))
+(def result (reduce + (f primes)))
+
+(println result)
+(assert (= result 748317))

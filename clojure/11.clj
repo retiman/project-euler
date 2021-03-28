@@ -1,6 +1,8 @@
 (load-file "lib/core.clj")
-(use '[lib.core :only (parse-int)])
-(use '[clojure.string :only (split-lines split)])
+(use
+  '[clojure.string :only (split-lines split)]
+  '[lib.core :only (parse-int)])
+
 
 (def matrix
   (to-array-2d
@@ -26,7 +28,7 @@
   (try (reduce * (map #(aget matrix (+ i %) (+ j %)) (range 4)))
     (catch RuntimeException e 0)))
 
-(println
+(def result
   (apply max
     (flatten
       (for [i (range 20)
@@ -35,3 +37,6 @@
               (vertical-product i j)
               (diagonal-up-product i j)
               (diagonal-down-product i j))))))
+
+(println result)
+(assert (= result 70600674))

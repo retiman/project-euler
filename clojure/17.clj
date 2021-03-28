@@ -42,8 +42,11 @@
     :default
       (word n)))
 
-(println
+(def result
   (reduce +
     (map count
       (for [w (map say (range 1 1001))]
         (filter #(not (= \space %)) w)))))
+
+(println result)
+(assert (= result 21124))

@@ -25,4 +25,7 @@
                    t (mod-tet b (dec e) o)]
                (mod-exp b t m))))
 
-(println (mod-tet 1777 1855 100000000))
+(def result (mod-tet 1777 1855 100000000))
+
+(println result)
+(assert (= result 95962097))

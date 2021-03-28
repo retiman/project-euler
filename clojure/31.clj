@@ -22,4 +22,7 @@
 
 (defp 200 100)
 
-(println (p200 200))
+(def result (p200 200))
+
+(println result)
+(assert (= result 73682))

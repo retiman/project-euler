@@ -1,12 +1,12 @@
-(load-file "lib/core.clj")
-(use '[lib.core :only (sigma)])
+(load-file "lib/number-theory.clj")
+(use '[lib.number-theory :only (sigma*)])
 
-(defn sigma* [n]
-  (- (sigma n) n))
-
-(println
+(def result
   (reduce +
     (for [a (range 2 (inc 10000))
           :let [b (sigma* a)]
           :when (and (> a b) (= (sigma* b) a))]
       (+ a b))))
+
+(println result)
+(assert (= result 31626))

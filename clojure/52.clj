@@ -11,4 +11,7 @@
 (def ys
   (drop-while #(not (apply same-digits? %)) xs))
 
-(println (first (first ys)))
+(def result (first (first ys)))
+
+(println result)
+(assert (= result 142857))

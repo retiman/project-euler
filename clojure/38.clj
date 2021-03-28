@@ -1,5 +1,9 @@
 (load-file "lib/core.clj")
-(use 'clojure.math.combinatorics)
+(load-file "lib/number-theory.clj")
+(use
+  '[lib.core :only (parse-int)]
+  '[lib.number-theory :only (permutations)])
+
 
 (def pandigitals
   (set (map #(apply str %) (permutations (range 1 10)))))
@@ -21,9 +25,12 @@
       (> (count s) 9) nil
       :default (recur (str s (* n i)) (inc i)))))
 
-(println
+(def result
   (reduce max
     (for [x (range 1 99999)
           :let [p (pandigital-product x)]
           :when (pandigital? p)]
-      (Integer/parseInt p))))
+      (parse-int p))))
+
+(println result)
+(assert (= result 932718654))

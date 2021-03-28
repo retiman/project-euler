@@ -1,5 +1,8 @@
-(load-file "lib/core.clj")
-(use '[lib.core :only (load-primes)])
+(load-file "lib/number-theory.clj")
+(use '[lib.number-theory :only (load-primes)])
 
 (def primes (load-primes "../data/primes.txt"))
-(println (last (take 10001 primes)))
+(def result (last (take 10001 primes)))
+
+(println result)
+(assert (= result 104743))

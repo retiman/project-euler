@@ -10,4 +10,7 @@
   (when (= (.get cal Calendar/DAY_OF_WEEK) Calendar/SUNDAY)
     (swap! sundays inc)))
 
-(println @sundays)
+(def result @sundays)
+
+(println result)
+(assert (= result 171))

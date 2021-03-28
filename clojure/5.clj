@@ -6,4 +6,7 @@
   ([a b] (* a (/ b (gcd a b))))
   ([a b & more] (reduce lcm (conj more (lcm a b)))))
 
-(println (reduce lcm (range 1 20)))
+(def result (reduce lcm (range 1 20)))
+
+(println result)
+(assert (= result 232792560))

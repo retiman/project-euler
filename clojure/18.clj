@@ -1,6 +1,8 @@
 (load-file "lib/core.clj")
-(use '[lib.core :only (parse-int)])
-(use '[clojure.string :only (split split-lines trim)])
+(use
+  '[clojure.string :only (split split-lines trim)]
+  '[lib.core :only (parse-int)])
+
 
 (def input
   "75
@@ -37,4 +39,7 @@
               bigger (max left right)]]
   (aset data i j (+ current bigger)))
 
-(println (aget data 0 0))
+(def result (aget data 0 0))
+
+(println result)
+(assert (= result 1074))

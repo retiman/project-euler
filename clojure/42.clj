@@ -1,4 +1,5 @@
-(require '[clojure.string :as su])
+(require '[clojure.string :as s])
+
 
 (declare charmap triangle-word-scores)
 
@@ -19,8 +20,8 @@
   (reduce + (map #(get charmap %) word)))
 
 (def words
-  (map #(su/replace % #"\"" "")
-       (su/split (slurp "../data/42.txt") #",")))
+  (map #(s/replace % #"\"" "")
+       (s/split (slurp "../data/42.txt") #",")))
 
 (def longest-word
   (apply max (map count words)))
@@ -36,7 +37,10 @@
 (def triangle-word-scores
   (set (take-while #(<= % (* longest-word 26)) triangles)))
 
-(println
+(def result
   (count
     (filter triangle?
       (map word-score words))))
+
+(println result)
+(assert (= result 162))
