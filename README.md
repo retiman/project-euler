@@ -23,7 +23,7 @@ For most platforms, you can just install Docker as per
 ## Install WSL (Optional)
 
 If you are using Windows, you'll need to install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-because make is required.  You'll probably want WSL2 but you can read about the
+because `make` is required.  You'll probably want WSL2 but you can read about the
 [differences here](https://docs.microsoft.com/en-us/windows/wsl/compare-versions).
 For the Linux distribution, you can use whatever you want, but I used Debian.
 
@@ -40,23 +40,25 @@ you only need to install the `docker-ce-cli` package.
 
 ## Generate Primes
 
-Some problems require a pre-computed list of primes.  Run `make primes` from
-the project root directory to generate them.  They will be placed in the `data`
-directory, where some problem specific data may reside.
+Some problems require a pre-computed list of primes.  To generate them and place
+the data in `data` (along with other problem specific data sets), run the
+following command from the project root directory:
 
-The primes generation script is written in Racket; most solutions and scripts
-are written in Racket here.
+    make primes
 
 ## Run Solutions
 
 Each language directory has a `Makefile` run `make ${PROBLEM}` (where
 `${PROBLEM}` is a number) to compute the solution for that problem.
-For example, to compute the solution for problem number 1 in Racket, do this:
+For example, to compute the solution for problem number 188 in Racket, do this:
 
     cd racket
-    make 1
+    make 188
 
 ## Run Tests
 
 Racket solutions have commonly reused code/libraries.  Run the tests for them
-by running `make test` from the root directory.
+by running the following command from the root directory:
+
+    make test
+
