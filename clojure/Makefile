@@ -5,7 +5,7 @@ IMAGE := openjdk-17-tools-deps-1.10.3.814-slim-buster
 		--pull missing \
 		--rm \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../data:/data" \
+		--volume "${CURDIR}/../.data:/data" \
 		--workdir /src \
 		clojure:${IMAGE} \
 	  clojure -M $<

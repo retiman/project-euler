@@ -5,7 +5,7 @@ IMAGE := 10.2.0
 		--pull missing \
 		--rm \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../data:/data" \
+		--volume "${CURDIR}/../.data:/data" \
 		--workdir /src \
 		gcc:${IMAGE} \
 		/bin/bash -c "gcc $*.c && ./a.out && rm a.out"
