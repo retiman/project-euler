@@ -1,8 +1,11 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 (require "lib/number-theory.rkt")
 
 (define s
-  (letrec ((f (λ (xs x d)
+  (letrec ((f (lambda (xs x d)
                 (if (< d 1000000)
                   (f (cons x xs) (add1 x) (+ d (digits x)))
                   xs))))
@@ -16,5 +19,7 @@
     (product (* acc (char->integer* (string-ref s (sub1 index)))) (* index 10))
     acc))
 
-(displayln
-  (product 1 1))
+(define result (product 1 1))
+
+(displayln result)
+(check-equal? result 210)

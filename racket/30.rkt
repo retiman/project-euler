@@ -1,5 +1,9 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require srfi/41)
 (require "lib/core.rkt")
+
 
 (define (digital-sum-5 n)
   (for/sum ((c (string->list (number->string n))))
@@ -11,7 +15,10 @@
                                (stream-from 0))))
     (* (stream-length s) x)))
 
-(displayln
+(define result
   (for/sum ((i (range 10 limit))
             #:when (= i (digital-sum-5 i)))
     i))
+
+(displayln result)
+(check-equal? result 443839)

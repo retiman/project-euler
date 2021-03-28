@@ -1,6 +1,8 @@
-; Problem #14: https://projecteuler.net/problem=14
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
+
 
 (define-memo (collatz-length n)
   (define (loop i acc)
@@ -12,8 +14,11 @@
 (define (number->pair n)
   (cons (collatz-length n) n))
 
-(displayln
+(define result
   (let* ((n 1000000)
          (h (apply make-hash (list (map number->pair (range 1 n)))))
          (k (apply max (hash-keys h))))
     (hash-ref h k)))
+
+(displayln result)
+(check-equal? result 837799)

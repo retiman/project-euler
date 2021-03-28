@@ -1,3 +1,6 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require srfi/41)
 (require "lib/core.rkt")
 
@@ -39,5 +42,8 @@
 (define (triangle? n)
   (set-member? triangle-word-scores n))
 
-(displayln
+(define result
   (length (filter triangle? (map word-score words))))
+
+(displayln result)
+(check-equal? result 162)

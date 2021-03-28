@@ -1,10 +1,15 @@
-; Problem #25: https://projecteuler.net/problem=25
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 (require "lib/number-theory.rkt")
 
-(displayln
+
+(define result
   (for/last ((i (in-naturals))
              (n fibs)
              #:break (>= (digits n) 1000))
     (add1 i)))
+
+(displayln result)
+(check-equal? result 4782)

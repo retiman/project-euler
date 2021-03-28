@@ -1,7 +1,7 @@
 #lang racket
-
 (provide string-drop
          string-take)
+
 
 ; Returns s with the first n characters dropped.
 (define (string-drop n s)

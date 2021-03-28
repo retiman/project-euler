@@ -1,5 +1,4 @@
 #lang racket
-
 (require "core.rkt")
 (require "2darray.rkt")
 (require "set.rkt")

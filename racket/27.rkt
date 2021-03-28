@@ -1,5 +1,9 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 (require "lib/number-theory.rkt")
+
 
 (define ps
   (filter prime? (range 1000)))
@@ -16,6 +20,9 @@
     (let ((c (primes-count a b)))
       (values c (cons a b)))))
 
-(displayln
+(define result
   (let ((v (hash-ref m (apply max (hash-keys m)))))
     (* (car v) (cdr v))))
+
+(displayln result)
+(check-equal? result -59231)

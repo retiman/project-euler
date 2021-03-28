@@ -1,5 +1,9 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require (for-syntax racket/function))
 (require (for-syntax racket/syntax))
+
 
 (begin-for-syntax
   (define (make-id stx id-fragment)
@@ -34,4 +38,7 @@
 
 (define-p 200 100)
 
-(displayln (p200 200))
+(define result (p200 200))
+
+(displayln result)
+(check-equal? result 73682)

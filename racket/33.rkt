@@ -1,4 +1,8 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
+
 
 (define (denominators n)
   (define (denominators* digit start)
@@ -27,9 +31,12 @@
           ((= b d) (= v (/ a c)))
           (else #f))))
 
-(displayln
+(define result
   (denominator
     (for*/product ((m (range 11 99))
                    (n (denominators m))
                    #:when (cancellable? m n))
       (/ m n))))
+
+(displayln result)
+(check-equal? result 100)

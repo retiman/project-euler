@@ -1,5 +1,6 @@
-; Problem #17: https://projecteuler.net/problem=17
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/number-theory.rkt")
 
 (define word
@@ -50,6 +51,9 @@
      (hash-ref word (- n (remainder n 10))))
     (else (hash-ref word n))))
 
-(displayln
+(define result
   (for/sum ((phrase (map say (range 1 1001))))
     (string-length (string-replace phrase " " ""))))
+
+(displayln result)
+(check-equal? result 21124)

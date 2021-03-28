@@ -1,5 +1,4 @@
 #lang racket
-
 (provide make-2darray
          2darray-in-bounds?
          2darray-num-cols
@@ -7,6 +6,7 @@
          2darray-ref
          2darray-row-ref
          2darray-set!)
+
 
 ; Returns a mutable 2d array represented by vectors.
 (define (make-2darray m n)

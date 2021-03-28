@@ -1,3 +1,6 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 
 (define pandigitals
@@ -21,8 +24,11 @@
                ((> (string-length s) 9) "")
                (else (pandigital-product n (string-append* s (* n i)) (add1 i)))))))
 
-(displayln
+(define result
   (let* ((xs (range 1 99999))
          (ys (map (compose string->number pandigital-product) xs))
          (zs (filter pandigital? ys)))
     (apply max zs)))
+
+(displayln result)
+(check-equal? result 932718654)

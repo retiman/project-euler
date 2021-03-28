@@ -1,5 +1,9 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 (require "lib/number-theory.rkt")
+
 
 (define primes
   (filter (curryr < 1000000) (file->list "../data/primes.txt")))
@@ -19,4 +23,7 @@
 (define (circular? p)
   (andmap prime? (rotations p)))
 
-(displayln (length (filter circular? primes)))
+(define result (length (filter circular? primes)))
+
+(displayln result)
+(check-equal? result 55)

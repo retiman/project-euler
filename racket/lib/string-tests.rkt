@@ -1,9 +1,8 @@
 #lang racket
-
 (provide string-tests)
-
 (require rackunit)
-(require "../lib/string.rkt")
+(require "string.rkt")
+
 
 (define string-tests
   (test-suite

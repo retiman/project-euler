@@ -1,5 +1,11 @@
-; Problem #3: https://projecteuler.net/problem=3
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/number-theory.rkt")
 
-(displayln (apply max (set->list (prime-factors 600851475143))))
+
+(define result
+  (apply max (set->list (prime-factors 600851475143))))
+
+(displayln result)
+(check-equal? result 6857)

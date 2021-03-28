@@ -1,9 +1,8 @@
 #lang racket
-
 (provide 2darray-tests)
-
 (require rackunit)
-(require "../lib/2darray.rkt")
+(require "2darray.rkt")
+
 
 (define 2darray-tests
   (test-suite

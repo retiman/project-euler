@@ -1,6 +1,8 @@
-; Problem #23: https://projecteuler.net/problem=23
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/number-theory.rkt")
+
 
 (define limit 28123)
 
@@ -16,4 +18,8 @@
     (when (<= n limit)
       (vector-set! numbers n 0))))
 
-(displayln (for/sum ((n numbers) #:when (not (zero? n))) n))
+(define result
+  (for/sum ((n numbers) #:when (not (zero? n))) n))
+
+(displayln result)
+(check-equal? result 4179871)

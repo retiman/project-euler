@@ -1,5 +1,4 @@
 #lang racket
-
 (provide char->integer*
          char-list->integer
          define-memo
@@ -13,6 +12,7 @@
          path-join
          zip
          zipmap)
+
 
 ; Converts a char to the integer it maps to. Contrast with core library's
 ; char->integer which returns the character's code point. For example:

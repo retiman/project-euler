@@ -1,9 +1,8 @@
 #lang racket
-
 (provide core-tests)
-
 (require rackunit)
-(require "../lib/core.rkt")
+(require "core.rkt")
+
 
 (define core-tests
   (test-suite

@@ -1,6 +1,9 @@
-; Problem #15: https://projecteuler.net/problem=15
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
+(require "lib/core.rkt")
 (require "lib/number-theory.rkt")
+
 
 ; Starting at the upper left, one must move down exactly 20 times, and right
 ; exactly 20 times in order to reach the bottom right. Represent the downward
@@ -12,8 +15,11 @@
 ; multinomial coefficient.
 ;
 ; See https://en.wikipedia.org/wiki/Permutation#Permutations_of_multisets
-(displayln
+(define result
   (let* ((n (factorial (+ 20 20)))
          (d (* (factorial 20) (factorial 20)))
          (r (/ n d)))
     r))
+
+(displayln result)
+(check-equal? result 137846528820)

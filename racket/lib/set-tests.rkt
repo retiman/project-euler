@@ -1,9 +1,8 @@
 #lang racket
-
 (provide set-tests)
-
 (require rackunit)
-(require "../lib/set.rkt")
+(require "set.rkt")
+
 
 (define set-tests
   (test-suite

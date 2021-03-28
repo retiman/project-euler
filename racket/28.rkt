@@ -1,4 +1,8 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/2darray.rkt")
+
 
 (define (turn heading)
   (match heading
@@ -35,8 +39,11 @@
 
 (define spiral (make-spiral limit))
 
-(displayln
+(define result
   (sub1
     (for*/sum ((i (in-range limit)))
       (+ (2darray-ref spiral i i)
          (2darray-ref spiral i (- (2darray-num-cols spiral) i 1))))))
+
+(displayln result)
+(check-equal? result 669171001)

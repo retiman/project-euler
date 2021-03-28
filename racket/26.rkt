@@ -1,6 +1,8 @@
-; Problem #26: https://projecteuler.net/problem=26
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/number-theory.rkt")
+
 
 (define numbers
   (filter (λ (n) (and (not (divides? 2 n)) (not (divides? 5 n))))
@@ -15,4 +17,7 @@
             ((> t (cdr best)) (max-period (cons n t) (rest numbers)))
             (else (max-period best (rest numbers)))))))
 
-(displayln (car (max-period (cons 0 0) numbers)))
+(define result (car (max-period (cons 0 0) numbers)))
+
+(displayln result)
+(check-equal? result 983)

@@ -1,9 +1,8 @@
 #lang racket
-
 (provide number-theory-tests)
-
 (require rackunit)
-(require "../lib/number-theory.rkt")
+(require "number-theory.rkt")
+
 
 (define number-theory-tests
   (test-suite
@@ -58,7 +57,6 @@
     (check-equal? (stream-ref fibs 3) 2 "fourth fibonacci number")
 
     (check = (logarithm 2 64) 6 "log base 2 of 64 is 6")
-    ; TODO: More logarithm tests.
 
     (check = (modular-expt 3 1 2) 1 "residue of 3^1 divided by 2")
     (check = (modular-expt 3 0 9) 1 "residue of 3^0 divided by 9")

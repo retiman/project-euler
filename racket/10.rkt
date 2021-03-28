@@ -1,4 +1,10 @@
-; Problem #10: https://projecteuler.net/problem=10
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 
-(displayln
+
+(define result
   (apply + (filter (curryr < 2000000) (file->list "../data/primes.txt"))))
+
+(displayln result)
+(check-equal? result 142913828922)

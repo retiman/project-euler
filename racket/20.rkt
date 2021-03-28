@@ -1,8 +1,13 @@
-; Problem #20: https://projecteuler.net/problem=20
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 (require "lib/number-theory.rkt")
 
-(displayln
+
+(define result
   (for/sum ((c (number->string (factorial 100))))
     (char->integer* c)))
+
+(displayln result)
+(check-equal? result 648)

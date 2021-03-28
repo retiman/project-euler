@@ -1,5 +1,9 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 (require "lib/number-theory.rkt")
+
 
 (define limit (for/sum ((i (in-range 1 10)))
                 (log10 i)))
@@ -14,7 +18,10 @@
 (define max-factorion
   (* (factorial 9) max-digits))
 
-(displayln
+(define result
   (for/sum ((n (range 3 (add1 max-factorion)))
             #:when (factorion? n))
     n))
+
+(displayln result)
+(check-equal? result 40730)

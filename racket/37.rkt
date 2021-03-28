@@ -1,3 +1,6 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
 (require "lib/string.rkt")
 (require "lib/number-theory.rkt")
@@ -32,4 +35,8 @@
                              (find-primes (cdr ps) (cons p ts))
                              (find-primes (cdr ps) ts))))))))
 
-(displayln (for/sum ((p (find-primes primes))) p))
+(define result
+  (for/sum ((p (find-primes primes))) p))
+
+(displayln result)
+(check-equal? result 748317)

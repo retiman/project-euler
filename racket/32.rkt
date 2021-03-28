@@ -1,4 +1,8 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
+
 
 (define pandigital-products (make-hash))
 
@@ -20,6 +24,8 @@
       (hash-set! pandigital-products p1 c)
       (hash-set! pandigital-products p2 c))))
 
+(define result 0)
+
 (begin
   (for ((p (permutations (range 1 10))))
     (let ((n (list->integer p)))
@@ -30,6 +36,9 @@
       ; (* 9 876) and (* 98 76) don't have 5 digits, but those are the max
       ; products you can get with the 4 remaining digits.
       (apply check-pandigital-product (pandigital-product-values n 2 3))))
-  (displayln
+  (set! result
     (for/sum ((i (distinct (hash-values pandigital-products))))
       i)))
+
+(displayln result)
+(check-equal? result 45228)

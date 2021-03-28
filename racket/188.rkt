@@ -1,3 +1,10 @@
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/number-theory.rkt")
 
-(displayln (modular-tetn 1777 1855 100000000))
+
+(define result (modular-tetn 1777 1855 100000000))
+
+(displayln result)
+(check-equal? result 95962097)

@@ -1,6 +1,8 @@
-; Problem #18: https://projecteuler.net/problem=18
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/2darray.rkt")
+
 
 (define input
   "75
@@ -64,4 +66,7 @@
          (bigger (max left right)))
     (2darray-set! data i j (+ current bigger))))
 
-(displayln (2darray-ref data 0 0))
+(define result (2darray-ref data 0 0))
+
+(displayln result)
+(check-equal? result 1074)

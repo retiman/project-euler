@@ -1,9 +1,15 @@
-; Problem #13: https://projecteuler.net/problem=13
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 
-(displayln
+
+(define result
   ((compose list->string
             (curryr take 10)
             string->list
             number->string
             (curry apply +))
      (file->list "../data/13.txt")))
+
+(displayln result)
+(check-equal? result 5537376230)

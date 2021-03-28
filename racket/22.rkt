@@ -1,6 +1,8 @@
-; Problem #22: https://projecteuler.net/problem=22
-
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 (require "lib/core.rkt")
+
 
 (define names
   ((compose (curry regexp-split ",")
@@ -20,6 +22,9 @@
   (zipmap (range 1 (add1 (length names)))
           (map (curry score) (sort names string<?))))
 
-(displayln
+(define result
   (for/sum ((k (hash-keys m)))
     (* k (hash-ref m k))))
+
+(displayln result)
+(check-equal? result 871198282)

@@ -1,6 +1,8 @@
-; Problem #11: https://projecteuler.net/problem=11
-
+#! /usr/bin/env racket
+#lang racket
 (require math/matrix)
+(require rackunit)
+
 
 (define (line->vector line)
   (for/vector ((e (regexp-split #px" " line)))
@@ -35,9 +37,12 @@
     (for/product ((k (in-range 4)))
                   (matrix-ref (+ i k) (+ j k)))))
 
-(displayln
+(define result
   (apply max
     (flatten
       (for*/list ((i (in-range 20))
                   (j (in-range 20)))
         (list (→ i j) (↑ i j) (↗ i j) (↘ i j))))))
+
+(displayln result)
+(check-equal? result 70600674)

@@ -1,3 +1,9 @@
-; Problem #5: https://projecteuler.net/problem=5
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
 
-(displayln (apply lcm (range 1 20)))
+
+(define result (apply lcm (range 1 20)))
+
+(displayln result)
+(check-equal? result 232792560)
