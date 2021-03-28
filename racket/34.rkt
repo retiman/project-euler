@@ -9,7 +9,7 @@
                 (log10 i)))
 
 (define max-digits
-  (letrec ((loop (λ (digits)
+  (letrec ((loop (lambda (digits)
                    (if (< (- digits 1 (log10 digits)) limit)
                      (loop (add1 digits))
                      (sub1 digits)))))

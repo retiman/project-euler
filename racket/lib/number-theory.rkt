@@ -93,7 +93,7 @@
 ;
 ; See https://en.wikipedia.org/wiki/Fibonacci_number
 (define fibs
-  (letrec ((f (λ (a b) (stream-cons a (f b (+ a b))))))
+  (letrec ((f (lambda (a b) (stream-cons a (f b (+ a b))))))
     (f 0 1)))
 
 ; Returns the the base b logarithm of a.
@@ -185,7 +185,7 @@
 (define-memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
   (let ((ds (sort (set->list (divisors (totient m))) <)))
-    (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))
+    (first (dropf ds (lambda (n) (> (modular-expt a n m) 1))))))
 
 ; Returns true if the n is prime; false otherwise.
 (define (prime? n)

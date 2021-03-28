@@ -10,7 +10,7 @@
   (list->vector (range (add1 limit))))
 
 (define abundants
-  (list->vector (filter (λ (n) (> (sigma* n) n)) (range 1 (add1 limit)))))
+  (list->vector (filter (lambda (n) (> (sigma* n) n)) (range 1 (add1 limit)))))
 
 (for* ((i (range (vector-length abundants)))
        (j (range i (vector-length abundants))))

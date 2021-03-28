@@ -87,11 +87,11 @@
 ; Memoizes a function. Subsequent calls with the same arguments will be cached.
 (define (memoize f)
   (define h (make-hash))
-  (λ args
-    (hash-ref h args (λ ()
+  (lambda args
+    (hash-ref h args (lambda ()
                        (hash-set! h args (apply f args))
                        (hash-ref h args)))))
 
 ; Macro for defining a memoized function.
 (define-syntax-rule (define-memo (id . p) . body)
-  (define id (memoize (λ p . body))))
+  (define id (memoize (lambda p . body))))

@@ -5,7 +5,7 @@
 
 
 (define numbers
-  (filter (λ (n) (and (not (divides? 2 n)) (not (divides? 5 n))))
+  (filter (lambda (n) (and (not (divides? 2 n)) (not (divides? 5 n))))
           (range 999 1 -1)))
 
 (define (max-period best numbers)

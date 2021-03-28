@@ -17,7 +17,7 @@
   (stream-map products (stream-from 1)))
 
 (define ys
-  (stream-drop-while (λ (n) (not (apply same-digits? n))) xs))
+  (stream-drop-while (lambda (n) (not (apply same-digits? n))) xs))
 
 (define result (car (stream-car ys)))
 

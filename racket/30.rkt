@@ -11,7 +11,7 @@
 
 (define limit
   (let* ((x (expt 9 5))
-         (s (stream-take-while (λ (n) (<= (expt 10 (sub1 n)) x))
+         (s (stream-take-while (lambda (n) (<= (expt 10 (sub1 n)) x))
                                (stream-from 0))))
     (* (stream-length s) x)))
 

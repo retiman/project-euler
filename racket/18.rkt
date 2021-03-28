@@ -26,7 +26,7 @@
 
 (define (2darray-num-cols* a i)
   (let ((v (2darray-row-ref a i)))
-    (length (takef (vector->list v) (λ (e) (not (= e 0)))))))
+    (length (takef (vector->list v) (lambda (e) (not (= e 0)))))))
 
 (define data
   ((compose
