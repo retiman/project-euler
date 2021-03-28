@@ -2,10 +2,11 @@ IMAGE := 2.11.12-debian10.8-slim
 .PHONY = image
 
 # NOTE: There is no official image.  We'll have to build it ourselves.
-# See https://github.com/geerlingguy/ansible-role-java/issues/64
 image:
 	docker build --tag retiman/scala:${IMAGE} .
 
+# Running Scala without -nobootcp and -nc causes some issues.
+#
 # See https://github.com/scala/bug/issues/10603
 %: %.scala
 	docker run \
