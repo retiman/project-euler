@@ -39,7 +39,7 @@ This means that when computing consecutive primes for values of $$n$$, we only n
 With these two constraints, and a pre-computed list of primes, the following [Racket](https://github.com/retiman/project-euler/blob/main/racket/27.rkt) solution finds $$a=-61$$ and $$b=971$$ quite quickly:
 
 ```
-#! /usr/bin/env racket
+#!/usr/bin/env racket
 #lang racket
 (require rackunit)
 (require "lib/core.rkt")

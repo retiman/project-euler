@@ -1,4 +1,8 @@
 IMAGE := 8.0-full
+.PHONY = repl
+
+repl:
+	$(MAKE) -C lib repl
 
 %: %.rkt
 	docker run \

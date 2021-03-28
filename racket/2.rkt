@@ -1,4 +1,4 @@
-#! /usr/bin/env racket
+#!/usr/bin/env racket
 #lang racket
 (require rackunit)
 (require srfi/41)
