@@ -116,7 +116,6 @@
     (check-equal? (sigma 2) 3 "sum of divisors of 2")
     (check-equal? (sigma 15) 24 "sum of divisors of 15")
     (check-equal? (sigma 2015) 2688 "sum of divisors of 2015")
-    (check-equal? (sigma 1) (σ 1) "σ is exported")
 
     (check-equal? (sigma* 1) 0 "sum of divisors of 1, excluding itself")
     (check-equal? (sigma* 2) 1 "sum of divisors of 2, excluding itself")
@@ -127,7 +126,6 @@
     (check-equal? (tau 2) 2 "number of divisors of 2")
     (check-equal? (tau 15) 4 "number of divisors of 15")
     (check-equal? (tau 2015) 8 "number of divisors of 2015")
-    (check-equal? (tau 1) (τ 1) "τ is exported")
 
     (check-equal? (tau* 1) 0 "number of divisors of 1, excluding itself")
     (check-equal? (tau* 2) 1 "number of divisors of 2, excluding itself")
@@ -138,5 +136,4 @@
     (check-equal? (totient 7) 6 "totient of 7")
     (check-equal? (totient 15) 8 "totient of 15")
     (check-equal? (totient 2015) 1440 "totient of 2015")
-    (check-equal? (totient 1) (phi 1) "phi is exported")
-    (check-equal? (totient 1) (φ 1) "φ is exported")))
+    (check-equal? (totient 1) (phi 1) "phi is exported")))

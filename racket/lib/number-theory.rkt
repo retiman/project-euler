@@ -31,10 +31,7 @@
          sigma*
          tau
          tau*
-         totient
-         σ
-         τ
-         φ)
+         totient)
 (require "core.rkt")
 (require "set.rkt")
 
@@ -187,7 +184,7 @@
 ; https://en.wikipedia.org/wiki/Multiplicative_order
 (define-memo (ord a m)
   (unless (coprime? a m) (raise-argument-error 'a "(= (gcd a m) 1)" (cons a m)))
-  (let ((ds (sort (set->list (divisors (φ m))) <)))
+  (let ((ds (sort (set->list (divisors (totient m))) <)))
     (first (dropf ds (λ (n) (> (modular-expt a n m) 1))))))
 
 ; Returns true if the n is prime; false otherwise.
@@ -239,6 +236,3 @@
 (define ln log)
 (define phi totient)
 (define relatively-prime? coprime?)
-(define σ sigma)
-(define τ tau)
-(define φ totient)
