@@ -1,35 +1,62 @@
-DESCRIPTION
-===========
+# Description
 
-These are solutions to Project Euler problems.  It's easy to find solutions on
-the net, so if you don't want to spoil the fun, don't look at these.
+These are solutions to (Project Euler)[https://projecteuler.net/] problems.
+It's easy to find solutions on the net, so if you don't want to spoil the fun,
+don't look at these.
+
+The solutions are organized by language; you'll have to download a Docker image
+to run the solutions in a container.  Most languages have official images, but
+some do not.  For those that do not, I have published Docker images for them.
 
 Feel free to do WHATEVER with the code; I've added a license so anybody can go
 wild with it.
 
-USAGE
-=====
-Check which solutions have been provided by running:
+# Usage
+## Install Docker
 
-    make stats
+First you'll need Docker to run the solutions so that you run them against the
+same version of the language runtimes that I used.
 
-Some problems require a pre-computed list of primes.  You can download the
-list by running:
+For most platforms, you can just install Docker as per
+(instructions)[https://docs.docker.com/engine/install/] published on the site.
 
-    make primes
+## Install WSL (Optional)
 
-The default limit for primes is 10^8 but some problems do not require so many
-primes to be pre-computed.
+If you are using Windows, you'll need to install (WSL)[https://docs.microsoft.com/en-us/windows/wsl/install-win10]
+because make is required.  You'll probably want WSL2 but you can read about the
+(differences here)[https://docs.microsoft.com/en-us/windows/wsl/compare-versions].
+For the Linux distribution, you can use whatever you want, but I used Debian.
 
-Run particular solutions by descending into a language's subdirectory and
-running `make` For example, to run the solution for problem #25 in Racket, do
-this:
+### WSL1
+
+With WSL1, you'll need both Docker Desktop and the `docker` CLI, and you need to
+follow these (instructions)[https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly].
+
+### WSL2
+
+With WSL2, things are simpler as you only need the `docker` CLI.  For Debian,
+follow the (instructions)[https://docs.docker.com/engine/install/debian/], but
+you only need to install the `docker-ce-cli` package.
+
+## Generate Primes
+
+Some problems require a pre-computed list of primes.  Run `make primes` from
+the project root directory to generate them.  They will be placed in the `data`
+directory, where some problem specific data may reside.
+
+The primes generation script is written in Racket; most solutions and scripts
+are written in Racket here.
+
+## Run Solutions
+
+Each language directory has a `Makefile` run `make ${PROBLEM}` (where
+`${PROBLEM}` is a number) to compute the solution for that problem.
+For example, to compute the solution for problem number 1 in Racket, do this:
 
     cd racket
-    make 25
+    make 1
 
-LANGUAGES
-=========
-Racket is my preferred language and will have more problems solved in that
-language than any other. Racket is the only language that will consistently
-have explanations in source about what is happening.
+## Run Tests
+
+Racket solutions have commonly reused code/libraries.  Run the tests for them
+by running `make test` from the root directory.
