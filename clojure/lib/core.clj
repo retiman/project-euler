@@ -32,6 +32,10 @@
 ; result.  The regular + and * functions do not support arbitrary precision,
 ; which is quite annoying for our purposes.
 ;
+; As one can tell though, conversions between Integer/BigInt/BigInteger are
+; extremely annoying in Clojure, which makes it the inferior "Lisp" for doing
+; these types of problems :(
+;
 ; See https://clojuredocs.org/clojure.core/+'
 (doseq [sym ['+ '* 'inc 'dec]]
   (ns-unmap 'lib.core sym))
