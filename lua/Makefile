@@ -11,7 +11,7 @@ image:
 		--pull missing \
 		--rm \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../.data:/data" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		retiman/lua:${IMAGE} \
 		lua $<

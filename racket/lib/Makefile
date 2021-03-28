@@ -5,7 +5,7 @@ primes:
 	docker run \
 		--pull missing \
 		--tty \
-		--volume "${CURDIR}/../../.data:/data" \
+		--volume "${CURDIR}/../../data:/data" \
 		--volume "${CURDIR}:/src" \
 		--workdir /src \
 		racket/racket:${IMAGE} \
@@ -17,7 +17,7 @@ repl:
 		--interactive \
 		--tty \
 		--rm \
-		--volume "${CURDIR}/../../.data:/data" \
+		--volume "${CURDIR}/../../data:/data" \
 		--volume "${CURDIR}:/src" \
 		--workdir /src \
 		racket/racket:${IMAGE} \

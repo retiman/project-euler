@@ -5,7 +5,7 @@ IMAGE := 10.8-slim
 		--pull missing \
 		--rm \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../.data:/data" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		debian:${IMAGE} \
 		bash $<

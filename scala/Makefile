@@ -13,7 +13,7 @@ image:
 		--pull missing \
 		--rm \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../.data:/data" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		retiman/scala:${IMAGE} \
 		scala -nobootcp -nc -feature -deprecation $<

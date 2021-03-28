@@ -8,7 +8,7 @@ repl:
 		--tty \
 		--rm \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../.data:/data" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		node:${IMAGE} \
 		node
@@ -18,7 +18,7 @@ repl:
 		--pull missing \
 		--rm \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../.data:/data" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		node:${IMAGE} \
 		node $<

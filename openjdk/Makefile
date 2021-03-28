@@ -5,7 +5,7 @@ IMAGE := 17-slim-buster
 	docker run \
 		--pull missing \
 		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../.data:/data" \
+		--volume "${CURDIR}/../data:/data" \
 		--workdir /src \
 		openjdk:${IMAGE} \
 		/bin/bash -c "javac -Xlint:deprecation P$*.java && JAVA_OPTS=${JAVA_OPTS} java P$* && rm *.class"
