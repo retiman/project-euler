@@ -1,3 +1,7 @@
+layout: page
+title: "Problem 69"
+permalink: /problem-69/
+
 Here is a <a href="http://projecteuler.net/problem=69">link to problem #69</a>.  Basically this problem serves as a gentle introduction to Euler's totient function.  Just by looking at the definition you can get a hint about how to solve this problem.<br />
 <br />
 Note that:<br />
