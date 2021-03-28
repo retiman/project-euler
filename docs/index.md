@@ -3,4 +3,4 @@ This site presents select explanations to solutions for [Project Euler](https://
 My Project Euler solutions repository can be found here
 
 # Solutions
-- [Problem 15](/problem-15)
+- [Problem 15](/project-euler/problem-15)
