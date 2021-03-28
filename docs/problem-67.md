@@ -44,7 +44,7 @@ You can apply this logic repeatedly to reduce a triangle of $$n$$ rows down to $
 
 With this algorithm, the running time is only $$O(n)$$ where $$n$$ is the number of rows of the triangle:
 
-```lisp
+```
 #! /usr/bin/env racket
 #lang racket
 (require rackunit)
