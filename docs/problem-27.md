@@ -17,10 +17,9 @@ The incredible formula $$n^2-79n+1601$$ was discovered, which produces 80 primes
 
 Considering quadratics of the form:
 
-$$n^2+an+b$$, where $$\lvert a \rvert \le 1000$$ and $$\lvert b \rvert \leq 1000$$
+$$n^2+an+b$$
 
-where $$\lvert n \rvert$$ is the modulus/absolute value of $$n$$
-e.g. $$\lvert 11 \rvert = 11$$ and $$\lvert -4 \rvert = 4$$
+...where $$\lvert a \rvert \le 1000$$ and $$\lvert b \rvert \leq 1000$$ and $$\lvert n \rvert$$ is the modulus/absolute value of $$n$$ (e.g. $$\lvert 11 \rvert = 11$$ and $$\lvert -4 \rvert = 4$$).
 
 Find the product of the coefficients, $$a$$ and $$b$$, for the quadratic expression that produces the maximum number of primes for consecutive values of $$n$$, starting with $$n=0$$.
 
