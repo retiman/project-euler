@@ -2,6 +2,7 @@
 This site presents select explanations to solutions for [Project Euler](https://projecteuler.net/) problems that I have solved.  View my code [repository](https://github.com/retiman/project-euler) here.
 My Project Euler solutions repository can be found here
 
-# Solutions
+# Problems
+- [Problem 3](/project-euler/problem-3): Largest prime factor
 - [Problem 15](/project-euler/problem-15): Lattice paths
 - [Problem 27](/project-euler/problem-27): Quadratic primes
