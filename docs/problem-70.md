@@ -26,7 +26,7 @@ The next best way to maximize $$\varphi(n)$$ is to consider $$n$$'s that are [se
 
 The following Racket code generates semi-prime pairs where the factors $$p$$ and $$q$$ are around the vicinity of $$\sqrt{10^{7}}$$ as we want $$n = p \cdot q$$.
 
-```
+```racket
 #!/usr/bin/env racket
 #lang racket
 (require rackunit)
