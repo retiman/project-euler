@@ -7,10 +7,12 @@ mathjax: true
 # Problem
 By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
 
->    3
->   7 4
->  2 4 6
-> 8 5 9 3
+```
+   3
+  7 4
+ 2 4 6
+8 5 9 3
+```
 
 That is, 3 + 7 + 4 + 9 = 23.
 
@@ -21,16 +23,20 @@ NOTE: This is a much more difficult version of Problem 18. It is not possible to
 # Solution
 Rather than brute force all possible paths starting from the top, start from the bottom row.  To illustrate the algorithm, consider a smaller problem:
 
->   ?
->  2 3
-> 4 5 6
+```
+  ?
+ 2 3
+4 5 6
+```
 
 Ignore the first element at the top of the triangle.  Consider you are computing all possible paths for this triangle, and you are currently examining the path to take when at element 2 (at the second row of the triangle).  In this case, the third row is the last, and you would always choose to branch right, choosing element 5 as it is greater than 4 (giving a sub-path sum of 2+5=7).  Similarly, if you were at element 3 on the second row, you would always choose the right branch as well, because 6 is greater than 5 (giving a sub-path sum of 3+6=9).  
 
 Once you have determined this, it's no longer necessary to consider the last row of the triangle, because you could reduce the second row to this:
 
->  ?
-> 7 9
+```
+ ?
+7 9
+```
 
 ...since from element 2, the largest sum of each sub-path is 7, and from element 3, the largest sum of each sub-path is 9.
 
@@ -38,7 +44,7 @@ You can apply this logic repeatedly to reduce a triangle of $$n$$ rows down to $
 
 With this algorithm, the running time is only $$O(n)$$ where $$n$$ is the number of rows of the triangle:
 
-```racket
+```lisp
 #! /usr/bin/env racket
 #lang racket
 (require rackunit)
