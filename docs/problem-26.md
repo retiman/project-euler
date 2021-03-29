@@ -11,15 +11,15 @@ A unit fraction contains 1 in the numerator. The decimal representation of the u
 
 $$
 \begin{align}
-\dfrac{1}{2}  = 0.5
-\dfrac{1}{3}  = 0.\overline{3}
-\dfrac{1}{4}  = 0.25
-\dfrac{1}{5}  = 0.2
-\dfrac{1}{6}  = 0.1\overline{6}
-\dfrac{1}{7}  = 0.\overline{142857}
-\dfrac{1}{8}  = 0.125
-\dfrac{1}{9}  = 0.\overline{1}
-\dfrac{1}{10} = 0.1
+\dfrac{1}{2}  = 0.5 \\
+\dfrac{1}{3}  = 0.\overline{3} \\
+\dfrac{1}{4}  = 0.25 \\
+\dfrac{1}{5}  = 0.2 \\
+\dfrac{1}{6}  = 0.1\overline{6} \\
+\dfrac{1}{7}  = 0.\overline{142857} \\
+\dfrac{1}{8}  = 0.125 \\
+\dfrac{1}{9}  = 0.\overline{1} \\
+\dfrac{1}{10} = 0.1 \\
 \end{align}
 $$
 
