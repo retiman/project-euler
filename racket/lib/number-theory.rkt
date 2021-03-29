@@ -2,7 +2,7 @@
 ; Provides many of the functions already defined in racket/number-theory,
 ; but using that is possibly against the 'spirit' of Project Euler.
 (provide coprime?
-         digits
+         count-digits
          divides?
          divisors
          divisors*
@@ -22,6 +22,7 @@
          next-primes
          next-primes*
          nth-prime
+         number->list
          ord
          phi
          prime?
@@ -32,6 +33,8 @@
          tau
          tau*
          totient)
+(require srfi/1)
+(require srfi/26)
 (require "core.rkt")
 (require "set.rkt")
 
@@ -48,7 +51,7 @@
   (= (gcd m n) 1))
 
 ; Returns the number of digits in a number n.
-(define (digits n)
+(define (count-digits n)
   (if (= n 0)
     1
     (add1 (floor (log10 (abs n))))))
@@ -177,6 +180,12 @@
   (for/fold ((p 2))
             ((k (in-range n)))
     (next-prime p)))
+
+; Converts a number to a list in base 10.
+;
+; For example, (= (number->list 12345) '(1 2 3 4 5)).
+(define (number->list n)
+  (unfold-right zero? (cut remainder <> 10) (cut quotient <> 10) n))
 
 ; Returns the multiplicative order of a modulo n. This is the smallest
 ; positive integer k such that (= (modular-expt a k n) 1).

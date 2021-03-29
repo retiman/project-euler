@@ -1,6 +1,7 @@
 #!/usr/bin/env racket
 #lang racket
 (require rackunit)
+(require srfi/1)
 (require srfi/41)
 (require "lib/core.rkt")
 

@@ -8,7 +8,7 @@
 (define result
   (for/last ((i (in-naturals))
              (n fibs)
-             #:break (>= (digits n) 1000))
+             #:break (>= (count-digits n) 1000))
     (add1 i)))
 
 (displayln result)

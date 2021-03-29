@@ -10,8 +10,8 @@
          list->integer
          memoize
          path-join
-         zip
          zipmap)
+(require srfi/1)
 
 
 ; Converts a char to the integer it maps to. Contrast with core library's
@@ -70,14 +70,6 @@
 ; Builds a path string.
 (define (path-join . ps)
   (apply (compose path->string simplify-path build-path) ps))
-
-; Returns the list args zipped. For example:
-;
-; (= (zip '(a b) '(1 2)) '((a 1) (b 2)))
-(define (zip xs ys . lists)
-  (for ((l (list* xs ys lists)))
-    (unless (list? l) (raise-argument-error 'zip "list?" l)))
-  (apply map list (list* xs ys lists)))
 
 ; Returns a hash with the keys as the first list and the values as the second
 ; list.

@@ -7,7 +7,7 @@
 (define s
   (letrec ((f (lambda (xs x d)
                 (if (< d 1000000)
-                  (f (cons x xs) (add1 x) (+ d (digits x)))
+                  (f (cons x xs) (add1 x) (+ d (count-digits x)))
                   xs))))
     ((compose (curry apply string-append)
               (curry map number->string)

@@ -9,10 +9,10 @@
                 (log10 i)))
 
 (define max-digits
-  (letrec ((loop (lambda (digits)
-                   (if (< (- digits 1 (log10 digits)) limit)
-                     (loop (add1 digits))
-                     (sub1 digits)))))
+  (letrec ((loop (lambda (d)
+                   (if (< (- d 1 (log10 d)) limit)
+                     (loop (add1 d))
+                     (sub1 d)))))
     (loop 1)))
 
 (define max-factorion
