@@ -24,6 +24,7 @@ Knowing this, one could generate primes up to $$10^{7}$$, compute the ratio $$\f
 
 The next best way to maximize $$\varphi(n)$$ is to consider $$n$$'s that are [semi-primes](https://en.wikipedia.org/wiki/Semiprime) (that is, numbers that are the product of exactly two primes).  In this case, $$n$$ would have a smaller totient than if it were prime, but still there would be more coprime numbers less than $$n$$ than if $$n$$ were, say, composed of the product of 3 or more primes.
 
+# Code
 The following Racket code generates semi-prime pairs where the factors $$p$$ and $$q$$ are around the vicinity of $$\sqrt{10^{7}}$$ as we want $$n = p \cdot q$$.
 
 ```racket

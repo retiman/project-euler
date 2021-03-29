@@ -46,6 +46,7 @@ Once you have determined this, it's no longer necessary to consider the last row
 
 You can apply this logic repeatedly to reduce a triangle of $$n$$ rows down to $$n-1$$ rows.
 
+# Code
 With this algorithm, the running time is only $$O(n)$$ where $$n$$ is the number of rows of the triangle:
 
 ```racket

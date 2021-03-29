@@ -16,6 +16,7 @@ This problem can be viewed as a [multi-permutation](http://en.wikipedia.org/wiki
 
 $$\frac{(20 + 20)!}{20!20!}$$
 
+# Code
 Here is a solution in [Racket](https://github.com/retiman/project-euler/blob/main/racket/15.rkt).
 
 ```racket

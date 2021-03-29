@@ -43,3 +43,23 @@ The product of $$m$$ consecutive primes is known as the [primorial](http://en.wi
 $$p_{m}\# = \prod_{k=1}^m p_{k}$$
 
 With a list of primes it can be calculated that $$p_{7}\# = 510510$$ and $$p_{8}\# = 9699690$$, the latter of which is larger than our limit of 1000000, so $$p_{7}\#$$ is the answer.
+
+# Code
+```clojure
+(load-file "lib/number-theory.clj")
+(use '[lib.number-theory :only (load-primes)])
+
+
+(def primes (load-primes "../data/primes.txt"))
+
+(defn f [acc ps]
+  (let [n (* acc (first ps))]
+    (if (> n 1000000)
+      acc
+      (recur n (rest ps)))))
+
+(def result (f 1 primes))
+
+(println result)
+(assert (= result 510510))
+```
