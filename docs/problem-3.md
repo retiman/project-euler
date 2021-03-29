@@ -24,9 +24,9 @@ Because [all odd numbers can be written as the difference of two squares](https:
 
 If we end up with a result that $$n=(a+b)(a-b)=(1)(n)$$, we can conclude that $$n$$ is prime and stop.
 
-Here is a solution in Scala that computes Fermat factors of 600851475143 and finds the largest to be 6857.
+Here is a [solution in Scala](https://github.com/retiman/project-euler/blob/main/scala/3.scala) that computes Fermat factors of 600851475143 and finds the largest to be 6857.
 
-```Scala
+```scala
 import scala.math.ceil
 import scala.math.sqrt
 import scala.math.round

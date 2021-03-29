@@ -36,10 +36,16 @@ $$f(b) = b(b+a+1)$$
 
 This means that when computing consecutive primes for values of $$n$$, we only need to consider values in the range $$0 \leq n \le b$$.
 
-With these two constraints, and a pre-computed list of primes, the following Racket solution finds $$a=-61$$ and $$b=971$$ quite quickly:
+With these two constraints, and a pre-computed list of primes, the following [Racket](https://github.com/retiman/project-euler/blob/main/racket/27.rkt) solution finds $$a=-61$$ and $$b=971$$ quite quickly:
 
-```Racket
-; Assume prime? leverages a pre-computed list of primes under 1000.
+```scala
+#! /usr/bin/env racket
+#lang racket
+(require rackunit)
+(require "lib/core.rkt")
+(require "lib/number-theory.rkt")
+
+
 (define ps
   (filter prime? (range 1000)))
 
@@ -60,4 +66,5 @@ With these two constraints, and a pre-computed list of primes, the following Rac
     (* (car v) (cdr v))))
 
 (displayln result)
+(check-equal? result -59231)
 ```
