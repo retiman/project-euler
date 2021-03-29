@@ -1,5 +1,5 @@
 ---
-title: "Problem 15"
+title: "Problem 15: Lattice paths"
 layout: post
 mathjax: true
 ---
