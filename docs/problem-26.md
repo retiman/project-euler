@@ -19,7 +19,7 @@ $$
 &\dfrac{1}{7}  = 0.\overline{142857} \\
 &\dfrac{1}{8}  = 0.125 \\
 &\dfrac{1}{9}  = 0.\overline{1} \\
-&\dfrac{1}{10} = 0.1
+&\dfrac{1}{10} = 0.1 \\
 \end{align*}
 $$
 
