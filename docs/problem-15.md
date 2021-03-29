@@ -18,7 +18,7 @@ $$\frac{(20 + 20)!}{20!20!}$$
 
 Here is a solution in [Racket](https://github.com/retiman/project-euler/blob/main/racket/15.rkt).
 
-```
+```racket
 #!/usr/bin/env racket
 #lang racket
 (require rackunit)
