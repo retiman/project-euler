@@ -1,7 +1,7 @@
 #!/usr/bin/env racket
 #lang racket
-(require rackunit)
-(require "lib/number-theory.rkt")
+(require (only-in rackunit check-equal?))
+(require (only-in "lib/number-theory.rkt" divides? ord))
 
 
 (define numbers
@@ -17,7 +17,8 @@
             ((> t (cdr best)) (max-period (cons n t) (rest numbers)))
             (else (max-period best (rest numbers)))))))
 
-(define result (car (max-period (cons 0 0) numbers)))
+(define result
+  (car (max-period (cons 0 0) numbers)))
 
 (displayln result)
 (check-equal? result 983)
