@@ -6,3 +6,4 @@ My Project Euler solutions repository can be found here
 - [Problem 3](/project-euler/problem-3): Largest prime factor
 - [Problem 15](/project-euler/problem-15): Lattice paths
 - [Problem 27](/project-euler/problem-27): Quadratic primes
+- [Problem 67](/project-euler/problem-67): Maximum path sum II
