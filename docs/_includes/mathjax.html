@@ -6,25 +6,22 @@
 // MathJax basic tutorial and quick reference: https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
 // Dynamic preview for MathJax: http://bandicoot.maths.adelaide.edu.au/MathJax/test/sample-dynamic-2.html
 MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
   tex2jax: {
-    inlineMath: [['$', '$']],
-    displayMath: [['$$', '$$'],['\\[','\\]']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    inlineMath: [
+      ['$$','$$'],
+      ["\\(","\\)"]
+    ],
+    displayMath: [
+      ['$$','$$'],
+      ["\\(","\\)"]
+    ],
   },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
   TeX: {
-    equationNumbers: { autoNumber: "AMS" },
-    extensions: ["AMSmath.js", "AMSsymbols.js", "AMScd.js"],
-    TagSide: "left",
     Macros: {
-      homo: ['\\ensuremath{\\tilde{\\mathbf{#1}}}', 1],
-      norm: ['\\ensuremath{\\vert \\vert #1 \\vert \\vert}', 1],
-      dv:   ['\\ensuremath{\\frac{d #1}{d #2}}', 2],
-      pdv:  ['\\ensuremath{\\frac{\\partial #1}{\\partial #2}}', 2],
-      ensuremath: '',
+      bra: ["\\langle{#1}|", 1],
+      ket: ["|{#1}\\rangle", 1],
+      braket: ["\\langle{#1}\\rangle", 1],
+      bk: ["\\langle{#1}|{#2}|{#3}\\rangle", 3]
     }
   }
 });

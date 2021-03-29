@@ -17,7 +17,7 @@ The incredible formula $n^2-79n+1601$ was discovered, which produces 80 primes f
 
 Considering quadratics of the form:
 
-$n^2+an+b$, where $\lvert a \rvert \le 1000$ and $\lvert b \rvert \leq 1000$
+$$n^2+an+b$$, where $\lvert a \rvert \le 1000$ and $\lvert b \rvert \leq 1000$
 
 where $\lvert n \rvert$ is the modulus/absolute value of $n$
 e.g. $\lvert 11 \rvert = 11$ and $\lvert -4 \rvert = 4$
