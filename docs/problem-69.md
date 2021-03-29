@@ -40,6 +40,6 @@ Because we know that making $$n$$ the product of consecutive primes will yield m
 
 The product of $$m$$ consecutive primes is known as the [primorial](http://en.wikipedia.org/wiki/Primorial), and denoted $$p_{m}\#$$:
 
-$$p_{m}\# = \prod_{k=1}^m p_{k}
+$$p_{m}\# = \prod_{k=1}^m p_{k}$$
 
 With a list of primes it can be calculated that $$p_{7}\# = 510510$$ and $$p_{8}\# = 9699690$$, the latter of which is larger than our limit of 1000000, so $$p_{7}\#$$ is the answer.
