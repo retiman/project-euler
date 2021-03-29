@@ -23,7 +23,7 @@ $$
 \end{align*}
 $$
 
-Where $$0.1\overline{6}$$ means $$0.16666...$$, and has a 1-digit recurring cycle.  It can be seen that $$\dfrac{1}{7} has a 6-digit recurring cycling.
+Where $$0.1\overline{6}$$ means $$0.16666...$$, and has a 1-digit recurring cycle.  It can be seen that $$\dfrac{1}{7}$$ has a 6-digit recurring cycling.
 
 Find the value of $$d \le 1000$$ for which $$\dfrac{1}{d}$$ contains the longest recurring cycle in its decimal fraction part.
 
