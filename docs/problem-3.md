@@ -39,7 +39,7 @@ def fermatFactors(n: Long): Set[Long] = {
   var s = sqrt(b)
   while (s != round(s)) {
     a += 1
-    b = a * a -n
+    b = a * a - n
     s = sqrt(b)
   }
   Set(a - s, a + s).map(_.toLong)
