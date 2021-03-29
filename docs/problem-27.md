@@ -20,7 +20,7 @@ Considering quadratics of the form:
 $$n^2+an+b$$, where $$\lvert a \rvert \le 1000$$ and $$\lvert b \rvert \leq 1000$$
 
 where $$\lvert n \rvert$$ is the modulus/absolute value of $$n$$
-e.g. $$\lvert 11 \rvert = 11$$ and $\lvert -4 \rvert = 4$$
+e.g. $$\lvert 11 \rvert = 11$$ and $$\lvert -4 \rvert = 4$$
 
 Find the product of the coefficients, $$a$$ and $$b$$, for the quadratic expression that produces the maximum number of primes for consecutive values of $$n$$, starting with $$n=0$$.
 
@@ -32,6 +32,7 @@ First, notice that if $$f(0)$$ isn't prime, we wouldn't have a very long prime s
 Second, notice that $$f(b)$$ cannot be prime as:
 
 $$f(b) = b^2+ab+b$$
+
 $$f(b) = b(b+a+1)$$
 
 This means that when computing consecutive primes for values of $$n$$, we only need to consider values in the range $$0 \leq n \le b$$.
