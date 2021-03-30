@@ -3,8 +3,9 @@ IMAGE := 8.8.4
 %: %.hs
 	docker run \
 		--pull missing \
-		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../data:/data" \
+		--rm \
+		--volume "${CURDIR}:/src:ro" \
+		--volume "${CURDIR}/../../data:/data:ro" \
 		--workdir /src \
 		haskell:${IMAGE} \
 		runghc $<

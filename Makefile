@@ -1,10 +1,10 @@
-all: primes
+all: primes test
 
 primes:
-	$(MAKE) -C racket/lib primes
+	$(MAKE) -C solns/racket/lib primes
 
 repl:
-	$(MAKE) -C racket/lib repl
+	$(MAKE) -C solns/racket/lib repl
 
 test:
-	$(MAKE) -C racket/lib test
+	$(MAKE) -C solns/racket/lib test

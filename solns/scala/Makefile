@@ -12,8 +12,8 @@ image:
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${CURDIR}:/src" \
-		--volume "${CURDIR}/../data:/data" \
+		--volume "${CURDIR}:/src:ro" \
+		--volume "${CURDIR}/../../data:/data:ro" \
 		--workdir /src \
 		retiman/scala:${IMAGE} \
 		scala -nobootcp -nc -feature -deprecation $<

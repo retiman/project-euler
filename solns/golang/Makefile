@@ -7,8 +7,8 @@ IMAGE := 1.16.2-buster
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${CURDIR}/P$*:/src" \
-		--volume "${CURDIR}/../data:/data" \
+		--volume "${CURDIR}/P$*:/src:ro" \
+		--volume "${CURDIR}/../../data:/data:ro" \
 		--workdir /src \
 		golang:${IMAGE} \
 		go run $*.go
