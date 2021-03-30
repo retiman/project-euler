@@ -19,8 +19,6 @@ Start with the smallest possible digit (0 in this case), then find the number of
 Try 1 instead, and count the number of permutations. Keep going with 2, 3, 4, etc until the number of permutations exceeds 1000000. Suppose that fixing the first digit at $$k$$ results in more than 1000000 permutations; this means the first digit is fixed at $$k-1$$, and the second digit must be examined by this method.
 
 # Code
-The following Scala code demonstrates this approach:
-
 ```scala
 val digits = List(0,1,2,3,4,5,6,7,8,9)
 val target = 1000000

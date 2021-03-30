@@ -37,7 +37,7 @@ $$f(b) = b(b+a+1)$$
 This means that when computing consecutive primes for values of $$n$$, we only need to consider values in the range $$0 \leq n \le b$$.
 
 # Code
-With these two constraints, and a pre-computed list of primes, the following [Racket](https://github.com/retiman/project-euler/blob/main/racket/27.rkt) solution finds $$a=-61$$ and $$b=971$$ quite quickly:
+With these two constraints, and a pre-computed list of primes, the following Racket solution finds $$a=-61$$ and $$b=971$$ quite quickly:
 
 ```racket
 #!/usr/bin/env racket
