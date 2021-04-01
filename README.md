@@ -29,14 +29,11 @@ For the Linux distribution, you can use whatever you want, but I used Debian.
 
 ### WSL1
 
-With WSL1, you'll need both Docker Desktop and the `docker` CLI, and you need to
-follow these [instructions](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+With WSL1, you'll need to install Docker Desktop and the `docker` package in your WSL distribution.  Afterwards, you'll need to follow these [instructions](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
 
 ### WSL2
 
-With WSL2, things are simpler as you only need the `docker` CLI.  For Debian,
-follow the [instructions](https://docs.docker.com/engine/install/debian/), but
-you only need to install the `docker-ce-cli` package.
+With WSL2 the process is simpler, you'll need to install Docker Desktop and the Docker CLI.  For Debian, follow the [instructions](https://docs.docker.com/engine/install/debian/), but you only need to install the `docker-ce-cli` package.
 
 ## Generate Primes
 
@@ -52,7 +49,7 @@ Each language directory has a `Makefile` run `make ${PROBLEM}` (where
 `${PROBLEM}` is a number) to compute the solution for that problem.
 For example, to compute the solution for problem number 188 in Racket, do this:
 
-    cd racket
+    cd solns/racket
     make 188
 
 ## Run Tests
