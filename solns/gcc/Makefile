@@ -6,6 +6,7 @@ IMAGE := 10.2.0
 		--rm \
 		--volume "${CURDIR}:/src:ro" \
 		--volume "${CURDIR}/../../data:/data:ro" \
+		--volume "${CURDIR}/scripts:/scripts:ro" \
 		--workdir /src \
 		gcc:${IMAGE} \
-		/bin/bash -c "gcc $*.c -o /tmp/soln && /tmp/soln && rm /tmp/soln"
+		/scripts/run.sh $<

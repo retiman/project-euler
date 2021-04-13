@@ -7,6 +7,7 @@ IMAGE := 17-slim-buster
 		--rm \
 		--volume "${CURDIR}:/src:ro" \
 		--volume "${CURDIR}/../../data:/data:ro" \
+		--volume "${CURDIR}/scripts:/scripts:ro" \
 		--workdir /src \
 		openjdk:${IMAGE} \
-		/bin/bash -c "javac -Xlint:deprecation -d /tmp/ P$*.java && cd /tmp && JAVA_OPTS=${JAVA_OPTS} java P$* && rm P$*.class"
+		/scripts/run.sh P$*.java
