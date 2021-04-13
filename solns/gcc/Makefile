@@ -1,6 +1,7 @@
 IMAGE := 10.2.0
 
 %: %.c
+	chmod +x scripts/run.sh
 	docker run \
 		--pull missing \
 		--rm \
