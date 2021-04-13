@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 
@@ -22,3 +23,4 @@ var result = Fibonacci().TakeWhile(n => n < 4_000_000)
         .Sum();
 
 Console.WriteLine(result);
+Trace.Assert(result == 4613732);
