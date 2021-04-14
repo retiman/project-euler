@@ -19,7 +19,7 @@ static IEnumerable<long> Fibonacci()
 }
 
 var result = Fibonacci().TakeWhile(n => n < 4_000_000)
-        .Where(n => n%2 == 0)
+        .Where(n => n % 2 == 0)
         .Sum();
 
 Console.WriteLine(result);
