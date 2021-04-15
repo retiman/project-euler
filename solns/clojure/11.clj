@@ -1,7 +1,7 @@
 (load-file "lib/core.clj")
-(use
-  '[clojure.string :only (split-lines split)]
-  '[lib.core :only (parse-int)])
+(require
+  '[clojure.string :refer [split-lines split]]
+  '[lib.core :refer [parse-int]])
 
 
 (def matrix
@@ -14,19 +14,19 @@
 
 (defn horizontal-product [i j]
   (try (reduce * (map #(aget matrix i (+ j %)) (range 4)))
-    (catch RuntimeException e 0)))
+    (catch RuntimeException _e 0)))
 
 (defn vertical-product [i j]
   (try (reduce * (map #(aget matrix (+ i %) j) (range 4)))
-    (catch RuntimeException e 0)))
+    (catch RuntimeException _e 0)))
 
 (defn diagonal-up-product [i j]
   (try (reduce * (map #(aget matrix (- i %) (+ j %)) (range 4)))
-    (catch RuntimeException e 0)))
+    (catch RuntimeException _e 0)))
 
 (defn diagonal-down-product [i j]
   (try (reduce * (map #(aget matrix (+ i %) (+ j %)) (range 4)))
-    (catch RuntimeException e 0)))
+    (catch RuntimeException _e 0)))
 
 (def result
   (apply max

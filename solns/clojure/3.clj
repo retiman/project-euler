@@ -1,7 +1,7 @@
 (load-file "lib/core.clj")
-(use
-  '[clojure.set :only (union)]
-  '[lib.core :only (ceil round sqrt)])
+(require
+  '[clojure.set :refer [union]]
+  '[lib.core :refer [ceil round sqrt]])
 
 
 (defn fermat-factors

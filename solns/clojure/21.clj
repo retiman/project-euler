@@ -1,5 +1,7 @@
 (load-file "lib/number-theory.clj")
-(use '[lib.number-theory :only (sigma*)])
+(require
+ '[lib.number-theory :refer [sigma*]])
+
 
 (def result
   (reduce +

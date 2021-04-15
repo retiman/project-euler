@@ -14,11 +14,11 @@ def f(n)
 end
 
 def max(a, b)
-  if a.last > b.last then a else b end
+  a.last > b.last ? a : b
 end
 
 limit = 1000000
-result = (1..limit).map { |n| f(n) }.inject([0,0]) { |a, b| max(a,b) }.first
+result = (1..limit).map { |n| f(n) }.inject([0, 0]) { |a, b| max(a, b) }.first
 
 puts result
 raise Error unless result == 837799

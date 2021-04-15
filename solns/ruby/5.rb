@@ -1,5 +1,5 @@
 def gcd(a, b)
-  if b == 0 then a else gcd(b, a % b) end
+  b == 0 ? a : gcd(b, a % b)
 end
 
 def lcm(a, b)

@@ -1,5 +1,3 @@
-import sys
-
 primes = 0
 for line in open("../data/primes.txt", "r"):
     primes += 1
@@ -8,4 +6,4 @@ for line in open("../data/primes.txt", "r"):
         break
 
 print(result)
-assert(result == 104743)
+assert result == 104743

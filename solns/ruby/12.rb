@@ -1,6 +1,6 @@
 def tau(n)
   return 1 if n == 1
-  2 * (1..Math.sqrt(n)).select { |i| n % i == 0}.length
+  2 * (1..Math.sqrt(n)).count { |i| n % i == 0 }
 end
 
 n, i = 3, 3

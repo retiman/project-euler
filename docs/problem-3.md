@@ -4,7 +4,9 @@ layout: post
 mathjax: true
 ---
 
-# Problem
+# Largest prime factor
+
+## Problem
 Here is [problem 3](https://projecteuler.net/problem=3):
 
 The prime factors of 13195 are 5, 7, 13 and 29.
@@ -24,7 +26,7 @@ Because [all odd numbers can be written as the difference of two squares](https:
 
 If we end up with a result that $$n=(a+b)(a-b)=(1)(n)$$, we can conclude that $$n$$ is prime and stop.
 
-# Code
+## Code
 ```scala
 import scala.math.ceil
 import scala.math.sqrt

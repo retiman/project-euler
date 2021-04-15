@@ -4,7 +4,9 @@ layout: post
 mathjax: true
 ---
 
-# Problem
+# Maximum path sum II
+
+## Problem
 Here is [problem 67](https://projecteuler.net/problem=67).
 
 By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
@@ -22,7 +24,7 @@ Find the maximum total from top to bottom in [triangle.txt](https://github.com/r
 
 NOTE: This is a much more difficult version of Problem 18. It is not possible to try every route to solve this problem, as there are $$2^{99}$$ altogether! If you could check one trillion ($$10^{12}$$) routes every second it would take over twenty billion years to check them all. There is an efficient algorithm to solve it. ;o)
 
-# Solution
+## Solution
 Rather than brute force all possible paths starting from the top, start from the bottom row.  To illustrate the algorithm, consider a smaller problem:
 
 ```
@@ -46,7 +48,7 @@ Once you have determined this, it's no longer necessary to consider the last row
 
 You can apply this logic repeatedly to reduce a triangle of $$n$$ rows down to $$n-1$$ rows.
 
-# Code
+## Code
 With this algorithm, the running time is only $$O(n)$$ where $$n$$ is the number of rows of the triangle:
 
 ```racket

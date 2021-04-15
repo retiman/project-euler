@@ -1,5 +1,6 @@
 (require '[clojure.string :as s])
 
+
 (def data
   (s/split (s/replace (slurp "../data/22.txt") #"\"" "") #","))
 

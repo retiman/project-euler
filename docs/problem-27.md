@@ -4,7 +4,9 @@ layout: post
 mathjax: true
 ---
 
-# Problem
+# Quadratic primes
+
+## Problem
 Here is [problem 27](https://projecteuler.net/problem=27):
 
 Euler discovered the remarkable quadratic formula:
@@ -23,7 +25,7 @@ $$n^2+an+b$$
 
 Find the product of the coefficients, $$a$$ and $$b$$, for the quadratic expression that produces the maximum number of primes for consecutive values of $$n$$, starting with $$n=0$$.
 
-# Solution
+## Solution
 We can brute force a solution by computing consecutive primes for every quadratic in the solution space of values for $$a$$ and $$b$$.  However, we can narrow the search space by looking at a few constraints.
 
 First, notice that if $$f(0)$$ isn't prime, we wouldn't have a very long prime sequence at all, so consider only values of $$b$$ that are prime.
@@ -36,7 +38,7 @@ $$f(b) = b(b+a+1)$$
 
 This means that when computing consecutive primes for values of $$n$$, we only need to consider values in the range $$0 \leq n \le b$$.
 
-# Code
+## Code
 With these two constraints, and a pre-computed list of primes, the following Racket solution finds $$a=-61$$ and $$b=971$$ quite quickly:
 
 ```racket

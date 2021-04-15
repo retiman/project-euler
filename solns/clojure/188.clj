@@ -4,7 +4,7 @@
             (cond
               (= n (dec m)) n
               (= b 1)       n
-              :default      (recur (mod (* a b) m ) (inc n))))]
+              :else         (recur (mod (* a b) m ) (inc n))))]
     (f (mod a m) 1)))
 
 (defn mod-exp
@@ -21,7 +21,7 @@
   (cond
     (= m 1)  0
     (= e 1)  (mod b m)
-    :default (let [o (order b m)
+    :else    (let [o (order b m)
                    t (mod-tet b (dec e) o)]
                (mod-exp b t m))))
 

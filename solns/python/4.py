@@ -1,7 +1,9 @@
 from functools import reduce
 
+
 def is_palindrome(s):
     return s == s[::-1]
+
 
 def gen():
     for i in range(1000, 1, -1):
@@ -10,7 +12,8 @@ def gen():
             if is_palindrome(str(s)):
                 yield s
 
+
 result = reduce(max, gen())
 
 print(result)
-assert(result == 906609)
+assert result == 906609

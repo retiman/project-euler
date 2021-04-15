@@ -1,11 +1,14 @@
 (ns lib.core
+  ; These functions do not support arbitrary precision, which is quite a
+  ; nuisance for us.
+  ;
+  ; See https://clojuredocs.org/clojure.core/+'
   (:refer-clojure :exclude
-    (bit-and bit-or bit-not bit-xor bit-shift-right bit-shift-left))
+    (+ * bit-and bit-or bit-not bit-xor bit-shift-right bit-shift-left dec inc))
   (:import
     [clojure.lang BigInt]
-    [java.math BigInteger])
-  (:require
-    [clojure.string :as s]))
+    [java.math BigInteger]))
+
 
 (declare 
   abs

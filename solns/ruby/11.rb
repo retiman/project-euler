@@ -48,5 +48,5 @@ result = 0
   end
 end
 
-puts result 
+puts result
 raise Error unless result == 70600674

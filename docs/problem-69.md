@@ -4,7 +4,9 @@ layout: post
 mathjax: true
 ---
 
-# Problem
+# Totient maximum
+
+## Problem
 Here is [problem 69](https://projecteuler.net/problem=69):
 
 Euler's Totient function, $$\varphi(n)$$ [sometimes called the phi function], is used to determine the number of numbers less than $$n$$ which are relatively prime to $$n$$. For example, as 1, 2, 4, 5, 7, and 8, are all less than 9 and relatively prime to 9, $$\varphi(9)=6$$.
@@ -25,7 +27,7 @@ It can be seen that $$n=6$$ produces a maximum $$n/\varphi(n)$$ for $$n \leq 10$
 
 Find the value of $$n \leq 1,000,000$$ for which $$n/\varphi(n)$$ is a maximum.
 
-# Solution
+## Solution
 From the [wikipedia page on the totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function):
 
 $$\dfrac{n}{\varphi(n)} = \dfrac{1}{n\prod_{p|n}(1 - \dfrac{1}{p})}$$
@@ -44,7 +46,7 @@ $$p_{m}\# = \prod_{k=1}^m p_{k}$$
 
 With a list of primes it can be calculated that $$p_{7}\# = 510510$$ and $$p_{8}\# = 9699690$$, the latter of which is larger than our limit of 1000000, so $$p_{7}\#$$ is the answer.
 
-# Code
+## Code
 ```clojure
 (load-file "lib/number-theory.clj")
 (use '[lib.number-theory :only (load-primes)])

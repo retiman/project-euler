@@ -8,6 +8,7 @@ primes:
 		--volume "${CURDIR}/../../../data:/data" \
 		--volume "${CURDIR}:/src" \
 		--workdir /src \
+		--user $(shell id -u):$(shell id -g) \
 		racket/racket:${IMAGE} \
 		/bin/bash -c "./primes.rkt 5000000 > /data/primes.txt"
 

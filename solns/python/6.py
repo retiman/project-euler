@@ -3,4 +3,4 @@ b = sum(range(101))
 result = b * b - a
 
 print(result)
-assert(result == 25164150)
+assert result == 25164150

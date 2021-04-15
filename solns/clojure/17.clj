@@ -39,7 +39,7 @@
       (str (word (- n (rem n 10))) " " (say (rem n 10)))
     (and (>= n 20) (zero? (rem n 10)))
       (word (- n (rem n 10)))
-    :default
+    :else
       (word n)))
 
 (def result

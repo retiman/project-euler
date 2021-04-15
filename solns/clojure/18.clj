@@ -1,7 +1,7 @@
 (load-file "lib/core.clj")
-(use
-  '[clojure.string :only (split split-lines trim)]
-  '[lib.core :only (parse-int)])
+(require
+  '[clojure.string :refer [split split-lines trim]]
+  '[lib.core :refer [parse-int]])
 
 
 (def input

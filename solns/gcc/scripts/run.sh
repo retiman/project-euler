@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
-gcc $1 -o /tmp/soln
+gcc "$@" -o /tmp/soln
 /tmp/soln
 rm /tmp/soln

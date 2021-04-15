@@ -1,5 +1,6 @@
 (load-file "lib/number-theory.clj")
-(use '[lib.number-theory :only (load-primes prime?)])
+(require
+  '[lib.number-theory :refer [load-primes prime?]])
 
 
 (def primes (load-primes "../data/primes.txt"))
@@ -35,9 +36,9 @@
       (cond
         (< p 11) (recur (rest ps) ts)
         (= (count ts) 11) ts
-        :default (if (truncatable? p)
-                   (recur (rest ps) (cons p ts))
-                   (recur (rest ps) ts))))))
+        :else (if (truncatable? p)
+                (recur (rest ps) (cons p ts))
+                (recur (rest ps) ts))))))
 
 (def result (reduce + (f primes)))
 

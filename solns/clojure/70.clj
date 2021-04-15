@@ -1,8 +1,8 @@
 (load-file "lib/core.clj")
 (load-file "lib/number-theory.clj")
-(use
-  '[lib.core :only (isqrt)]
-  '[lib.number-theory :only (combinations load-primes)])
+(require
+  '[lib.core :refer [isqrt]]
+  '[lib.number-theory :refer [combinations load-primes]])
 
 
 (def primes

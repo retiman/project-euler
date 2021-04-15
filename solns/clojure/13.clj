@@ -1,7 +1,7 @@
 (load-file "lib/core.clj")
-(use
-  '[clojure.string :only (split-lines)]
-  '[lib.core :only (parse-long)])
+(require
+  '[clojure.string :refer [split-lines]]
+  '[lib.core :refer [parse-long]])
 
 
 (def parse-number #(new BigDecimal %))

@@ -1,4 +1,4 @@
-require 'set'
+require "set"
 
 # A simple quadratic
 def f(n, a, b)

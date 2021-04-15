@@ -1,16 +1,18 @@
 (load-file "lib/core.clj")
 (ns lib.number-theory
+  ; These functions do not support arbitrary precision, which is quite a
+  ; nuisance for us.
+  ;
+  ; See https://clojuredocs.org/clojure.core/+'
   (:refer-clojure :exclude
-    ; These functions do not support arbitrary precision, which is quite a
-    ; nuisance for us.
-    ;
-    ; See https://clojuredocs.org/clojure.core/+'
-    (+ * bit-and bit-not bit-or bit-shift-left bit-shift-right bit-xor dec inc))
-  (:use
-    [clojure.set :only (union)])
-  (:require
-    [clojure.string :as s]))
-(use '[lib.core])
+    (+ *
+     bit-and bit-not bit-or bit-shift-left bit-shift-right bit-xor
+     dec inc)))
+(require    
+  '[clojure.set :refer [union]]
+  '[clojure.string :as s]
+  '[lib.core :refer [+ * bit-and bit-shift-right dec inc isqrt parse-long]])
+
 
 (declare
   choose
@@ -116,11 +118,11 @@
     (cond
       (= m 1) 0
       (= e 1) (mod b m)
-      :default (let [d (gcd b m)]
+      :else   (let [d (gcd b m)]
                  (cond
                    (= d 1) (f b e m)
                    (= d m) 0
-                   :default (g b e m d))))))
+                   :else (g b e m d))))))
 
 ; Returns the order of a modulo m.  The order is the smallest positive integer k
 ; such that a to the k-th power is congruent to 1 modulo m.
@@ -220,7 +222,7 @@
   [n]
   (cond
     (= n 1) 0
-    :default (reduce (fn [a b] (* (/ a b) (dec b)))
-                     n
-                     (prime-factors n))))
+    :else (reduce (fn [a b] (* (/ a b) (dec b)))
+                  n
+                  (prime-factors n))))
 (def totient (memoize totient-))

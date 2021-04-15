@@ -4,7 +4,9 @@ layout: post
 mathjax: true
 ---
 
-# Problem
+# Reciprocal cycles
+
+## Problem
 Here is [problem 26](https://projecteuler.net/problem=26):
 
 A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:
@@ -27,7 +29,7 @@ Where $$0.1\overline{6}$$ means $$0.16666...$$, and has a 1-digit recurring cycl
 
 Find the value of $$d \le 1000$$ for which $$\dfrac{1}{d}$$ contains the longest recurring cycle in its decimal fraction part.
 
-# Solution
+## Solution
 It is better to search searching for cycles starting from $$d = 999$$ and decrementing because the longest cycle will occur when $$d$$ is largest.  A number $$\dfrac{1}{n}$$ cannot have more than $$n$$ repeating digits in its decimal expansion.  To illustrate this, consider what is happening when you do long division to calculate $$\dfrac{1}{7}$$:
 
 First you divide 1.0 by 7 and find the remainder. Computationally, this is the same as dividing 10 by 7, then multiplying the remainder by 10, dividing by 7 again, and so on. See the sequence of computations for calculating 1/7 below, written in this manner:
@@ -64,7 +66,7 @@ $$
 
 As you can see, at the next to last step, the digits start to repeat. In fact, the number of repeating digits is given by $$e = ord_{10}n$$, where $$e$$ is the smallest positive integer such that $$10^e \equiv 1 \pmod{n}$$ (this concept is called the [multiplicative order](https://en.wikipedia.org/wiki/Multiplicative_order). The preceding is not a proof of this fact, but it was enough to start searching for solutions near 999.
 
-# Code
+## Code
 ```racket
 #!/usr/bin/env racket
 #lang racket

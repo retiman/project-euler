@@ -1,9 +1,8 @@
 (load-file "lib/core.clj")
-(use
-  '[lib.core :only (parse-double)])
 (require
   '[clojure.set :as set]
-  '[clojure.string :as string])
+  '[clojure.string :as string]
+  '[lib.core :refer [parse-double]])
 
 
 (def inf Double/POSITIVE_INFINITY)
@@ -57,8 +56,7 @@
     (get costs-map min-cost)))
 
 ; Returns an minimum spanning tree calculated by Prim's algorithm.
-(defn minimum-spanning-tree
-  [graph]
+(def mst
   (loop [vertices #{0}
          edges #{}]
     (if (= vertices vertex-set)
@@ -68,8 +66,7 @@
                (conj edges edge))))))
 
 (def result
-  (let [mst (minimum-spanning-tree graph)
-        mst-cost (reduce + (map cost mst))]
+  (let [mst-cost (reduce + (map cost mst))]
     (long (- total-cost mst-cost))))
 
 (println result)

@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
-filename=$1
+filename="$1"
 
-javac -Xlint:deprecation -d /tmp ${filename}
+javac -Xlint:deprecation -d /tmp "${filename}"
 cd /tmp
-JAVA_OPTS=-Xmx1024M java ${filename%.*}
-rm ${filename%.*}.class
+JAVA_OPTS=-Xmx1024M java "${filename%.*}"
+rm "${filename%.*}".class

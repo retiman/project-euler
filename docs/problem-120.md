@@ -4,7 +4,9 @@ layout: post
 mathjax: true
 ---
 
-# Problem
+# Square remainders
+
+## Problem
 Here is [problem 120](https://projecteuler.net/problem=120):
 
 Let $$r$$ be the remainder when $$(a−1)^{n} + (a+1)^{n}$$ is divided by $$a^{2}$$.
@@ -13,8 +15,8 @@ For example, if $$a=7$$ and $$n=3$$, then $$r=42$$: $$63+83 = 728 \equiv 42 \pmo
 
 For $$3 \leq a \leq 1000$$, find $$\sum r_{max}$$.
 
-# Solution
+## Solution
 WIP
 
-# Code
+## Code
 WIP

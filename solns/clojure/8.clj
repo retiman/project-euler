@@ -1,7 +1,7 @@
 (load-file "lib/core.clj")
-(use
-  '[clojure.string :only (split-lines)]
-  '[lib.core :only (parse-int)])
+(require
+  '[clojure.string :refer [split-lines]]
+  '[lib.core :refer [parse-int]])
 
 
 (def s (apply str (split-lines (slurp "../data/8.txt"))))

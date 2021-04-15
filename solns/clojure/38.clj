@@ -1,8 +1,8 @@
 (load-file "lib/core.clj")
 (load-file "lib/number-theory.clj")
-(use
-  '[lib.core :only (parse-int)]
-  '[lib.number-theory :only (permutations)])
+(require
+  '[lib.core :refer [parse-int]]
+  '[lib.number-theory :refer [permutations]])
 
 
 (def pandigitals
@@ -23,7 +23,7 @@
     (cond
       (= (count s) 9) (if (= i 1) nil s)
       (> (count s) 9) nil
-      :default (recur (str s (* n i)) (inc i)))))
+      :else (recur (str s (* n i)) (inc i)))))
 
 (def result
   (reduce max

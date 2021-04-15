@@ -4,7 +4,9 @@ layout: post
 mathjax: true
 ---
 
-# Problem
+# The hyperexponentiation of a number
+
+## Problem
 Here is [problem 188](https://projecteuler.net/problem=188):
 
 The *hyperexponentiation* or *tetration* of a number $$a$$ by a positive integer $$b$$, denoted by $$a \uparrow \uparrow b$$ or $$^{b}a$$, is recursively defined by:
@@ -20,8 +22,8 @@ Thus we have e.g. $$3 \uparrow \uparrow 2 = 3^{3} = 27$$, hence $$3 \uparrow \up
 
 Find the last 8 digits of $$1777 \uparrow \uparrow 1855$$.
 
-# Solution
+## Solution
 WIP
 
-# Code
+## Code
 WIP

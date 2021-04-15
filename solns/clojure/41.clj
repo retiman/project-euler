@@ -1,11 +1,10 @@
 (load-file "lib/core.clj")
 (load-file "lib/number-theory.clj")
-(use
-  '[clojure.set :only (intersection)]
-  '[lib.core :only (parse-int)]
-  '[lib.number-theory :only (load-primes permutations)])
 (require
-  '[clojure.string :as s])
+  '[clojure.set :refer [intersection]]
+  '[clojure.string :as s]
+  '[lib.core :refer [parse-int]]
+  '[lib.number-theory :refer [load-primes permutations]])
 
 
 (def primes (load-primes "../data/primes.txt"))

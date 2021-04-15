@@ -1,8 +1,6 @@
-(load-file "lib/core.clj")
 (load-file "lib/number-theory.clj")
-(use
-  '[lib.core :only (sqrt)]
-  '[lib.number-theory :only (tau)])
+(require
+  '[lib.number-theory :refer [tau]])
 
 
 (def result

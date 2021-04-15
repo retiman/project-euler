@@ -14,7 +14,7 @@ dotnet /usr/share/dotnet/sdk/${SDK_VERSION}/Roslyn/bincore/csc.dll \
     -r:/usr/share/dotnet/shared/Microsoft.NETCore.App/${CORE_VERSION}/System.Runtime.dll \
     -d:TRACE \
     -out:/tmp/ProjectEuler.Main.dll \
-    $@
+    "$@"
 cd /tmp
 cp /scripts/ProjectEuler.Main.runtimeconfig.json .
 dotnet ProjectEuler.Main.dll

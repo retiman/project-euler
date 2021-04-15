@@ -1,5 +1,6 @@
 (load-file "lib/number-theory.clj")
-(use '[lib.number-theory :only (choose)])
+(require
+  '[lib.number-theory :refer [choose]])
 
 
 (def result

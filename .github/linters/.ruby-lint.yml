@@ -1,0 +1,14 @@
+---
+#######################
+# Rubocop Config file #
+#######################
+
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

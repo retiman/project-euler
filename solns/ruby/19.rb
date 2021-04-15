@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 sundays = 0
 (1901..2000).each do |year|

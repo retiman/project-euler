@@ -1,4 +1,5 @@
-(require '[clojure.string :as s])
+(require
+  '[clojure.string :as s])
 
 
 (declare charmap triangle-word-scores)

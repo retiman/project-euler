@@ -1,3 +1,13 @@
+(declare
+  p1
+  p2
+  p5
+  p10
+  p20
+  p50
+  p100
+  p200)
+
 (defmacro defp [x y]
   (let [px (symbol (str "p" x))
         py (symbol (str "p" y))]
@@ -6,7 +16,7 @@
          (+ (~px (- n# ~x)) (~py n#))
          0))))
 
-(defn p1 [n] 1)
+(defn p1 [_n] 1)
 
 (defp 2 1)
 
