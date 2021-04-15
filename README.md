@@ -39,25 +39,36 @@ With WSL2 the process is simpler, you'll need to install Docker Desktop and the 
 
 ### Generate Primes
 
-Some problems require a pre-computed list of primes.  To generate them and place
-the data in `/data` (along with other problem specific data sets), run the
-following command from the project root directory:
+Some problems require a pre-computed list of primes.  To generate them and place the data in `/data` (along with other problem specific data sets), run the following command from the project root directory:
 
-    make primes
+```bash
+make primes
+```
 
 ### Run Solutions
 
-Each language directory has a `Makefile` run `make ${PROBLEM}` (where
-`${PROBLEM}` is a number) to compute the solution for that problem.
-For example, to compute the solution for problem number 188 in Racket, do this:
+Each language directory has a `Makefile` run `make ${PROBLEM}` (where `${PROBLEM}` is a number) to compute the solution for that problem.  For example, to compute the solution for problem number 188 in Racket, do this:
 
-    cd solns/racket
-    make 188
+```bash
+cd solns/racket
+make 188
+```
 
 ### Run Tests
 
 Racket solutions have commonly reused code/libraries.  Run the tests for them
 by running the following command from the root directory:
 
-    make test
+```bash
+make test
+```
 
+### Run Lints
+
+This project uses [Super Linter](https://github.com/github/super-linter) because of all the languages involved.  Any pushes or pull requests will only run the linter on the diff, but you can run the linter locally via:
+
+```bash
+make lint
+```
+
+Note: this will take a long time to run.
