@@ -13,7 +13,7 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 
 What is the largest prime factor of the number 600851475143?
 
-# Solution
+## Solution
 [Trial division](https://en.wikipedia.org/wiki/Trial_division) works just fine for this problem, but the following solution in Scala demonstrations [Fermat's factorization method](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method) (note that Fermat's method can be slower than trial division).  It works like this: suppose you want to find factors of some integer $$n$$, and it can be expressed as the difference of two squares:
 
 $$n=a^2-b^2$$
