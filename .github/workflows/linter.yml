@@ -17,6 +17,7 @@ jobs:
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IGNORE_GITIGNORED_FILES: true
           LOG_FILE: report/super-linter.log
           OUTPUT_FOLDER: report
