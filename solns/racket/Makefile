@@ -12,4 +12,5 @@ repl:
 		--volume "${CURDIR}/../../data:/data:ro" \
 		--workdir /src \
 		racket/racket:${IMAGE} \
-		/bin/bash -c "cp ./$*.rkt /tmp/$*.rkt && cd /tmp && chmod +x ./$*.rkt && ./$*.rkt"
+		racket $*.rkt
+

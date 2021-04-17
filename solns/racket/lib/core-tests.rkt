@@ -1,6 +1,7 @@
 #lang racket
 (provide core-tests)
 (require rackunit)
+(require srfi/1)
 (require "core.rkt")
 
 

@@ -1,4 +1,3 @@
-#!/usr/bin/env racket
 #lang racket
 (require rackunit)
 (require "lib/set.rkt")

@@ -10,7 +10,7 @@ primes:
 		--workdir /src \
 		--user $(shell id -u):$(shell id -g) \
 		racket/racket:${IMAGE} \
-		/bin/bash -c "./primes.rkt 5000000 > /data/primes.txt"
+		/bin/bash -c "racket primes.rkt 5000000 > /data/primes.txt"
 
 repl:
 	docker run \
@@ -31,4 +31,4 @@ test:
 		--volume "${CURDIR}:/src" \
 		--workdir /src \
 		racket/racket:${IMAGE} \
-		racket -f tests.rkt
+		racket tests.rkt

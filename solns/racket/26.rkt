@@ -1,4 +1,3 @@
-#!/usr/bin/env racket
 #lang racket
 (require (only-in rackunit check-equal?))
 (require (only-in "lib/number-theory.rkt" divides? ord))

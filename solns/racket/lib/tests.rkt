@@ -1,3 +1,6 @@
+#lang racket
+
+
 (require rackunit/text-ui)
 (require "2darray-tests.rkt")
 (require "core-tests.rkt")
