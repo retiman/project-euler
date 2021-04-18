@@ -11,9 +11,9 @@ static (long a, long b) FermatFactors(long n)
         return (2, n / 2);
     }
 
-    long a = Convert.ToInt64(Math.Ceiling(Math.Sqrt(n)));
-    long b = a * a - n;
-    double s = Math.Sqrt(b);
+    var a = Convert.ToInt64(Math.Ceiling(Math.Sqrt(n)));
+    var b = a * a - n;
+    var s = Math.Sqrt(b);
     while (s != Math.Round(s))
     {
         a++;
@@ -21,14 +21,14 @@ static (long a, long b) FermatFactors(long n)
         s = Math.Sqrt(b);
     }
 
-    long t = Convert.ToInt64(s);
+    var t = Convert.ToInt64(s);
     return (a - t, a + t);
 }
 
 static IEnumerable<long> PrimeFactors(long n)
 {
     var factors = new List<long>();
-    (long a, long b) = FermatFactors(n);
+    (var a, var b) = FermatFactors(n);
     if (a == 1)
     {
         factors.Add(b);

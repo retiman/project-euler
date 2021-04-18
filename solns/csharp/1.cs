@@ -3,9 +3,10 @@ using System.Diagnostics;
 using System.Linq;
 
 
-var result = Enumerable.Range(1, 999)
-    .Where(i => i % 3 == 0 || i % 5 == 0)
-    .Aggregate(0, (acc, i) => acc + i);
+var ns = from n in Enumerable.Range(1, 999)
+    where n % 3 == 0 || n % 5 == 0
+    select n;
+var result = ns.Sum();
 
 Console.WriteLine(result);
 Trace.Assert(result == 233168);
