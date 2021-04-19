@@ -9,11 +9,13 @@ lint:
 			--volume ${CURDIR}:/tmp/lint:rw \
 			--user $(shell id -u):$(shell id -g) \
 			--env DEFAULT_BRANCH=main \
+			--env ERROR_ON_MISSING_EXEC_BIT=false \
 			--env IGNORE_GITIGNORED_FILES=true \
 			--env LOG_FILE=report/super-linter.log \
 			--env OUTPUT_FOLDER=report \
 			--env OUTPUT_FORMAT=tap \
 			--env RUN_LOCAL=true \
+			--env VALIDATE_BASH_EXEC=false \
 			--env VALIDATE_HTML=false \
 			--env VALIDATE_MARKDOWN=false \
 			--env VALIDATE_YAML=false \
