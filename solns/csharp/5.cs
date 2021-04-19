@@ -11,7 +11,7 @@ static int gcd(int a, int b)
 
 static int lcm(int a, int b)
 {
-   return a * (b / gcd(a, b));
+    return a * (b / gcd(a, b));
 }
 
 var result = Enumerable.Range(1, 21)
