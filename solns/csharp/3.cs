@@ -47,6 +47,5 @@ static IEnumerable<long> PrimeFactors(long n)
 var n = 600_851_475_143L;
 var result = PrimeFactors(n).Max();
 
-
 Console.WriteLine(result);
 Trace.Assert(result == 6857L);
