@@ -1,0 +1,19 @@
+{
+	"name": "Ruby",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "3.1-buster",
+			"NODE_VERSION": "none"
+		}
+	},
+	"settings": {
+	},
+	"extensions": [
+		"rebornix.ruby",
+		"wingrunr21.vscode-ruby"
+	],
+	"postCreateCommand": "ruby --version",
+	"remoteUser": "vscode"
+}
