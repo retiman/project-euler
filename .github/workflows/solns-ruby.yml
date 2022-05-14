@@ -14,7 +14,9 @@ jobs:
   build:
     runs-on: [ ubuntu-latest ]
     container: ruby:3.1.2-slim
-    working-directory: solns/ruby
+    defaults:
+      run:
+        working-directory: solns/ruby
     steps:
       - name: Checkout
         uses: actions/checkout@v2
