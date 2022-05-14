@@ -1,16 +1,16 @@
 {
-	"name": "Racket",
-	"build": {
-		"context": "..",
-		"dockerfile": "Dockerfile",
-	},
-	"settings": {
-	},
-	"extensions": [
-		"karyfoundation.racket"
-	],
-	"mounts": [
-		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
-	],
-	"remoteUser": "vscode"
+  "name": "Racket",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile",
+  },
+  "settings": {
+  },
+  "extensions": [
+    "karyfoundation.racket"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
+  ],
+  "remoteUser": "vscode"
 }

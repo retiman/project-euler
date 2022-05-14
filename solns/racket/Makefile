@@ -19,8 +19,8 @@ primes:
 	docker run \
 		--pull missing \
 		--tty \
-		--volume "${CURDIR}/../../data:/data" \
-		--volume "${CURDIR}:/workspace" \
+		--volume "${CURDIR}/../../data:/data:rw" \
+		--volume "${CURDIR}:/workspace:ro" \
 		--workdir /workspace \
 		--user $(shell id -u):$(shell id -g) \
 		racket/racket:${IMAGE} \
@@ -33,8 +33,8 @@ repl:
 		--interactive \
 		--tty \
 		--rm \
-		--volume "${CURDIR}/../../data:/data" \
-		--volume "${CURDIR}:/workspace" \
+		--volume "${CURDIR}/../../data:/data:ro" \
+		--volume "${CURDIR}:/workspace:ro" \
 		--workdir /workspace \
 		racket/racket:${IMAGE} \
 		racket -i -e '(enter! "lib/repl.rkt")'
@@ -44,8 +44,8 @@ test:
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${CURDIR}/../../data:/data" \
-		--volume "${CURDIR}:/workspace" \
+		--volume "${CURDIR}/../../data:/data:ro" \
+		--volume "${CURDIR}:/workspace:ro" \
 		--workdir /workspace/lib \
 		racket/racket:${IMAGE} \
 		racket tests.rkt
