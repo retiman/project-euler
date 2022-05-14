@@ -1,0 +1,25 @@
+name: Ruby
+
+on:
+  pull_request:
+    paths:
+      - solns/ruby/**
+  push:
+    paths:
+      - solns/ruby/**
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    container: ruby:3.1.2-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Lint
+        run: rubocop
