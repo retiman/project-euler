@@ -13,6 +13,6 @@
 	"mounts": [
 		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
 	],
-	"postCreateCommand": "ruby --version",
+	"postCreateCommand": "make deps",
 	"remoteUser": "vscode"
 }

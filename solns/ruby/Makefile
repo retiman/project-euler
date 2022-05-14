@@ -1,5 +1,11 @@
 IMAGE := 3.0.0-slim-buster
 
+deps:
+	bundle install
+
+lint:
+	rubocop
+
 %: %.rb
 # Docker creates a /.dockerenv file if running in a container.  Without this file we can assume we need to pull and
 # start the image.
