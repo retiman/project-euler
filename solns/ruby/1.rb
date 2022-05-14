@@ -1,4 +1,4 @@
-result = (1..999).select { |x| x % 3 == 0 || x % 5 == 0 }.inject(&:+)
+result = (1..999).select { |x| (x % 3).zero? || (x % 5).zero? }.inject(&:+)
 
 puts result
-raise Error unless result == 233168
+raise Error unless result == 233_168
