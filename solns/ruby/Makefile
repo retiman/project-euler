@@ -1,6 +1,7 @@
 IMAGE := 3.0.0-slim-buster
 
 %: %.rb
+ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
 		--rm \
@@ -9,3 +10,6 @@ IMAGE := 3.0.0-slim-buster
 		--workdir /src \
 		ruby:${IMAGE} \
 		ruby $<
+else
+	ruby $<
+endif
