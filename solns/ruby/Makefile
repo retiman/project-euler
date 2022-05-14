@@ -1,4 +1,4 @@
-IMAGE := 3.0.0-slim-buster
+IMAGE := 3.1.2-slim-buster
 
 deps:
 	bundle install
