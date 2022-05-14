@@ -16,4 +16,4 @@ apt-get install -y git
 apt-get install -y gnupg2
 apt-get install -y sudo
 apt-get install -y vim
-apt-get autoremove
+apt-get autoremove -y
