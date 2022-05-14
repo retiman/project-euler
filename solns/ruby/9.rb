@@ -4,12 +4,12 @@ result = 0
   limit = ((n - a) / 2) - 1
   (a..limit).each do |b|
     c = n - a - b
-    if a*a + b*b == c*c
-      result = a*b*c
+    if (a * a) + (b * b) == c * c
+      result = a * b * c
       break
     end
   end
 end
 
 puts result
-raise Error unless result == 31875000
+raise Error unless result == 31_875_000
