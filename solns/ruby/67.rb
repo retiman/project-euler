@@ -1,5 +1,5 @@
 data = []
-file = File.new('../data/67.txt')
+file = File.new('/data/67.txt')
 while (line = file.gets)
   data << line
 end
