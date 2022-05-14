@@ -1,6 +1,6 @@
 data = []
 file = File.new('../data/67.txt')
-while line = file.gets
+while (line = file.gets)
   data << line
 end
 file.close
