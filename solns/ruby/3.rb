@@ -1,14 +1,15 @@
 def fermat_factors(n)
-  return [2, n/2] if n % 2 == 0
+  return [2, n / 2] if n.even?
+
   a = Math.sqrt(n).ceil
-  b = a*a-n
+  b = a * a - n
   s = Math.sqrt(b)
   while s != s.round
     a += 1
-    b = a*a-n
+    b = a * a - n
     s = Math.sqrt(b)
   end
-  [a-s, a+s]
+  [a - s, a + s]
 end
 
 def prime_factors(n)
@@ -20,7 +21,7 @@ def prime_factors(n)
   end
 end
 
-result = prime_factors(600851475143).max.round
+result = prime_factors(600_851_475_143).max.round
 
 puts result
 raise Error unless result == 6857

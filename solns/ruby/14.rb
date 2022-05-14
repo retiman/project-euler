@@ -1,10 +1,11 @@
-$map = {1 => 1}
+$map = { 1 => 1 }
 
 def collatz(n)
   value = $map[n]
   return value unless value.nil?
-  return 1+collatz(n/2) if n%2 == 0
-  return 1+collatz(3*n+1)
+  return 1 + collatz(n / 2) if n.even?
+
+  1 + collatz(3 * n + 1)
 end
 
 def f(n)
@@ -17,8 +18,8 @@ def max(a, b)
   a.last > b.last ? a : b
 end
 
-limit = 1000000
+limit = 1_000_000
 result = (1..limit).map { |n| f(n) }.inject([0, 0]) { |a, b| max(a, b) }.first
 
 puts result
-raise Error unless result == 837799
+raise Error unless result == 837_799

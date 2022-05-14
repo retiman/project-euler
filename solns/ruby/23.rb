@@ -1,5 +1,5 @@
 def divisors(n)
-  d = (2..Math.sqrt(n)).select { |q| n%q == 0 }
+  d = (2..Math.sqrt(n)).select { |q| (n % q).zero? }
   d = d + d.map { |q| n / q } + [1]
   d.uniq
 end
@@ -8,7 +8,7 @@ def sigma(n)
   divisors(n).inject(&:+)
 end
 
-limit = 28123
+limit = 28_123
 abundants = (1..limit).select { |n| sigma(n) > n }
 numbers = (0..limit).to_a
 
@@ -22,4 +22,4 @@ end
 result = numbers.inject(&:+)
 
 puts result
-raise Error unless result == 4179871
+raise Error unless result == 4_179_871
