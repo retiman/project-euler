@@ -10,6 +10,9 @@
 		"rebornix.ruby",
 		"wingrunr21.vscode-ruby"
 	],
+	"mounts": [
+		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
+	],
 	"postCreateCommand": "ruby --version",
 	"remoteUser": "vscode"
 }
