@@ -3,7 +3,7 @@ def sieve(limit)
   numbers = 0.upto(limit).to_a
   numbers[1] = 0
   while current < limit
-    (2 * current..limit).step(current).each { |i| numbers[i] = 0 }
+    ((2 * current)..limit).step(current).each { |i| numbers[i] = 0 }
     loop do
       current += 1
       break unless current <= limit && (numbers[current]).zero?

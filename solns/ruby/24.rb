@@ -8,7 +8,7 @@ def compute(list, curr)
   permutations = fact(list.length - 1)
   index = ($limit - curr) / permutations
   digit = list[index]
-  succ = curr + index * permutations
+  succ = curr + (index * permutations)
   return list if list.length == 2 && ($limit - curr).zero?
   return list.reverse if list.length == 2 && $limit - curr == 1
 

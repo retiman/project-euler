@@ -32,8 +32,8 @@ def say(n)
   return 'one thousand' if n == 1000
   return "#{$word[n / 100]} hundred and #{say(n % 100)}" if n >= 100 && n % 100 != 0
   return "#{$word[n / 100]} hundred" if n >= 100 && (n % 100).zero?
-  return "#{$word[n - n % 10]} #{say(n % 10)}" if n >= 20 && n % 10 != 0
-  return $word[n - n % 10] if n >= 20 && (n % 10).zero?
+  return "#{$word[n - (n % 10)]} #{say(n % 10)}" if n >= 20 && n % 10 != 0
+  return $word[n - (n % 10)] if n >= 20 && (n % 10).zero?
 
   $word[n]
 end

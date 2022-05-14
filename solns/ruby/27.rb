@@ -2,7 +2,7 @@ require 'set'
 
 # A simple quadratic
 def f(n, a, b)
-  n * n + a * n + b
+  (n * n) + (a * n) + b
 end
 
 # For how many values is a quadratic prime?

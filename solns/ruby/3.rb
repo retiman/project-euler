@@ -2,11 +2,11 @@ def fermat_factors(n)
   return [2, n / 2] if n.even?
 
   a = Math.sqrt(n).ceil
-  b = a * a - n
+  b = (a * a) - n
   s = Math.sqrt(b)
   while s != s.round
     a += 1
-    b = a * a - n
+    b = (a * a) - n
     s = Math.sqrt(b)
   end
   [a - s, a + s]

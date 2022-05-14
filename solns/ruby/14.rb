@@ -5,7 +5,7 @@ def collatz(n)
   return value unless value.nil?
   return 1 + collatz(n / 2) if n.even?
 
-  1 + collatz(3 * n + 1)
+  1 + collatz((3 * n) + 1)
 end
 
 def f(n)

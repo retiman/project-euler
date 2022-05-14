@@ -7,7 +7,7 @@ file.close
 
 data = data.map(&:strip)
            .reject { |l| l == '' }
-           .map { |l| l.split(' ').map(&:to_i) }
+           .map { |l| l.split.map(&:to_i) }
 
 (data.length - 2).step(0, -1).each do |i|
   (0...data[i].length).each do |j|

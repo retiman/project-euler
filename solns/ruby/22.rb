@@ -1,5 +1,5 @@
 def score(name)
-  scores = Hash[('A'..'Z').zip(1..26)]
+  scores = ('A'..'Z').zip(1..26).to_h
   name.chars.map { |c| scores[c] }.inject(&:+)
 end
 

@@ -23,7 +23,7 @@ EOF
 $matrix = matrix.lines
                 .map(&:strip)
                 .reject { |l| l == '' }
-                .map { |row| row.split(' ').map(&:to_i) }
+                .map { |row| row.split.map(&:to_i) }
 
 def lr(i, j)
   (0..3).map { |k| $matrix[i][j + k] }.inject(&:*)
