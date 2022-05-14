@@ -7,7 +7,7 @@
 (define names
   ((compose (curry regexp-split ",")
             (curryr string-replace "\"" ""))
-    (file->string "../data/22.txt")))
+    (file->string "/data/22.txt")))
 
 (define scores
   (zipmap (map integer->char (range (char->integer #\A)
