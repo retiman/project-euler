@@ -1,0 +1,15 @@
+{
+	"name": "Racket",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile",
+	},
+	"settings": {
+	},
+	"extensions": [
+	],
+	"mounts": [
+		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
+	],
+	"remoteUser": "vscode"
+}

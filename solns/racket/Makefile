@@ -1,16 +1,19 @@
-IMAGE := 8.0-full
-.PHONY = repl
+IMAGE := 7.9-full
 
+.PHONY = repl
 repl:
 	$(MAKE) -C lib repl
 
 %: %.rkt
+ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${CURDIR}:/src:ro" \
+		--volume "${CURDIR}:/workspace:ro" \
 		--volume "${CURDIR}/../../data:/data:ro" \
-		--workdir /src \
+		--workdir /workspace \
 		racket/racket:${IMAGE} \
 		racket $*.rkt
-
+else
+	racket $*.rkt
+endif
