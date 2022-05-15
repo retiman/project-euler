@@ -31,3 +31,4 @@ jobs:
         uses: golangci/golangci-lint-action@v3
         with:
           version: v1.46.1
+          working-directory: solns/golang/P1
