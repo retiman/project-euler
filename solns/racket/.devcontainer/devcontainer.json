@@ -2,12 +2,15 @@
   "name": "Racket",
   "build": {
     "context": "..",
-    "dockerfile": "Dockerfile",
+    "dockerfile": "Dockerfile"
   },
   "settings": {
   },
   "extensions": [
-    "karyfoundation.racket"
+    "EditorConfig.EditorConfig",
+    "Tyriar.windows-terminal",
+    "karyfoundation.racket",
+    "medo64.render-crlf"
   ],
   "mounts": [
     "source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
