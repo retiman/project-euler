@@ -18,10 +18,10 @@ jobs:
     container: racket/racket:7.9-full
     defaults:
       run:
-        working-directory: solns/racket
+        working-directory: solns/racket/lib
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Test
-        run: make test
+        run: racket tests.rkt
