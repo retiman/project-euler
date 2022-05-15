@@ -8,7 +8,7 @@ deps:
 
 .PHONY = lint
 lint:
-	hlint .
+	hlint -h .hlint.yml .
 
 %: %.hs
 ifeq ("$(wildcard /.dockerenv)","")
