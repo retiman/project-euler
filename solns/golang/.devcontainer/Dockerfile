@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:1.16.2-buster
+FROM golang:1.18.0-buster
 
 WORKDIR /
 ADD .devcontainer/devcontainer.sh devcontainer.sh
