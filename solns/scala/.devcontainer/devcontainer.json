@@ -7,6 +7,10 @@
 	"settings": {
 	},
 	"extensions": [
+    "EditorConfig.EditorConfig",
+    "Tyriar.windows-terminal",
+    "medo64.render-crlf",
+		"scala-lang.scala"
 	],
 	"mounts": [
 		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"

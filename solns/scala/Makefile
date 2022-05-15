@@ -9,6 +9,7 @@ image:
 #
 # See https://github.com/scala/bug/issues/10603
 %: %.scala
+ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
 		--rm \
@@ -17,3 +18,6 @@ image:
 		--workdir /workspace \
 		retiman/scala:${IMAGE} \
 		scala -nobootcp -nc -feature -deprecation $<
+else
+		scala -nobootcp -nc -feature -deprecation $<
+endif
