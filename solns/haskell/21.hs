@@ -10,6 +10,6 @@ sigma = sum . divisors
 range = [2..10000]
 result = let tuples = zip range (map sigma range)
              amicables = filter (\(a,b) -> a > b && a == sigma b) tuples
-         in sum $ map (\(a,b) -> a+b) amicables
+         in sum $ map (uncurry (+)) amicables
 
 main = print result
