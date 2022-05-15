@@ -17,7 +17,7 @@
 	],
 	"postCreateCommand": "make deps",
   "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/home/vscode/.cabal/bin/hlint"
+    "PATH": "${containerEnv:PATH}:/home/vscode/.cabal/bin"
   },
 	"remoteUser": "vscode"
 }
