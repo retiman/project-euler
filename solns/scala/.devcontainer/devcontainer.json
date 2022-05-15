@@ -1,5 +1,5 @@
 {
-	"name": "Ruby",
+	"name": "Scala",
 	"build": {
 		"context": "..",
 		"dockerfile": "Dockerfile"
@@ -7,12 +7,9 @@
 	"settings": {
 	},
 	"extensions": [
-		"rebornix.ruby",
-		"wingrunr21.vscode-ruby"
 	],
 	"mounts": [
 		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
 	],
-	"postCreateCommand": "make deps",
 	"remoteUser": "vscode"
 }
