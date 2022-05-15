@@ -13,7 +13,8 @@
     "ms-dotnettools.csharp"
   ],
   "mounts": [
-    "source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/scripts,target=/scripts,type=bind,consistency=cached"
   ],
   "remoteUser": "vscode"
 }
