@@ -3,9 +3,11 @@ name: Racket
 on:
   pull_request:
     paths:
+      - .github/workflows/solns-racket.yml
       - solns/racket/lib/**
   push:
     paths:
+      - .github/workflows/solns-racket.yml
       - solns/racket/lib/**
     branches:
       - main

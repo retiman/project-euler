@@ -1,11 +1,13 @@
-name: Ruby
+name: Primes
 
 on:
   pull_request:
     paths:
+      - .github/workflows/primes.yml
       - solns/racket/lib/primes.rkt
   push:
     paths:
+      - .github/workflows/primes.yml
       - solns/racket/lib/primes.rkt
     branches:
       - main

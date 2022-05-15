@@ -3,9 +3,11 @@ name: Ruby
 on:
   pull_request:
     paths:
+      - .github/workflows/solns-ruby.yml
       - solns/ruby/**
   push:
     paths:
+      - .github/workflows/solns-ruby.yml
       - solns/ruby/**
     branches:
       - main
