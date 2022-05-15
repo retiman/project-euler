@@ -27,4 +27,4 @@ jobs:
         run: make deps
 
       - name: Lint
-        run: flake8
+        run: make lint
