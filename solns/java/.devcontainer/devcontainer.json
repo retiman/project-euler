@@ -1,19 +1,19 @@
 {
-	"name": "Java",
-	"build": {
-		"context": "..",
-		"dockerfile": "Dockerfile"
-	},
-	"settings": {
-	},
-	"extensions": [
+  "name": "Java",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+  },
+  "extensions": [
     "EditorConfig.EditorConfig",
     "Tyriar.windows-terminal",
     "medo64.render-crlf",
     "vscjava.vscode-java-pack"
-	],
-	"mounts": [
-		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
-	],
-	"remoteUser": "vscode"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
+  ],
+  "remoteUser": "vscode"
 }

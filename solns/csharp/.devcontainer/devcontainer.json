@@ -1,19 +1,19 @@
 {
-	"name": "CSharp",
-	"build": {
-		"context": "..",
-		"dockerfile": "Dockerfile"
-	},
-	"settings": {
-	},
-	"extensions": [
+  "name": "CSharp",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+  },
+  "extensions": [
     "EditorConfig.EditorConfig",
     "Tyriar.windows-terminal",
     "medo64.render-crlf",
     "ms-dotnettools.csharp"
-	],
-	"mounts": [
-		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
-	],
-	"remoteUser": "vscode"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
+  ],
+  "remoteUser": "vscode"
 }
