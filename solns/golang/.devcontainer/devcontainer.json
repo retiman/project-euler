@@ -4,8 +4,11 @@
 		"context": "..",
 		"dockerfile": "Dockerfile"
 	},
-	"settings": {
-	},
+  "settings": {
+    "go.toolsManagement.checkForUpdates": "local",
+    "go.useLanguageServer": true,
+    "go.gopath": "/go"
+  },
 	"extensions": [
     "EditorConfig.EditorConfig",
     "Tyriar.windows-terminal",

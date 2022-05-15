@@ -1,9 +1,17 @@
-IMAGE := 1.16.2-buster
+IMAGE := 1.18.0-buster
+
+.PHONY = deps
+deps:
+	@go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.46.1
+
+.PHONY = lint
+lint:
+	@golangci-lint run ./...
 
 # NOTE: You cannot have more than one main method per package/directory, so each
 # golang problem needs its own directory.  Golang was not intended to be run
 # like a scripting language.
-%: P%
+%:
 ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
@@ -12,7 +20,7 @@ ifeq ("$(wildcard /.dockerenv)","")
 		--volume "${CURDIR}/../../data:/data:ro" \
 		--workdir /workspace \
 		golang:${IMAGE} \
-		go run $*.go
+		go run main.go $*
 else
-	go run $*.go
+	go run main.go $*
 endif
