@@ -1,6 +1,7 @@
 IMAGE := openjdk-17-tools-deps-1.10.3.814-slim-buster
 
 %: %.clj
+ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
 		--rm \
@@ -9,3 +10,6 @@ IMAGE := openjdk-17-tools-deps-1.10.3.814-slim-buster
 		--workdir /src \
 		clojure:${IMAGE} \
 	  clojure -M $<
+else
+	clojure -M $<
+endif
