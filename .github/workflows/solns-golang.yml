@@ -19,8 +19,8 @@ jobs:
 #      run:
 #        working-directory: solns/golang
     steps:
-#      - name: Checkout
-#        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 #
 #      - name: Setup Go
 #        uses: actions/setup-go@v3
