@@ -1,3 +1,5 @@
+import Data.Maybe (fromMaybe)
+
 m = [(1,  "one"),
      (2,  "two"),
      (3,  "three"),
@@ -26,9 +28,7 @@ m = [(1,  "one"),
      (80, "eighty"),
      (90, "ninety")]
 
-word n = case lookup n m of
-           Just w -> w
-           Nothing -> ""
+word n = fromMaybe "" (lookup n m)
 
 say :: Int -> String
 say n | n == 1000                  = "one thousand"

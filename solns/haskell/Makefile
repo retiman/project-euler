@@ -3,7 +3,12 @@ IMAGE := 8.8.4
 .PHONY = deps
 deps:
 	cabal update
+	cabal install apply-refact
 	cabal install hlint
+
+.PHONY = lint
+lint:
+	hlint .
 
 %: %.hs
 ifeq ("$(wildcard /.dockerenv)","")

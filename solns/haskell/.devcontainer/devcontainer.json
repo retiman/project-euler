@@ -16,5 +16,8 @@
 		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
 	],
 	"postCreateCommand": "make deps",
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/vscode/.cabal/bin/hlint"
+  },
 	"remoteUser": "vscode"
 }
