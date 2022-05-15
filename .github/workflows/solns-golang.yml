@@ -1,4 +1,4 @@
-name: Golang
+name: Go
 
 on:
   pull_request:
