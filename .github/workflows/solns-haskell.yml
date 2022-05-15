@@ -15,11 +15,6 @@ on:
 jobs:
   build:
     runs-on: [ ubuntu-latest ]
-    # We would use setup-haskell here as installing these tools via cabal is a bit slower, but the setup-haskell action
-    # has been archived.
-    #
-    # See https://github.com/actions/setup-haskell
-    container: haskell:8.8.4
     defaults:
       run:
         working-directory: solns/haskell
@@ -27,8 +22,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: make deps
+      - name: Setup Haskell
+        uses: actions/setup-haskell@v1.1.4
+        with:
+          ghc-version: 8.8.4
+          cabal-version: 3.4.0.0
+
+      - name: Setup HLint
+        uses: rwe/actions-hlint-setup@v1
+        with:
+          version: 3.3.6
 
       - name: Lint
         run: make lint
