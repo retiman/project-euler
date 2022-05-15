@@ -4,11 +4,15 @@ IMAGE := 1.16.2-buster
 # golang problem needs its own directory.  Golang was not intended to be run
 # like a scripting language.
 %: P%
+ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${CURDIR}/P$*:/src:ro" \
+		--volume "${CURDIR}/P$*:/workspace:ro" \
 		--volume "${CURDIR}/../../data:/data:ro" \
-		--workdir /src \
+		--workdir /workspace \
 		golang:${IMAGE} \
 		go run $*.go
+else
+	go run $*.go
+endif
