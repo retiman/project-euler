@@ -9,7 +9,7 @@
 
 (define m
   (vector*->matrix
-    (for/vector ((line (file->lines "../data/11.txt")))
+    (for/vector ((line (file->lines "/data/11.txt")))
       (line->vector line))))
 
 (define (→ i j)

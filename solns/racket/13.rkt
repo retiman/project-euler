@@ -8,7 +8,7 @@
             string->list
             number->string
             (curry apply +))
-     (file->list "../data/13.txt")))
+     (file->list "/data/13.txt")))
 
 (displayln result)
 (check-equal? result 5537376230)

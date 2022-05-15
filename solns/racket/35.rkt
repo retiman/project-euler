@@ -5,7 +5,7 @@
 
 
 (define primes
-  (filter (curryr < 1000000) (file->list "../data/primes.txt")))
+  (filter (curryr < 1000000) (file->list "/data/primes.txt")))
 
 (define (rotate lst)
   (append (cdr lst) (list (car lst))))

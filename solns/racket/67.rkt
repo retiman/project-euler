@@ -14,7 +14,7 @@
 (define (2dvector-set! a i j x)
   (vector-set! (vector-ref a i) j x))
 
-(define input (string-trim (file->string "../data/67.txt")))
+(define input (string-trim (file->string "/data/67.txt")))
 
 (define (string->row s)
   (map string->number (regexp-split #px" " s)))

@@ -4,7 +4,7 @@
 
 (define data
 
-  (apply string-append (file->lines "../data/8.txt")))
+  (apply string-append (file->lines "/data/8.txt")))
 
 (define (char-at data i)
   (char->integer* (string-ref data i)))

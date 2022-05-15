@@ -9,8 +9,8 @@
 
 (define limit* (* 2 (add1 (integer-sqrt limit))))
 
-(define ps 
-  (filter (curryr < limit*) (file->list "../data/primes.txt")))
+(define ps
+  (filter (curryr < limit*) (file->list "/data/primes.txt")))
 
 (define bs
   (combinations ps 2))
