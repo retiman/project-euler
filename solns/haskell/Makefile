@@ -1,6 +1,7 @@
 IMAGE := 8.8.4
 
 %: %.hs
+ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
 		--rm \
@@ -9,3 +10,6 @@ IMAGE := 8.8.4
 		--workdir /src \
 		haskell:${IMAGE} \
 		runghc $<
+else
+	runghc $<
+endif
