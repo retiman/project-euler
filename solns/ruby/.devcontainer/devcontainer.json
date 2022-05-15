@@ -2,11 +2,14 @@
 	"name": "Ruby",
 	"build": {
 		"context": "..",
-		"dockerfile": "Dockerfile",
+		"dockerfile": "Dockerfile"
 	},
 	"settings": {
 	},
 	"extensions": [
+    "EditorConfig.EditorConfig",
+    "Tyriar.windows-terminal",
+    "medo64.render-crlf",
 		"rebornix.ruby",
 		"wingrunr21.vscode-ruby"
 	],
