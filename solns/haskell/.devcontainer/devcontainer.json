@@ -15,5 +15,6 @@
 	"mounts": [
 		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
 	],
+	"postCreateCommand": "make deps",
 	"remoteUser": "vscode"
 }

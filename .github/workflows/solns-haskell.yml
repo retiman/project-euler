@@ -1,0 +1,30 @@
+name: Haskell
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/solns-haskell.yml
+      - solns/haskell/**
+  push:
+    paths:
+      - .github/workflows/solns-haskell.yml
+      - solns/haskell/**
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    container: haskell:8.8.4
+    defaults:
+      run:
+        working-directory: solns/haskell
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: make deps
+
+      - name: Lint
+        run: flake8

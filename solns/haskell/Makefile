@@ -1,5 +1,10 @@
 IMAGE := 8.8.4
 
+.PHONY = deps
+deps:
+	cabal update
+	cabal install hlint
+
 %: %.hs
 ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
