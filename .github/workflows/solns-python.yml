@@ -1,0 +1,32 @@
+name: Python
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/solns-python.yml
+      - solns/python/**
+  push:
+    paths:
+      - .github/workflows/solns-python.yml
+      - solns/python/**
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    container: python:3.9.2-slim-buster
+    defaults:
+      run:
+        working-directory: solns/python
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lint
+        run: flake8
