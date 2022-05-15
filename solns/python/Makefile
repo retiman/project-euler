@@ -1,5 +1,10 @@
 IMAGE := 3.9.2-slim-buster
 
+.PHONY = deps
+deps:
+	pip install --upgrade pip
+	pip install -r requirements.txt
+
 %: %.py
 ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
