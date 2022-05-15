@@ -1,0 +1,27 @@
+name: Primes
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/primes.yml
+      - solns/racket/lib/primes.rkt
+  push:
+    paths:
+      - .github/workflows/primes.yml
+      - solns/racket/lib/primes.rkt
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    container: racket/racket:7.9-full
+    defaults:
+      run:
+        working-directory: solns/racket
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Primes
+        run:  racket lib/primes.rkt 1000

@@ -1,0 +1,27 @@
+name: Racket
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/solns-racket.yml
+      - solns/racket/lib/**
+  push:
+    paths:
+      - .github/workflows/solns-racket.yml
+      - solns/racket/lib/**
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    container: racket/racket:7.9-full
+    defaults:
+      run:
+        working-directory: solns/racket/lib
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Test
+        run: racket tests.rkt
