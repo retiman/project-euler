@@ -15,6 +15,7 @@ on:
 jobs:
   build:
     runs-on: [ ubuntu-latest ]
+    # There is no official setup-racket action available.
     container: racket/racket:7.9-full
     defaults:
       run:
