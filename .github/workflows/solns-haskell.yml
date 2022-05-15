@@ -1,0 +1,37 @@
+name: Haskell
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/solns-haskell.yml
+      - solns/haskell/**
+  push:
+    paths:
+      - .github/workflows/solns-haskell.yml
+      - solns/haskell/**
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    defaults:
+      run:
+        working-directory: solns/haskell
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Haskell
+        uses: actions/setup-haskell@v1.1.4
+        with:
+          ghc-version: 8.8.4
+          cabal-version: 3.4.0.0
+
+      - name: Setup HLint
+        uses: rwe/actions-hlint-setup@v1
+        with:
+          version: 3.3.6
+
+      - name: Lint
+        run: make lint

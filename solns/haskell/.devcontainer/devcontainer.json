@@ -15,12 +15,9 @@
 	"mounts": [
 		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
 	],
-<<<<<<< Updated upstream
-=======
 	"postCreateCommand": "make deps",
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:/home/vscode/.cabal/bin"
   },
->>>>>>> Stashed changes
 	"remoteUser": "vscode"
 }
