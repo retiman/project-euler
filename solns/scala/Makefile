@@ -1,19 +1,23 @@
 IMAGE := 2.11.12-debian10.8-slim
-.PHONY = image
 
 # NOTE: There is no official image.  We'll have to build it ourselves.
+.PHONY = image
 image:
-	docker build --tag retiman/scala:${IMAGE} .
+	docker build -f .devcontainer/Dockerfile --tag retiman/scala:${IMAGE} .
 
 # Running Scala without -nobootcp and -nc causes some issues.
 #
 # See https://github.com/scala/bug/issues/10603
 %: %.scala
+ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
 		--pull missing \
 		--rm \
-		--volume "${CURDIR}:/src:ro" \
+		--volume "${CURDIR}:/workspace:ro" \
 		--volume "${CURDIR}/../../data:/data:ro" \
-		--workdir /src \
+		--workdir /workspace \
 		retiman/scala:${IMAGE} \
 		scala -nobootcp -nc -feature -deprecation $<
+else
+		scala -nobootcp -nc -feature -deprecation $<
+endif

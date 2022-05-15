@@ -1,0 +1,19 @@
+{
+	"name": "Haskell",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+	"settings": {
+	},
+	"extensions": [
+    "EditorConfig.EditorConfig",
+    "Tyriar.windows-terminal",
+    "medo64.render-crlf",
+    "haskell.haskell"
+	],
+	"mounts": [
+		"source=${localWorkspaceFolder}/../../data,target=/data,type=bind,consistency=cached"
+	],
+	"remoteUser": "vscode"
+}
