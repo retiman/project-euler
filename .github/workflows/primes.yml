@@ -1,0 +1,25 @@
+name: Ruby
+
+on:
+  pull_request:
+    paths:
+      - solns/racket/lib/primes.rkt
+  push:
+    paths:
+      - solns/racket/lib/primes.rkt
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    container: racket/racket:7.9-full
+    defaults:
+      run:
+        working-directory: solns/racket
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Primes
+        run: make primes
