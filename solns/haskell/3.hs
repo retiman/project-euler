@@ -16,7 +16,7 @@ factors n = [factor, n `div` factor]
 
 primeFactors :: Integer -> [Integer]
 primeFactors n = case factors n of
-    xs | elem 1 xs -> xs
+    xs | 1 `elem` xs -> xs
     xs -> nub . foldr1 (++) . map primeFactors $ xs
 
 result = maximum . primeFactors $ 600851475143
