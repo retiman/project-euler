@@ -8,9 +8,6 @@ deps:
 lint:
 	@golangci-lint run ./...
 
-# NOTE: You cannot have more than one main method per package/directory, so each
-# golang problem needs its own directory.  Golang was not intended to be run
-# like a scripting language.
 %:
 ifeq ("$(wildcard /.dockerenv)","")
 	docker run \
