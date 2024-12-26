@@ -5,7 +5,7 @@
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "./build",
     "sourceMap": true,
