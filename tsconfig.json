@@ -33,5 +33,5 @@
   //
   // See https://stackoverflow.com/questions/61956555/why-is-typescript-eslint-parser-including-files-outside-of-those-configured-in
   // See https://www.typescriptlang.org/tsconfig#include
-  "include": ["script", "src", "test", ".eslintrc.js", ".prettierrc.js", "test/jest.config.js"],
+  "include": ["script", "src", "test", ".eslintrc.js", "prettier.config.mjs", "test/jest.config.js"],
 }

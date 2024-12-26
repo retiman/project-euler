@@ -3,10 +3,7 @@ import tseslint from 'typescript-eslint';
 import unusedimports from 'eslint-plugin-unused-imports';
 
 export default tseslint.config({
-  extends: [
-    eslint.configs.recommended,
-    tseslint.configs.recommended,
-  ],
+  extends: [eslint.configs.recommended, tseslint.configs.recommended],
   files: ['**/*.ts'],
   ignores: ['build/**/*', 'dist/**/*', 'node_modules/**/*', '.eslintrc.js', '.prettierrc.js'],
   languageOptions: {
@@ -14,8 +11,8 @@ export default tseslint.config({
       project: './tsconfig.json',
       tsconfigRootDir: import.meta.dirname,
       ecmaVersion: 2020,
-      sourceType: 'module',
-    },
+      sourceType: 'module'
+    }
   },
   plugins: {
     'unused-imports': unusedimports
@@ -152,5 +149,5 @@ export default tseslint.config({
     // Disabled because some solutions run more optimally if you do mutate the inputs.  This will trigger even if you
     // reassign a field in an object, which makes it more convenient if turned off.
     'no-param-reassign': 'off'
-  },
+  }
 });
