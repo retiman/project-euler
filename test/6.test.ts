@@ -1,4 +1,4 @@
-import { compute } from '../src/6';
+import compute from '../src/6';
 
 describe('sum square difference', () => {
   test('problem 6', async () => {
