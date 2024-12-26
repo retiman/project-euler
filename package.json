@@ -29,13 +29,13 @@
     "test": "test"
   },
   "dependencies": {
-    "@datastructures-js/priority-queue": "5.4.0",
-    "lodash": "^4.17.13"
+    "@datastructures-js/priority-queue": "6.3.1",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "@tsconfig/recommended": "^1.0.1",
-    "@types/jest": "^27.5.1",
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.13",
     "@types/node": "^22.10.2",
     "editorconfig": "^2.0.0",
