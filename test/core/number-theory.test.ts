@@ -1,4 +1,4 @@
-import { countDigits, isPrime, mexpt, mtetration, ord } from '../../src/core/number-theory';
+import { countDigits, isPrime, mtetration, ord } from '../../src/core/number-theory';
 
 describe('number theory', () => {
   test('count digits', async () => {
