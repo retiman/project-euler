@@ -1,11 +1,6 @@
-export function atoi(c: string): number {
-  return parseInt(c, 10 /* radix */);
-}
+import * as fs from 'fs';
+import * as path from 'path';
 
-export function itoa(n: number): string {
-  return String.fromCharCode(48 + n);
-}
-
-export function range(n: number): number[] {
-  return Array.from({ length: n + 1 }, (_, i) => i);
+export function read(file: string): string[] {
+  return fs.readFileSync(path.join('data', file)).toString().trim().split('\n');
 }

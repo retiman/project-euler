@@ -1,11 +1,11 @@
-import _ from 'lodash';
+import { range } from 'lodash';
 
 // See https://projecteuler.net/problem=1
 describe('multiples of 3 or 5', () => {
   function compute(limit: number) {
-    return _.range(limit)
-      .filter(n => n % 3 === 0 || n % 5 === 0)
-      .reduce((sum, n) => sum + n, 0);
+    return range(limit)
+      .filter(_ => _ % 3 === 0 || _ % 5 === 0)
+      .reduce((acc, _) => acc + _, 0);
   }
 
   test('problem 1', async () => {

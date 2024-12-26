@@ -1,12 +1,11 @@
-import _ from 'lodash';
 import { primes } from '../src/primes';
 
 // See https://projecteuler.net/problem=10
 describe('summation of primes', () => {
   function compute(limit: number) {
     return primes()
-      .filter(p => p < limit)
-      .reduce((sum, p) => sum + p, 0);
+      .filter(_ => _ < limit)
+      .reduce((sum, _) => sum + _, 0);
   }
 
   test('problem 10', async () => {
