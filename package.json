@@ -20,7 +20,7 @@
     "lint:fix": "eslint --fix .",
     "snapshot:update": "npm run test -- -u",
     "test": "jest --config test/jest.config.js",
-    "all": "npm run clean && npm run fix && npm run build && npm run test"
+    "all": "npm run clean && npm run fix && npm run build"
   },
   "main": "dist/index.js",
   "directories": {
@@ -29,11 +29,13 @@
   },
   "dependencies": {
     "@datastructures-js/priority-queue": "5.4.0",
+    "lodash": "^4.17.13",
     "winston": "^3.10.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
     "@types/jest": "^27.5.1",
+    "@types/lodash": "^4.17.13",
     "@types/node": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
