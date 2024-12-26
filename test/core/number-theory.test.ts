@@ -9,7 +9,6 @@ import {
   ord,
   primeFactors,
   sigma,
-  tau,
   totient
 } from '../../src/core/number-theory';
 
@@ -82,13 +81,6 @@ describe('number theory', () => {
     expect(sigma(2)).toBe(3);
     expect(sigma(15)).toBe(24);
     expect(sigma(2015)).toBe(2688);
-  });
-
-  test('tau', async () => {
-    expect(tau(1)).toBe(1);
-    expect(tau(2)).toBe(2);
-    expect(tau(15)).toBe(4);
-    expect(tau(2015)).toBe(8);
   });
 
   test('totient', async () => {

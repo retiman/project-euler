@@ -1,4 +1,4 @@
-import { compute } from '../src/12';
+import compute from '../src/12';
 
 describe('highly divisible triangular number', () => {
   test('problem 12', async () => {
