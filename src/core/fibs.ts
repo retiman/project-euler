@@ -2,7 +2,15 @@
 //
 // @remarks
 // Uses an iterative algorithm, does not memoize the results, and is not suitable for generating them.
-export function fibs(limit: number): number[] {
+export default function fibs(limit: number): number[] {
+  if (limit < 1) {
+    return [];
+  }
+
+  if (limit === 1) {
+    return [0];
+  }
+
   const fibs: number[] = [0, 1];
 
   while (true) {
