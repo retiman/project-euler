@@ -1,4 +1,4 @@
-import { primes } from './core/number-theory';
+import primes from './core/primes';
 
 // Computes the nth prime number.
 //

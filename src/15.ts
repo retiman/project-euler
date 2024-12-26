@@ -1,4 +1,4 @@
-import { factorial } from './core/number-theory';
+import factorial from './core/factorial';
 
 // Computes the number of routes from the upper left to the bottom right of a lattice grid.
 //

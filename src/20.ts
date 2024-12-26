@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { factorial } from './core/number-theory';
+import factorial from './core/factorial';
 
 // See https://projecteuler.net/problem=20
 export function compute(limit: number) {
