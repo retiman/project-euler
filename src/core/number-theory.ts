@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { range, toNumber } from 'lodash';
+import fs from 'fs';
+import path from 'path';
+import _ from 'lodash';
 
 const cache = {
   divisors: new Map<number, number[]>(),
@@ -48,7 +48,7 @@ export function factorial(n: number): number {
     return 1;
   }
 
-  return range(2, n + 1).reduce((acc, _) => acc * _, 1);
+  return _.range(2, n + 1).reduce((a, b) => a * b, 1);
 }
 
 export function factorion(n: number): boolean {
@@ -79,12 +79,12 @@ export function fibs(limit: number): number[] {
   return fibs;
 }
 
-export function gcd(a: number, b: number): number {
-  while (b !== 0) {
-    [a, b] = [b, a % b];
+export function gcd(m: number, n: number): number {
+  while (n !== 0) {
+    [m, n] = [n, m % n];
   }
 
-  return a;
+  return m;
 }
 
 export function isCoprime(m: number, n: number): boolean {
@@ -185,7 +185,7 @@ export function ord(b: number, m: number): number {
 }
 
 export function primes(): number[] {
-  return fs.readFileSync(path.join('data', 'primes.txt')).toString().split('\n').map(toNumber);
+  return fs.readFileSync(path.join('data', 'primes.txt')).toString().split('\n').map(_.toNumber);
 }
 
 export function primeFactors(n: number): number[] {
@@ -207,7 +207,7 @@ export function primeFactors(n: number): number[] {
 }
 
 export function sigma(n: number): number {
-  return divisors(n).reduce((acc, _) => acc + _, 0);
+  return divisors(n).reduce((a, b) => a + b, 0);
 }
 
 export function tau(n: number): number {
@@ -226,7 +226,7 @@ export function totient(n: number): number {
   const phi = Math.floor(
     primeFactors(n)
       .map(p => 1 - 1 / p)
-      .reduce((acc, _) => acc * _, n)
+      .reduce((a, b) => a * b, n)
   );
 
   cache.totient.set(n, phi);

@@ -1,9 +1,10 @@
-import { range } from 'lodash';
+import _ from 'lodash';
 
+// See https://projecteuler.net/problem=6
 export function compute(limit: number) {
-  const a = range(limit + 1)
-    .map(_ => _ ** 2)
-    .reduce((acc, _) => acc + _, 0);
-  const b = range(limit + 1).reduce((acc, _) => acc + _, 0) ** 2;
+  const a = _.range(limit + 1)
+    .map(n => n ** 2)
+    .reduce((a, b) => a + b, 0);
+  const b = _.range(limit + 1).reduce((a, b) => a + b, 0) ** 2;
   return b - a;
 }

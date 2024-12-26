@@ -1,7 +1,8 @@
 import { fibs } from './core/number-theory';
 
+// See https://projecteuler.net/problem=2
 export function compute(limit: number) {
   return fibs(limit)
-    .filter(_ => _ % 2 === 0)
-    .reduce((acc, _) => acc + _, 0);
+    .filter(n => n % 2 === 0)
+    .reduce((a, b) => a + b, 0);
 }

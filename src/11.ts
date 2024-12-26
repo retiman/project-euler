@@ -1,13 +1,13 @@
+import _ from 'lodash';
 import { read } from './core';
-import { toNumber } from 'lodash';
 
 // See https://projecteuler.net/problem=11
 export function compute() {
   const m = read('11.txt').map(line =>
     line
       .split(' ')
-      .map(_ => _.trim())
-      .map(toNumber)
+      .map(s => s.trim())
+      .map(_.toNumber)
   );
 
   const rows = m.length;

@@ -1,6 +1,7 @@
-import * as fs from 'fs';
-import { toNumber } from 'lodash';
+import fs from 'fs';
+import _ from 'lodash';
 
+// See https://projecteuler.net/problem=8
 export function compute(window: number): number {
   const data = fs.readFileSync('data/8.txt', 'utf-8').split('\n').join('');
 
@@ -10,7 +11,7 @@ export function compute(window: number): number {
 
   // Create the initial window and update the product.
   for (let i = 0; i < window; i++) {
-    const digit = toNumber(data[i]);
+    const digit = _.toNumber(data[i]);
     if (digit === 0) {
       zeroes++;
       continue;
@@ -25,8 +26,8 @@ export function compute(window: number): number {
 
   // Slide the window through the rest of the data
   for (let i = window; i < data.length; i++) {
-    const incoming = toNumber(data[i]);
-    const outgoing = toNumber(data[i - window]);
+    const incoming = _.toNumber(data[i]);
+    const outgoing = _.toNumber(data[i - window]);
 
     // Multiply the product by the incoming digit.
     if (incoming !== 0) {

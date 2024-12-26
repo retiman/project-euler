@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as process from 'process';
+import fs from 'fs';
+import path from 'path';
+import process from 'process';
 
 function sieve(n) {
   const primes = new Array(n + 1).fill(true);

@@ -1,6 +1,6 @@
 import { tau } from './core/number-theory';
 
-// See https://projecteuler.net/problem=11
+// See https://projecteuler.net/problem=12
 export function compute(limit: number): number {
   let n = 0;
   let i = 1;

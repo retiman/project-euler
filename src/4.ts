@@ -1,9 +1,11 @@
 import { toString } from 'lodash';
 
+// See https://projecteuler.net/problem=4
 export function compute() {
   let max = 0;
 
-  // Search backwards from 1000 because we want to find the max palindrome.
+  // To speed up the search, we can limit the search space and search backwards.  We want to find the largest
+  // palindrome, so we start with the largest numbers first.
   for (let i = 999; i > 99; i--) {
     for (let j = 999; j > 99; j--) {
       const n = i * j;

@@ -1,3 +1,4 @@
+// See https://projecteuler.net/problem=9
 export function compute(limit: number) {
   let result = 0;
 
