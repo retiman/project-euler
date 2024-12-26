@@ -1,4 +1,4 @@
-import { compute } from '../src/9';
+import compute from '../src/9';
 
 describe('special pythagorean triplet', () => {
   test('problem 9', async () => {
