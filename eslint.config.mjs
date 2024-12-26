@@ -1,9 +1,9 @@
 import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import unusedimports from 'eslint-plugin-unused-imports';
+import tselint from 'typescript-eslint';
+import uimports from 'eslint-plugin-unused-imports';
 
-export default tseslint.config({
-  extends: [eslint.configs.recommended, tseslint.configs.recommended],
+export default tselint.config({
+  extends: [eslint.configs.recommended, tselint.configs.recommended],
   files: ['**/*.ts'],
   languageOptions: {
     parserOptions: {
@@ -14,7 +14,7 @@ export default tseslint.config({
     }
   },
   plugins: {
-    'unused-imports': unusedimports
+    'unused-imports': uimports
   },
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
