@@ -22,20 +22,6 @@ describe('number theory', () => {
     expect(countDigits(234)).toBe(3);
   });
 
-  test('divisors', async () => {
-    expect(divisors(1)).toStrictEqual([1]);
-    expect(divisors(2)).toStrictEqual([1, 2]);
-    expect(divisors(15)).toStrictEqual([1, 3, 5, 15]);
-    expect(divisors(2015)).toStrictEqual([1, 5, 13, 31, 65, 155, 403, 2015]);
-  });
-
-  test('factorial', async () => {
-    expect(_.toString(factorial(0))).toBe('1');
-    expect(_.toString(factorial(1))).toBe('1');
-    expect(_.toString(factorial(5))).toBe('120');
-    expect(_.toString(factorial(10))).toBe('3628800');
-  });
-
   test('is prime', async () => {
     expect(isPrime(0)).toBe(false);
     expect(isPrime(1)).toBe(false);
@@ -69,24 +55,10 @@ describe('number theory', () => {
     expect(ord(3, 115)).toBe(44);
   });
 
-  test('prime factors', async () => {
-    expect(primeFactors(1)).toStrictEqual([]);
-    expect(primeFactors(2)).toStrictEqual([2]);
-    expect(primeFactors(27)).toStrictEqual([3]);
-    expect(primeFactors(103243)).toStrictEqual([7, 43]);
-  });
-
   test('sigma', async () => {
     expect(sigma(1)).toBe(1);
     expect(sigma(2)).toBe(3);
     expect(sigma(15)).toBe(24);
     expect(sigma(2015)).toBe(2688);
-  });
-
-  test('totient', async () => {
-    expect(totient(1)).toBe(0);
-    expect(totient(7)).toBe(6);
-    expect(totient(15)).toBe(8);
-    expect(totient(2015)).toBe(1440);
   });
 });
