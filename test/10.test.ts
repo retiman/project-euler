@@ -1,4 +1,4 @@
-import { compute } from '../src/10';
+import compute from '../src/10';
 
 describe('summation of primes', () => {
   test('problem 10', async () => {
