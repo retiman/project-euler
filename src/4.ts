@@ -1,7 +1,9 @@
-import { toString } from 'lodash';
+import _ from 'lodash';
 
+// Finds the largest palindrome made from the product of two 3-digit numbers.
+//
 // See https://projecteuler.net/problem=4
-export function compute() {
+export default function compute() {
   let max = 0;
 
   // To speed up the search, we can limit the search space and search backwards.  We want to find the largest
@@ -19,6 +21,6 @@ export function compute() {
 }
 
 function isPalindrome(n: number) {
-  const s = toString(n);
+  const s = _.toString(n);
   return s === s.split('').reverse().join('');
 }

@@ -1,8 +1,8 @@
-import { primeFactors } from './core/number-theory';
+import primeFactors from './core/prime-factors';
 
 // Computes the largest prime factor of a given number.
 //
 // See https://projecteuler.net/problem=3
-export function compute(n: number) {
+export default function compute(n: number) {
   return Math.max(...primeFactors(n));
 }

@@ -1,4 +1,4 @@
-import { compute } from '../src/3';
+import compute from '../src/3';
 
 describe('largest prime factor', () => {
   test('problem 3', async () => {

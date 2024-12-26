@@ -1,4 +1,4 @@
-import { compute } from '../src/2';
+import compute from '../src/2';
 
 describe('even fibonacci numbers', () => {
   test('problem 2', async () => {
