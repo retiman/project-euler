@@ -4,10 +4,6 @@
 
 These are solutions to [Project Euler](https://projecteuler.net/) problems.  It's easy to find solutions on the net, so if you don't want to spoil the fun, don't look at these.
 
-The [solutions](http://retiman.github.io/project-euler/) are organized by language; you'll have to download a Docker image to run the solutions in a container.  Most languages have official images, but some do not.  For those that do not, I have published Docker images for them.
-
-Feel free to do WHATEVER with the code; I've added a license so anybody can go wild with it.
-
 ## Usage
 
 1. Install [Docker](https://docs.docker.com/engine/install/).
