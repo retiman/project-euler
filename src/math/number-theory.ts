@@ -1,7 +1,7 @@
 import { range } from 'lodash';
 
 const cache = {
-  divisors: new Map<number, Set<number>>(),
+  divisors: new Map<number, number[]>(),
   ord: new Map<string, number>(),
   primeFactors: new Map<number, number[]>(),
   totient: new Map<number, number>()
@@ -15,7 +15,7 @@ export function countDigits(n: number): number {
   return Math.floor(Math.log10(Math.abs(n))) + 1;
 }
 
-export function divisors(n: number): Set<number> {
+export function divisors(n: number): number[] {
   if (cache.divisors.has(n)) {
     return cache.divisors.get(n)!;
   }
@@ -30,8 +30,11 @@ export function divisors(n: number): Set<number> {
     }
   }
 
-  cache.divisors.set(n, ds);
-  return ds;
+  const result = Array.from(ds);
+  result.sort((a, b) => a - b);
+
+  cache.divisors.set(n, result);
+  return result;
 }
 
 export function factorial(n: number): number {
@@ -84,7 +87,7 @@ export function isPrime(n: number): boolean {
     return true;
   }
 
-  return divisors(n).size === 2;
+  return divisors(n).length === 2;
 }
 
 export function mexpt(b: number, e: number, m: number): number {
@@ -148,9 +151,8 @@ export function ord(b: number, m: number): number {
   }
 
   const phi = totient(m);
-  const ds = Array.from(divisors(phi));
+  const ds = divisors(phi);
 
-  ds.sort((a, b) => a - b);
   for (const d of ds) {
     if (mexpt(b, d, m) === 1) {
       cache.ord.set(key, d);
@@ -170,7 +172,7 @@ export function primeFactors(n: number): number[] {
   const primes: number[] = [];
 
   for (const d of ds) {
-    if (d > 1 && divisors(d).size === 2) {
+    if (d > 1 && divisors(d).length === 2) {
       primes.push(d);
     }
   }
@@ -180,11 +182,11 @@ export function primeFactors(n: number): number[] {
 }
 
 export function sigma(n: number): number {
-  return Array.from(divisors(n)).reduce((acc, _) => acc + _, 0);
+  return divisors(n).reduce((acc, _) => acc + _, 0);
 }
 
 export function tau(n: number): number {
-  return divisors(n).size;
+  return divisors(n).length;
 }
 
 export function totient(n: number): number {
@@ -196,13 +198,11 @@ export function totient(n: number): number {
     return 0;
   }
 
-  let phi = n;
-  const ps = primeFactors(n);
-  for (const p of ps) {
-    phi *= 1 - 1 / p;
-  }
-
-  phi = Math.floor(phi);
+  const phi = Math.floor(
+    primeFactors(n)
+      .map(p => 1 - 1 / p)
+      .reduce((acc, _) => acc * _, n)
+  );
 
   cache.totient.set(n, phi);
   return phi;
