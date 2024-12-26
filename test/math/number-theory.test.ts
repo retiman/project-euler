@@ -109,10 +109,10 @@ describe('number theory', () => {
   });
 
   test('prime factors', async () => {
-    expect(primeFactors(1)).toStrictEqual(new Set());
-    expect(primeFactors(2)).toStrictEqual(new Set([2]));
-    expect(primeFactors(27)).toStrictEqual(new Set([3]));
-    expect(primeFactors(103243)).toStrictEqual(new Set([7, 43]));
+    expect(primeFactors(1)).toStrictEqual([]);
+    expect(primeFactors(2)).toStrictEqual([2]);
+    expect(primeFactors(27)).toStrictEqual([3]);
+    expect(primeFactors(103243)).toStrictEqual([7, 43]);
   });
 
   test('sigma', async () => {

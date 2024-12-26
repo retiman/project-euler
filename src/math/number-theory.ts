@@ -3,7 +3,7 @@ import { range } from 'lodash';
 const cache = {
   divisors: new Map<number, Set<number>>(),
   ord: new Map<string, number>(),
-  primeFactors: new Map<number, Set<number>>(),
+  primeFactors: new Map<number, number[]>(),
   totient: new Map<number, number>()
 };
 
@@ -161,17 +161,17 @@ export function ord(b: number, m: number): number {
   throw new Error('could not compute ord(b, m)');
 }
 
-export function primeFactors(n: number): Set<number> {
+export function primeFactors(n: number): number[] {
   if (cache.primeFactors.has(n)) {
     return cache.primeFactors.get(n)!;
   }
 
   const ds = divisors(n);
-  const primes = new Set<number>();
+  const primes: number[] = [];
 
   for (const d of ds) {
     if (d > 1 && divisors(d).size === 2) {
-      primes.add(d);
+      primes.push(d);
     }
   }
 
