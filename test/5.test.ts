@@ -1,4 +1,4 @@
-import { compute } from '../src/5';
+import compute from '../src/5';
 
 describe('smallest multiple', () => {
   test('problem 5', async () => {

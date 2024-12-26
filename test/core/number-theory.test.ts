@@ -3,9 +3,7 @@ import {
   countDigits,
   divisors,
   factorial,
-  gcd,
   isPrime,
-  lcm,
   mexpt,
   mtetration,
   ord,
@@ -39,29 +37,12 @@ describe('number theory', () => {
     expect(_.toString(factorial(10))).toBe('3628800');
   });
 
-  test('gcd', async () => {
-    expect(gcd(48, 18)).toBe(6);
-    expect(gcd(101, 103)).toBe(1);
-    expect(gcd(56, 98)).toBe(14);
-    expect(gcd(270, 192)).toBe(6);
-    expect(gcd(0, 5)).toBe(5);
-    expect(gcd(5, 0)).toBe(5);
-    expect(gcd(0, 0)).toBe(0);
-    expect(gcd(3, 20)).toBe(1);
-    expect(gcd(3, 345)).toBe(3);
-    expect(gcd(3, 115)).toBe(1);
-  });
-
   test('is prime', async () => {
     expect(isPrime(0)).toBe(false);
     expect(isPrime(1)).toBe(false);
     expect(isPrime(2)).toBe(true);
     expect(isPrime(4)).toBe(false);
     expect(isPrime(71)).toBe(true);
-  });
-
-  test('lcm', async () => {
-    expect(lcm(12, 18)).toBe(36);
   });
 
   test('modular exponentiation', async () => {
