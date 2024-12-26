@@ -1,4 +1,6 @@
-import { range } from 'lodash';
+import * as fs from 'fs';
+import * as path from 'path';
+import { range, toNumber } from 'lodash';
 
 const cache = {
   divisors: new Map<number, number[]>(),
@@ -161,6 +163,10 @@ export function ord(b: number, m: number): number {
   }
 
   throw new Error('could not compute ord(b, m)');
+}
+
+export function primes(): number[] {
+  return fs.readFileSync(path.join('data', 'primes.txt')).toString().split('\n').map(toNumber);
 }
 
 export function primeFactors(n: number): number[] {

@@ -14,7 +14,7 @@ import {
   sigma,
   tau,
   totient
-} from '../../src/math/number-theory';
+} from '../../src/core/number-theory';
 
 describe('number theory', () => {
   test('count digits', async () => {
