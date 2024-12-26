@@ -1,6 +1,27 @@
 import { read } from './core';
 import { toNumber } from 'lodash';
 
+// See https://projecteuler.net/problem=11
+export function compute() {
+  const m = read('11.txt').map(line =>
+    line
+      .split(' ')
+      .map(_ => _.trim())
+      .map(toNumber)
+  );
+
+  const rows = m.length;
+  const columns = m[0].length;
+  let result = 0;
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      result = Math.max(result, right(m, i, j), up(m, i, j), upRight(m, i, j), downRight(m, i, j));
+    }
+  }
+
+  return result;
+}
+
 function product(m: number[][], i: number, j: number, di: number, dj: number): number {
   try {
     let p = 1;
@@ -29,24 +50,4 @@ function upRight(m: number[][], i: number, j: number): number {
 
 function downRight(m: number[][], i: number, j: number): number {
   return product(m, i, j, 1, 1);
-}
-
-export function compute() {
-  const m = read('11.txt').map(line =>
-    line
-      .split(' ')
-      .map(_ => _.trim())
-      .map(toNumber)
-  );
-
-  const rows = m.length;
-  const columns = m[0].length;
-  let result = 0;
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < columns; j++) {
-      result = Math.max(result, right(m, i, j), up(m, i, j), upRight(m, i, j), downRight(m, i, j));
-    }
-  }
-
-  return result;
 }
