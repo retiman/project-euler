@@ -1,4 +1,4 @@
-import { factorial } from "./core/number-theory";
+import { factorial } from './core/number-theory';
 
 // Starting at the upper left, one must move down exactly 20 times, and right
 // exactly 20 times in order to reach the bottom right. Represent the downward
