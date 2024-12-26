@@ -5,7 +5,7 @@ import unusedimports from 'eslint-plugin-unused-imports';
 export default tseslint.config({
   extends: [eslint.configs.recommended, tseslint.configs.recommended],
   files: ['**/*.ts'],
-  ignores: ['build/**/*', 'dist/**/*', 'node_modules/**/*', '.eslintrc.js', '.prettierrc.js'],
+  ignores: ['build/**/*', 'dist/**/*', 'node_modules/**/*'],
   languageOptions: {
     parserOptions: {
       project: './tsconfig.json',
