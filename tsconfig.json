@@ -1,0 +1,37 @@
+{
+  // See https://github.com/tsconfig/bases/blob/main/bases/recommended.json
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    // This will enable resolution of non-relative imports allowing you to reference modules from a consistent context
+    // (the repository root).  The documentation states it's only designed for use in specific contexts in the browser,
+    // and not recommended any other context.
+    //
+    // Specifically, problems arise when consuming a library that uses non-relative imports; all the context is lost the
+    // imports would point to locations that don't exist.
+    //
+    // See https://www.typescriptlang.org/tsconfig#baseUrl
+    // See https://github.com/microsoft/TypeScript/issues/16640
+    // See https://stackoverflow.com/questions/56949487/how-to-have-absolute-import-paths-in-a-library-project
+    // "baseUrl": "."
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES6",
+    "typeRoots": ["node_modules/@types"],
+    "types": ["jest", "node"]
+  },
+  // For some reason, @typescript-eslint/parser will check the files you ask to lint against files included in the
+  // project here.  Why does it do that?  I don't know.  However, if you want source files linted, they must appear
+  // here.
+  //
+  // This only applies to TypeScript/JavaScript files, so there is no need to list everything.
+  //
+  // See https://stackoverflow.com/questions/61956555/why-is-typescript-eslint-parser-including-files-outside-of-those-configured-in
+  // See https://www.typescriptlang.org/tsconfig#include
+  "include": ["script", "src", "test", ".eslintrc.js", ".prettierrc.js"],
+}
