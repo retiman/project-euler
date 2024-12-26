@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export function compute() {
   // Days per month, considering February as 28 days
   const daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -27,8 +26,4 @@ export function compute() {
   }
 
   return result;
-=======
-export function compute(limit: number) {
-  return 0;
->>>>>>> 4932320493099dbcfd39926deadfd721d6e9f063
 }

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
   countDigits,
   divisors,
@@ -32,10 +33,10 @@ describe('number theory', () => {
   });
 
   test('factorial', async () => {
-    expect(factorial(0)).toBe(1);
-    expect(factorial(1)).toBe(1);
-    expect(factorial(5)).toBe(120);
-    expect(factorial(10)).toBe(3628800);
+    expect(_.toString(factorial(0))).toBe('1');
+    expect(_.toString(factorial(1))).toBe('1');
+    expect(_.toString(factorial(5))).toBe('120');
+    expect(_.toString(factorial(10))).toBe('3628800');
   });
 
   test('gcd', async () => {
