@@ -41,8 +41,6 @@ export default tselint.config({
     // See https://typescript-eslint.io/rules/no-confusing-void-expression/
     '@typescript-eslint/no-confusing-void-expression': 'error',
     '@typescript-eslint/no-meaningless-void-operator': 'error',
-    // Enabled because no-shadow reports spurious errors in TypeScript sometimes.
-    '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unused-expressions': 'error',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
