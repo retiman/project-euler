@@ -16,23 +16,23 @@ export function divisors(n: number): Set<number> {
     return divisorsCache.get(n)!;
   }
 
-  const result = new Set<number>();
-  const sqrt = Math.floor(Math.sqrt(n));
+  const ds = new Set<number>();
+  const t = Math.floor(Math.sqrt(n));
 
-  for (let i = 1; i <= sqrt; i++) {
+  for (let i = 1; i <= t; i++) {
     if (n % i === 0) {
-      result.add(i);
-      result.add(n / i);
+      ds.add(i);
+      ds.add(n / i);
     }
   }
 
-  divisorsCache.set(n, result);
-  return result;
+  divisorsCache.set(n, ds);
+  return ds;
 }
 
 export function factorial(n: number): number {
   if (n < 0) {
-    throw new Error();
+    throw new Error('n must be non-negative');
   }
 
   let result = 1;
@@ -133,20 +133,27 @@ export function mtetn(b: number, e: number, m: number): number {
   return g(b, e, m, d);
 }
 
-export function ord(base: number, mod: number): number {
-  if (ordCache.has(base)) {
-    return ordCache.get(base)!;
+export function ord(b: number, m: number): number {
+  if (!isCoprime(b, m)) {
+    throw new Error('b and m must be coprime');
   }
 
-  let result = 1;
-  let value = base % mod;
-  while (value !== 1) {
-    value = (value * base) % mod;
-    result++;
+  if (ordCache.has(b)) {
+    return ordCache.get(b)!;
   }
 
-  ordCache.set(base, result);
-  return result;
+  const phi = totient(m);
+  const ds = Array.from(divisors(phi));
+
+  ds.sort((a, b) => a - b);
+  for (const d of ds) {
+    if (mexpt(b, d, m) === 1) {
+      ordCache.set(b, d);
+      return d;
+    }
+  }
+
+  throw new Error('could not compute ord(b, m)');
 }
 
 export function primeFactors(n: number): Set<number> {
