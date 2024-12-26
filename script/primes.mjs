@@ -2,6 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 
+// Implements of the Sieve of Eratosthenes algorithm up to a given limit.
+//
+// @remarks
+// Writes the primes to a file for use in other problems.
+//
+// See {@link https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}.
 function sieve(n) {
   const primes = new Array(n + 1).fill(true);
   primes[0] = primes[1] = false;
