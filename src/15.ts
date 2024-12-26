@@ -10,6 +10,7 @@ import { factorial } from './core/number-theory';
 // multinomial coefficient.
 //
 // See https://en.wikipedia.org/wiki/Permutation#Permutations_of_multisets
+// See https://projecteuler.net/problem=15
 export function compute(a: number, b: number) {
   const n = factorial(a + b);
   const d = factorial(a) * factorial(b);

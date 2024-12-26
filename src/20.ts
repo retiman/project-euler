@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { factorial } from './core/number-theory';
 
+// See https://projecteuler.net/problem=20
 export function compute(limit: number) {
   const text = _.toString(factorial(limit));
 

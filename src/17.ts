@@ -1,3 +1,4 @@
+// See https://projecteuler.net/problem=17
 export function compute() {
   const map = new Map<number, string>([
     [1, 'one'],

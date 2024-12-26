@@ -1,3 +1,4 @@
+// See https://projecteuler.net/problem=18
 export function compute() {
   const input = `
   75
