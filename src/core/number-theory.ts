@@ -62,21 +62,6 @@ export function factorial(n: number): bigint {
   return product;
 }
 
-export function fibs(limit: number): number[] {
-  const fibs: number[] = [0, 1];
-
-  while (true) {
-    const next = fibs[fibs.length - 1] + fibs[fibs.length - 2];
-    if (next >= limit) {
-      break;
-    }
-
-    fibs.push(next);
-  }
-
-  return fibs;
-}
-
 export function gcd(m: number, n: number): number {
   while (n !== 0) {
     [m, n] = [n, m % n];

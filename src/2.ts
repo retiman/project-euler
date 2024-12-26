@@ -1,4 +1,4 @@
-import { fibs } from './core/number-theory';
+import { fibs } from './core/fibs';
 
 // Computes the sum of all the even Fibonacci numbers below the given limit.
 //
