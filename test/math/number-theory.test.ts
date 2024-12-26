@@ -8,6 +8,7 @@ import {
   isDivides,
   isPrime,
   mexpt,
+  mtetration,
   ord,
   primeFactors,
   sigma,
@@ -61,6 +62,9 @@ describe('number theory', () => {
     expect(gcd(0, 5)).toBe(5);
     expect(gcd(5, 0)).toBe(5);
     expect(gcd(0, 0)).toBe(0);
+    expect(gcd(3, 20)).toBe(1);
+    expect(gcd(3, 345)).toBe(3);
+    expect(gcd(3, 115)).toBe(1);
   });
 
   test('is coprime', async () => {
@@ -86,22 +90,22 @@ describe('number theory', () => {
     expect(mexpt(4, 13, 497)).toBe(445);
   });
 
-  /*
   test('modular tetration', async () => {
-    expect(mtetn(3, 1, 2)).toBe(3 ** 1 % 2);
-    expect(mtetn(3, 2, 20)).toBe(3 ** 3 % 20);
-    expect(mtetn(3, 3, 345)).toBe(312);
-    expect(mtetn(5, 2, 7)).toBe(4);
-    expect(mtetn(7, 4, 13)).toBe(9);
-    expect(mtetn(10, 2, 6)).toBe(4);
+    expect(mtetration(3, 1, 2)).toBe(3 ** 1 % 2);
+    expect(mtetration(3, 2, 20)).toBe(3 ** 3 % 20);
+    expect(mtetration(3, 3, 345)).toBe(312);
+    expect(mtetration(5, 2, 7)).toBe(5 ** 5 % 7);
+    expect(mtetration(7, 4, 13)).toBe(6);
+    expect(mtetration(10, 2, 6)).toBe(10 ** 10 % 6);
   });
-  */
 
   test('order modulo m', async () => {
     expect(ord(4, 7)).toBe(3);
     expect(ord(10, 7)).toBe(6);
     expect(ord(5, 3)).toBe(2);
     expect(ord(13, 7)).toBe(2);
+    expect(ord(3, 20)).toBe(4);
+    expect(ord(3, 115)).toBe(44);
   });
 
   test('prime factors', async () => {

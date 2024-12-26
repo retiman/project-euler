@@ -1,7 +1,11 @@
-const divisorsCache = new Map<number, Set<number>>();
-const ordCache = new Map<number, number>();
-const primeFactorsCache = new Map<number, Set<number>>();
-const totientCache = new Map<number, number>();
+import { range } from 'lodash';
+
+const cache = {
+  divisors: new Map<number, Set<number>>(),
+  ord: new Map<string, number>(),
+  primeFactors: new Map<number, Set<number>>(),
+  totient: new Map<number, number>()
+};
 
 export function countDigits(n: number): number {
   if (n === 0) {
@@ -12,8 +16,8 @@ export function countDigits(n: number): number {
 }
 
 export function divisors(n: number): Set<number> {
-  if (divisorsCache.has(n)) {
-    return divisorsCache.get(n)!;
+  if (cache.divisors.has(n)) {
+    return cache.divisors.get(n)!;
   }
 
   const ds = new Set<number>();
@@ -26,7 +30,7 @@ export function divisors(n: number): Set<number> {
     }
   }
 
-  divisorsCache.set(n, ds);
+  cache.divisors.set(n, ds);
   return ds;
 }
 
@@ -35,12 +39,11 @@ export function factorial(n: number): number {
     throw new Error('n must be non-negative');
   }
 
-  let result = 1;
-  for (let i = 2; i <= n; i++) {
-    result *= i;
+  if (n === 0 || n === 1) {
+    return 1;
   }
 
-  return result;
+  return range(2, n + 1).reduce((acc, _) => acc * _, 1);
 }
 
 export function factorion(n: number): boolean {
@@ -60,6 +63,7 @@ export function gcd(a: number, b: number): number {
   while (b !== 0) {
     [a, b] = [b, a % b];
   }
+
   return a;
 }
 
@@ -98,22 +102,21 @@ export function mexpt(b: number, e: number, m: number): number {
   return a;
 }
 
-export function mtetn(b: number, e: number, m: number): number {
+export function mtetration(b: number, e: number, m: number): number {
   function f(b: number, e: number, m: number): number {
     const o = ord(b, m);
-    const t = mtetn(b, e - 1, o);
+    const t = mtetration(b, e - 1, o);
     return mexpt(b, t, m);
   }
 
   function g(b: number, e: number, m: number, d: number): number {
     const n = Math.floor(m / d);
-    const t = mtetn(b, e, n);
+    const t = mtetration(b, e, n);
     const i = mexpt(b, totient(n) - 1, n);
     const u = (t * i) % n;
     return (b * u) % m;
   }
 
-  const d = gcd(b, m);
   if (m === 1) {
     return 0;
   }
@@ -122,6 +125,7 @@ export function mtetn(b: number, e: number, m: number): number {
     return b % m;
   }
 
+  const d = gcd(b, m);
   if (d === 1) {
     return f(b, e, m);
   }
@@ -138,8 +142,9 @@ export function ord(b: number, m: number): number {
     throw new Error('b and m must be coprime');
   }
 
-  if (ordCache.has(b)) {
-    return ordCache.get(b)!;
+  const key = `${b},${m}`;
+  if (cache.ord.has(key)) {
+    return cache.ord.get(key)!;
   }
 
   const phi = totient(m);
@@ -148,7 +153,7 @@ export function ord(b: number, m: number): number {
   ds.sort((a, b) => a - b);
   for (const d of ds) {
     if (mexpt(b, d, m) === 1) {
-      ordCache.set(b, d);
+      cache.ord.set(key, d);
       return d;
     }
   }
@@ -157,8 +162,8 @@ export function ord(b: number, m: number): number {
 }
 
 export function primeFactors(n: number): Set<number> {
-  if (primeFactorsCache.has(n)) {
-    return primeFactorsCache.get(n)!;
+  if (cache.primeFactors.has(n)) {
+    return cache.primeFactors.get(n)!;
   }
 
   const ds = divisors(n);
@@ -170,7 +175,7 @@ export function primeFactors(n: number): Set<number> {
     }
   }
 
-  primeFactorsCache.set(n, primes);
+  cache.primeFactors.set(n, primes);
   return primes;
 }
 
@@ -183,23 +188,22 @@ export function tau(n: number): number {
 }
 
 export function totient(n: number): number {
-  if (totientCache.has(n)) {
-    return totientCache.get(n)!;
+  if (cache.totient.has(n)) {
+    return cache.totient.get(n)!;
   }
 
   if (n === 1) {
     return 0;
   }
 
-  let result = n;
-  const primes = primeFactors(n);
-
-  for (const p of primes) {
-    result *= 1 - 1 / p;
+  let phi = n;
+  const ps = primeFactors(n);
+  for (const p of ps) {
+    phi *= 1 - 1 / p;
   }
 
-  result = Math.floor(result);
+  phi = Math.floor(phi);
 
-  totientCache.set(n, result);
-  return result;
+  cache.totient.set(n, phi);
+  return phi;
 }
