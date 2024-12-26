@@ -1,4 +1,4 @@
-const fse = require('fs-extra');
+import * as fse from 'fs-extra';
 
 fse.emptyDirSync('build');
 fse.emptyDirSync('dist');
