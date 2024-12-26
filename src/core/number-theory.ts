@@ -107,6 +107,10 @@ export function isPrime(n: number): boolean {
   return divisors(n).length === 2;
 }
 
+export function lcm(m: number, n: number): number {
+  return Math.abs(m * n) / gcd(m, n);
+}
+
 export function mexpt(b: number, e: number, m: number): number {
   let a = 1;
 

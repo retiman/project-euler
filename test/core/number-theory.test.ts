@@ -7,6 +7,7 @@ import {
   isCoprime,
   isDivides,
   isPrime,
+  lcm,
   mexpt,
   mtetration,
   ord,
@@ -81,6 +82,10 @@ describe('number theory', () => {
     expect(isPrime(2)).toBe(true);
     expect(isPrime(4)).toBe(false);
     expect(isPrime(71)).toBe(true);
+  });
+
+  test('lcm', async () => {
+    expect(lcm(12, 18)).toBe(36);
   });
 
   test('modular exponentiation', async () => {
