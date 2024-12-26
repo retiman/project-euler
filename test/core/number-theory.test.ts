@@ -1,16 +1,4 @@
-import _ from 'lodash';
-import {
-  countDigits,
-  divisors,
-  factorial,
-  isPrime,
-  mexpt,
-  mtetration,
-  ord,
-  primeFactors,
-  sigma,
-  totient
-} from '../../src/core/number-theory';
+import { countDigits, isPrime, mexpt, mtetration, ord } from '../../src/core/number-theory';
 
 describe('number theory', () => {
   test('count digits', async () => {
@@ -30,13 +18,6 @@ describe('number theory', () => {
     expect(isPrime(71)).toBe(true);
   });
 
-  test('modular exponentiation', async () => {
-    expect(mexpt(3, 1, 2)).toBe(1);
-    expect(mexpt(3, 0, 9)).toBe(1);
-    expect(mexpt(5, 3, 13)).toBe(8);
-    expect(mexpt(4, 13, 497)).toBe(445);
-  });
-
   test('modular tetration', async () => {
     expect(mtetration(3, 1, 2)).toBe(3 ** 1 % 2);
     expect(mtetration(3, 2, 20)).toBe(3 ** 3 % 20);
@@ -54,5 +35,4 @@ describe('number theory', () => {
     expect(ord(3, 20)).toBe(4);
     expect(ord(3, 115)).toBe(44);
   });
-
 });

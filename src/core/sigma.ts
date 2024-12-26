@@ -1,4 +1,4 @@
-import divisors from "./divisors";
+import divisors from './divisors';
 
 // Computes the sum of the divisors of a given number.
 //
