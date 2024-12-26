@@ -1,16 +1,4 @@
 module.exports = {
-  extends: [
-    'airbnb-base',
-    'airbnb-typescript/base',
-    // Disables rules that are handled by prettier already.
-    //
-    // See https://github.com/prettier/eslint-config-prettier
-    'prettier'
-  ],
-  parserOptions: {
-    project: './tsconfig.json'
-  },
-  plugins: ['@typescript-eslint', 'jest', 'unused-imports'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
