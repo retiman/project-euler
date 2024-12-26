@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 const memo = {
   divisors: new Map<number, number[]>(),
-  factorial: new Map<number, number>(),
+  factorial: new Map<number, bigint>(),
   ord: new Map<string, number>(),
   primeFactors: new Map<number, number[]>(),
   totient: new Map<number, number>()
@@ -40,21 +40,21 @@ export function divisors(n: number): number[] {
   return result;
 }
 
-export function factorial(n: number): number {
+export function factorial(n: number): bigint {
   if (n < 0) {
     throw new Error('n must be non-negative');
   }
 
   if (n === 0 || n === 1) {
-    return 1;
+    return 1n;
   }
 
   if (memo.factorial.has(n)) {
     return memo.factorial.get(n)!;
   }
 
-  let product = 2;
-  for (let i = 3; i <= n; i++) {
+  let product = 2n;
+  for (let i = 3n; i <= n; i++) {
     product *= i;
   }
 
