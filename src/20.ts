@@ -1,5 +1,4 @@
-import _ from 'lodash'
-import { factorial } from "./core/number-theory";
+import _ from 'lodash';
 
 export function compute(limit: number) {
   let product = 2n;
