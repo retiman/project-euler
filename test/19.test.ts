@@ -1,4 +1,4 @@
-import { compute } from '../src/19';
+import compute from '../src/19';
 
 describe('counting sundays', () => {
   test('problem 19', async () => {

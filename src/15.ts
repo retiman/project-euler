@@ -12,7 +12,7 @@ import factorial from './core/factorial';
 // multinomial coefficient.
 //
 // See {@link https://en.wikipedia.org/wiki/Permutation#Permutations_of_multisets}.
-// See {@link https://projecteuler.net/problem=15}
+// See {@link https://projecteuler.net/problem=15}.
 export default function compute() {
   const k = factorial(20);
   const n = factorial(20 + 20);

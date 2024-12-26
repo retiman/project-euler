@@ -1,8 +1,10 @@
 import _ from 'lodash';
 import factorial from './core/factorial';
 
-// See https://projecteuler.net/problem=20
-export function compute(limit: number) {
+// Computes the sum of the digits of the factorial of a given number.
+//
+// See {@link https://projecteuler.net/problem=20}.
+export default function compute(limit: number) {
   const text = _.toString(factorial(limit));
 
   let sum = 0;

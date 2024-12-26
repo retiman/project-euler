@@ -1,6 +1,6 @@
 // Compute the product of the Pythagorean triplet for which a + b + c = target.
 //
-// See https://projecteuler.net/problem=9
+// See {@link https://projecteuler.net/problem=9}.
 export default function compute(target: number) {
   let result = 0;
 

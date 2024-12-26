@@ -1,5 +1,7 @@
-// See https://projecteuler.net/problem=17
-export function compute() {
+// Compute the number of letters used to write out the numbers from 1 to 1000.
+//
+// See {@link https://projecteuler.net/problem=17}.
+export default function compute() {
   const map = new Map<number, string>([
     [1, 'one'],
     [2, 'two'],

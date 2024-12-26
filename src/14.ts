@@ -1,6 +1,6 @@
 // Computes the number that produces the longest Collatz chain under a given limit.
 //
-// See https://projecteuler.net/problem=14
+// See {@link https://projecteuler.net/problem=14}.
 export default function compute(limit: number) {
   let max = 0;
   let result = 0;

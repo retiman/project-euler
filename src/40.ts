@@ -1,6 +1,10 @@
 import _ from 'lodash';
 
-// https://projecteuler.net/problem=40
+// Computes the product of the digits of the 1st, 10th, 100th, 1000th, 10000th, 100000th, and 1000000th digits of the
+// Champernowne constant.
+//
+// See {@link https://en.wikipedia.org/wiki/Champernowne_constant}.
+// See {@link https://projecteuler.net/problem=40}.
 export function compute(): number {
   const s = generateChampernowneConstant();
 

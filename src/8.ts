@@ -8,7 +8,7 @@ import slurp from './core/slurp';
 // if a window has any zeroes in it, thet product of that window will be zero.  At each step, we only compute the
 // product if we have no zeroes in the window.
 //
-// See https://projecteuler.net/problem=8
+// See {@link https://projecteuler.net/problem=8}.
 export default function compute(window: number): number {
   const data = slurp('8.txt').split('\n').join('');
 

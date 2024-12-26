@@ -1,5 +1,30 @@
-// See https://projecteuler.net/problem=18
-export function compute() {
+// Compute the maximum total from top to bottom of the triangle below.
+//
+// @remarks
+// Rather than calculating the path sums going down, look at the bottom row and
+// the row above it.
+//
+// For example, assume that the tree has height 4 and that these are the last 2
+// rows:
+//
+//  17 47 82
+// 18 35 87 10
+//
+// At 17, you will never take the left path containing 18, because 35 + 17 is
+// greater. At 47, you will never take the left path for 35, because 47 + 87 is
+// greater, and so on.
+//
+// Therefore, these last 2 rows can be reduced to a single row once the optimal
+// path is taken:
+//
+// 52 134 169
+//
+// Once this reduction is done, compare this newly constructed row to the one
+// above it and perform the same reduction until only one row remains with one
+// value.
+//
+// See {@link https://projecteuler.net/problem=18}.
+export default function compute() {
   const input = `
   75
   95 64
@@ -21,27 +46,6 @@ export function compute() {
     .split('\n')
     .map(row => row.trim().split(' ').map(Number));
 
-  // Rather than calculating the path sums going down, look at the bottom row and
-  // the row above it.
-  //
-  // For example, assume that the tree has height 4 and that these are the last 2
-  // rows:
-  //
-  //  17 47 82
-  // 18 35 87 10
-  //
-  // At 17, you will never take the left path containing 18, because 35 + 17 is
-  // greater. At 47, you will never take the left path for 35, because 47 + 87 is
-  // greater, and so on.
-  //
-  // Therefore, these last 2 rows can be reduced to a single row once the optimal
-  // path is taken:
-  //
-  // 52 134 169
-  //
-  // Once this reduction is done, compare this newly constructed row to the one
-  // above it and perform the same reduction until only one row remains with one
-  // value.
   for (let i = triangle.length - 2; i >= 0; i--) {
     for (let j = 0; j < triangle[i].length; j++) {
       triangle[i][j] += Math.max(triangle[i + 1][j], triangle[i + 1][j + 1]);
