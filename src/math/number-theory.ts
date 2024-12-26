@@ -90,6 +90,7 @@ export function mexpt(b: number, e: number, m: number): number {
     if (e & 1) {
       a = (a * b) % m;
     }
+
     b = (b * b) % m;
     e >>= 1;
   }
@@ -101,7 +102,7 @@ export function mtetn(b: number, e: number, m: number): number {
   function f(b: number, e: number, m: number): number {
     const o = ord(b, m);
     const t = mtetn(b, e - 1, o);
-    return mtetn(b, t, m);
+    return mexpt(b, t, m);
   }
 
   function g(b: number, e: number, m: number, d: number): number {
@@ -113,10 +114,22 @@ export function mtetn(b: number, e: number, m: number): number {
   }
 
   const d = gcd(b, m);
-  if (m === 1) return 0;
-  if (e === 1) return b % m;
-  if (d === 1) return f(b, e, m);
-  if (d === m) return 0;
+  if (m === 1) {
+    return 0;
+  }
+
+  if (e === 1) {
+    return b % m;
+  }
+
+  if (d === 1) {
+    return f(b, e, m);
+  }
+
+  if (d === m) {
+    return 0;
+  }
+
   return g(b, e, m, d);
 }
 
@@ -163,8 +176,8 @@ export function tau(n: number): number {
 }
 
 export function totient(n: number): number {
-  if (ordCache.has(n)) {
-    return ordCache.get(n)!;
+  if (totientCache.has(n)) {
+    return totientCache.get(n)!;
   }
 
   if (n === 1) {
