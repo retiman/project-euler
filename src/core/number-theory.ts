@@ -2,8 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
-const cache = {
+const memo = {
   divisors: new Map<number, number[]>(),
+  factorial: new Map<number, number>(),
   ord: new Map<string, number>(),
   primeFactors: new Map<number, number[]>(),
   totient: new Map<number, number>()
@@ -18,8 +19,8 @@ export function countDigits(n: number): number {
 }
 
 export function divisors(n: number): number[] {
-  if (cache.divisors.has(n)) {
-    return cache.divisors.get(n)!;
+  if (memo.divisors.has(n)) {
+    return memo.divisors.get(n)!;
   }
 
   const ds = new Set<number>();
@@ -35,7 +36,7 @@ export function divisors(n: number): number[] {
   const result = Array.from(ds);
   result.sort((a, b) => a - b);
 
-  cache.divisors.set(n, result);
+  memo.divisors.set(n, result);
   return result;
 }
 
@@ -48,7 +49,14 @@ export function factorial(n: number): number {
     return 1;
   }
 
-  return _.range(2, n + 1).reduce((a, b) => a * b, 1);
+  if (memo.factorial.has(n)) {
+    return memo.factorial.get(n)!;
+  }
+
+  const result = _.range(2, n + 1).reduce((a, b) => a * b, 1);
+
+  memo.factorial.set(n, result);
+  return result;
 }
 
 export function factorion(n: number): boolean {
@@ -167,8 +175,8 @@ export function ord(b: number, m: number): number {
   }
 
   const key = `${b},${m}`;
-  if (cache.ord.has(key)) {
-    return cache.ord.get(key)!;
+  if (memo.ord.has(key)) {
+    return memo.ord.get(key)!;
   }
 
   const phi = totient(m);
@@ -176,7 +184,7 @@ export function ord(b: number, m: number): number {
 
   for (const d of ds) {
     if (mexpt(b, d, m) === 1) {
-      cache.ord.set(key, d);
+      memo.ord.set(key, d);
       return d;
     }
   }
@@ -189,8 +197,8 @@ export function primes(): number[] {
 }
 
 export function primeFactors(n: number): number[] {
-  if (cache.primeFactors.has(n)) {
-    return cache.primeFactors.get(n)!;
+  if (memo.primeFactors.has(n)) {
+    return memo.primeFactors.get(n)!;
   }
 
   const ds = divisors(n);
@@ -202,7 +210,7 @@ export function primeFactors(n: number): number[] {
     }
   }
 
-  cache.primeFactors.set(n, primes);
+  memo.primeFactors.set(n, primes);
   return primes;
 }
 
@@ -215,8 +223,8 @@ export function tau(n: number): number {
 }
 
 export function totient(n: number): number {
-  if (cache.totient.has(n)) {
-    return cache.totient.get(n)!;
+  if (memo.totient.has(n)) {
+    return memo.totient.get(n)!;
   }
 
   if (n === 1) {
@@ -229,6 +237,6 @@ export function totient(n: number): number {
       .reduce((a, b) => a * b, n)
   );
 
-  cache.totient.set(n, phi);
+  memo.totient.set(n, phi);
   return phi;
 }
