@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function compute() {
   const input = `
   75
@@ -47,4 +48,8 @@ export function compute() {
     }
   }
   return triangle[0][0];
+=======
+export function compute(limit: number) {
+  return 0;
+>>>>>>> 4932320493099dbcfd39926deadfd721d6e9f063
 }
