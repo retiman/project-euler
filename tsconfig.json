@@ -14,6 +14,6 @@
     "typeRoots": ["node_modules/@types"],
     "types": ["jest", "node"]
   },
-  "include": ["script", "src", "test", "jest.config.mjs"],
+  "include": ["script", "src", "test"],
   "exclude": ["build", "dist", "node_modules"]
 }

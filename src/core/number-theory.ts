@@ -64,6 +64,21 @@ export function factorion(n: number): boolean {
   return sum === n;
 }
 
+export function fibs(limit: number): number[] {
+  const fibs: number[] = [0, 1];
+
+  while (true) {
+    const next = fibs[fibs.length - 1] + fibs[fibs.length - 2];
+    if (next >= limit) {
+      break;
+    }
+
+    fibs.push(next);
+  }
+
+  return fibs;
+}
+
 export function gcd(a: number, b: number): number {
   while (b !== 0) {
     [a, b] = [b, a % b];
