@@ -2,10 +2,7 @@ import {
   countDigits,
   divisors,
   factorial,
-  factorion,
   gcd,
-  isCoprime,
-  isDivides,
   isPrime,
   lcm,
   mexpt,
@@ -27,13 +24,6 @@ describe('number theory', () => {
     expect(countDigits(234)).toBe(3);
   });
 
-  test('divides', async () => {
-    expect(isDivides(2, 1)).toBe(false);
-    expect(isDivides(1, 2)).toBe(true);
-    expect(isDivides(5, 20)).toBe(true);
-    expect(isDivides(7, 20)).toBe(false);
-  });
-
   test('divisors', async () => {
     expect(divisors(1)).toStrictEqual([1]);
     expect(divisors(2)).toStrictEqual([1, 2]);
@@ -48,13 +38,6 @@ describe('number theory', () => {
     expect(factorial(10)).toBe(3628800);
   });
 
-  test('factorion', async () => {
-    expect(factorion(1)).toBe(true);
-    expect(factorion(2)).toBe(true);
-    expect(factorion(145)).toBe(true);
-    expect(factorion(146)).toBe(false);
-  });
-
   test('gcd', async () => {
     expect(gcd(48, 18)).toBe(6);
     expect(gcd(101, 103)).toBe(1);
@@ -66,14 +49,6 @@ describe('number theory', () => {
     expect(gcd(3, 20)).toBe(1);
     expect(gcd(3, 345)).toBe(3);
     expect(gcd(3, 115)).toBe(1);
-  });
-
-  test('is coprime', async () => {
-    expect(isCoprime(1, 1)).toBe(true);
-    expect(isCoprime(2, 1)).toBe(true);
-    expect(isCoprime(5, 7)).toBe(true);
-    expect(isCoprime(15, 3)).toBe(false);
-    expect(isCoprime(4, 2)).toBe(false);
   });
 
   test('is prime', async () => {

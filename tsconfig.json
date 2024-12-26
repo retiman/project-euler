@@ -10,7 +10,7 @@
     "outDir": "./build",
     "sourceMap": true,
     "strict": true,
-    "target": "ES6",
+    "target": "ES2024",
     "typeRoots": ["node_modules/@types"],
     "types": ["jest", "node"]
   },

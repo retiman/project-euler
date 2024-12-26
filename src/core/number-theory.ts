@@ -53,23 +53,13 @@ export function factorial(n: number): number {
     return memo.factorial.get(n)!;
   }
 
-  const result = _.range(2, n + 1).reduce((a, b) => a * b, 1);
-
-  memo.factorial.set(n, result);
-  return result;
-}
-
-export function factorion(n: number): boolean {
-  let sum = 0;
-  let t = n;
-
-  while (t > 0) {
-    const digit = t % 10;
-    sum += factorial(digit);
-    t = Math.floor(t / 10);
+  let product = 2;
+  for (let i = 3; i <= n; i++) {
+    product *= i;
   }
 
-  return sum === n;
+  memo.factorial.set(n, product);
+  return product;
 }
 
 export function fibs(limit: number): number[] {
@@ -93,14 +83,6 @@ export function gcd(m: number, n: number): number {
   }
 
   return m;
-}
-
-export function isCoprime(m: number, n: number): boolean {
-  return gcd(m, n) === 1;
-}
-
-export function isDivides(m: number, n: number): boolean {
-  return n % m === 0;
 }
 
 export function isPrime(n: number): boolean {
@@ -170,7 +152,7 @@ export function mtetration(b: number, e: number, m: number): number {
 }
 
 export function ord(b: number, m: number): number {
-  if (!isCoprime(b, m)) {
+  if (gcd(b, m) !== 1) {
     throw new Error('b and m must be coprime');
   }
 
