@@ -18,7 +18,7 @@
     "format:fix": "prettier --write .",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "primes": "node script/primes.mjs 1000000",
+    "primes": "node script/primes.mjs 3000000",
     "snapshot:update": "npm run test -- -u",
     "test": "jest --config test/jest.config.js",
     "all": "npm run clean && npm run fix && npm run build"

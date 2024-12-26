@@ -1,5 +1,6 @@
 import _ from 'lodash';
 
+// See https://projecteuler.net/problem=1
 describe('multiples of 3 or 5', () => {
   function compute(limit: number) {
     return _.range(limit)
