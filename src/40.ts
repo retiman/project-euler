@@ -5,7 +5,7 @@ import _ from 'lodash';
 //
 // See {@link https://en.wikipedia.org/wiki/Champernowne_constant}.
 // See {@link https://projecteuler.net/problem=40}.
-export function compute(): number {
+export default function compute(): number {
   const s = generateChampernowneConstant();
 
   let result = 1;
