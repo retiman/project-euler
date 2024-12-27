@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import primes from './core/primes';
 
 // Finds the least value of n for which the remainder described in the problem first exceeds 1e10.
