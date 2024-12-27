@@ -11,3 +11,5 @@ These are solutions to [Project Euler](https://projecteuler.net/) problems.  It'
 1. Run `make <NUMBER>` to run a specific solution.
 
 Some solution explanations on the [GitHub Pages](http://retiman.github.io/project-euler/) for this repository (published from the `docs` directory).
+
+Some solutions are written in Racket.
