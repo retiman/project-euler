@@ -1,3 +1,7 @@
-.vscode/
-report/
-primes.txt
+build/
+coverage/
+dist/
+node_modules/
+
+*.tgz
+.env

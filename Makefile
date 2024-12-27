@@ -1,4 +1,4 @@
-all: primes
+.PHONY: %
 
-primes:
-	$(MAKE) -C solns/racket primes
+%:
+	npm run test -- -t="problem $@"
