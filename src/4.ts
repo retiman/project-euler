@@ -1,8 +1,8 @@
-import _ from 'lodash';
-
 // Finds the largest palindrome made from the product of two 3-digit numbers.
 //
 // See {@link https://projecteuler.net/problem=4}.
+import _ from 'lodash';
+
 export default function compute() {
   let max = 0;
 

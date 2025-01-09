@@ -1,6 +1,3 @@
-import _ from 'lodash';
-import slurp from './core/slurp';
-
 // Compute the largest product of of `window` consecutive digits in the given data.
 //
 // @remarks
@@ -9,6 +6,9 @@ import slurp from './core/slurp';
 // product if we have no zeroes in the window.
 //
 // See {@link https://projecteuler.net/problem=8}.
+import _ from 'lodash';
+import slurp from './core/slurp';
+
 export default function compute(window: number): number {
   const data = slurp('8.txt').split('\n').join('');
 
