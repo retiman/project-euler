@@ -1,5 +1,3 @@
-import factorial from './core/factorial';
-
 // Computes the number of routes from the upper left to the bottom right of a lattice grid.
 //
 // @remarks
@@ -13,6 +11,8 @@ import factorial from './core/factorial';
 //
 // See {@link https://en.wikipedia.org/wiki/Permutation#Permutations_of_multisets}.
 // See {@link https://projecteuler.net/problem=15}.
+import factorial from './core/factorial';
+
 export default function compute() {
   const k = factorial(20);
   const n = factorial(20 + 20);

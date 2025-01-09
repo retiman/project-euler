@@ -2,5 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 export default function slurp(name: string): string {
-  return fs.readFileSync(path.join('data', name), 'utf8').toString();
+  const file = path.join('data',  name);
+  return fs.readFileSync(file, 'utf8').toString();
 }
