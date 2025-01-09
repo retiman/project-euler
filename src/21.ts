@@ -1,9 +1,9 @@
-// Computes the sum of all amicable numbers under `limit`.
-//
-// See {@link https://projecteuler.net/problem=21}
 import _ from 'lodash';
 import sigma from './core/sigma';
 
+// Computes the sum of all amicable numbers under `limit`.
+//
+// See {@link https://projecteuler.net/problem=21}
 export default function compute(limit: number) {
   let sum = 0;
 

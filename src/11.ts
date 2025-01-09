@@ -1,9 +1,9 @@
-// Computes the greatest product of 4 adjacent numbers in the same direction in the grid defined by `11.txt`.
-//
-// See {@link https://projecteuler.net/problem=11}.
 import _ from 'lodash';
 import slurp from './core/slurp';
 
+// Computes the greatest product of 4 adjacent numbers in the same direction in the grid defined by `11.txt`.
+//
+// See {@link https://projecteuler.net/problem=11}.
 export default function compute() {
   const m = slurp('11.txt')
     .trim()

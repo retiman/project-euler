@@ -12,7 +12,7 @@ function getNames() {
 }
 
 function getScores() {
-  const codes = _.range('A'.charCodeAt(0), 'Z'.charCodeAt(0) + 1).map(c => String.fromCharCode(c))
+  const codes = _.range('A'.charCodeAt(0), 'Z'.charCodeAt(0) + 1).map(c => String.fromCharCode(c));
   const values = _.range(1, 27);
   return new Map(_.zip(codes, values) as [[string, number]]);
 }

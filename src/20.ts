@@ -1,9 +1,9 @@
-// Computes the sum of the digits of the factorial of a given number.
-//
-// See {@link https://projecteuler.net/problem=20}.
 import _ from 'lodash';
 import factorial from './core/factorial';
 
+// Computes the sum of the digits of the factorial of a given number.
+//
+// See {@link https://projecteuler.net/problem=20}.
 export default function compute(limit: number) {
   const text = _.toString(factorial(limit));
 
