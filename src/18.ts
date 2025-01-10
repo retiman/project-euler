@@ -1,6 +1,7 @@
 // Compute the maximum total from top to bottom of the triangle below.
 //
 // @remarks
+//
 // Rather than calculating the path sums going down, look at the bottom row and
 // the row above it.
 //
@@ -51,5 +52,6 @@ export default function compute() {
       triangle[i][j] += Math.max(triangle[i + 1][j], triangle[i + 1][j + 1]);
     }
   }
+
   return triangle[0][0];
 }
