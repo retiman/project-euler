@@ -1,4 +1,4 @@
-import slurp from "./core/slurp"
+import slurp from './core/slurp';
 
 // Computes the maximum path sum from the top to the bottom of a triangle.
 //
