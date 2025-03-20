@@ -1,4 +1,4 @@
 .PHONY: %
 
 %:
-	npm run test -- -t="problem $@"
+	poetry run pytest project_euler/$@.py
