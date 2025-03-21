@@ -20,3 +20,11 @@ def divisors(n: int) -> list[int]:
 
     memo[n] = sorted(ds)
     return memo[n]
+
+
+def sigma(n: int) -> int:
+    return sum(divisors(n))
+
+
+def tau(n: int) -> int:
+    return len(divisors(n))
