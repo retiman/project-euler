@@ -3,6 +3,7 @@ name: Build and Test
 on:
   pull_request:
     paths-ignore:
+      - CODEOWNERS
       - LICENSE
       - README.md
   push:
@@ -27,19 +28,31 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ steps.generate-token.outputs.token }}
 
-      - name: Setup NodeJS
-        uses: actions/setup-node@v3
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: 20
+          python-version: '3.13'
+
+      - name: Install poetry
+        run: python -m pip install poetry==2.1.1
+
+      - name: Configure poetry
+        run: poetry config virtualenvs.in-project true
+
+      - name: Cache the virtualenv
+        uses: actions/cache@v4
+        with:
+          path: ./.venv
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/poetry.lock') }}
 
       - name: Install dependencies
-        run: npm ci
+        run: poetry install
 
-      - name: Fix
-        run: npm run fix
+      - name: Run format
+        run: poetry run format
 
-      - name: Build
-        run: npm run build
+      - name: Run lint
+        run: poetry run lint
 
       - name: Commit
         if: ${{ github.ref != 'refs/heads/main' }}
@@ -52,4 +65,4 @@ jobs:
 
       - name: Test
         if: ${{ steps.commit.outputs.committed == 'false' }}
-        run: npm run test
+        run: poetry run test
