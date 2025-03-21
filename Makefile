@@ -1,4 +1,4 @@
 .PHONY: %
 
 %:
-	poetry run pytest project_euler/$@.py
+	poetry run pytest solns/$@.py

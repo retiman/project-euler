@@ -7,4 +7,5 @@ def run(limit: int) -> int:
     return sum([n for n in range(limit) if n % 3 == 0 or n % 5 == 0])
 
 
-assert run(1000) == 233168
+def test_run():
+    assert run(1000) == 233168

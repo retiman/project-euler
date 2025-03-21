@@ -34,6 +34,9 @@ lines_after_imports = 2
 [tool.ruff]
 line-length = 120
 
+[tool.pytest.ini_options]
+python_files = "*.py"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
