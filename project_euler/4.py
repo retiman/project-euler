@@ -6,6 +6,7 @@
 def is_palindrome(n):
     return str(n) == str(n)[::-1]
 
+
 def run():
     max_product = 0
 
@@ -18,6 +19,7 @@ def run():
                 max_product = n
 
     return max_product
+
 
 def test_run():
     assert run() == 906609

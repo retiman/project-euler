@@ -1,4 +1,4 @@
-# Problem 3: Large Prime Factor 
+# Problem 3: Large Prime Factor
 #
 # Find the largest prime factor of a 600851475143.
 #
