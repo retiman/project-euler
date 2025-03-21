@@ -36,6 +36,7 @@ lines_after_imports = 2
 
 [tool.ruff]
 line-length = 120
+lint.ignore = ["E722"]
 
 [tool.pytest.ini_options]
 python_files = "*.py"
