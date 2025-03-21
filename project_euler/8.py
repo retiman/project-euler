@@ -52,7 +52,8 @@ def run(window: int) -> int:
         if zeroes == 0:
             max_product = max(max_product, product)
 
-    return max_product
+    return int(max_product)
+
 
 def test_run():
     assert run(13) == 23514624000

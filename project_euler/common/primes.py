@@ -29,8 +29,8 @@ def primes_under(n: int) -> np.ndarray:
     return np.flatnonzero(sieve)
 
 
-def write_primes(n: int) -> None:
-    primes = primes_under(n)
+def write_primes(limit: int) -> None:
+    primes = primes_under(limit)
     path = Path(__file__).parent / ".." / "data" / "primes.txt"
     with path.open("w", encoding="utf-8") as file:
         for prime in primes:
@@ -51,4 +51,4 @@ def is_prime(n: int) -> bool:
 
 
 if __name__ == "__main__":
-    write_primes(1_000_000)
+    write_primes(5_000_000)
