@@ -1,20 +1,33 @@
-import numpy as np
+import math
 
 
-memo: dict[int, np.ndarray] = {}
+memo: dict[int, list[int]] = {}
 
 
-def divisors(n: int) -> np.ndarray:
+def divisors(n: int) -> list[int]:
     if n in memo:
         return memo[n]
 
+    ds: set[int] = set()
+
     # Use trial division to find all divisors of n, up to sqrt(n).  Only check up to sqrt(n) because you can't have a
     # divisors greater than sqrt(n) that isn't paired with a divisor less than sqrt(n).
-    divisors = np.array([i for i in range(1, int(np.sqrt(n)) + 1) if n % i == 0])
+    #
+    # Also, try to reuse the known results of smaller divisors if we can.
+    limit = int(math.sqrt(n)) + 1
+    for i in range(1, limit):
+        if n % i == 0:
+            ds.add(i)
+            ds.add(n // i)
 
-    # Find those other divisor in the pair for each divisor found above.
-    paired = n // divisors
+            # If we have a known set of divisors for i, we can use that to find the divisors of n.  Only do this if the
+            # divisors are non-trivial (i.e. not just 1 and i).
+            if i > 1 and i in memo and len(memo[i]) > 2:
+                known = memo[i]
+                candidates = {j for j in known if n % j == 0}
+                complement = {n // j for j in candidates}
+                memo[n] = sorted(candidates.union(complement))
+                return memo[n]
 
-    # Remove duplicates and sort the list.
-    all = np.concatenate((divisors, paired))
-    return np.sort(np.unique(all))
+    memo[n] = sorted(ds)
+    return memo[n]
