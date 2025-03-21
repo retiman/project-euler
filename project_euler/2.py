@@ -1,3 +1,8 @@
+# Problem 2: Even Fibonacci Numbers
+# 
+# Find the sum of all the even Fibonacci numbers below 4_000_000.
+#
+# See https://projecteuler.net/problem=2.
 from itertools import takewhile
 from typing import cast
 from toolz import curried, pipe
