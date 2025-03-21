@@ -2,6 +2,9 @@ from pathlib import Path
 import numpy as np
 
 
+primes: set[int] = set()
+
+
 def primes_under(n: int) -> np.ndarray:
     """Returns all prime numbers less than n."""
     if n < 2:
@@ -26,7 +29,7 @@ def primes_under(n: int) -> np.ndarray:
     return np.flatnonzero(sieve)
 
 
-def generate_primes(n: int) -> None:
+def write_primes(n: int) -> None:
     primes = primes_under(n)
     path = Path(__file__).parent / ".." / "data" / "primes.txt"
     with path.open("w", encoding="utf-8") as file:
@@ -34,5 +37,18 @@ def generate_primes(n: int) -> None:
             file.write(f"{prime}\n")
 
 
+def read_primes() -> list[int]:
+    path = Path(__file__).parent / ".." / "data" / "primes.txt"
+    with path.open("r", encoding="utf-8") as file:
+        return [int(line.strip()) for line in file]
+
+
+def is_prime(n: int) -> bool:
+    if not primes:
+        primes.update(read_primes())
+
+    return n in primes
+
+
 if __name__ == "__main__":
-    generate_primes(1_000_000)
+    write_primes(1_000_000)

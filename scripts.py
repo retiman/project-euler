@@ -26,4 +26,4 @@ def run_tests():
 
 
 def run_primes():
-    run_cmd("poetry run python project_euler/common/generate_primes.py")
+    run_cmd("poetry run python project_euler/common/primes.py")
