@@ -1,13 +1,9 @@
+import functools
 import math
 
 
-memo: dict[int, list[int]] = {}
-
-
+@functools.lru_cache(maxsize=None)
 def divisors(n: int) -> list[int]:
-    if n in memo:
-        return memo[n]
-
     ds: set[int] = set()
 
     # Use trial division to find all divisors of n, up to sqrt(n).  Only check up to sqrt(n) because you can't have a
@@ -18,8 +14,7 @@ def divisors(n: int) -> list[int]:
             ds.add(i)
             ds.add(n // i)
 
-    memo[n] = sorted(ds)
-    return memo[n]
+    return sorted(ds)
 
 
 def sigma(n: int) -> int:
