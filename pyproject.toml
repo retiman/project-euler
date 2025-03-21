@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "project_euler"
+name = "solns"
 version = "0.1.0"
 description = "Problems and solutions for Project Euler"
 authors = ["Min Huang <min.huang@alumni.usc.edu>"]
