@@ -5,19 +5,19 @@ from project_euler.common.totient import totient
 
 def _f(b: int, e: int, m: int) -> int:
     o = ord(b, m)
-    t = mtetn(b, e - 1, o)
+    t = hpow(b, e - 1, o)
     return pow(b, t, m)
 
 
 def _g(b: int, e: int, m: int, d: int) -> int:
     n = m // d
-    t = mtetn(b, e, n)
+    t = hpow(b, e, n)
     i = pow(b, totient(n) - 1, n)
     u = (t * i) % n
     return (b * u) % m
 
 
-def mtetn(b: int, e: int, m: int) -> int:
+def hpow(b: int, e: int, m: int) -> int:
     if m == 1:
         return 0
 
