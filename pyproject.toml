@@ -13,6 +13,7 @@ lint = "scripts:run_lint"
 test = "scripts:run_tests"
 
 [tool.poetry.dependencies]
+numpy = "^2.2.4"
 python = "^3.13"
 
 [tool.poetry.group.dev.dependencies]
