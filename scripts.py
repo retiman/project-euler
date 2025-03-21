@@ -12,14 +12,14 @@ def run_all():
 
 
 def run_lint():
-    run_cmd("poetry run ruff check --fix solns")
-    run_cmd("poetry run pyright solns")
+    run_cmd("poetry run ruff check --fix project_euler")
+    run_cmd("poetry run pyright project_euler")
 
 
 def run_format():
-    run_cmd("poetry run black solns")
-    run_cmd("poetry run isort solns")
+    run_cmd("poetry run black project_euler")
+    run_cmd("poetry run isort project_euler")
 
 
 def run_tests():
-    run_cmd("poetry run pytest solns")
+     run_cmd("poetry run pytest project_euler")
