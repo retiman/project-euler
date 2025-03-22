@@ -6,7 +6,8 @@
 # Only consider |a| < 1000 and |b| < 1000.
 #
 # See https://projecteuler.net/problem=27
-from project_euler.common.primes import primes_under
+from typing import cast
+from sympy import primerange
 
 
 def f(n: int, a: int, b: int) -> int:
@@ -24,7 +25,7 @@ def count_primes(a: int, b: int, ps: set[int]) -> int:
 
 def run(limit=1_000):
     candidates: dict[int, tuple[int, int]] = {}
-    ps = set([int(p) for p in primes_under(limit)])
+    ps = set([cast(int, p) for p in primerange(2, limit)])
     bs = ps.union([-p for p in ps])
 
     for b in bs:

@@ -3,12 +3,11 @@
 # What is the 10001st prime number?
 #
 # See https://projecteuler.net/problem=7
-from project_euler.common.primes import read_primes
+from sympy import prime
 
 
 def run(n=10_001) -> int:
-    ps = read_primes()
-    return ps[n - 1]
+    return int(prime(n))
 
 
 def test_run():

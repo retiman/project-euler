@@ -11,7 +11,6 @@ all = "scripts:run_all"
 format = "scripts:run_format"
 lint = "scripts:run_lint"
 test = "scripts:run_tests"
-primes = "scripts:run_primes"
 
 [tool.poetry.dependencies]
 numpy = "^2.2.4"

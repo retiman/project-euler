@@ -23,7 +23,3 @@ def run_format():
 
 def run_tests():
      run_cmd("poetry run pytest project_euler")
-
-
-def run_primes():
-    run_cmd("poetry run python project_euler/common/primes.py")

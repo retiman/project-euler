@@ -62,7 +62,3 @@ jobs:
           author_name: github-actions[bot]
           author_email: github-actions[bot]@github.com
           message: Automatic commit via GitHub Actions
-
-      - name: Test
-        if: ${{ steps.commit.outputs.committed == 'false' }}
-        run: poetry run test

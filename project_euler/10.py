@@ -10,12 +10,13 @@ from toolz.curried import filter, map, reduce
 
 
 def run(limit=2_000_000) -> int:
-    return pipe(
+    result = pipe(
         primerange(2, limit),
         map(lambda p: cast(int, p)),
         filter(lambda p: p < limit),
         reduce(lambda a, b: a + b),
     )
+    return cast(int, result)
 
 
 def test_run():

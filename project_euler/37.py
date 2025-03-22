@@ -3,7 +3,7 @@
 # Find the sum of the only eleven primes that are both truncatable from left to right and right to left.
 #
 # See https://projecteuler.net/problem=37
-from project_euler.common.primes import is_prime
+from sympy import isprime
 
 
 def truncate(n: int, direction: str) -> int:
@@ -18,7 +18,7 @@ def truncate(n: int, direction: str) -> int:
 
 
 def is_truncatable(n: int, direction: str) -> bool:
-    if not is_prime(n):
+    if not isprime(n):
         return False
 
     if n < 10:

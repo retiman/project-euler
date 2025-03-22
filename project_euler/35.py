@@ -5,7 +5,10 @@
 # How many circular primes are there below one million?
 #
 # See https://projecteuler.net/problem=35
-from project_euler.common.primes import is_prime, primes
+from typing import cast
+from sympy import isprime, primerange
+from toolz import pipe
+from toolz.curried import filter, map, reduce
 
 
 def rotate(xs: list[str]) -> list[str]:
@@ -22,11 +25,18 @@ def rotations(n: int) -> list[int]:
 
 
 def is_circular_prime(n: int) -> bool:
-    return all(is_prime(p) for p in rotations(n))
+    return all(isprime(p) for p in rotations(n))
 
 
-def run() -> int:
-    return sum(1 for p in primes() if is_circular_prime(p))
+def run(limit=1_000_000) -> int:
+    result = pipe(
+        primerange(2, limit),
+        map(lambda p: cast(int, p)),
+        filter(lambda p: is_circular_prime(p)),
+        map(lambda p: 1),
+        reduce(lambda a, b: a + b),
+    )
+    return cast(int, result)
 
 
 def test_run():
