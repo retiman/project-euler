@@ -3,7 +3,7 @@
 # How many different ways can £2 be made using any number of coins?
 #
 # See https://projecteuler.net/problem=31
-import functools
+from functools import cache
 from typing import Callable
 
 
@@ -16,7 +16,7 @@ def run() -> int:
     # Generate P[x] for x = 2, 5, 10, 20, 50, 100.  Each function P[xk] can be created based previous values of xk.
     def define_px(x, y):
         # Number of ways to make change for n using coins of value x or less.
-        @functools.lru_cache(maxsize=None)
+        @cache
         def px(n):
             # Get the function that computes ways to make change for n using y or less.
             py = P[y]

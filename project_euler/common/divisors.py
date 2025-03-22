@@ -1,8 +1,8 @@
-import functools
+from functools import cache
 import math
 
 
-@functools.lru_cache(maxsize=None)
+@cache
 def divisors(n: int) -> list[int]:
     ds: set[int] = set()
 

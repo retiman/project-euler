@@ -1,10 +1,10 @@
-import functools
+from functools import cache
 import math
 from project_euler.common.divisors import divisors
 from project_euler.common.totient import totient
 
 
-@functools.lru_cache(maxsize=None)
+@cache
 def ord(b: int, m: int) -> int:
     if math.gcd(b, m) != 1:
         raise ValueError("b and m must be coprime")

@@ -3,10 +3,10 @@
 # Which starting number, under one million, produces the longest Collatz sequence?
 #
 # See https://projecteuler.net/problem=14
-import functools
+from functools import cache
 
 
-@functools.lru_cache(maxsize=None)
+@cache
 def collatz_len(n: int) -> int:
     if n == 1:
         return 0
