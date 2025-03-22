@@ -7,7 +7,7 @@ def run() -> int:
     terms: set[int] = set()
     for a in range(2, 101):
         for b in range(2, 101):
-            terms.add(a ** b)
+            terms.add(a**b)
 
     return len(terms)
 
