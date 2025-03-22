@@ -56,7 +56,7 @@ def prime_factors(n: int) -> set[int]:
     if 1 in factors:
         return factors - {1}
     else:
-        result = set()
+        result: set[int] = set()
         for f in factors:
             result |= prime_factors(f)
         return result
