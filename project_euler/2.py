@@ -6,13 +6,7 @@
 from itertools import takewhile
 from typing import cast
 from toolz import curried, pipe
-
-
-def fibs():
-    a, b = 0, 1
-    while True:
-        yield a
-        a, b = b, a + b
+from project_euler.common.fibonacci_numbers import fibs
 
 
 def run(limit: int) -> int:
