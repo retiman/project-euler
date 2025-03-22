@@ -1,5 +1,5 @@
 ---
-title: "Problem 3: Largest prime factor"
+title: "Problem 3: Largest Prime Factor"
 layout: post
 mathjax: true
 ---
@@ -7,6 +7,7 @@ mathjax: true
 # Largest prime factor
 
 ## Problem
+
 Here is [problem 3](https://projecteuler.net/problem=3):
 
 The prime factors of 13195 are 5, 7, 13 and 29.
@@ -14,6 +15,7 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143?
 
 ## Solution
+
 [Trial division](https://en.wikipedia.org/wiki/Trial_division) works just fine for this problem, but the following solution in Scala demonstrations [Fermat's factorization method](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method) (note that Fermat's method can be slower than trial division).  It works like this: suppose you want to find factors of some integer $$n$$, and it can be expressed as the difference of two squares:
 
 $$n=a^2-b^2$$
@@ -26,36 +28,38 @@ Because [all odd numbers can be written as the difference of two squares](https:
 
 If we end up with a result that $$n=(a+b)(a-b)=(1)(n)$$, we can conclude that $$n$$ is prime and stop.
 
+NOTE: the actual solution takes the easy path out and uses `sympy`.
+
 ## Code
-```scala
-import scala.math.ceil
-import scala.math.sqrt
-import scala.math.round
 
+```python
+import math
 
-def fermatFactors(n: Long): Set[Long] = {
-  if (n % 2 == 0) return Set(2, n / 2)
-  var a = ceil(sqrt(n))
-  var b = a * a - n
-  var s = sqrt(b)
-  while (s != round(s)) {
-    a += 1
+def fermat_factors(n: int) -> set[int]:
+    if n % 2 == 0:
+        return {2, n // 2}
+    
+    a = math.ceil(math.sqrt(n))
     b = a * a - n
-    s = sqrt(b)
-  }
-  Set(a - s, a + s).map(_.toLong)
-}
+    s = math.sqrt(b)
+    
+    while s != round(s):
+        a += 1
+        b = a * a - n
+        s = math.sqrt(b)
+    
+    s = int(s)
+    return {a - s, a + s}
 
-def primeFactors(n: Long): Set[Long] = {
-  val factors = fermatFactors(n)
-  if (factors contains 1)
-    factors - 1
-  else
-    factors.map(f => primeFactors(f)).reduceLeft(_ ++ _)
-}
+def prime_factors(n: int) -> set[int]:
+    factors = fermat_factors(n)
+    if 1 in factors:
+        return factors - {1}
+    else:
+        result = set()
+        for f in factors:
+            result |= prime_factors(f)
+        return result
 
-val result = primeFactors(600851475143L).reduceLeft(_ max _)
-
-println(result)
-assert(result == 6857)
+assert max(prime_factors(600851475143)) == 6857
 ```
