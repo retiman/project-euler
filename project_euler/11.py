@@ -30,7 +30,7 @@ def create_row(line: str) -> list[int]:
 
 def create_grid() -> list[list[int]]:
     file = Path(__file__).parent / "data" / "11.txt"
-    lines = file.read_text().strip().split("\n")
+    lines = file.read_text().strip().splitlines()
     return [create_row(line) for line in lines]
 
 

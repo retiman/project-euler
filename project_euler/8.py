@@ -9,7 +9,7 @@ from pathlib import Path
 
 def run(window: int) -> int:
     file = Path(__file__).parent / "data" / "8.txt"
-    data = "".join(file.read_text().split("\n"))
+    data = "".join(file.read_text().splitlines())
 
     # Can be solved with a sliding window algorithm.  We just have to take care to note the number of zeroes in the
     # window; if a window has any zeroes in it, thet product of that window will be zero.  At each step, we only compute
