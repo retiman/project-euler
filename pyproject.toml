@@ -16,6 +16,7 @@ primes = "scripts:run_primes"
 [tool.poetry.dependencies]
 numpy = "^2.2.4"
 python = "^3.13"
+sympy = "^1.13.3"
 toolz = "^1.0.0"
 
 [tool.poetry.group.dev.dependencies]

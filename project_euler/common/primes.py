@@ -2,7 +2,7 @@ from pathlib import Path
 import numpy as np
 
 
-primes: set[int] = set()
+PRIMES: set[int] = set()
 
 
 def primes_under(n: int) -> np.ndarray:
@@ -43,11 +43,18 @@ def read_primes() -> list[int]:
         return [int(line.strip()) for line in file]
 
 
-def is_prime(n: int) -> bool:
-    if not primes:
-        primes.update(read_primes())
+def primes() -> set[int]:
+    if not PRIMES:
+        PRIMES.update(read_primes())
 
-    return n in primes
+    return PRIMES
+
+
+def is_prime(n: int) -> bool:
+    if not PRIMES:
+        PRIMES.update(read_primes())
+
+    return n in PRIMES
 
 
 if __name__ == "__main__":

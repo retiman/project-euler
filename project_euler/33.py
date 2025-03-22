@@ -4,14 +4,17 @@
 # terms, multiply them, and return the denominator of the product.
 #
 # See https://projecteuler.net/problem=33
-from math import gcd
 from functools import reduce
+from math import gcd
+
 
 def int2list(n: int) -> list[int]:
     return [int(d) for d in str(n)]
 
+
 def list2int(ds: list[int]) -> int:
-    return int(''.join(map(str, ds)))
+    return int("".join(map(str, ds)))
+
 
 def denominators(n: int) -> list[int]:
     a, b = int2list(n)
@@ -27,6 +30,7 @@ def denominators(n: int) -> list[int]:
 
     return sorted(x for x in xs if x > n)
 
+
 def cancellable(m: int, n: int) -> bool:
     m_digits = int2list(m)
     n_digits = int2list(n)
@@ -39,11 +43,12 @@ def cancellable(m: int, n: int) -> bool:
     c, d = n_digits
 
     return (
-        (a == c and d != 0 and v == b / d) or
-        (a == d and c != 0 and v == b / c) or
-        (b == c and d != 0 and v == a / d) or
-        (b == d and c != 0 and v == a / c)
+        (a == c and d != 0 and v == b / d)
+        or (a == d and c != 0 and v == b / c)
+        or (b == c and d != 0 and v == a / d)
+        or (b == d and c != 0 and v == a / c)
     )
+
 
 def run():
     fracs = []
