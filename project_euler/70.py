@@ -4,6 +4,7 @@
 #
 # See https://projecteuler.net/problem=70
 import math
+from typing import cast
 from sympy import primerange
 
 
@@ -28,7 +29,8 @@ def semi_prime_pairs(limit: int) -> list[tuple[int, int]]:
 
     for i in range(len(ps)):
         for j in range(i, len(ps)):
-            p, q = ps[i], ps[j]
+            p = cast(int, ps[i])
+            q = cast(int, ps[j])
             pairs.append((p, q))
 
     return pairs
@@ -55,4 +57,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    run(1_000_000) == 8319823
+    assert run(1_000_000) == 8319823

@@ -8,7 +8,7 @@
 from project_euler.common.primes import is_prime, primes
 
 
-def rotate(xs: list[int]) -> list[int]:
+def rotate(xs: list[str]) -> list[str]:
     return xs[1:] + [xs[0]]
 
 

@@ -3,6 +3,7 @@
 # Find the least value of n for which the remainder first exceeds 10^10.
 #
 # See https://projecteuler.net/problem=123
+from typing import cast
 from sympy import primerange
 
 
@@ -16,7 +17,8 @@ def r(p: int, n: int) -> int:
 def run(limit: int) -> int:
     n = 1
 
-    for p in primerange(2, limit):
+    for x in primerange(2, limit):
+        p = cast(int, x)
         if r(p, n) >= limit:
             return n
 

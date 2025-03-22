@@ -61,7 +61,7 @@ def mst(graph: Graph) -> list[Edge]:
     n = len(graph)
     visited: set[int] = set()
     edges: list[Edge] = []
-    min_heap: tuple[int, int, int] = []
+    min_heap: list[tuple[float, int, int]] = []
 
     visited.add(0)
 
