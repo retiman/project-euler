@@ -4,17 +4,25 @@
 #
 # See https://projecteuler.net/problem=24
 from itertools import permutations
+from operator import itemgetter
 from typing import cast
 from toolz import curried, pipe
+
+
+def tuple2int(t: tuple[int, ...]) -> int:
+    cs = map(str, t)
+    s = "".join(cs)
+    return int(s)
 
 
 def run() -> int:
     result = pipe(
         range(10),
         permutations,
-        curried.map(lambda xs: int("".join(map(str, xs)))),
+        curried.map(tuple2int),
         sorted,
-        lambda xs: xs[999_999],
+        # Same thing as lambda xs: xs[999_999]
+        itemgetter(999_999),
     )
 
     return cast(int, result)
