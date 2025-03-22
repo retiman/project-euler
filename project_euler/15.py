@@ -12,8 +12,15 @@ def run():
     # downward movement as a 'D' and the rightward movement as an 'R', then the number of routes to the bottom right is
     # equal to the number of permutations of a 'word' with 20 D's and 20 R's.
     #
-    # This can be viewed as a multiset permutation whose cardinality is the multinomial coefficient: (20 + 20)! / 20!20!
-    # You can compute this as math.comb(20 + 20, 20).
+    # This can be viewed as a multiset permutation whose cardinality is the multinomial coefficient:
+    #
+    # (20 + 20)! / 20!20! = 40! / 20!20!
+    #
+    # You can compute this as math.comb(40, 20) because:
+    #
+    # math.comb(n, k) = n! / (k! * (n - k)!)
+    #
+    # ...and in this case, n = 40 and k = 20.
     return math.comb(20 + 20, 20)
 
 
