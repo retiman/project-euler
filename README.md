@@ -4,12 +4,8 @@
 
 These are solutions to [Project Euler](https://projecteuler.net/) problems.  It's easy to find solutions on the net, so if you don't want to spoil the fun, don't look at these.
 
-## Usage
+## Development
 
-1. Run `npm install`.
-1. Run `npm run all` to build the entire project.
-1. Run `make <NUMBER>` to run a specific solution.
-
-Some solution explanations on the [GitHub Pages](http://retiman.github.io/project-euler/) for this repository (published from the `docs` directory).
-
-Some solutions are written in Racket.
+1. Install poetry: `curl -sSL https://install.python-poetry.org | python`
+1. Install dependencies: `poetry install`
+1. Run tests: `poetry run test`

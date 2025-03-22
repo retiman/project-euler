@@ -1,7 +1,9 @@
-build/
-coverage/
-dist/
-node_modules/
+__pycache__/
+.env/
+.mypy_cache/
+.venv/
+.vscode/
 
-*.tgz
-.env
+*.egg-info/
+*.pyc
+*.pyo
