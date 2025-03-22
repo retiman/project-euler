@@ -5,6 +5,7 @@
 # See https://projecteuler.net/problem=20
 import math
 
+
 def run(n: int) -> int:
     return sum(int(c) for c in str(math.factorial(n)))
 

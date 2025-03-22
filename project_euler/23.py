@@ -7,7 +7,7 @@ from project_euler.common.divisors import sigma
 
 
 def run(limit: int) -> int:
-    abundants = list(filter(lambda n: sigma(n) - n> n, range(1, limit + 1)))
+    abundants = list(filter(lambda n: sigma(n) - n > n, range(1, limit + 1)))
     numbers = list(range(0, limit + 1))
 
     for i in range(len(abundants)):

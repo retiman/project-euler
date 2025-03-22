@@ -10,7 +10,7 @@ from project_euler.common.primes import primes_under
 
 
 def f(n: int, a: int, b: int) -> int:
-    return n ** 2 + a * n + b
+    return n**2 + a * n + b
 
 
 def count_primes(a: int, b: int, ps: set[int]) -> int:
@@ -24,9 +24,9 @@ def count_primes(a: int, b: int, ps: set[int]) -> int:
 
 def run(limit: int):
     candidates: dict[int, tuple[int, int]] = {}
-    ps = primes_under(limit).tolist()
+    ps = set([int(p) for p in primes_under(limit)])
+    bs = ps.union([-p for p in ps])
 
-    bs = ps + [-p for p in ps]
     for b in bs:
         for a in range(-limit, limit + 1):
             c = count_primes(a, b, ps)

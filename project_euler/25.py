@@ -6,7 +6,7 @@
 from project_euler.common.fibonacci_numbers import fibs
 
 
-def run() -> int:
+def run() -> int | None:
     for i, n in enumerate(fibs()):
         count = len(str(n))
         if count >= 1000:

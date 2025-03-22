@@ -26,7 +26,7 @@ def primes_under(n: int) -> np.ndarray:
             sieve[i * i : n : i] = False
 
     # Extract indices where the sieve is True (primes).
-    return np.flatnonzero(sieve)
+    return np.flatnonzero(sieve).astype(int)
 
 
 def write_primes(limit: int) -> None:

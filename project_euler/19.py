@@ -5,6 +5,7 @@
 # See https://projecteuler.net/problem=19
 from datetime import date
 
+
 def run() -> int:
     count = 0
     for year in range(1901, 2001):

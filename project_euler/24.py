@@ -5,15 +5,14 @@
 # See https://projecteuler.net/problem=24
 from itertools import permutations
 from typing import cast
-from toolz import pipe
-from toolz.curried import map
+from toolz import curried, pipe
 
 
 def run() -> int:
     result = pipe(
         range(10),
         permutations,
-        map(lambda xs: int("".join(map(str, xs)))),
+        curried.map(lambda xs: int("".join(map(str, xs)))),
         sorted,
         lambda xs: xs[999_999],
     )
