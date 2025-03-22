@@ -11,6 +11,7 @@ all = "scripts:run_all"
 format = "scripts:run_format"
 lint = "scripts:run_lint"
 test = "scripts:run_tests"
+test_common = "scripts:run_tests_common"
 
 [tool.poetry.dependencies]
 numpy = "^2.2.4"

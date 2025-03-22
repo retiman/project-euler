@@ -23,3 +23,7 @@ def run_format():
 
 def run_tests():
      run_cmd("poetry run pytest project_euler")
+
+
+def run_tests_common():
+    run_cmd("poetry run pytest project_euler/common")
