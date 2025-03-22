@@ -6,6 +6,7 @@
 from itertools import permutations
 from sympy import isprime
 
+
 def tuple2int(t: tuple[str]) -> int:
     return int("".join(t))
 
