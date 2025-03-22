@@ -31,5 +31,5 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Run format
+      - name: Run test
         run: poetry run test
