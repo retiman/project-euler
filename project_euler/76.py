@@ -15,9 +15,9 @@ def partition(k: int, n: int) -> int:
     return partition(k + 1, n) + partition(k, n - k)
 
 
-def run(target: int) -> int:
+def run(target=100) -> int:
     return partition(1, target) - 1
 
 
 def test_run():
-    assert run(100) == 190569291
+    assert run() == 190569291

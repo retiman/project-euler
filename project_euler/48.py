@@ -7,7 +7,7 @@ from typing import cast
 from toolz import curried, pipe
 
 
-def run(n: int) -> int:
+def run(n=1_000) -> int:
     # This modulus will give us the last 10 digits.
     m = 10**10
     result = pipe(
@@ -19,4 +19,4 @@ def run(n: int) -> int:
 
 
 def test_run():
-    assert run(1000) == 9110846700
+    assert run() == 9110846700

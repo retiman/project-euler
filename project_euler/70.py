@@ -36,7 +36,7 @@ def semi_prime_pairs(limit: int) -> list[tuple[int, int]]:
     return pairs
 
 
-def run(limit: int) -> int:
+def run(limit=10_000_000) -> int:
     pairs = semi_prime_pairs(limit)
     result = 0
     min_ratio = math.inf
@@ -57,4 +57,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(10_000_000) == 8319823
+    assert run() == 8319823

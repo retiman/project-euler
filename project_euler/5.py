@@ -7,9 +7,9 @@ from functools import reduce
 from math import lcm
 
 
-def run(limit: int) -> int:
+def run(limit=20) -> int:
     return reduce(lcm, range(1, limit + 1))
 
 
 def test_run():
-    assert run(20) == 232792560
+    assert run() == 232792560

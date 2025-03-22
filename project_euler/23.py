@@ -6,7 +6,7 @@
 from project_euler.common.divisors import sigma
 
 
-def run(limit: int) -> int:
+def run(limit=28123) -> int:
     abundants = list(filter(lambda n: sigma(n) - n > n, range(1, limit + 1)))
     numbers = list(range(0, limit + 1))
 
@@ -22,4 +22,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(28123) == 4179871
+    assert run() == 4179871

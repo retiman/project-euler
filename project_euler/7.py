@@ -6,10 +6,10 @@
 from project_euler.common.primes import read_primes
 
 
-def run(n: int) -> int:
+def run(n=10_001) -> int:
     ps = read_primes()
     return ps[n - 1]
 
 
 def test_run():
-    assert run(10001) == 104743
+    assert run() == 104743

@@ -6,7 +6,7 @@
 from project_euler.common.divisors import tau
 
 
-def run(limit: int) -> int:
+def run(limit=500) -> int:
     n = 0
     i = 1
 
@@ -18,4 +18,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(500) == 76576500
+    assert run() == 76576500

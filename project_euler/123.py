@@ -14,7 +14,7 @@ def r(p: int, n: int) -> int:
     return 2 * p * n
 
 
-def run(limit: int) -> int:
+def run(limit=10**10) -> int:
     n = 1
 
     for x in primerange(2, limit):
@@ -28,4 +28,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(10**10) == 21035
+    assert run() == 21035

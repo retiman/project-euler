@@ -6,7 +6,7 @@
 from project_euler.common.divisors import sigma
 
 
-def run(n: int) -> int:
+def run(n=10_000) -> int:
     result = 0
 
     for a in range(2, n + 1):
@@ -18,4 +18,4 @@ def run(n: int) -> int:
 
 
 def test_run():
-    assert run(10_000) == 31626
+    assert run() == 31626

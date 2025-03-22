@@ -31,7 +31,7 @@ def is_fully_truncatable(n: int) -> bool:
     return is_truncatable(n, "L") and is_truncatable(n, "R")
 
 
-def run(limit: int) -> int:
+def run(limit=11) -> int:
     result: list[int] = []
 
     # Exclude 2, 3, 5, and 7; they are not truncatable.
@@ -47,4 +47,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(11) == 748317
+    assert run() == 748317

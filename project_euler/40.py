@@ -16,7 +16,7 @@ def generate_champernownes_constant(limit: int) -> str:
     return s
 
 
-def run(limit: int) -> int:
+def run(limit=1_000_000) -> int:
     s = generate_champernownes_constant(limit)
 
     result = 1
@@ -28,4 +28,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(1_000_000) == 210
+    assert run() == 210

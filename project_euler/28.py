@@ -38,7 +38,7 @@ def create_spiral(n: int) -> np.ndarray:
     return spiral
 
 
-def run(limit: int) -> int:
+def run(limit=1_001) -> int:
     spiral = create_spiral(limit)
     # Compute sum from top left to bottom right.
     main_diag = np.trace(spiral)

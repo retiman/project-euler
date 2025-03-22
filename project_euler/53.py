@@ -6,7 +6,7 @@
 import math
 
 
-def run(limit: int) -> int:
+def run(limit=100) -> int:
     count = 0
     for n in range(1, limit + 1):
         for r in range(1, n):
@@ -17,4 +17,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(100) == 4075
+    assert run() == 4075

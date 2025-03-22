@@ -3,7 +3,7 @@
 # There exists exactly one Pythagorean triplet for which a + b + c = 1000.  Find the product a * b * c.
 #
 # See https://projecteuler.net/problem=9
-def run(limit: int) -> int:
+def run(limit=1_000) -> int:
     # Limit search space for a; since b and c are greater than a, the maximum value for a is 1/3 of the target.
     a_max = limit // 3
     for a in range(1, a_max):
@@ -19,4 +19,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(1000) == 31875000
+    assert run() == 31875000

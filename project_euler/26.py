@@ -7,7 +7,7 @@ from math import gcd
 from project_euler.common.order import ord
 
 
-def run(limit: int) -> int:
+def run(limit=1_000) -> int:
     best_n = 0
     best_t = 0
 
@@ -30,4 +30,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(1000) == 983
+    assert run() == 983

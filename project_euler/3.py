@@ -6,9 +6,9 @@
 from project_euler.common.prime_factors import prime_factors
 
 
-def run(limit: int) -> int:
+def run(limit=600851475143) -> int:
     return max(prime_factors(limit))
 
 
 def test_run():
-    assert run(600851475143) == 6857
+    assert run() == 6857

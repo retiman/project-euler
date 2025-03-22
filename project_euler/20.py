@@ -6,9 +6,9 @@
 import math
 
 
-def run(n: int) -> int:
+def run(n=100) -> int:
     return sum(int(c) for c in str(math.factorial(n)))
 
 
 def test_run():
-    assert run(100) == 648
+    assert run() == 648

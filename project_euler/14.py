@@ -15,7 +15,7 @@ def collatz_len(n: int) -> int:
     return 1 + collatz_len(next)
 
 
-def run(limit: int) -> int:
+def run(limit=1_000_000) -> int:
     max_len = 0
     current_len = 0
     result = 1
@@ -30,4 +30,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(1_000_000) == 837799
+    assert run() == 837799

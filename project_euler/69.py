@@ -7,7 +7,7 @@ from typing import cast
 from sympy import primerange
 
 
-def run(limit: int) -> int:
+def run(limit=1_000_000) -> int:
     acc = 1
 
     for x in primerange(2, limit):
@@ -21,4 +21,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(1_000_000) == 510510
+    assert run() == 510510

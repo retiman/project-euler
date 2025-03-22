@@ -22,7 +22,7 @@ def count_primes(a: int, b: int, ps: set[int]) -> int:
         n += 1
 
 
-def run(limit: int):
+def run(limit=1_000):
     candidates: dict[int, tuple[int, int]] = {}
     ps = set([int(p) for p in primes_under(limit)])
     bs = ps.union([-p for p in ps])
@@ -38,4 +38,4 @@ def run(limit: int):
 
 
 def test_run():
-    assert run(1000) == -59231
+    assert run() == -59231

@@ -3,9 +3,20 @@
 # Find the sum of all the primes below two million.
 #
 # See https://projecteuler.net/problem=10
-from project_euler.common.primes import read_primes
+from typing import cast
+from sympy import primerange
+from toolz import pipe
+from toolz.curried import filter, map, reduce
 
 
-def run(limit: int) -> int:
-    ps = read_primes()
-    return sum(p for p in ps if p < limit)
+def run(limit=2_000_000) -> int:
+    return pipe(
+        primerange(2, limit),
+        map(lambda p: cast(int, p)),
+        filter(lambda p: p < limit),
+        reduce(lambda a, b: a + b),
+    )
+
+
+def test_run():
+    assert run() == 142913828922

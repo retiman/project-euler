@@ -7,7 +7,7 @@
 from pathlib import Path
 
 
-def run(window: int) -> int:
+def run(window=13) -> int:
     file = Path(__file__).parent / "data" / "8.txt"
     data = "".join(file.read_text().splitlines())
 
@@ -56,4 +56,4 @@ def run(window: int) -> int:
 
 
 def test_run():
-    assert run(13) == 23514624000
+    assert run() == 23514624000

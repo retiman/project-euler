@@ -9,7 +9,7 @@ from toolz import curried, pipe
 from project_euler.common.fibonacci_numbers import fibs
 
 
-def run(limit: int) -> int:
+def run(limit=4_000_000) -> int:
     result = pipe(
         fibs(),
         lambda xs: takewhile(lambda x: x < limit, xs),
@@ -20,4 +20,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(4_000_000) == 4613732
+    assert run() == 4613732
