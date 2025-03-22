@@ -57,4 +57,4 @@ def run(limit: int) -> int:
 
 
 def test_run():
-    assert run(1_000_000) == 8319823
+    assert run(10_000_000) == 8319823
