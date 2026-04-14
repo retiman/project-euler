@@ -20,10 +20,10 @@ sympy = "^1.13.3"
 toolz = "^1.0.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^25.1.0"
+black = ">=25.1,<27.0"
 isort = "^6.0.1"
 pyright = "^1.1.397"
-pytest = "^8.3.4"
+pytest = ">=8.3.4,<10.0.0"
 ruff = "^0.9.10"
 
 [tool.black]
